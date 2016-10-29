@@ -1088,9 +1088,9 @@ code {
 
 .content-wrapper {
   z-index: 800;
-  width: 68%;
+  width: 75%;
   max-width: 960px;
-  margin-left: 32%; }
+  margin-left: 25%; }
 
 .content-wrapper__inner {
   margin: 0 10%;
@@ -1200,7 +1200,7 @@ hr {
   background-size: cover; }
 
 .panel-cover--collapsed {
-  width: 32%;
+  width: 25%;
   max-width: 430px; }
 
 .panel-cover--overlay {
@@ -1677,7 +1677,7 @@ table {
   border-collapse: collapse;
   width: 100%;
   margin: 0 0 10px;
-  border-spacing: 0; 
+  border-spacing: 0;
   border: 1px solid #aaa;
 }
 
@@ -1699,5 +1699,5 @@ th, td {
   border: none;
 }
 pre {
-  font-family: 
+  font-family:
 }
