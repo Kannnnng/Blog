@@ -16,26 +16,18 @@
     
     
 
-    <meta name="description" content="在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。
-1length =  swprintf_s(wchar_t* buffer, const wchar_t* format, [argument,...])
-1.length，返回值，代表输出字符串长度；2.buffer，一个宽字符数组指针；3.format， 输出字符串的内容；4.">
+    <meta name="description" content="在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++学习笔记之数据与字符串转换 | Hexo">
 <meta property="og:url" content="http://yoursite.com/2016/10/29/C++学习笔记之数据与字符串转换/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。
-1length =  swprintf_s(wchar_t* buffer, const wchar_t* format, [argument,...])
-1.length，返回值，代表输出字符串长度；2.buffer，一个宽字符数组指针；3.format， 输出字符串的内容；4.">
-<meta property="og:updated_time" content="2016-10-29T15:46:16.646Z">
+<meta property="og:description" content="在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。">
+<meta property="og:updated_time" content="2016-11-07T13:01:00.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++学习笔记之数据与字符串转换 | Hexo">
-<meta name="twitter:description" content="在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。
-1length =  swprintf_s(wchar_t* buffer, const wchar_t* format, [argument,...])
-1.length，返回值，代表输出字符串长度；2.buffer，一个宽字符数组指针；3.format， 输出字符串的内容；4.">
+<meta name="twitter:description" content="在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。">
     
     
-    
-      <link rel="icon" type="image/x-icon" href="/favicon.png">
     
     <link rel="stylesheet" href="/css/uno.css">
     <link rel="stylesheet" href="/css/highlight.css">
@@ -62,6 +54,8 @@
     <div class="panel-main__content">
 
         
+        <a href="/" title="link to homepage for Hexo"><img src="/images/avatar.jpg" width="80" alt="Hexo logo" class="panel-cover__logo logo" /></a>
+        
 
         <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Hexo</a></h1>
         <hr class="panel-cover__divider" />
@@ -83,10 +77,10 @@
                 <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
               
                 
-                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
               
                 
-                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
               
 
             </ul>
@@ -170,7 +164,17 @@ classes that you can use:
       <span class="post-meta__tags tags">
 
           
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/学习笔记/">学习笔记</a>
+            </font>
+          
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/C-数据类型转换/">C++ 数据类型转换</a>
+            </font>
           
 
       </span>
@@ -181,7 +185,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。</p>
+    <p>在Windows程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。<a id="more"></a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">length =  swprintf_s(<span class="keyword">wchar_t</span>* buffer, <span class="keyword">const</span> <span class="keyword">wchar_t</span>* format, [argument,...])</div></pre></td></tr></table></figure>
 <p>1.length，返回值，代表输出字符串长度；<br>2.buffer，一个宽字符数组指针；<br>3.format， 输出字符串的内容；<br>4.argument， 输出字符串参数，可以有多个。</p>
 <p>下面是一个使用实例。</p>
