@@ -42,13 +42,15 @@ document.getElementById("xxx").click();
 1.对于数字类型的操作数而言，typeof返回的值是number。比如说typeof(1)，返回的值就是number。
 上面是常规数字，对于非常规的数字类型而言，其结果返回的也是number。比如typeof(NaN)，NaN在JavaScript中代表的是特殊非数字值，虽然它本身是一个数字类型；
 在JavaScript中，特殊的数字类型还有几种：
-<p style="padding-left: 2em">Infinity表示无穷大特殊值
-NaN特殊的非数字值
-Number.MAX_VALUE可表示的最大数字
-Number.MIN_VALUE可表示的最小数字（与零最接近）
-Number.NaN特殊的非数字值
-Number.POSITIVE_INFINITY表示正无穷大的特殊值
-Number.NEGATIVE_INFINITY表示负无穷大的特殊值</p>
+``` bash
+Infinity                    表示无穷大特殊值
+NaN                         特殊的非数字值
+Number.MAX_VALUE            可表示的最大数字
+Number.MIN_VALUE            可表示的最小数字（与零最接近）
+Number.NaN                  特殊的非数字值
+Number.POSITIVE_INFINITY    表示正无穷大的特殊值
+Number.NEGATIVE_INFINITY    表示负无穷大的特殊值
+```
 以上特殊类型，在用typeof进行运算，其结果都将是number；
 2.对于字符串类型，typeof返回的值是string。比如typeof("123")返回的值是string；
 3.对于布尔类型，typeof返回的值是boolean。比如typeof(true)返回的值是boolean；
