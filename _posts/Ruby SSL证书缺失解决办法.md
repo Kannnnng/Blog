@@ -1,7 +1,8 @@
 ---
 title: Ruby SSL证书缺失解决办法
 category: 解决办法
-tag: 前端开发
+tag: [前端开发]
+date: 2016-11-09 16:29:32
 ---
 
 我这几天在实验室一直做前端开发方向，事情没做多少，就是感觉开发环境各种坑，昨天跟学长去公司配置环境，倒腾了一整天还没有配置完成，一直到今天下午，我睡觉起来发誓一定今天一定要配置好，然后……就配置成功了，果然还是睡觉刚起来的时候精神。<!--more-->
@@ -16,6 +17,7 @@ Error fetching https://gems.ruby-china.org/:
 意思很明显，就是SSL证书验证不了，Ruby自己没有SSL证书，所以https请求被服务器拒绝。
 
 针对这种情况，有以下两种解决办法。
+
 1.不使用https协议来请求数据，用http协议来代替之，因为http协议不需要验证SSL证书，所以上面那个问题也就不存在了；
 2.既然Ruby自己没有携带SSL证书，那我就自己下载一个证书添加给他不就好了，这样Ruby有了SSL证书，https协议也就不会被服务器拒绝了；
 <p style="padding-left: 2em">Step1：下载Ruby证书，这里是下载链接: [百度网盘](http://pan.baidu.com/s/1gfzAJKZ) 密码: ithw；
@@ -23,7 +25,8 @@ Step2：下载完成以后将证书放置在一个不经常改动的地方，我
 
 ### Tips
 我在配置过程中遇到几个其他的问题，在这里一并提醒下后来者。
-1.Ruby因为防火墙的原因，需要配置成国内的镜像，原本国内的镜像地址是<span>https://</span>ruby.taobao.org，现在已经改为了<span>https://</span>gems.ruby-china.org/，这个问题需要注意下。
+
+1.Ruby因为防火长城的原因，需要配置成国内的镜像，原本国内的镜像地址是<span>https://</span>ruby.taobao.org，现在已经改为了<span>https://</span>gems.ruby-china.org/，这个问题需要注意下。
 2.如果你在安装sass过程中遇到了以下错误
 ``` bash
 ERROR: While executing gem (Errno::EACCES)
