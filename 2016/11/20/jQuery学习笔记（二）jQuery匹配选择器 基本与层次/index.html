@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      jQuery学习笔记（二）jQuery匹配选择器 基本与层次 | Kang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Einskang">
+    
+    
+
+    <meta name="description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery学习笔记（二）jQuery匹配选择器 基本与层次 | Kang">
+<meta property="og:url" content="http://yoursite.com/2016/11/20/jQuery学习笔记（二）jQuery匹配选择器 基本与层次/index.html">
+<meta property="og:site_name" content="Kang">
+<meta property="og:description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
+<meta property="og:updated_time" content="2016-11-20T13:29:52.309Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery学习笔记（二）jQuery匹配选择器 基本与层次 | Kang">
+<meta name="twitter:description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
+    
+    
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for Kang"><img src="/images/avatar.jpg" width="80" alt="Kang logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Kang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Einskang的小菜园子
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">jQuery学习笔记（二）jQuery匹配选择器 基本与层次</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-11-20" class="post-meta__date date">2016-11-20</time>
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/学习笔记/">学习笔记</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/jQuery/">jQuery</a>, <a class="tags-link" href="/tags/前端开发/">前端开发</a>
+            </font>
+          
+
+      </span>
+    </div>
+
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。<a id="more"></a></p>
+<p>今天想写的是关于jQuery的匹配选择器的问题，jQuery的匹配选择器在整个jQuery中应该算是核心内容，熟练地掌握匹配选择器不仅能够快速定位DOM元素，帮助开发者完成正确元素的选择，还能尽量减少错误和代码量，我自己有很深的体会，所以这也促使我努力将jQuery的匹配选择器搞清楚。</p>
+<p>这里不得不提的另外一个知识点就是$()方法，$()方法在匹配选择功能的实现中起到了重要作用，几乎每句代码之前都要加上$(“xxx”)来选择某一个或某一类元素，当然$()并不仅有这一种功能，它还有另外几个功能，$()一共有七种重载，基本上每种重载对应一种使用方法，另外，它的实现方式也是比较复杂的，之前实验室的学姐在分享交流她的求职经验的时候，就说到有一次她被面试官问到$()的实现方式，所以这个知识点应该还是有必要看看的，对于了解jQuery的深层知识有比较大的帮助。关于$()方法的更多讨论，我会写在以后的文章中。下面开始讨论jQuery的几种匹配选择器。</p>
+<h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><p>jQuery的基本选择器与CSS的选择器差不多，它可以有如下四种方式：</p>
+<h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><p>选择id是指定的值的元素，例如$(“#test”)的作用即选择id为test的元素；</p>
+<h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h4><p>选择包含指定的类的元素，例如$(“.test”)的作用即选择包含有test类的所有元素；</p>
+<h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><p>选择指定的标签，例如$(“p”)的作用即选择所有p（段落）元素。</p>
+<p>以上三种选择器可以按照交集与并集的规则组合，从而得到更复杂也更精确的选取结果。例如$(“p.test”)即选择所有包含test类的p元素，这是交集规则；$(“p, .test”)（使用逗号“,”分隔）即选择所有p元素和所有包含test类的元素，这是并集规则。</p>
+<p>理论上说也可以存在$(“#test.test”)这种选择器，其含义即选择所有包含test类且id为test的元素，但是这样做无意义，因为一般来说id被用来唯一标识某一元素，只需要写明其id即可精确匹配到该元素，不需要再加上其他的条件，所以不推荐上面这种写法。</p>
+<p>除了以上三种之外，还有一种通配符选择器*，它的作用是选择页面中的所有元素，这个我没用到过，所以不好乱说什么，等以后有用得到的地方再来填坑。</p>
+<h3 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h3><p>顾名思义，层次选择器就是按照元素在DOM树(不明白DOM树的童鞋可以联想一下Windows资源管理器左侧的文件夹树，原理上都是一样的，前者每一个元素为一个节点，后者每一个文件夹为一个节点)中的层次来选择元素，主要有以下几种：</p>
+<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>通过空格表示，选择指定父元素的所有后代元素中的指定元素，例如$(“#test p”)的作用即选择id等于test的元素的所有后代元素中的p元素；</p>
+<h4 id="父子选择器"><a href="#父子选择器" class="headerlink" title="父子选择器"></a>父子选择器</h4><p>通过大于号“&gt;”表示，选择指定父元素的所有子元素中的指定元素，例如$(“#test&gt;p”)的作用即选择id等于test的元素的所有<span style="color: red; font-weight: bold">子元素</span>中的p元素，注意这里是<span style="color: red; font-weight: bold">子元素</span>中的p元素，与上面后代选择器的后代元素中的p元素不一样。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们使用$(“#test div”)，会选择id等于test的元素的所有后代元素中的div元素，即内容为1、2、3、4、5的div元素被选中；使用$(“#test&gt;div”)，则会选择id等于test的元素的所有子元素中的div元素，即内容为1、3、4的div元素被选中，内容为2、5的div元素因为是孙元素，所以不会被选中。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">题外话：</span>p元素不可以嵌套p元素，h元素不可以嵌套h元素，a元素不可以嵌套a元素，span元素可以嵌套span元素，div元素可以嵌套div元素，有点绕……</p>
+<hr>
+<h4 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h4><p>通过“+”表示，选择与指定元素相邻的下个指定的兄弟元素，例如$(“#test+div”)的作用即选择id等于test的元素的下个兄弟div元素。举个例子；<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们使用$(“#test+div”)，会选择内容为2的div元素，但如果是下面这样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>如果我们继续使用$(“#test+div”)，那么就会<span style="color: red; font-weight: bold">什么也选择不到</span>！因为#test元素的下个兄弟元素不是div元素而是p元素，如果不指定兄弟元素是什么元素，也就是$(“#test+”)，那么就可以选择到p元素了。其实父子选择器也有这个特性，例如$(“#test&gt;div”)，如上面所说，它会选择id等于test的元素的所有子元素中的div元素，但如果子元素中没有div元素，那么同样也会什么都选择不到。这真是一个蛋疼的设定，就跟静态元素与动态元素事件绑定不同一样……</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>父子选择器与相邻选择器可以连续多次使用，例如使用$(“#test&gt;&gt;div”)，会选择id等于test的元素的所有<span style="color: red; font-weight: bold">孙元素</span>中的div元素，往下以此类推；使用$(“#test++div”)，会选择id等于test的元素的下下个兄弟div元素。</p>
+<hr>
+<h4 id="平级选择器"><a href="#平级选择器" class="headerlink" title="平级选择器"></a>平级选择器</h4><p>通过“~”表示，选择指定元素之后的所有兄弟元素（不包括自身），例如$(“#test~div”)的作用即选择id等于test的元素之后的所有兄弟div元素。<br>同样地，我们使用$(“#test~div”)，如果后面所有的兄弟元素中没有div元素的话，那么同样也会什么都选择不到；使用$(“#test~”)，则后面所有的兄弟元素都会被选择到。</p>
+<p>到现在为止已经把基本选择器与层次选择器写完了，今天就暂时先到这，写到现在都快八点了，我晚饭还没吃，刚刚还把保存的一部分草稿弄丢了，伤心啊，唉，随手保存，珍爱生命。</p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/11/20/jQuery学习笔记（二）jQuery匹配选择器 基本与层次/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"einskang"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2016. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | @<a href="https://www.github.com/Kannnnng">Einskang</a></span>
+
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
