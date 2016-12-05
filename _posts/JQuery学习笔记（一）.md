@@ -7,7 +7,7 @@ date: 2016-11-09 16:05:01
 
 这篇笔记其实大多都是一些JQ使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。<!--more-->
 
-### jQuery的HTML元素事件侦听分为静态元素侦听与动态元素侦听
+#### jQuery的HTML元素事件侦听分为静态元素侦听与动态元素侦听
 这真是个坑爹的设定，昨天晚上我调试代码，给一个通过jQuery动态生成的Button元素添加鼠标点击侦听事件，但点那个按钮就是死活没反应，开始我以为是我的匹配选择器错了，然后开始改我的选择表达式，甚至一度直接使用ID匹配，结果肯定是没成功，上网找来找去，最后是因为这个原因，令人哭笑不得。所以，以后对元素进行事件绑定或事件侦听的时候，一定要注意分清楚该元素是静态元素还是动态元素，静态元素直接写在HTML文件内，动态元素通过jQuery来动态生成。
 
 那知道了静态元素与动态元素两者之间的区别，实际中对其绑定事件应该怎么做呢？
@@ -28,7 +28,7 @@ $("div").on("click", "button", function() {...});
 ___
 <span style="color: red; font-weight: bold">注意：</span>与on()作用相同的还有另外一个live()函数，在jQuery1.7版本以前使用live()，但是在1.8版本以后需要使用on()，否则会提示错误，这点要注意一下。
 ___
-### jQuery的触发函数有点小问题
+#### jQuery的触发函数有点小问题
 现在有某种需求，点击一个按钮的同时，要求另一个按钮的点击事件也被触发，因此要对第二个按钮模拟点击效果，jQuery提供了一个trigger()函数，使用方法是
 ``` JavaScript
 $("xxx").trigger("事件");
@@ -41,7 +41,7 @@ document.getElementById("xxx").click();
 
 2016.11.09更新：果然，在昨天写代码的过程中再次得到了这个教训，这次是想通过jQuery来对select元素内部的option进行自动选择，使用jQuery需要为被选择的option添加“selected: selected”属性，这样做时好时坏，用调试器看了一下，好像手动选择的option并没有添加上面的属性，最后的效果是，添加了上面的属性能够正常工作，但与手动选择同时使用时就出现问题了，没办法我只好使用JavaScript的原生代码document.getElementById("xxx").selectedIndex，终于解决问题。
 
-### typeof的返回值
+#### typeof的返回值
 1.对于数字类型的操作数而言，typeof返回的值是number。比如说typeof(1)，返回的值就是number。
 
 上面是常规数字，对于非常规的数字类型而言，其结果返回的也是number。比如typeof(NaN)，NaN在JavaScript中代表的是特殊非数字值，虽然它本身是一个数字类型；
@@ -63,7 +63,7 @@ Number.NEGATIVE_INFINITY    表示负无穷大的特殊值
 5.对于函数类型，返回的值是function。比如typeof(eval)、typeof(Date)返回的值都是function；
 6.如果运算数是没有定义的（比如说不存在的变量、函数或者undefined），都将返回undefined。比如typeof(sss)、typeof(undefined)都返回undefined。
 
-### 如何获取object成员的属性名
+#### 如何获取object成员的属性名
 在某些情况下我们会需要知道一个对象里面各个成员属性名，例如我现在有下面一个对象
 ``` JavaScript
 course_information = {

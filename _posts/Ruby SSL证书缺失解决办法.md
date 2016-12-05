@@ -23,7 +23,7 @@ Error fetching https://gems.ruby-china.org/:
 <p style="padding-left: 2em">Step1：下载Ruby证书，这里是下载链接: [百度网盘](http://pan.baidu.com/s/1gfzAJKZ) 密码: ithw；
 Step2：下载完成以后将证书放置在一个不经常改动的地方，我放置在c:\Program Files\Ruby22\lib下。之后在用户环境变量中新建一个变量，名字为SSL_CERT_FILE，值设置为证书的完整路径，例如我的路径需要设置为c:\Program Files\Ruby22\lib\ca-bundle.crt，完成以后将cmd窗口重启，之后再进行操作就成功了。</p>
 
-### Tips
+#### Tips
 我在配置过程中遇到几个其他的问题，在这里一并提醒下后来者。
 
 1.Ruby因为防火长城的原因，需要配置成国内的镜像，原本国内的镜像地址是<span>https://</span>ruby.taobao.org，现在已经改为了<span>https://</span>gems.ruby-china.org/，这个问题需要注意下。
