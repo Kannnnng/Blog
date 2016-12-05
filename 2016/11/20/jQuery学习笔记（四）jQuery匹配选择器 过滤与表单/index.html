@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/11/20/jQuery学习笔记（四）jQuery匹配选择器 过滤与表单/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="蛋疼的我又回来了，因为心里感觉总是有块石头没落下来，过滤选择器是我比较喜欢用，同时了解也不是很清楚的选择器，在项目里实际使用的时候总出现一些莫名其妙的问题，我知道这是对过滤选择器的知识了解的不够多导致的，这也促使我今晚上一定要写点东西出来，能写出来心里就明白了，就算是写不完也没事，反正明天照样不去公司，有时间继续补。">
-<meta property="og:updated_time" content="2016-11-20T13:36:42.654Z">
+<meta property="og:updated_time" content="2016-11-27T06:30:52.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery学习笔记（四）jQuery匹配选择器 过滤与表单 | Kang">
 <meta name="twitter:description" content="蛋疼的我又回来了，因为心里感觉总是有块石头没落下来，过滤选择器是我比较喜欢用，同时了解也不是很清楚的选择器，在项目里实际使用的时候总出现一些莫名其妙的问题，我知道这是对过滤选择器的知识了解的不够多导致的，这也促使我今晚上一定要写点东西出来，能写出来心里就明白了，就算是写不完也没事，反正明天照样不去公司，有时间继续补。">
@@ -187,9 +187,20 @@ classes that you can use:
   <section id="post-content" class="article-content post">
     <p>蛋疼的我又回来了，因为心里感觉总是有块石头没落下来，过滤选择器是我比较喜欢用，同时了解也不是很清楚的选择器，在项目里实际使用的时候总出现一些莫名其妙的问题，我知道这是对过滤选择器的知识了解的不够多导致的，这也促使我今晚上一定要写点东西出来，能写出来心里就明白了，就算是写不完也没事，反正明天照样不去公司，有时间继续补。<a id="more"></a></p>
 <p>在上上篇文章里面，我们讨论了jQuery四大匹配选择器中的前两个，基本选择器与层次选择器，现在我们来讨论后两个，过滤选择器与表单选择器。</p>
-<h3 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h3><p>有时候我们会有一些比较特殊的需求，例如，我们使用$(“#test p”)选择到了id为test的元素的后代元素中的p元素，但我们想给选择到的第一个p元素设置格外的CSS样式，这就要求我们从已经选择到的众多p元素中筛选出符合条件的第一个p元素，如果我们仍然只使用基本选择器与层次选择器，那无疑会给工作带来一些困难。幸运的是，jQuery的开发者们早就想到了这个问题，并且给出了相应的解决方案，这就是过滤选择器。<br>过滤选择器可以通过特定的过滤规则来筛选出所需的DOM元素，它的语法类似于CSS中的伪类选择器，以冒号作为开头。过滤选择器根据其过滤规则的种类，又可以分为基本过滤选择器、内容过滤选择器、可见性过滤选择器、属性过滤选择器、子元素过滤选择器以及表单属性过滤选择器，下面我们分别对这数种过滤选择器展开讨论。</p>
-<h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><p>基本过滤选择器也可以称之为简单过滤选择器，它是过滤选择器中使用最为广泛的一种，它主要用来选择首、尾、指定索引、奇数或偶数位的元素等等。具体包含有如下几种过滤规则：</p>
-<p>1.<br>2.<br>3.<br>4.<br>5.<br>6.<br>7.<br>8.<br>9.<br>10.</p>
+<h3 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h3><p>有时候我们会有一些比较特殊的需求，例如，我们使用$(“#test p”)选择到了id为test的元素的后代元素中的p元素，但我们想给选择到的第一个p元素设置格外的CSS样式，这就要求我们从已经选择到的众多p元素中筛选出符合条件的第一个p元素，如果我们仍然只使用基本选择器与层次选择器，那无疑会给工作带来一些困难。幸运的是，jQuery的开发者们早就想到了这个问题，并且给出了相应的解决方案，这就是过滤选择器。</p>
+<p>过滤选择器可以通过特定的过滤规则来筛选出所需的DOM元素，它的语法类似于CSS中的伪类选择器，以冒号作为开头。过滤选择器根据其过滤规则的种类，又可以分为基本过滤选择器、内容过滤选择器、可见性过滤选择器、属性过滤选择器、子元素过滤选择器以及表单属性过滤选择器，下面我们分别对这数种过滤选择器展开讨论。</p>
+<h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><p>基本过滤选择器也可以称之为简单过滤选择器，它是过滤选择器中使用最为广泛的一种，它主要用来选择首、尾、指定索引、奇数或偶数位的元素等等。具体包含有如下几种过滤规则。</p>
+<h5 id="first"><a href="#first" class="headerlink" title=":first"></a>:first</h5><p>从找到的众多元素中筛选出第一个元素，例如上面所要求的，从找到的众多的p元素中筛选出第一个p元素，便可以通过$(“p:first”)实现。</p>
+<h5 id="last"><a href="#last" class="headerlink" title=":last"></a>:last</h5><p>从找到的众多元素中筛选出最后一个元素，效果与:first恰好相反。</p>
+<h5 id="not-selector"><a href="#not-selector" class="headerlink" title=":not(selector)"></a>:not(selector)</h5><p>从找到的众多元素中去除所有与给定选择器相匹配的元素，其中selector为一个匹配选择器，可以是jQuery所支持的各种匹配选择器的自由组合，可以简单也可以复杂。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>3<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>5<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>6<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们使用$(“div&gt;”)，则会选择div元素的所有子元素，若我们想要排除button元素，则可以使用$(“div&gt;:not(button)”)，若还想排除span元素，则可以使用$(“div&gt;:not(button, span)”)，若想排除所有的p元素，除了可以写成$(“div&gt;:not(p)”)外，也可以写成$(“div&gt;:not(div&gt;p)”)，甚至还可以写成$(“div&gt;:not(div&gt;:not(div&gt;:not(p)))”)，三者的效果都是相同的（不过应该不会有人闲的蛋疼到写第二种和第三种吧……）！这也再次证明了jQuery的灵活性。</p>
+<h5 id="odd"><a href="#odd" class="headerlink" title=":odd"></a>:odd</h5><p>从找到的众多元素中筛选出所有索引值为奇数的元素，这里需要注意两点，一是<span style="color: red"><b>索引值是从0开始计数的；</b></span>二是<span style="color: red"><b>不能使用index()函数来得到；</b></span></p>
+<p>#####</p>
+<p>#####</p>
+<p>#####</p>
+<p>#####</p>
+<p>#####</p>
+<p>#####</p>
 
   </section>
 
