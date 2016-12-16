@@ -1,5 +1,5 @@
 ---
-title: jQuery学习笔记（三）$()方法
+title: jQuery学习笔记（三）jQuery()方法实现相关
 category: 学习笔记
 tag: [jQuery,前端开发]
 date: 2016-11-20 16:45:32

@@ -1,5 +1,5 @@
 ---
-title: jQuery学习笔记（一）
+title: jQuery学习笔记（一）问题集合
 category: 学习笔记
 tag: [jQuery,前端开发]
 date: 2016-11-09 16:05:01
