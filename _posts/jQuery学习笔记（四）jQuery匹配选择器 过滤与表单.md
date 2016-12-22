@@ -120,7 +120,7 @@ ___
 ##### :checked
 从找到的众多表单元素中筛选出所有被选中的元素，该过滤器只可以应用在复选框、单选按钮等，<span style="color: red; font-weight: bold">注意</span>不包括select中的option。
 ##### :selected
-这个过滤器只有一个作用，就是匹配select中被选中的option，作为对上面:checked功能的补充。
+这个过滤器只有一个作用，就是筛选出select中被选中的option，作为上面:checked功能的补充。
 
 #### 表单选择器
 表单选择器提供了灵活的方法来选择表单中的元素，其功能比表单对象属性过滤器更加强大，具体包含有如下几种规则。
