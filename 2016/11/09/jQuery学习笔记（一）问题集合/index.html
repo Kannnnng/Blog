@@ -7,7 +7,7 @@
     
 
     <title>
-      jQuery学习笔记（一） | Kang 
+      jQuery学习笔记（一）问题集合 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,16 +16,16 @@
     
     
 
-    <meta name="description" content="这篇笔记其实大多都是一些JQ使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。">
+    <meta name="description" content="这篇笔记其实大多都是一些jQuery使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery学习笔记（一） | Kang">
-<meta property="og:url" content="http://yoursite.com/2016/11/09/jQuery学习笔记（一）/index.html">
+<meta property="og:title" content="jQuery学习笔记（一）问题集合 | Kang">
+<meta property="og:url" content="http://yoursite.com/2016/11/09/jQuery学习笔记（一）问题集合/index.html">
 <meta property="og:site_name" content="Kang">
-<meta property="og:description" content="这篇笔记其实大多都是一些JQ使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。">
-<meta property="og:updated_time" content="2016-11-27T01:28:32.417Z">
+<meta property="og:description" content="这篇笔记其实大多都是一些jQuery使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。">
+<meta property="og:updated_time" content="2016-12-23T00:44:05.692Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery学习笔记（一） | Kang">
-<meta name="twitter:description" content="这篇笔记其实大多都是一些JQ使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。">
+<meta name="twitter:title" content="jQuery学习笔记（一）问题集合 | Kang">
+<meta name="twitter:description" content="这篇笔记其实大多都是一些jQuery使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。">
     
     
     
@@ -154,7 +154,7 @@ classes that you can use:
 
   <header class="post-header">
 
-    <h1 class="post-title">jQuery学习笔记（一）</h1>
+    <h1 class="post-title">jQuery学习笔记（一）问题集合</h1>
 
     
 
@@ -185,7 +185,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>这篇笔记其实大多都是一些JQ使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。<a id="more"></a></p>
+    <p>这篇笔记其实大多都是一些jQuery使用过程中的小常识，但是在系统学习jQuery的时候可能不会碰到，或者仅是看一眼而不会着重去了解，所以就在这里记下来，相当于再温习一遍，加深印象。<a id="more"></a></p>
 <h4 id="jQuery的HTML元素事件侦听分为静态元素侦听与动态元素侦听"><a href="#jQuery的HTML元素事件侦听分为静态元素侦听与动态元素侦听" class="headerlink" title="jQuery的HTML元素事件侦听分为静态元素侦听与动态元素侦听"></a>jQuery的HTML元素事件侦听分为静态元素侦听与动态元素侦听</h4><p>这真是个坑爹的设定，昨天晚上我调试代码，给一个通过jQuery动态生成的Button元素添加鼠标点击侦听事件，但点那个按钮就是死活没反应，开始我以为是我的匹配选择器错了，然后开始改我的选择表达式，甚至一度直接使用ID匹配，结果肯定是没成功，上网找来找去，最后是因为这个原因，令人哭笑不得。所以，以后对元素进行事件绑定或事件侦听的时候，一定要注意分清楚该元素是静态元素还是动态元素，静态元素直接写在HTML文件内，动态元素通过jQuery来动态生成。</p>
 <p>那知道了静态元素与动态元素两者之间的区别，实际中对其绑定事件应该怎么做呢？<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>静态元素：直接绑定，例如为按钮绑定侦听事件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"button"</span>).on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;);</div><div class="line">$(<span class="string">"button"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;...&#125;);</div></pre></td></tr></table></figure></p>
@@ -213,7 +213,7 @@ classes that you can use:
 
 <section class="post-comments">
 
-    <div class="ds-thread" data-thread-key="2016/11/09/jQuery学习笔记（一）/"></div>
+    <div class="ds-thread" data-thread-key="2016/11/09/jQuery学习笔记（一）问题集合/"></div>
 
     <script type="text/javascript">
       var duoshuoQuery = {short_name:"einskang"};

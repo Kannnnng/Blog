@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      Git学习笔记（一）Git的基本用法 | Kang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Einskang">
+    
+    
+
+    <meta name="description" content="作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过GitH，但那个时候对于Git真是一点不了解，一直到现在，对Git的了解也只是在一个很浅的层面，所以这篇文章的题目是Git的基本用法，，除了介绍一些基本操作，将项目文件纳入到Git的版本控制，还会写一些我这么多天来使用Git遇到的一些基本问题，作为学习笔记记录下来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git学习笔记（一）Git的基本用法 | Kang">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/Git学习笔记（一）Git的基本用法/index.html">
+<meta property="og:site_name" content="Kang">
+<meta property="og:description" content="作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过GitH，但那个时候对于Git真是一点不了解，一直到现在，对Git的了解也只是在一个很浅的层面，所以这篇文章的题目是Git的基本用法，，除了介绍一些基本操作，将项目文件纳入到Git的版本控制，还会写一些我这么多天来使用Git遇到的一些基本问题，作为学习笔记记录下来。">
+<meta property="og:updated_time" content="2016-12-23T00:44:05.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git学习笔记（一）Git的基本用法 | Kang">
+<meta name="twitter:description" content="作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过GitH，但那个时候对于Git真是一点不了解，一直到现在，对Git的了解也只是在一个很浅的层面，所以这篇文章的题目是Git的基本用法，，除了介绍一些基本操作，将项目文件纳入到Git的版本控制，还会写一些我这么多天来使用Git遇到的一些基本问题，作为学习笔记记录下来。">
+    
+    
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for Kang"><img src="/images/avatar.jpg" width="80" alt="Kang logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Kang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Einskang的小菜园子
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+
+    <h1 class="post-title">Git学习笔记（一）Git的基本用法</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2016-12-16" class="post-meta__date date">2016-12-16</time>
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/学习笔记/">学习笔记</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/Git/">Git</a>
+            </font>
+          
+
+      </span>
+    </div>
+
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过GitH，但那个时候对于Git真是一点不了解，一直到现在，对Git的了解也只是在一个很浅的层面，所以这篇文章的题目是Git的基本用法，，除了介绍一些基本操作，将项目文件纳入到Git的版本控制，还会写一些我这么多天来使用Git遇到的一些基本问题，作为学习笔记记录下来。<a id="more"></a></p>
+<p>先说一下，由于我一直是在Windows环境下工作，所以这篇文章讲述的都是在Windows下Git的基本操作，其他平台下的操作可能与之类似但不完全相同。</p>
+<h3 id="Git的初始化"><a href="#Git的初始化" class="headerlink" title="Git的初始化"></a>Git的初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"Kannnnng"</span></div><div class="line">$ git config --global user.email <span class="string">"575664647@qq.com"</span></div></pre></td></tr></table></figure>
+<p>以上两句代码是全局设置名字与邮箱，这些信息将作为提交时的签名，方便别人知道是谁做出的提交。注意，配置过程中用到了–global，这样做是告诉Git此项配置是全局配置，这样做会影响到你在本地建立的所有项目。<br>如果在某个项目中你想设置与全局不一样的设置，你可以在该项目中使用不带有–global参数的git config命令。</p>
+<h3 id="Git的仓库建立"><a href="#Git的仓库建立" class="headerlink" title="Git的仓库建立"></a>Git的仓库建立</h3><p>Git仓库有两种方法建立，一种是对已有的Git仓库克隆，从而在本地获取该仓库的副本；二是本地新建一个仓库，从而把未纳入版本控制的文件纳入到版本控制。</p>
+<h4 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h4><p>获得一个仓库的拷贝副本，可以通过多种协议获取，如ssh://、http(s)://，使用http(s)://时命令为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://github.com/Kannnnng/Kannnnng.github.io.git</div></pre></td></tr></table></figure></p>
+<p>如果你在GitHub上已经登陆，并且在此之前你已经为自己的账户配置过了git ssh key（没有配置过的同学请看<a href="http://blog.csdn.net/hustpzb/article/details/8230454/" target="_blank" rel="external">这里</a>），那么就可以使用更为有效和迅速的ssh://协议，命令为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> git@github.com:Kannnnng/Kannnnng.github.io.git</div></pre></td></tr></table></figure></p>
+<h4 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h4><p>如果你有一个文件夹Test，现在你想把这个文件夹下的文件纳入到Git的版本控制之中，那么你可以在这个文件夹下面初始化一个仓库，命令为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git init</div></pre></td></tr></table></figure></p>
+<p>如果这时你的文件夹下面新出现了一个名为.git的隐藏文件夹，那么说明你的仓库就已经初始化完成了。但是此时仓库仅仅存在于你本地目录下，在远程是没有一个仓库与之对应的，所以你需要自己动手，建立远程仓库并将其与你本地仓库建立连接（同步）。这个过程一般分为两步：<br>1.登陆你的GitHub，新建一个名字与本地仓库名字相同的远程仓库；<br>2.如果你已经为自己的账户配置过了git ssh key，那么你需要在仓库的Setting里面找到标签页Deploy keys，之后在其中添加你的公钥，同时勾选页面最下面的那个选项（是否接收推送）并保存，如果没有配置过git ssh key则跳过此步骤；<br>3.在本地仓库目录下运行git remote add [name] [url]，其中，name是远程版本库名称，默认为origin（详细信息点击<a href="https://www.zhihu.com/question/27712995/answer/39946123" target="_blank" rel="external">这里</a>），url则是你在GitHub上刚刚新建的仓库的url，直接复制过来即可。完整命令例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git remote add origin git@github.com:Kannnnng/Test.git</div></pre></td></tr></table></figure></p>
+<h3 id="Git的工作命令"><a href="#Git的工作命令" class="headerlink" title="Git的工作命令"></a>Git的工作命令</h3><p>首先你应该了解使用Git工作的步骤，一般来说常用的就三个命令：git status（查看文件改动状态）、git add（将文件添加到索引中）、git commit（提交当前索引中的文件并添加说明），这里探讨一点细节。</p>
+<h4 id="git-status命令显示的文件的三种状态"><a href="#git-status命令显示的文件的三种状态" class="headerlink" title="git status命令显示的文件的三种状态"></a>git status命令显示的文件的三种状态</h4><p>使用git status命令以后，Git会列出当前项目中文件的三种状态。<br>1.Changes to be committed，是指下列文件已经被更改过。同时已经通过git add命令添加到了索引中，下一步就是使用git commit命令来提交更改。<br>2.Changes not staged for commit，是指下列文件已经被更改过，但还没有通过git add命令添加到索引中。<br>3.Untracked files，是指下列文件都是一些新文件，之前没有被Git追踪，现在需要通过git add命令添加到索引中。</p>
+<p>通过以上三种状态，我们就可以方便地区分哪些文件需要提交，哪些文件是还没有被添加到索引，哪些文件是新文件，需要添加到索引以便纳入到版本控制之中。</p>
+<h4 id="git-add的其他用法"><a href="#git-add的其他用法" class="headerlink" title="git add的其他用法"></a>git add的其他用法</h4><p>git add最常用的就是后面跟“.”，表示将所有改动过的或新建的文件添加到索引，不过，通过帮助信息可以得知，git add还有一些在特殊情况下很有用的命令形式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ git add .                           <span class="comment">#将所有改动过的或新建的文件添加到索引</span></div><div class="line">$ git add xxx1.js xxx2.js xxx3.js     <span class="comment">#将特定的文件添加到索引</span></div><div class="line">$ git add <span class="_">-f</span> xxx4.js                  <span class="comment">#将通过.gitignore忽略的文件添加到索引</span></div><div class="line">$ git add -u                          <span class="comment">#将除新建文件以外的其他改动过的文件添加到索引</span></div></pre></td></tr></table></figure></p>
+<p>还有一些命令形式不太常规，在这里就不列出了，有兴趣的同学可以自己去了解。</p>
+<h3 id="Git的常见问题"><a href="#Git的常见问题" class="headerlink" title="Git的常见问题"></a>Git的常见问题</h3><p>在我使用Git的过程中遇到过很多很多的问题，这些问题或大或小，有些解决起来比较麻烦，有些只要知道了一些小技巧解决起来易如反掌，下面我就把我自己所遇到过的同时自己还有印象（比较折磨人的问题一般都令人印象深刻）的问题写在下面，在作为自己的Git笔记的同时，也希望能够帮助到更多的同学。</p>
+<h4 id="版本不同情况下强制推送"><a href="#版本不同情况下强制推送" class="headerlink" title="版本不同情况下强制推送"></a>版本不同情况下强制推送</h4><p>Git要求你在推送代码之前本地版本与远程版本相同，这样做很容易理解，因为如果修改本地代码之前没有从远程更新最新版本的代码，那本地版本肯定会缺少一些最新的修改，直接推送的话会把最新的修改覆盖掉，但如果有些时候我们确实想要（不顾一切地）用本地代码完全替代远程代码，这个时候我们可以使用以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git push <span class="_">-f</span></div></pre></td></tr></table></figure></p>
+<p>不过还是需要提醒一下，这个命令很蛋疼，一旦将本地代码强制推送到远程仓库，则没有同步的修改代码就很不好找回来了，所以除非你非常确定现在的操作是正确的，否则不要轻易使用这条命令。</p>
+<h4 id="修改尚未推送但需获取最新代码"><a href="#修改尚未推送但需获取最新代码" class="headerlink" title="修改尚未推送但需获取最新代码"></a>修改尚未推送但需获取最新代码</h4><p>Git要求你在获取代码（git pull）之前对本地工作区的修改需要全部提交，这样做是保证本地修改的代码不被远程代码覆盖，但有时你可能不想现在就提交修改（例如某个功能你只完成了一半），那么你可以先将修改的代码存入Git栈中，这样本地工作区与未修改之前的便相同，之后获取远程最新代码，最后再将修改的代码从Git栈读取出来，完成以上操作执行以下命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git stash                           <span class="comment">#将修改过的代码保存到Git栈中，使本地代码与未修改之前的代码相同</span></div><div class="line">$ git pull                            <span class="comment">#获取远端仓库的最新代码</span></div><div class="line">$ git stash pop                       <span class="comment">#从Git栈中读取最近一次保存的代码，恢复到工作区中</span></div></pre></td></tr></table></figure></p>
+<p>除此之外你可能还希望知道下列命令，它们在操作Git栈方面有很大帮助。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ git stash pop stash@&#123;[number]&#125;      <span class="comment">#从Git栈中读取指定的代码，恢复到工作区中，number可以通过git stash list查看</span></div><div class="line">$ git stash list                      <span class="comment">#显示Git栈内的所有备份，可以利用该命令确定从哪个地方开始恢复</span></div><div class="line">$ git clear                           <span class="comment">#清空Git栈</span></div></pre></td></tr></table></figure></p>
+<h4 id="git-reset的详细讨论"><a href="#git-reset的详细讨论" class="headerlink" title="git reset的详细讨论"></a>git reset的详细讨论</h4><p>有时你改动了本地工作区一些代码，之后因为某些原因需要将改动撤销，使工作区恢复到未改动之前的样子，这时可以使用git reset命令完成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset --hard</div></pre></td></tr></table></figure></p>
+<p>其实，git reset命令不仅仅只有这一个功能，通过git reset -h，可以看到完整命令是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</div></pre></td></tr></table></figure></p>
+<p>注意到该命令存在五种不同的模式，最常用的是–mixed与–hard，其中–mixed更是git reset的默认模式，两者都会把当前索引区重置，也就是说，通过git add命令将改动文件添加到索引区的操作可以使用git reset –mixed或git reset –hard来撤销，两者的不同在于对工作区的操作，–mixed模式不会重置工作区，也就是说工作区的代码还是改动过的代码，而–hard模式则会将工作区一并重置，改动过的代码将恢复到未改动之前，所以使用–hard模式一定注意。<br>除了以上两种比较常用的模式之外，–soft模式也是比较有用的，它对本地仓库的改动相较于前两种模式来说更小，它不会更改索引区与工作区任何内容，而是仅仅将HEAD（指向当前分支的最后一次提交记录）指向你所指定的提交记录，同时在指定提交记录之后的所有改动过的文件都会处于等待提交状态，也就是上文所说的Changes to be committed，所以–soft模式一般用于更改提交记录（至少我是这么做的）。<br>–merge模式与–keep模式没用过，对它们的用法也不太了解，如果你想了解更多，可以查看<a href="http://blog.csdn.net/hudashi/article/details/7664464" target="_blank" rel="external">这篇博文</a>。<br>最后要说的是，所有模式均可以在最后指定特定的提交记录，这样你就可以控制本地代码具体回退到哪个版本，用法示例如下，最后的参数即你想回退到的版本的SHA1 hash值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git reset 模式 0f14df4535a45e86c00df1e1145d0e4bcd092904</div></pre></td></tr></table></figure></p>
+<p>####</p>
+
+  </section>
+
+  
+  
+
+<section class="post-comments">
+
+    <div class="ds-thread" data-thread-key="2016/12/16/Git学习笔记（一）Git的基本用法/"></div>
+
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"einskang"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script> 
+
+</section>
+
+
+</article>
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2016. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | @<a href="https://www.github.com/Kannnnng">Einskang</a></span>
+
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
