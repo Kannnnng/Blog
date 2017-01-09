@@ -16,16 +16,16 @@
     
     
 
-    <meta name="description" content="虽然我在实验室的方向是前端开发，而表单验证中使用正则表达式是很频繁的，但是我接触并喜欢上正则表达式是在大二暑假参加全国电赛的时候，那个时候我们这一队属于测量方向，经常使用AD采集数据或者DA生成特定波形的电信号，在编写DA数据查找表的时候，需要选中很多特定格式的数据并对其进行一些操作，如果一个一个地改，那么工作量虽然不是特别巨大，但也是够烦的，然后去请教学长有没有什么简单快捷的方式，才知道了有正则">
+    <meta name="description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="正则表达式学习笔记（一）基本用法 | Kang">
 <meta property="og:url" content="http://yoursite.com/2016/12/22/正则表达式学习笔记（一）基本用法/index.html">
 <meta property="og:site_name" content="Kang">
-<meta property="og:description" content="虽然我在实验室的方向是前端开发，而表单验证中使用正则表达式是很频繁的，但是我接触并喜欢上正则表达式是在大二暑假参加全国电赛的时候，那个时候我们这一队属于测量方向，经常使用AD采集数据或者DA生成特定波形的电信号，在编写DA数据查找表的时候，需要选中很多特定格式的数据并对其进行一些操作，如果一个一个地改，那么工作量虽然不是特别巨大，但也是够烦的，然后去请教学长有没有什么简单快捷的方式，才知道了有正则">
-<meta property="og:updated_time" content="2016-12-23T00:44:05.692Z">
+<meta property="og:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
+<meta property="og:updated_time" content="2017-01-09T14:37:48.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式学习笔记（一）基本用法 | Kang">
-<meta name="twitter:description" content="虽然我在实验室的方向是前端开发，而表单验证中使用正则表达式是很频繁的，但是我接触并喜欢上正则表达式是在大二暑假参加全国电赛的时候，那个时候我们这一队属于测量方向，经常使用AD采集数据或者DA生成特定波形的电信号，在编写DA数据查找表的时候，需要选中很多特定格式的数据并对其进行一些操作，如果一个一个地改，那么工作量虽然不是特别巨大，但也是够烦的，然后去请教学长有没有什么简单快捷的方式，才知道了有正则">
+<meta name="twitter:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
     
     
     
@@ -185,7 +185,18 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>虽然我在实验室的方向是前端开发，而表单验证中使用正则表达式是很频繁的，但是我接触并喜欢上正则表达式是在大二暑假参加全国电赛的时候，那个时候我们这一队属于测量方向，经常使用AD采集数据或者DA生成特定波形的电信号，在编写DA数据查找表的时候，需要选中很多特定格式的数据并对其进行一些操作，如果一个一个地改，那么工作量虽然不是特别巨大，但也是够烦的，然后去请教学长有没有什么简单快捷的方式，才知道了有正则表达式这么个工具，但是当时自己也不会用，所以就赖着脸皮请学长帮忙演示了一下，看完以后顿时感觉，WTF！还可以这样？这简直太神奇了！于是从那个时候起就下定决心一定要学好正则表达式。到现在差不多一年半的时间，感觉自己学的还不是很到家，但是至少一些简单正则表达式的应用已经可以胜任了，</p>
+    <p>这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。<a id="more"></a></p>
+<p>虽然我在实验室的方向是前端开发，在表单验证中使用正则表达式很频繁，但是我接触并喜欢上正则表达式是在大二暑假参加全国电赛的时候，那个时候我们这一队属于测量方向，经常使用AD采集数据或者DA生成特定波形的电信号，在编写DA数据查找表的时候，需要选中很多特定格式的数据并对其进行一些操作，如果一个一个地改，工作量虽然不是特别巨大，但也是够烦的，然后去请教学长有没有什么简单快捷的方式，才知道了有正则表达式这么个工具，但是当时自己也不会用，所以就赖着脸皮请学长帮忙演示了一下，看完以后顿时感觉，WTF！还可以这样？这简直太神奇了！于是从那个时候起就下定决心一定要学好正则表达式。到现在差不多一年半的时间，感觉自己学的还不是很到家，但是至少一些简单正则表达式的应用已经可以胜任了，现在就在这里总结一下自己的学习成果。</p>
+<p>不同的环境对正则表达式的解释略有不同，我这里主要是应用于JavaScript环境，测试一般就直接使用Sublime Text的正则条件搜索查看匹配结果与预想的是否相同，另外。我也经常使用可视化的正则表达式工具来帮助理解一些比较繁琐的正则表达式，给大家推荐一个该类应用的网站，可视化效果挺不错的。<br><a href="https://jex.im/regulex/#!embed=false&amp;flags=&amp;re=%5E(a%7Cb" target="_blank" rel="external">Regulex: JavaScript Regular Expression Visualizer.</a>*%3F%24)</p>
+<p>下面进入正题。</p>
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>正则表达式中元字符是最常用的，它们在正则表达式中经常被用于匹配各种特殊的字符，或者表示匹配方式，了解并记住它们的作用是很有必要的。</p>
+<h4 id=""><a href="#" class="headerlink" title="\"></a>\</h4><p>用法很多，罗列如下。<br>1.将紧随其后的下一个字符标记为转义字符，例如“n”匹配普通的字母“n”，而“\n”则匹配一个换行符。<br>2.将紧随其后的下一个字符标记为原义字符，也就是将正则表达式规定的元字符的含义转换为普通字符的含义，例如匹配“\”，则需要使用“\”，匹配“<em>”，则需要使用“\</em>”，因为“\”和“*”都是元字符，在正则表达式中表示特定的含义。<br>3.向后引用一个子字符串，用法为“\num”，表示该子字符串与正则表达式的第num个用括号围起来的子表达式匹配，这个用法较难理解，我们借助几个示例来给大家演示一下。</p>
+<p></p><p style="padding-left: 2em">(1).“(a)\1”，即向后引用正则表达式中的第一个子表达式，也就是“(a)(a)”，匹配形如“<span style="color: red; font-weight: bold">aa</span>bbccdd”。<br>(2).“(a)(b)(c)\2”，即向后引用正则表达式中的第二个子表达式，也就是“(a)(b)(c)(b)”，匹配形如“abcd<span style="color: red; font-weight: bold">abcb</span>abcd”。<br>(3).“(1)(\d)\2”，即向后引用正则表达式中的第二个子表达式，也就是“(1)(\d)(\d)”，但需要注意的是，因为这里是向后<span style="color: red; font-weight: bold">引用</span>第二个子表达式，所以只能匹配形如“1232<span style="color: red; font-weight: bold">122</span>3221<span style="color: red; font-weight: bold">122</span>3”，也就是说后两个数字必须相同，而不是只需要三个数字的组合，因为这里是对子表达式的引用。<br>(4).“(a)(\w)\2”，与上个示例基本相同，只不过变成了匹配字母，这里也需要注意是向后引用子表达式，所以要求第二个字母与第三个字母相同，也就是匹配形如“abc<span style="color: red; font-weight: bold">abb</span>cbba<span style="color: red; font-weight: bold">abb</span>bc<span style="color: red; font-weight: bold">acc</span>”。</p><br>最后提示一点，使用“\”的向后匹配用法时，最好将所有的子表达式均用括号()将之括起来，之后连同引用表达式一同包在一个括号里面成为一个整体，，明确匹配表达式的优先级，以免出现意想不到的错误。<br>4.将紧随其后的下一个字符标记为八进制转义符，这个用法我基本上没怎么用过，有兴趣的同学可以自行了解一下。<p></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title="^"></a>^</h4><p>最常见的用法是匹配字符串的开始位置，例如匹配每一行最开始的字母“a”，就可以使用“^a”；除此之外还有一种用法是反向匹配，也就是排除某些字符串，一般与“[]”一起使用，例如“[^a]”的含义就是匹配除了字母“a”之外的所有字符，包括显示字符与非显示字符等。</p>
+<h4 id="-2"><a href="#-2" class="headerlink" title="$"></a>$</h4><p>匹配字符串的结束位置，例如匹配每一行最后面的字母“a”，就可以使用“a$”，这个用法与“^”的第一个用法相同。</p>
+<h4 id="-3"><a href="#-3" class="headerlink" title="*"></a>*</h4><p>匹配前面的子表达式零次或多次，例如使用“ab*”就可以匹配形如“<span style="color: red; font-weight: bold">abb</span>cc”或“<span style="color: red; font-weight: bold">a</span>cc”。</p>
+<h4 id="-4"><a href="#-4" class="headerlink" title="+"></a>+</h4><p>匹配前面的子表达式一次或多次，例如使用“ab+”就可以匹配形如“<span style="color: red; font-weight: bold">abb</span>cc”，但是不能匹配形如“acc”，因为要求前面的子表达式至少匹配一次。</p>
+<h4 id="-5"><a href="#-5" class="headerlink" title="?"></a>?</h4><p>该元字符同样有两种用法，最常用的是匹配前面的子表达式零次或一次，例如使用“ab?”就可以匹配形如“<span style="color: red; font-weight: bold">ab</span>bcc”或“<span style="color: red; font-weight: bold">a</span>cc”；除此之外，当该元字符紧跟在任何一个其他限制符（*、+、?、{n}、{n,}、{n,m}）后面时，则表示当前匹配模式是非贪婪的，它会尽可能少地匹配搜索到的字符串，默认情况下以上限制符是贪婪的，例如“ab+”将会匹配形如“<span style="color: red; font-weight: bold">abb</span>c<span style="color: red; font-weight: bold">abb</span>c”，而使用“ab+?”则只会匹配形如“<span style="color: red; font-weight: bold">ab</span>bc<span style="color: red; font-weight: bold">ab</span>bc”，可以看出前者会尽可能多地匹配符合条件的字符串，而后者则尽可能少地匹配符合条件的字符串，这便是贪婪表达式与非贪婪表达式的区别。</p>
 
   </section>
 
