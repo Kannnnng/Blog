@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/22/正则表达式学习笔记（一）基本用法/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
-<meta property="og:updated_time" content="2017-01-11T13:55:39.764Z">
+<meta property="og:updated_time" content="2017-02-09T15:19:46.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式学习笔记（一）基本用法 | Kang">
 <meta name="twitter:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
@@ -189,16 +189,50 @@ classes that you can use:
 <p>虽然我在实验室的方向是前端开发，在表单验证中使用正则表达式很频繁，但是我接触并喜欢上正则表达式是在大二暑假参加全国电赛的时候，那个时候我们这一队属于测量方向，经常使用DA生成特定波形的电信号，在编写DA数据查找表的时候，需要选中很多特定格式的数据并对其进行一些操作，如果一个一个地改，工作量虽然不是特别巨大，但也是够烦的，然后去请教学长有没有什么简单快捷的方式，才知道了有正则表达式这么个工具，但是当时自己也不会用，所以就赖着脸皮请学长帮忙演示了一下，看完以后顿时感觉，WTF！还可以这样？这简直太神奇了！于是下定决心一定要学好正则表达式。从那时到现在差不多一年半的时间，感觉自己学的还不是很到家，但是至少一些简单正则表达式的应用已经可以胜任了，现在就在这里总结一下自己的学习成果。</p>
 <p>不同的环境对正则表达式的解释略有不同，我这里主要是应用于JavaScript环境，测试一般就直接使用Sublime Text的正则条件搜索查看匹配结果与预想的是否相同，另外。我有时也使用可视化工具来帮助理解一些比较繁琐的正则表达式，顺便给大家推荐一个该类应用的网站，可视化效果挺不错的。<br><a href="https://jex.im/regulex/" target="_blank" rel="external">Regulex: JavaScript Regular Expression Visualizer.</a></p>
 <p>下面进入正题。</p>
-<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><p>正则表达式中元字符是最常用的，它们在正则表达式中经常被用于匹配各种特殊的字符，或者标识匹配方式，了解并记住它们的作用是很有必要的。</p>
-<h4 id=""><a href="#" class="headerlink" title="\"></a>\</h4><p>用法很多，罗列如下。<br>1.将紧随其后的下一个字符标记为转义字符，例如“n”匹配普通的字母“n”，而“\n”则匹配一个换行符。<br>2.将紧随其后的下一个字符标记为原义字符，也就是将正则表达式规定的元字符转换为普通字符，例如匹配反斜杠字符“\”，则需要使用“\\”，匹配“*”，则需要使用“\*”，因为“\”和“*”都是元字符，在正则表达式中具有特定的含义，所以需要用“\”将这些转义字符标记为原义字符。<br>3.向后引用一个子字符串，用法为“\num”，表示该子字符串与正则表达式的第num个用括号括起来的子表达式匹配，这个用法较难理解，我们借助几个示例来给大家演示一下。</p>
-<p style="padding-left: 2em">(1).“(a)\1”，即向后引用正则表达式中的第一个子表达式，也就是“(a)(a)”，匹配形如“<span style="color: red; font-weight: bold">aa</span>bbccdd”。<br>(2).“(a)(b)(c)\2”，即向后引用正则表达式中的第二个子表达式，也就是“(a)(b)(c)(b)”，匹配形如“abcd<span style="color: red; font-weight: bold">abcb</span>abcd”。<br>(3).“(1)(\d)\2”，即向后引用正则表达式中的第二个子表达式，也就是“(1)(\d)(\d)”，但需要注意的是，因为这里是向后<span style="color: red; font-weight: bold">引用</span>第二个子表达式，所以只能匹配形如“1232<span style="color: red; font-weight: bold">122</span>3221<span style="color: red; font-weight: bold">122</span>3”，也就是说后两个数字必须相同，而不是只需要三个数字的组合，因为这里是对子表达式的引用。<br>(4).“(a)(\w)\2”，与上个示例基本相同，只不过变成了匹配字母，这里也需要注意是向后<span style="color: red; font-weight: bold">引用</span>子表达式，即要求第二个字母与第三个字母相同，也就是匹配形如“abc<span style="color: red; font-weight: bold">abb</span>cbba<span style="color: red; font-weight: bold">abb</span>bc<span style="color: red; font-weight: bold">acc</span>”。</p>
+<h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><p>正则表达式中元字符是最常用的，它们在正则表达式中经常被用于匹配各种特殊的字符，或者标识匹配方式，了解并记住它们的作用是很有必要的。</p>
+<h3 id=""><a href="#" class="headerlink" title="\"></a>\</h3><p>用法很多，罗列如下。<br>1.将紧随其后的下一个字符标记为转义字符，例如“n”匹配普通的字母“n”，而“\n”则匹配一个换行符。<br>2.将紧随其后的下一个字符标记为原义字符，也就是将正则表达式规定的元字符转换为普通字符，例如匹配反斜杠字符“\”，则需要使用“\\”，匹配“*”，则需要使用“\*”，因为“\”和“*”都是元字符，在正则表达式中具有特定的含义，所以需要用“\”将这些转义字符标记为原义字符。<br>3.向后引用一个捕获分组（分组的解释在后面，这里可以简单的理解为用括号括起来的子表达式），用法为“\num”，表示对第num个捕获分组向后引用，这个用法较难理解，我们借助几个示例来给大家演示一下。</p>
+<p style="padding-left: 2em">(1).“(a)\1”，即向后引用正则表达式中的第一个捕获分组，也就是“(a)(a)”，匹配形如“<span style="color: red; font-weight: bold">aa</span>bbccdd”。<br>(2).“(a)(b)(c)\2”，即向后引用正则表达式中的第二个捕获分组，也就是“(a)(b)(c)(b)”，匹配形如“abcd<span style="color: red; font-weight: bold">abcb</span>abcd”。<br>(3).“(1)(\d)\2”，即向后引用正则表达式中的第二个捕获分组，也就是“(1)(\d)(\d)”，但需要注意的是，因为这里是向后<span style="color: red; font-weight: bold">引用</span>第二个捕获分组，所以只能匹配形如“1232<span style="color: red; font-weight: bold">122</span>3221<span style="color: red; font-weight: bold">122</span>3”，也就是说后两个数字必须相同，而不是只需要三个数字的组合，因为这里是对捕获分组的引用。<br>(4).“(a)(\w)\2”，与上个示例基本相同，只不过变成了匹配字母，这里也需要注意是向后<span style="color: red; font-weight: bold">引用</span>捕获分组，即要求第二个字母与第三个字母相同，也就是匹配形如“abc<span style="color: red; font-weight: bold">abb</span>cbba<span style="color: red; font-weight: bold">abb</span>bc<span style="color: red; font-weight: bold">acc</span>”。</p>
 
-<p>最后提示一点，使用“\”的向后匹配用法时，最好将前面的子表达式均用括号()括起来，之后连同引用表达式一同包在一个括号里面成为一个整体，，明确匹配表达式的优先级，以免出现意想不到的错误。<br>4.将紧随其后的下一个字符标记为八进制转义符，这个用法我基本上没怎么用过，有兴趣的同学可以自行了解一下。</p>
-<h4 id="-1"><a href="#-1" class="headerlink" title="^"></a>^</h4><p>最常见的用法是匹配字符串的开始位置，例如匹配每一行最开始的字母“a”，就可以使用“^a”；除此之外还有一种用法是反向匹配，也就是排除某些字符串，一般与“[]”一起使用，例如“[^a]”的含义就是匹配除了字母“a”之外的所有字符，包括显示字符与非显示字符等。</p>
-<h4 id="-2"><a href="#-2" class="headerlink" title="$"></a>$</h4><p>匹配字符串的结束位置，例如匹配每一行最后面的字母“a”，就可以使用“a$”，这个用法与“^”的第一个用法效果恰好相反。</p>
-<h4 id="-3"><a href="#-3" class="headerlink" title="*"></a>*</h4><p>匹配前面的子表达式零次或多次，例如使用“ab*”就可以匹配形如“<span style="color: red; font-weight: bold">abb</span>cc”或“<span style="color: red; font-weight: bold">a</span>cc”，前面匹配了两次，后面匹配了零次。</p>
-<h4 id="-4"><a href="#-4" class="headerlink" title="+"></a>+</h4><p>匹配前面的子表达式一次或多次，例如使用“ab+”就可以匹配形如“<span style="color: red; font-weight: bold">abb</span>cc”，但是不能匹配形如“acc”，因为要求前面的子表达式至少匹配一次。</p>
-<h4 id="-5"><a href="#-5" class="headerlink" title="?"></a>?</h4><p>该元字符同样有两种用法，最常用的是匹配前面的子表达式零次或一次，例如使用“ab?”就可以匹配形如“<span style="color: red; font-weight: bold">ab</span>bcc”或“<span style="color: red; font-weight: bold">a</span>cc”；除此之外，当该元字符紧跟在任何一个限制符（具体有*、+、?、{n}、{n,}、{n,m}）后面时，则表示当前匹配模式是非贪婪的，它会尽可能少地匹配符合条件的字符串，而默认情况下以上限制符的匹配模式均是贪婪的，它会尽可能多地匹配符合条件的字符串，例如“ab+”将会匹配形如“<span style="color: red; font-weight: bold">abbbbb</span>c<span style="color: red; font-weight: bold">abbb</span>c”，而使用“ab+?”则只会匹配形如“<span style="color: red; font-weight: bold">ab</span>bbbbc<span style="color: red; font-weight: bold">ab</span>bbc”，也就是说贪婪模式追求匹配字符数量的上限，能够匹配多少就匹配多少，非贪婪模式追求匹配字符数量的下限，匹配的字符数量满足要求的最低值便不再向后匹配。</p>
+<p>4.将紧随其后的下一个字符标记为八进制转义符，这个用法我基本上没怎么用过，有兴趣的同学可以自行了解一下。</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title="^"></a>^</h3><p>最常见的用法是匹配字符串的开始位置，例如匹配每一行最开始的字母“a”，就可以使用“^a”；除此之外还有一种用法是反向匹配，也就是排除某些字符串，一般与“[]”一起使用，例如“[^a]”的含义就是匹配除了字母“a”之外的所有字符，包括显示字符与非显示字符等。</p>
+<h3 id="-2"><a href="#-2" class="headerlink" title="$"></a>$</h3><p>匹配字符串的结束位置，例如匹配每一行最后面的字母“a”，就可以使用“a$”，这个用法与“^”的第一个用法效果恰好相反。</p>
+<h3 id="-3"><a href="#-3" class="headerlink" title="*"></a>*</h3><p>匹配前面的子表达式零次或多次，例如使用“ab*”就可以匹配形如“<span style="color: red; font-weight: bold">abb</span>cc”或“<span style="color: red; font-weight: bold">a</span>cc”，前面匹配了两次，后面匹配了零次。</p>
+<h3 id="-4"><a href="#-4" class="headerlink" title="+"></a>+</h3><p>匹配前面的子表达式一次或多次，例如使用“ab+”就可以匹配形如“<span style="color: red; font-weight: bold">abb</span>cc”，但是不能匹配形如“acc”，因为要求前面的子表达式至少匹配一次。</p>
+<h3 id="-5"><a href="#-5" class="headerlink" title="?"></a>?</h3><p>该元字符同样有两种用法，最常用的是匹配前面的子表达式零次或一次，例如使用“ab?”就可以匹配形如“<span style="color: red; font-weight: bold">ab</span>bcc”或“<span style="color: red; font-weight: bold">a</span>cc”；除此之外，当该元字符紧跟在任何一个限制符（具体有*、+、?、{n}、{n,}、{n,m}）后面时，则表示当前匹配模式是非贪婪的，它会尽可能少地匹配符合条件的字符串，而默认情况下以上限制符的匹配模式均是贪婪的，它会尽可能多地匹配符合条件的字符串，例如“ab+”将会匹配形如“<span style="color: red; font-weight: bold">abbbbb</span>c<span style="color: red; font-weight: bold">abbb</span>c”，而使用“ab+?”则只会匹配形如“<span style="color: red; font-weight: bold">ab</span>bbbbc<span style="color: red; font-weight: bold">ab</span>bbc”，也就是说贪婪模式追求匹配字符数量的上限，能够匹配多少就匹配多少，非贪婪模式追求匹配字符数量的下限，匹配的字符数量满足要求的最低值便不再向后匹配。</p>
+<h3 id="n"><a href="#n" class="headerlink" title="{n}"></a>{n}</h3><p>匹配前面的子表达式确定的n次，例如使用“ab{2}”就可以匹配形如“aaa<span style="color: red; font-weight: bold">abb</span>bbcccc”。</p>
+<h3 id="n-1"><a href="#n-1" class="headerlink" title="{n,}"></a>{n,}</h3><p>匹配前面的子表达式至少n次，例如使用“ab{2}”就可以匹配形如“aaa<span style="color: red; font-weight: bold">abbbb</span>cccc”，但不能匹配“aaaabcccc”，因为这里只能匹配到一次“b”。</p>
+<h3 id="n-m"><a href="#n-m" class="headerlink" title="{n,m}"></a>{n,m}</h3><p>匹配前面的子表达式至少n次，至多m次，例如使用“ab{2,3}”就可以匹配形如“aaa<span style="color: red; font-weight: bold">abbb</span>bcccc”，因为至多匹配三次，所以最后的“b”不能被匹配到。需要注意的是，<span style="color: red; font-weight: bold">两个数字与逗号之间没有空格</span>，大家不要写代码写习惯了，自己加一个空格进去……</p>
+<h3 id="-6"><a href="#-6" class="headerlink" title="."></a>.</h3><p>匹配除了换行符“\n”之外的任何单个字符，例如使用“.+”就可以匹配一整行字符。</p>
+<h3 id="string"><a href="#string" class="headerlink" title="(string)"></a>(string)</h3><p>匹配“string”并获取该匹配作为一个捕获分组，这里的捕获分组可以供元字符“\”的向后引用用法使用。</p>
+<h3 id="string-1"><a href="#string-1" class="headerlink" title="(?:string)"></a>(?:string)</h3><p>匹配“string”但不获取该匹配，也就是说该匹配<span style="color: red; font-weight: bold">不可以</span>供元字符“\”的向后引用用法使用。例如“ab(c)(d)\1”，即向后引用第一个捕获分组，也就是“ab(c)(d)(c)”，而“ab(?:c)(d)\1”则为“ab(c)(d)(d)”，也就是说这里的第一个捕获分组是“(d)”而不是“(c)”，因为“(?:c)”表示不获取该匹配作为捕获分组。</p>
+<h3 id="string-2"><a href="#string-2" class="headerlink" title="(?=string)"></a>(?=string)</h3><p>正向预查，也就是从匹配“string”的地方开始向前查找匹配字符串，但并不把“string”也添加到匹配到的字符串中，例如使用“windows(?=2000|XP)”就可以匹配形如“<span style="color: red; font-weight: bold">windows</span>2000 windows7 windowsNT <span style="color: red; font-weight: bold">windows</span>XP”，注意到“windows”后面的“2000”和“XP”没有被添加进匹配的字符串。</p>
+<h3 id="lt-string"><a href="#lt-string" class="headerlink" title="(?&lt;=string)"></a>(?&lt;=string)</h3><p>反向预查，也就是从匹配“string”的地方开始向后查找匹配字符串，但同样不把“string”添加到匹配到的字符串中，例如使用“(?&lt;=windows)10”就可以匹配形如“windows7 linux10 ubuntu10 windows<span style="color: red; font-weight: bold">10</span>”。</p>
+<h3 id="string-3"><a href="#string-3" class="headerlink" title="(?!=string)"></a>(?!=string)</h3><p>反向预查，也就是从任何不匹配“string”的地方开始向前查找匹配字符串，这个用法我没怎么用过，不敢多说话……</p>
+<h3 id="x-y"><a href="#x-y" class="headerlink" title="x|y"></a>x|y</h3><p>匹配“x”或者“y”，例如使用“abc|123”就可以匹配形如“<span style="color: red; font-weight: bold">abc</span>defghi<span style="color: red; font-weight: bold">123</span>456789”。</p>
+<h3 id="xyz"><a href="#xyz" class="headerlink" title="[xyz]"></a>[xyz]</h3><p>字符集合。匹配该字符集合中的任意一个字符（字母或数字），例如使用“[abc]”就可以匹配形如“<span style="color: red; font-weight: bold">a</span>1<span style="color: red; font-weight: bold">b</span>2<span style="color: red; font-weight: bold">c</span>3d4e5f6g7”。</p>
+<h3 id="xyz-1"><a href="#xyz-1" class="headerlink" title="[^xyz]"></a>[^xyz]</h3><p>负值字符集合。不匹配该字符集合中的任意一个字符（字母或数字），例如使用“[^abc]”就可以匹配形如“a<span style="color: red; font-weight: bold">1</span>b<span style="color: red; font-weight: bold">2</span>c<span style="color: red; font-weight: bold">3d4e5f6g7</span>”。</p>
+<h3 id="a-z"><a href="#a-z" class="headerlink" title="[a-z]"></a>[a-z]</h3><p>字符范围。匹配指定范围内的任意一个字符（字母或数字），例如使用“[a-d]”就可以匹配形如“<span style="color: red; font-weight: bold">abcd</span>efg”。</p>
+<h3 id="a-z-1"><a href="#a-z-1" class="headerlink" title="[^a-z]"></a>[^a-z]</h3><p>负值字符范围。不匹配指定范围内的任意一个字符（字母或数字），例如使用“[^a-d]”就可以匹配形如“abcd<span style="color: red; font-weight: bold">efg</span>”。</p>
+<h3 id="b"><a href="#b" class="headerlink" title="\b"></a>\b</h3><p>匹配一个单词边界，但不将该边界也选择到字符串，也就是说该元字符的作用是标识匹配位置（其实，上面的(?=string)和(?&lt;=string)的作用也是标识匹配位置）。例如使用“\bab|ab\b”就可以匹配形如“<span style="color: red; font-weight: bold">ab</span>ababababab<span style="color: red; font-weight: bold">ab</span>”，可以发现表达式只匹配了字符串两头的“ab”，而中间的“ab”则没有被匹配，因为中间的“ab”左右两边都没有单词边界。另外，该元字符也可以匹配数字的边界。</p>
+<h3 id="B"><a href="#B" class="headerlink" title="\B"></a>\B</h3><p>匹配一个非单词边界，与上面的“\b”作用恰好相反。</p>
+<h3 id="d"><a href="#d" class="headerlink" title="\d"></a>\d</h3><p>匹配一个数字字符，等价于“[0-9]”。</p>
+<h3 id="D"><a href="#D" class="headerlink" title="\D"></a>\D</h3><p>匹配一个非数字字符，等价于“[^0-9]”，与上面的“\B”作用恰好相反。</p>
+<h3 id="f"><a href="#f" class="headerlink" title="\f"></a>\f</h3><p>匹配一个换页符。这个我基本没用过。</p>
+<h3 id="n-2"><a href="#n-2" class="headerlink" title="\n"></a>\n</h3><p>匹配一个换行符。</p>
+<h3 id="r"><a href="#r" class="headerlink" title="\r"></a>\r</h3><p>匹配一个回车符。</p>
+<h3 id="t"><a href="#t" class="headerlink" title="\t"></a>\t</h3><p>匹配一个制表符。</p>
+<h3 id="v"><a href="#v" class="headerlink" title="\v"></a>\v</h3><p>匹配一个垂直制表符。</p>
+<h3 id="s"><a href="#s" class="headerlink" title="\s"></a>\s</h3><p>匹配任何空白字符，等价于“[\f\n\r\t\v]”。</p>
+<h3 id="S"><a href="#S" class="headerlink" title="\S"></a>\S</h3><p>匹配任何非空白字符，等价于“[^\f\n\r\t\v]”，与上面的“\s”作用恰好相反。</p>
+<h3 id="w"><a href="#w" class="headerlink" title="\w"></a>\w</h3><p>匹配包括下划线在内的任何单词字符，等价于“[A-Za-z0-9_]”。</p>
+<h3 id="W"><a href="#W" class="headerlink" title="\W"></a>\W</h3><p>不匹配包括下划线在内的任何单词字符，等价于“[^A-Za-z0-9_]”。</p>
+<p>正则表达式中的所有元字符基本上就是这么多了，前面的元字符使用频率很高，后面的相对而言比较低，基本上掌握了元字符的使用方法与技巧，正则表达式就已经掌握了一大半，剩下的就是不断寻找机会慢慢练习了。</p>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>正则表达式是存在优先级的，不同的元字符，其对应的优先级也不同，掌握各个元字符的优先级，可以简化正则表达式，降低出错概率，当然，如果你对优先级不了解，你也可以使用(?:)将正则表达式的每个子表达式包裹起来，这可以达到同样的效果。</p>
+<h3 id="第一优先级-转义符-“-”"><a href="#第一优先级-转义符-“-”" class="headerlink" title="第一优先级 转义符 “\”"></a>第一优先级 转义符 “\”</h3><p>转义符“\”的优先级是最高的，其后面跟随的字符几乎全部会首先被看做是转义字符。</p>
+<h3 id="第二优先级-圆括号与方括号"><a href="#第二优先级-圆括号与方括号" class="headerlink" title="第二优先级 圆括号与方括号"></a>第二优先级 圆括号与方括号</h3><p>具体来说有“()，(?:)，(?=)，(?&lt;=)，[]”。</p>
+<h3 id="第三优先级-限制符"><a href="#第三优先级-限制符" class="headerlink" title="第三优先级 限制符"></a>第三优先级 限制符</h3><p>具体来说有“*，+，?，{n}，{n,}，{n,m}”。</p>
+<h3 id="第四优先级-“或”运算"><a href="#第四优先级-“或”运算" class="headerlink" title="第四优先级 “或”运算"></a>第四优先级 “或”运算</h3><p>“|”具有最低的优先级，字符优先级都比”|“高，例如使用”ab|cd“就可以匹配形如”<span style="color: red; font-weight: bold">ab</span>da<span style="color: red; font-weight: bold">cd</span>“，如果你的本意是向匹配”abd“或”acd“，请按照我上面所说的方法，使用”a(?:b|c)d“来改变优先级，或者更简单地使用”a[bc]d“。</p>
+<p>关于正则表达式，就暂时写这么多吧，这种东西最注重实践，用得多了，自然就熟练了，关于技巧嘛，我暂时还没有什么特别的技巧，等以后在实践中遇到了，我会到这里来补充的，就这样吧~</p>
 
   </section>
 
