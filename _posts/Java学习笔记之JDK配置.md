@@ -1,7 +1,7 @@
 ---
-title: Java学习之JDK配置
+title: Java学习笔记（一）JDK配置
 category: 解决办法
-tag: [Java,JDK配置]
+tag: [Java]
 date: 2016-10-29 15:29:54
 ---
 
