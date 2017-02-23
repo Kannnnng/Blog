@@ -45,4 +45,7 @@ date: 2017-02-16 14:32:00
   <div style="float:left">浮动内容</div>
 </div>
 ```
-3.在浮动元素的后面添加一个清除浮动的空元素，例如<div style="clear:both;"></div>。
+3.在浮动元素的后面添加一个清除浮动的空元素，例如
+``` html
+<div style="clear:both;"></div>。
+```
