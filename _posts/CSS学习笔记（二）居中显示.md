@@ -80,6 +80,6 @@ date: 2017-02-23 13:55:00
   <h1>这些父元素高度固定的h1元素可以垂直居中</h1>
 </div>
 ```
-上面的代码中，父元素设置了“display:table-cell”属性和“vertical-align:middle”属性的众多h1元素可以垂直居中显示，其实，设置了“display:table-cell”属性的元素默认含有“vertical-align:middle”属性，所以在这里可以讲“vertical-align:middle”属性省略不写，一样可以实现垂直居中显示效果。
+上面的代码中，父元素设置了“display:table-cell”属性和“vertical-align:middle”属性的众多h1元素可以垂直居中显示，其实，设置了“display:table-cell”属性的元素默认含有“vertical-align:middle”属性，所以在这里可以将“vertical-align:middle”属性省略不写，一样可以实现垂直居中显示效果。
 
 关于居中显示的情况，暂时就想到了这么多，等以后有了新的发现再来补充。
