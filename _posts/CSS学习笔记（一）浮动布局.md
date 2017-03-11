@@ -41,6 +41,7 @@ date: 2017-02-16 14:32:00
     clear: both;
   }
 </style>
+<!-- 将伪类添加到父元素上 -->
 <div class="clearfix">
   <div style="float:left">浮动内容</div>
 </div>
@@ -49,3 +50,4 @@ date: 2017-02-16 14:32:00
 ``` html
 <div style="clear:both;"></div>。
 ```
+这种方法不推荐使用，因为会引入不必要的空元素。
