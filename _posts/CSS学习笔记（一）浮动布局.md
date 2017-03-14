@@ -1,7 +1,7 @@
 ---
 title: CSS学习笔记（一）浮动布局
 category: 学习笔记
-tag: [CSS,前度开发]
+tag: [CSS,前端开发]
 date: 2017-02-16 14:32:00
 ---
 

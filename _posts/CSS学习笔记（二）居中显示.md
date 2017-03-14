@@ -1,7 +1,7 @@
 ---
 title: CSS学习笔记（二）居中显示
 category: 学习笔记
-tag: [CSS,前度开发]
+tag: [CSS,前端开发]
 date: 2017-02-23 13:55:00
 ---
 
