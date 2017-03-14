@@ -1,7 +1,7 @@
 ---
 title: Gulp学习笔记（一）Gulp的基本使用
 category: 学习笔记
-tag: [Gulp,前段自动化]
+tag: [Gulp,前端自动化]
 date: 2017-03-11 11:57:00
 ---
 
