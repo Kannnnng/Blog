@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/22/正则表达式学习笔记（一）基本用法/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
-<meta property="og:updated_time" content="2017-02-09T15:19:46.644Z">
+<meta property="og:updated_time" content="2017-03-11T03:19:24.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式学习笔记（一）基本用法 | Kang">
 <meta name="twitter:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
@@ -206,7 +206,7 @@ classes that you can use:
 <h3 id="string"><a href="#string" class="headerlink" title="(string)"></a>(string)</h3><p>匹配“string”并获取该匹配作为一个捕获分组，这里的捕获分组可以供元字符“\”的向后引用用法使用。</p>
 <h3 id="string-1"><a href="#string-1" class="headerlink" title="(?:string)"></a>(?:string)</h3><p>匹配“string”但不获取该匹配，也就是说该匹配<span style="color: red; font-weight: bold">不可以</span>供元字符“\”的向后引用用法使用。例如“ab(c)(d)\1”，即向后引用第一个捕获分组，也就是“ab(c)(d)(c)”，而“ab(?:c)(d)\1”则为“ab(c)(d)(d)”，也就是说这里的第一个捕获分组是“(d)”而不是“(c)”，因为“(?:c)”表示不获取该匹配作为捕获分组。</p>
 <h3 id="string-2"><a href="#string-2" class="headerlink" title="(?=string)"></a>(?=string)</h3><p>正向预查，也就是从匹配“string”的地方开始向前查找匹配字符串，但并不把“string”也添加到匹配到的字符串中，例如使用“windows(?=2000|XP)”就可以匹配形如“<span style="color: red; font-weight: bold">windows</span>2000 windows7 windowsNT <span style="color: red; font-weight: bold">windows</span>XP”，注意到“windows”后面的“2000”和“XP”没有被添加进匹配的字符串。</p>
-<h3 id="lt-string"><a href="#lt-string" class="headerlink" title="(?&lt;=string)"></a>(?&lt;=string)</h3><p>反向预查，也就是从匹配“string”的地方开始向后查找匹配字符串，但同样不把“string”添加到匹配到的字符串中，例如使用“(?&lt;=windows)10”就可以匹配形如“windows7 linux10 ubuntu10 windows<span style="color: red; font-weight: bold">10</span>”。</p>
+<h3 id="lt-string"><a href="#lt-string" class="headerlink" title="(?&lt;=string)"></a>(?&lt;=string)</h3><p>反向预查，也就是从匹配“string”的地方开始向后查找匹配字符串，但同样不把“string”添加到匹配到的字符串中，例如使用“(?&lt;=windows)10”就可以匹配形如“windows7 linux10 ubuntu10 windows<span style="color: red; font-weight: bold">10</span>”。此用法与上面的正向预查用法一起使用，可以精确定位并选择想要选择的内容，例如使用“(?&lt;=string)xxx(?=number)”就可以精确地选择出字符串“string”和“number”中间所夹的字符。</p>
 <h3 id="string-3"><a href="#string-3" class="headerlink" title="(?!=string)"></a>(?!=string)</h3><p>反向预查，也就是从任何不匹配“string”的地方开始向前查找匹配字符串，这个用法我没怎么用过，不敢多说话……</p>
 <h3 id="x-y"><a href="#x-y" class="headerlink" title="x|y"></a>x|y</h3><p>匹配“x”或者“y”，例如使用“abc|123”就可以匹配形如“<span style="color: red; font-weight: bold">abc</span>defghi<span style="color: red; font-weight: bold">123</span>456789”。</p>
 <h3 id="xyz"><a href="#xyz" class="headerlink" title="[xyz]"></a>[xyz]</h3><p>字符集合。匹配该字符集合中的任意一个字符（字母或数字），例如使用“[abc]”就可以匹配形如“<span style="color: red; font-weight: bold">a</span>1<span style="color: red; font-weight: bold">b</span>2<span style="color: red; font-weight: bold">c</span>3d4e5f6g7”。</p>

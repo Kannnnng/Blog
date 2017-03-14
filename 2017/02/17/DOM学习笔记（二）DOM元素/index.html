@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/02/17/DOM学习笔记（二）DOM元素/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="DOM元素也是DOM知识中的基础部分，了解DOM元素的特性对以后通过JavaScript控制DOM有很大帮助。">
-<meta property="og:updated_time" content="2017-02-23T13:36:48.936Z">
+<meta property="og:updated_time" content="2017-03-11T03:40:54.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM学习笔记（二）DOM元素 | Kang">
 <meta name="twitter:description" content="DOM元素也是DOM知识中的基础部分，了解DOM元素的特性对以后通过JavaScript控制DOM有很大帮助。">
@@ -192,7 +192,7 @@ classes that you can use:
 <p>常见的块级元素有：div、ul、li、p、form、table、h1～h6……</p>
 <h4 id="內联元素"><a href="#內联元素" class="headerlink" title="內联元素"></a>內联元素</h4><p>1.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；<br>2.其宽度随内容的多少而变化；<br>3.不可以设置width和height属性，即使设置也是无效的；<br>4.可以正常设置padding－left、padding－right、margin－left、margin－right；<br>5.不能设置margin－top和margin－bottom，即使设置也是无效的；<br>6.设置padding－top和padding－bottom时，是基于元素内容对齐的，而不是基于边界对齐的，也就是说设置padding－top和padding－bottom时，元素内容位置不变，边框位置发生变化。</p>
 <p>常见的內联元素有：span、a、strong、label、select、textarea……</p>
-<h4 id="内联块级元素"><a href="#内联块级元素" class="headerlink" title="内联块级元素"></a>内联块级元素</h4><p>1.将元素呈递为内联元素，但元素的内容作为块级元素呈递，可以理解为块级元素与內联元素的结合；<br>2.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；<br>3.能够设置width和height属性。</p>
+<h4 id="内联块级元素"><a href="#内联块级元素" class="headerlink" title="内联块级元素"></a>内联块级元素</h4><p>1.将元素呈递为内联元素，但元素的内容作为块级元素呈递，可以理解为块级元素与內联元素的结合；<br>2.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；<br>3.能够设置width和height属性；<br>4.能够设置padding属性与margin属性。(待验证)</p>
 <p>常见的內联元素有：input、img。</p>
 <h3 id="常见DOM元素的嵌套规则"><a href="#常见DOM元素的嵌套规则" class="headerlink" title="常见DOM元素的嵌套规则"></a>常见DOM元素的嵌套规则</h3><p>这个知识点应该是最常用的，但也是比较容易出问题的，具体看来常见DOM元素的嵌套规则有如下几项：</p>
 <p>1.块级元素可以包含內联元素或其他块级元素，但內联元素却不能包含块级元素，它只能包含其他的內联元素。例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>  正确</div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>       错误</div></pre></td></tr></table></figure></p>
