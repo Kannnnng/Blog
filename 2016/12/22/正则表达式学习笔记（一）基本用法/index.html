@@ -22,7 +22,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/22/正则表达式学习笔记（一）基本用法/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
-<meta property="og:updated_time" content="2017-03-11T03:19:24.995Z">
+<meta property="og:updated_time" content="2017-03-17T12:12:10.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="正则表达式学习笔记（一）基本用法 | Kang">
 <meta name="twitter:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
@@ -207,6 +207,8 @@ classes that you can use:
 <h3 id="string-1"><a href="#string-1" class="headerlink" title="(?:string)"></a>(?:string)</h3><p>匹配“string”但不获取该匹配，也就是说该匹配<span style="color: red; font-weight: bold">不可以</span>供元字符“\”的向后引用用法使用。例如“ab(c)(d)\1”，即向后引用第一个捕获分组，也就是“ab(c)(d)(c)”，而“ab(?:c)(d)\1”则为“ab(c)(d)(d)”，也就是说这里的第一个捕获分组是“(d)”而不是“(c)”，因为“(?:c)”表示不获取该匹配作为捕获分组。</p>
 <h3 id="string-2"><a href="#string-2" class="headerlink" title="(?=string)"></a>(?=string)</h3><p>正向预查，也就是从匹配“string”的地方开始向前查找匹配字符串，但并不把“string”也添加到匹配到的字符串中，例如使用“windows(?=2000|XP)”就可以匹配形如“<span style="color: red; font-weight: bold">windows</span>2000 windows7 windowsNT <span style="color: red; font-weight: bold">windows</span>XP”，注意到“windows”后面的“2000”和“XP”没有被添加进匹配的字符串。</p>
 <h3 id="lt-string"><a href="#lt-string" class="headerlink" title="(?&lt;=string)"></a>(?&lt;=string)</h3><p>反向预查，也就是从匹配“string”的地方开始向后查找匹配字符串，但同样不把“string”添加到匹配到的字符串中，例如使用“(?&lt;=windows)10”就可以匹配形如“windows7 linux10 ubuntu10 windows<span style="color: red; font-weight: bold">10</span>”。此用法与上面的正向预查用法一起使用，可以精确定位并选择想要选择的内容，例如使用“(?&lt;=string)xxx(?=number)”就可以精确地选择出字符串“string”和“number”中间所夹的字符。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>在JavaScript的正则对象中，不支持反向预查功能，比较好的替代方法是在想要匹配的字符串前面该换用“(?:string)”来替代“(?&lt;=string)”，最后的效果相同。</p>
 <h3 id="string-3"><a href="#string-3" class="headerlink" title="(?!=string)"></a>(?!=string)</h3><p>反向预查，也就是从任何不匹配“string”的地方开始向前查找匹配字符串，这个用法我没怎么用过，不敢多说话……</p>
 <h3 id="x-y"><a href="#x-y" class="headerlink" title="x|y"></a>x|y</h3><p>匹配“x”或者“y”，例如使用“abc|123”就可以匹配形如“<span style="color: red; font-weight: bold">abc</span>defghi<span style="color: red; font-weight: bold">123</span>456789”。</p>
 <h3 id="xyz"><a href="#xyz" class="headerlink" title="[xyz]"></a>[xyz]</h3><p>字符集合。匹配该字符集合中的任意一个字符（字母或数字），例如使用“[abc]”就可以匹配形如“<span style="color: red; font-weight: bold">a</span>1<span style="color: red; font-weight: bold">b</span>2<span style="color: red; font-weight: bold">c</span>3d4e5f6g7”。</p>
@@ -223,6 +225,8 @@ classes that you can use:
 <h3 id="t"><a href="#t" class="headerlink" title="\t"></a>\t</h3><p>匹配一个制表符。</p>
 <h3 id="v"><a href="#v" class="headerlink" title="\v"></a>\v</h3><p>匹配一个垂直制表符。</p>
 <h3 id="s"><a href="#s" class="headerlink" title="\s"></a>\s</h3><p>匹配任何空白字符，等价于“[\f\n\r\t\v]”。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>严格来说，“\s”并不完全等价于“[\f\n\r\t\v]”，因为除此之外还有一些不能显示的字符也相当于空白字符，这些字符可以被“\s”匹配，但不能被“[\f\n\r\t\v]”匹配，所以实际使用的时候需要注意这一点。</p>
 <h3 id="S"><a href="#S" class="headerlink" title="\S"></a>\S</h3><p>匹配任何非空白字符，等价于“[^\f\n\r\t\v]”，与上面的“\s”作用恰好相反。</p>
 <h3 id="w"><a href="#w" class="headerlink" title="\w"></a>\w</h3><p>匹配包括下划线在内的任何单词字符，等价于“[A-Za-z0-9_]”。</p>
 <h3 id="W"><a href="#W" class="headerlink" title="\W"></a>\W</h3><p>不匹配包括下划线在内的任何单词字符，等价于“[^A-Za-z0-9_]”。</p>
@@ -232,6 +236,8 @@ classes that you can use:
 <h3 id="第二优先级-圆括号与方括号"><a href="#第二优先级-圆括号与方括号" class="headerlink" title="第二优先级 圆括号与方括号"></a>第二优先级 圆括号与方括号</h3><p>具体来说有“()，(?:)，(?=)，(?&lt;=)，[]”。</p>
 <h3 id="第三优先级-限制符"><a href="#第三优先级-限制符" class="headerlink" title="第三优先级 限制符"></a>第三优先级 限制符</h3><p>具体来说有“*，+，?，{n}，{n,}，{n,m}”。</p>
 <h3 id="第四优先级-“或”运算"><a href="#第四优先级-“或”运算" class="headerlink" title="第四优先级 “或”运算"></a>第四优先级 “或”运算</h3><p>“|”具有最低的优先级，字符优先级都比”|“高，例如使用”ab|cd“就可以匹配形如”<span style="color: red; font-weight: bold">ab</span>da<span style="color: red; font-weight: bold">cd</span>“，如果你的本意是向匹配”abd“或”acd“，请按照我上面所说的方法，使用”a(?:b|c)d“来改变优先级，或者更简单地使用”a[bc]d“。</p>
+<h2 id="常用的正则技巧"><a href="#常用的正则技巧" class="headerlink" title="常用的正则技巧"></a>常用的正则技巧</h2><p>下面这些是我在学习工作过程中遇到的一些比较有用的正则技巧，现在在这里记下来，以备后用。</p>
+<h4 id="匹配汉字"><a href="#匹配汉字" class="headerlink" title="匹配汉字"></a>匹配汉字</h4><p>在JavaScript的正则对象中，元字符“\w”仅匹配字母和数字，不匹配中文字符，这里需要使用“[\u4e00-\u9fa5]”来匹配中文，其原理是在Unicode编码表中，汉字的编码是从4e00到9fa5，所以在此范围内的所有编码字符都是中文字符，使用字符集合即可匹配这些中文字符。</p>
 <p>关于正则表达式，就暂时写这么多吧，这种东西最注重实践，用得多了，自然就熟练了，关于技巧嘛，我暂时还没有什么特别的技巧，等以后在实践中遇到了，我会到这里来补充的，就这样吧~</p>
 
   </section>
