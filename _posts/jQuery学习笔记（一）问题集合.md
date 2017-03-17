@@ -37,9 +37,11 @@ $("xxx").trigger("事件");
 document.getElementById("xxx").click();
 ```
 所以这也让我了解到，使用jQuery过程中出现什么莫名其妙、自己无法解决的问题，换用JavaScript的原生代码是比较好的解决方式。
+
 ___
 2016.11.09更新：果然，在昨天写代码的过程中再次得到了这个教训，这次是想通过jQuery来对select元素内部的option进行自动选择，使用jQuery需要为被选择的option添加“selected: selected”属性，这样做时好时坏，用调试器看了一下，好像手动选择的option并没有添加上面的属性，最后的效果是，添加了上面的属性能够正常工作，但与手动选择同时使用时就出现问题了，没办法我只好使用JavaScript的原生代码document.getElementById("xxx").selectedIndex，终于解决问题。
 ___
+
 ### typeof的返回值
 1.对于数字类型的操作数而言，typeof返回的值是number。比如说typeof(1)，返回的值就是number。
 
