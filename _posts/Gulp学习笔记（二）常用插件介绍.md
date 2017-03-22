@@ -169,3 +169,49 @@ gulp.src("src/text/hello.txt")  // src/text/hello.txt
 ```
 在上面的代码中，比较全面的展示了gulp-rename其他选项的作用，其中，“dirname”用于设置文件存储路径，“basename”用于设置文件的基础名，“prefix”为文件名添加前缀，“suffix”为文件名添加后缀，“extname”用于设置文件的扩展名。
 
+### gulp-livereload
+这是一款实现代码修改后浏览器自动刷新功能的插件，可以说这个插件帮助我们节省了前端开发过程中一个很费神的事情，使用这款插件以后我们就可以实现仅在编辑器中保存代码，然后浏览器就会自动刷新的效果了。但这款插件的使用相较于上面的几款插件来说就有些复杂，它需要与另外几个插件一起使用才能够达到很好的实时刷新效果。下面是一个gulp-livereload插件与其他几款插件一起使用完成实时刷新功能的使用实例。
+``` JavaScript
+var livereload = require("gulp-livereload");  // gulp重载插件
+var url = require("url");  // url插件
+var proxy = require("proxy-middleware");  // 代理插件
+var gulp = require('gulp');  // 引入gulp主模块
+
+gulp.task("connect", function() {
+  var connect = require("connect");  // 引入connect插件
+  var app = connect()
+      .use(require("connect-livereload")({ port: 35729 }))  // 引入connect-livereload插件
+      .use(require("serve-static")("dist"))  // 引入serve-static插件，并将dist文件夹作为根目录
+      .use("/api", proxy(url.parse("http://localhost:4000")));  // 设置向后端发送请求的代理
+
+  require("http").createServer(app)  // 引入http插件
+    .listen(9000)
+    .on("listening", function() {
+      console.log("Started connect web server on http://localhost:9000");
+    });
+});
+
+gulp.task("serve", ["connect"], function() {
+  require("opn")("http://localhost:9000/");  // 引入opn插件，使用系统默认浏览器打开网址“http://localhost:9000”
+});
+
+gulp.task("watch", ["serve"], function() {
+  livereload({ start: true });  // 启动livereload，开始工作
+  gulp.watch(["dist/**"]).on("change", function(file) {  // 监视文件夹“dist”内的所有文件，如果发生变动，则执行后面的回调函数，并将变动的文件信息作为参数传入函数中
+    livereload.changed(file.path);
+  });
+});
+```
+在上面的代码中，我们前前后后引入了gulp、gulp-livereload、url、proxy-middleware、connect、connect-livereload、serve-static、url、proxy-middleware、http、opn等11个插件，共同完成这个任务，每个插件的作用如下
+
+＋ gulp
+＋ gulp-livereload
+＋ url
+＋ proxy-middleware
+＋ connect
+＋ connect-livereload
+＋ serve-static
+＋ url
+＋ proxy-middleware
+＋ http
+＋ opn
