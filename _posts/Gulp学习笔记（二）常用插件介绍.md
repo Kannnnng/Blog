@@ -212,7 +212,9 @@ gulp.task('watch', function() {
 ```
 在上面的代码中，我们一开始同样先定义了一个Gulp任务，规定任何sass文件发生变化，就调用任务内部的处理代码将sass编译成css，然后存放到指定位置，注意到现在我们不在任务的后面通过添加“livereload()”来指定何时应该刷新浏览器页面，而是放在了后面的“watch”任务中，在“watch”任务里面，首先启动“gulp-livereload”，然后使用Gulp自带的”watch“API来监视位于”dist“文件夹下面的任何文件是否发生变化，如果发生变化，则自动调用后面写好了的回调函数，在回调函数里面，发生变化的文件信息以参数”file“的形式传入函数中，之后通过调用”livereload.changed(path)“来完成相应页面的自动刷新，该API需要传入一个发生变化的文件的路径作为参数，其可以通过”file.path“获得。通过以上工作，我们就实现了”dist“文件夹内的任何文件发生变化时，页面都会根据需要自动刷新的功能，省去了在每一个Gulp任务的后面添加“livereload()”来指定何时刷新的工作。
 
+___
 <span style="color: red; font-weight: bold">注意：</span>仅使用“gulp-livereload”插件并不能完全实现自动刷新功能，还需要配合chrome插件[LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)，或者在建立本地服务器时使用“connect-livereload”插件，在本文的后面将会讲到“connect-livereload”插件以及如何在搭建本地服务器中使用它。
+___
 
 ### proxy-middleware
 这是一款在向后端发送请求时设置代理的插件，通俗一点来讲就是更改向后端发送请求的URL，比如你当前页面所属域名为“<span>https:</span>//example.com/endpoint”，那么当你需要向后端发送请求（GET、POST等）时，你请求的URL可能会类似于“<span>https:</span>//example.com/endpoint/getsomething?name=xxx&type=xxx”，这样写不仅麻烦，同时当页面所处域名发生变化时，你就需要改动几乎所有的请求URL，而使用这款插件以后，你就可以在服务器初始化的时候设置当前所处域名，并且之后你的所有请求URL只需要写成“/api/getsomething?name=xxx&type=xxx/”即可。下面是一个“proxy-middleware”插件的使用实例。
