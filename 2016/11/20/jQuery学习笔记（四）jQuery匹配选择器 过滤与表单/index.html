@@ -7,7 +7,7 @@
     
 
     <title>
-      jQuery学习笔记（四）jQuery匹配选择器 过滤与表单 | Kang 
+      jQuery 学习笔记（四）jQuery 匹配选择器 过滤与表单 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -18,13 +18,13 @@
 
     <meta name="description" content="蛋疼的我又回来了，因为心里感觉总是有块石头没落下来，过滤选择器是我比较喜欢用，同时了解也不是很清楚的选择器，在项目里实际使用的时候总出现一些莫名其妙的问题，我知道这是对过滤选择器的知识了解的不够多导致的，这也促使我今晚上一定要写点东西出来，能写出来心里就明白了，就算是写不完也没事，反正明天照样不去公司，有时间继续补。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery学习笔记（四）jQuery匹配选择器 过滤与表单 | Kang">
+<meta property="og:title" content="jQuery 学习笔记（四）jQuery 匹配选择器 过滤与表单 | Kang">
 <meta property="og:url" content="http://yoursite.com/2016/11/20/jQuery学习笔记（四）jQuery匹配选择器 过滤与表单/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="蛋疼的我又回来了，因为心里感觉总是有块石头没落下来，过滤选择器是我比较喜欢用，同时了解也不是很清楚的选择器，在项目里实际使用的时候总出现一些莫名其妙的问题，我知道这是对过滤选择器的知识了解的不够多导致的，这也促使我今晚上一定要写点东西出来，能写出来心里就明白了，就算是写不完也没事，反正明天照样不去公司，有时间继续补。">
-<meta property="og:updated_time" content="2017-03-17T15:30:28.867Z">
+<meta property="og:updated_time" content="2017-03-26T14:44:04.905Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery学习笔记（四）jQuery匹配选择器 过滤与表单 | Kang">
+<meta name="twitter:title" content="jQuery 学习笔记（四）jQuery 匹配选择器 过滤与表单 | Kang">
 <meta name="twitter:description" content="蛋疼的我又回来了，因为心里感觉总是有块石头没落下来，过滤选择器是我比较喜欢用，同时了解也不是很清楚的选择器，在项目里实际使用的时候总出现一些莫名其妙的问题，我知道这是对过滤选择器的知识了解的不够多导致的，这也促使我今晚上一定要写点东西出来，能写出来心里就明白了，就算是写不完也没事，反正明天照样不去公司，有时间继续补。">
     
     
@@ -154,7 +154,7 @@ classes that you can use:
 
   <header class="post-header">
 
-    <h1 class="post-title">jQuery学习笔记（四）jQuery匹配选择器 过滤与表单</h1>
+    <h1 class="post-title">jQuery 学习笔记（四）jQuery 匹配选择器 过滤与表单</h1>
 
     
 
@@ -186,52 +186,52 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p>蛋疼的我又回来了，因为心里感觉总是有块石头没落下来，过滤选择器是我比较喜欢用，同时了解也不是很清楚的选择器，在项目里实际使用的时候总出现一些莫名其妙的问题，我知道这是对过滤选择器的知识了解的不够多导致的，这也促使我今晚上一定要写点东西出来，能写出来心里就明白了，就算是写不完也没事，反正明天照样不去公司，有时间继续补。<a id="more"></a></p>
-<p>在上上篇文章里面，我们讨论了jQuery四大匹配选择器中的前两个，基本选择器与层次选择器，现在我们来讨论后两个，过滤选择器与表单选择器。</p>
-<h3 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h3><p>有时候我们会有一些比较特殊的需求，例如，我们使用$(“#test p”)选择到了id为test的元素的后代元素中的p元素，但我们想给选择到的第一个p元素设置格外的CSS样式，这就要求我们从已经选择到的众多p元素中筛选出符合条件的第一个p元素，如果我们仍然只使用基本选择器与层次选择器，那无疑会给工作带来一些困难。幸运的是，jQuery的开发者们早就想到了这个问题，并且给出了相应的解决方案，这就是过滤选择器。</p>
-<p>过滤选择器可以通过特定的过滤规则来筛选出所需的DOM元素，它的语法类似于CSS中的伪类选择器，以冒号作为开头。过滤选择器根据其过滤规则的种类，又可以分为基本过滤选择器、内容过滤选择器、可见性过滤选择器、属性过滤选择器、子元素过滤选择器以及表单属性过滤选择器，下面我们分别对这数种过滤选择器展开讨论。</p>
+<p>在上上篇文章里面，我们讨论了 jQuery 四大匹配选择器中的前两个，基本选择器与层次选择器，现在我们来讨论后两个，过滤选择器与表单选择器。</p>
+<h3 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h3><p>有时候我们会有一些比较特殊的需求，例如，我们使用 $(“#test p”) 选择到了 id 为 test 的元素的后代元素中的 p 元素，但我们想给选择到的第一个 p 元素设置格外的 CSS 样式，这就要求我们从已经选择到的众多 p 元素中筛选出符合条件的第一个 p 元素，如果我们仍然只使用基本选择器与层次选择器，那无疑会给工作带来一些困难。幸运的是，jQuery 的开发者们早就想到了这个问题，并且给出了相应的解决方案，这就是过滤选择器。</p>
+<p>过滤选择器可以通过特定的过滤规则来筛选出所需的 DOM 元素，它的语法类似于 CSS 中的伪类选择器，以冒号作为开头。过滤选择器根据其过滤规则的种类，又可以分为基本过滤选择器、内容过滤选择器、可见性过滤选择器、属性过滤选择器、子元素过滤选择器以及表单属性过滤选择器，下面我们分别对这数种过滤选择器展开讨论。</p>
 <h4 id="基本过滤选择器"><a href="#基本过滤选择器" class="headerlink" title="基本过滤选择器"></a>基本过滤选择器</h4><p>基本过滤选择器也可以称之为简单过滤选择器，它是过滤选择器中使用最为广泛的一种，它主要用来选择首、尾、指定索引、奇数或偶数位的元素等等。具体包含有如下几种过滤规则。</p>
-<h5 id="first"><a href="#first" class="headerlink" title=":first"></a>:first</h5><p>从找到的众多元素中筛选出第一个元素，例如上面所要求的，从找到的众多的p元素中筛选出第一个p元素，便可以通过$(“p:first”)实现。</p>
-<h5 id="last"><a href="#last" class="headerlink" title=":last"></a>:last</h5><p>从找到的众多元素中筛选出最后一个元素，效果与:first恰好相反。</p>
-<h5 id="not-selector"><a href="#not-selector" class="headerlink" title=":not(selector)"></a>:not(selector)</h5><p>从找到的众多元素中去除所有与给定选择器相匹配的元素，其中selector为一个匹配选择器，可以是jQuery所支持的各种匹配选择器的自由组合，可以简单也可以复杂。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>3<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>5<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>6<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>我们使用$(“div&gt;”)，则会选择div元素的所有子元素，若我们想要排除button元素，则可以使用$(“div&gt;:not(button)”)，若还想排除span元素，则可以使用$(“div&gt;:not(button, span)”)，若想排除所有的p元素，除了可以写成$(“div&gt;:not(p)”)外，也可以写成$(“div&gt;:not(div&gt;p)”)，甚至还可以写成$(“div&gt;:not(div&gt;:not(div&gt;:not(p)))”)，三者的效果都是相同的（不过应该不会有人闲的蛋疼到写第二种和第三种吧……）！这也再次证明了jQuery的灵活性。</p>
-<h5 id="odd"><a href="#odd" class="headerlink" title=":odd"></a>:odd</h5><p>从找到的众多元素中筛选出所有索引值为奇数的元素，这里需要注意两点，一是<span style="color: red"><b>索引值是从0开始计数的；</b></span>二是<span style="color: red"><b>需要的索引值不能使用index()函数来得到；</b></span>这是因为index()函数获取的元素的索引值是元素在实际的HTML文档里面的排序值，不是在众多被选择器选择出来的元素里面的排序值，两者不是一回事。</p>
-<h5 id="even"><a href="#even" class="headerlink" title=":even"></a>:even</h5><p>作用与:odd恰好相反，从找到的众多元素中筛选出所有索引值为偶数的元素，使用时同样需要注意以上两点。:odd与:even在显示表格时比较有用，比如要求相邻数据行的颜色不同，那么就可以使用这两个筛选器来对奇数行数据和偶数行数据赋予不同的背景颜色。</p>
-<h5 id="eq-index"><a href="#eq-index" class="headerlink" title=":eq(index)"></a>:eq(index)</h5><p>从找到的众多元素中筛选出索引值为index的元素，使用时同样需要注意以上两点。</p>
-<h5 id="gt-index"><a href="#gt-index" class="headerlink" title=":gt(index)"></a>:gt(index)</h5><p>从找到的众多元素中筛选出索引值大于index的元素，使用时同样需要注意以上两点，例如，想从选择器选择到的10个p元素中筛选出后面7个，就可以使用$(“p:gt(2)”)。</p>
-<h5 id="lt-index"><a href="#lt-index" class="headerlink" title=":lt(index)"></a>:lt(index)</h5><p>作用与上面的:gt恰好相反，从找到的众多元素中筛选出索引值小于index的元素，使用时同样需要注意以上两点。</p>
-<h5 id="header"><a href="#header" class="headerlink" title=":header"></a>:header</h5><p>从找到的众多元素中筛选出h1、h2、h3这类标题元素，没用过不敢多说话。</p>
+<h5 id="first"><a href="#first" class="headerlink" title=":first"></a>:first</h5><p>从找到的众多元素中筛选出第一个元素，例如上面所要求的，从找到的众多的 p 元素中筛选出第一个 p 元素，便可以通过 $(“p:first”) 实现。</p>
+<h5 id="last"><a href="#last" class="headerlink" title=":last"></a>:last</h5><p>从找到的众多元素中筛选出最后一个元素，效果与:first 恰好相反。</p>
+<h5 id="not-selector"><a href="#not-selector" class="headerlink" title=":not(selector)"></a>:not(selector)</h5><p>从找到的众多元素中去除所有与给定选择器相匹配的元素，其中 selector 为一个匹配选择器，可以是 jQuery 所支持的各种匹配选择器的自由组合，可以简单也可以复杂。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>3<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>4<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>5<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>6<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们使用 $(“div&gt;”)，则会选择 div 元素的所有子元素，若我们想要排除 button 元素，则可以使用 $(“div&gt;:not(button)”)，若还想排除 span 元素，则可以使用 $(“div&gt;:not(button, span)”)，若想排除所有的 p 元素，除了可以写成 $(“div&gt;:not(p)”) 外，也可以写成 $(“div&gt;:not(div&gt;p)”)，甚至还可以写成 $(“div&gt;:not(div&gt;:not(div&gt;:not(p)))”)，三者的效果都是相同的（不过应该不会有人闲的蛋疼到写第二种和第三种吧……）！这也再次证明了 jQuery 的灵活性。</p>
+<h5 id="odd"><a href="#odd" class="headerlink" title=":odd"></a>:odd</h5><p>从找到的众多元素中筛选出所有索引值为奇数的元素，这里需要注意两点，一是<span style="color: red"><b>索引值是从 0 开始计数的；</b></span>二是<span style="color: red"><b>需要的索引值不能使用 index() 函数来得到；</b></span>这是因为 index() 函数获取的元素的索引值是元素在实际的 HTML 文档里面的排序值，不是在众多被选择器选择出来的元素里面的排序值，两者不是一回事。</p>
+<h5 id="even"><a href="#even" class="headerlink" title=":even"></a>:even</h5><p>作用与:odd 恰好相反，从找到的众多元素中筛选出所有索引值为偶数的元素，使用时同样需要注意以上两点。:odd 与:even 在显示表格时比较有用，比如要求相邻数据行的颜色不同，那么就可以使用这两个筛选器来对奇数行数据和偶数行数据赋予不同的背景颜色。</p>
+<h5 id="eq-index"><a href="#eq-index" class="headerlink" title=":eq(index)"></a>:eq(index)</h5><p>从找到的众多元素中筛选出索引值为 index 的元素，使用时同样需要注意以上两点。</p>
+<h5 id="gt-index"><a href="#gt-index" class="headerlink" title=":gt(index)"></a>:gt(index)</h5><p>从找到的众多元素中筛选出索引值大于 index 的元素，使用时同样需要注意以上两点，例如，想从选择器选择到的 10 个 p 元素中筛选出后面 7 个，就可以使用 $(“p:gt(2)”)。</p>
+<h5 id="lt-index"><a href="#lt-index" class="headerlink" title=":lt(index)"></a>:lt(index)</h5><p>作用与上面的:gt 恰好相反，从找到的众多元素中筛选出索引值小于 index 的元素，使用时同样需要注意以上两点。</p>
+<h5 id="header"><a href="#header" class="headerlink" title=":header"></a>:header</h5><p>从找到的众多元素中筛选出 h1、h2、h3 这类标题元素，没用过不敢多说话。</p>
 <h5 id="animated"><a href="#animated" class="headerlink" title=":animated"></a>:animated</h5><p>从找到的众多元素中筛选出正在执行动画效果的元素，同样没用过不敢多说话。</p>
-<h4 id="内容过滤选择器"><a href="#内容过滤选择器" class="headerlink" title="内容过滤选择器"></a>内容过滤选择器</h4><p>内容过滤选择器可以根据HTML文本内容进行过滤选择，具体包含有如下几种规则。</p>
-<h5 id="contains-text"><a href="#contains-text" class="headerlink" title=":contains(text)"></a>:contains(text)</h5><p>从找到的众多元素中筛选出包含给定文本text的元素，例如，想从选择器选择到的所有div元素中筛选出包含文本“test”的div元素（类似这种&lt;div&gt;1234test5678&lt;/div&gt;），就可以使用$(“div:contains(‘test’)”)，需要注意单双引号的交错使用，防止错误匹配。</p>
+<h4 id="内容过滤选择器"><a href="#内容过滤选择器" class="headerlink" title="内容过滤选择器"></a>内容过滤选择器</h4><p>内容过滤选择器可以根据 HTML 文本内容进行过滤选择，具体包含有如下几种规则。</p>
+<h5 id="contains-text"><a href="#contains-text" class="headerlink" title=":contains(text)"></a>:contains(text)</h5><p>从找到的众多元素中筛选出包含给定文本 text 的元素，例如，想从选择器选择到的所有 div 元素中筛选出包含文本 test 的 div 元素（类似这种&lt;div&gt;1234test5678&lt;/div&gt;），就可以使用 $(“div:contains(‘test’)”)，需要注意单双引号的交错使用，防止错误匹配。</p>
 <h5 id="empty"><a href="#empty" class="headerlink" title=":empty"></a>:empty</h5><p>从找到的众多元素中筛选出不包含子元素或者文本为空的元素，就类似这种&lt;div&gt;&lt;/div&gt;。</p>
-<h5 id="has-selector"><a href="#has-selector" class="headerlink" title=":has(selector)"></a>:has(selector)</h5><p>从找到的众多元素中筛选出包含有选择器selector匹配的元素的元素，例如，想从选择器选择到的所有div元素中筛选出包含有p子元素的元素，就可以使用$(“div:has(p)”)。需要注意的是，:has与:not并不是恰好相反的，:not检查的是元素本身，例如这个元素是不是button元素，而:has关注元素的子元素是不是符合条件，例如这个元素有没有一个button子元素。</p>
-<h5 id="parent"><a href="#parent" class="headerlink" title=":parent"></a>:parent</h5><p>从找到的众多元素中筛选出包含有子元素或者文本不为空的元素，作用与:empty恰好相反。</p>
-<h4 id="可见性过滤器"><a href="#可见性过滤器" class="headerlink" title="可见性过滤器"></a>可见性过滤器</h4><p>可见性过滤器根据元素是否可见来筛选元素，它主要是hidden查找隐藏的元素和visible查找可见的元素，具体包含有如下两种规则。</p>
-<h5 id="hidden"><a href="#hidden" class="headerlink" title=":hidden"></a>:hidden</h5><p>从找到的众多元素中筛选出不可见的元素，例如从找到的众多tr元素中筛选出不可见的tr元素，就可以使用$(“tr:hidden”)。</p>
+<h5 id="has-selector"><a href="#has-selector" class="headerlink" title=":has(selector)"></a>:has(selector)</h5><p>从找到的众多元素中筛选出包含有选择器 selector 匹配的元素的元素，例如，想从选择器选择到的所有 div 元素中筛选出包含有 p 子元素的元素，就可以使用 $(“div:has(p)”)。需要注意的是，:has 与:not 并不是恰好相反的，:not 检查的是元素本身，例如这个元素是不是 button 元素，而:has 关注元素的子元素是不是符合条件，例如这个元素有没有一个 button 子元素。</p>
+<h5 id="parent"><a href="#parent" class="headerlink" title=":parent"></a>:parent</h5><p>从找到的众多元素中筛选出包含有子元素或者文本不为空的元素，作用与:empty 恰好相反。</p>
+<h4 id="可见性过滤器"><a href="#可见性过滤器" class="headerlink" title="可见性过滤器"></a>可见性过滤器</h4><p>可见性过滤器根据元素是否可见来筛选元素，它主要是 hidden 查找隐藏的元素和 visible 查找可见的元素，具体包含有如下两种规则。</p>
+<h5 id="hidden"><a href="#hidden" class="headerlink" title=":hidden"></a>:hidden</h5><p>从找到的众多元素中筛选出不可见的元素，例如从找到的众多 tr 元素中筛选出不可见的 tr 元素，就可以使用 $(“tr:hidden”)。</p>
 <hr>
-<p><span style="color: red; font-weight: bold">注意：</span>jQuery有两个内置函数，show()与hide()，它们的作用分别是显示元素与隐藏元素。我们知道元素的隐藏有许多方法，例如设置其css属性visibility，设置为hidden则元素不可见，设置为visible则元素可见，或者设置opacity（透明度）属性，设置为0则元素不可见（完全透明），设置为1则元素可见，与此同时还可以设置display属性，设置为none则元素不可见，设置为其他类型，如inline或者block则元素可见，其实这些方式是有区别的，使用display可以使元素完全隐藏，而使用visibility或opacity，虽然元素本身看不到了，但是会在元素本来的位置留下一片空白，大小与元素的大小相同，也就是说这两种方式仅仅是使得元素不可见但还会保留元素在文档中的位置。需要明确的是，使用jQuery的内置函数show()和hide()，其效果与使用display的效果是相同的。</p>
+<p><span style="color: red; font-weight: bold">注意：</span>jQuery 有两个内置函数，show() 与 hide()，它们的作用分别是显示元素与隐藏元素。我们知道元素的隐藏有许多方法，例如设置其 css 属性 visibility，设置为 hidden 则元素不可见，设置为 visible 则元素可见，或者设置 opacity（透明度）属性，设置为 0 则元素不可见（完全透明），设置为 1 则元素可见，与此同时还可以设置 display 属性，设置为 none 则元素不可见，设置为其他类型，如 inline 或者 block 则元素可见，其实这些方式是有区别的，使用 display 可以使元素完全隐藏，而使用 visibility 或 opacity，虽然元素本身看不到了，但是会在元素本来的位置留下一片空白，大小与元素的大小相同，也就是说这两种方式仅仅是使得元素不可见但还会保留元素在文档中的位置。需要明确的是，使用 jQuery 的内置函数 show() 和 hide()，其效果与使用 display 的效果是相同的。</p>
 <hr>
-<h5 id="visible"><a href="#visible" class="headerlink" title=":visible"></a>:visible</h5><p>从找到的众多元素中筛选出可见的元素，作用恰好与:hidden相反。</p>
-<h4 id="属性过滤器"><a href="#属性过滤器" class="headerlink" title="属性过滤器"></a>属性过滤器</h4><p>属性过滤选择器是jQuery中非常有用的一种选择器，它可以基于HTML元素的属性来筛选特定的元素。另外，除了可以根据不同的属性来筛选元素，还可以根据不同的属性值来筛选元素，具体包含有如下几种规则。</p>
-<h5 id="attribute"><a href="#attribute" class="headerlink" title="[attribute]"></a>[attribute]</h5><p>从找到的众多元素中筛选出包含给定属性的元素，例如，想从找到的众多div元素中筛选出包含有id属性的元素，就可以使用$(“div[id]”)。</p>
-<h5 id="attribute-value"><a href="#attribute-value" class="headerlink" title="[attribute=value]"></a>[attribute=value]</h5><p>从找到的众多元素中筛选出属性attribute是给定值value的元素，例如，想从找到的众多p元素中筛选出name属性为news的元素，就可以使用$(“p[name=news]”)。</p>
-<h5 id="attribute-value-1"><a href="#attribute-value-1" class="headerlink" title="[attribute!=value]"></a>[attribute!=value]</h5><p>从找到的众多元素中筛选出属性attribute不是给定值value的元素，作用与上一个恰好相反。</p>
-<h5 id="attribute-value-2"><a href="#attribute-value-2" class="headerlink" title="[attribute^=value]"></a>[attribute^=value]</h5><p>从找到的众多元素中筛选出属性attribute是以给定值value开头的元素，例如，想从找到的众多p元素中筛选出name属性以news开头的元素，比如&lt;p name=’news1’&gt;&lt;/p&gt;、&lt;p name=’news2’&gt;&lt;/p&gt;等，就可以使用$(“p[name^=news]”)。</p>
-<h5 id="attribute-value-3"><a href="#attribute-value-3" class="headerlink" title="[attribute$=value]"></a>[attribute$=value]</h5><p>从找到的众多元素中筛选出属性attribute是以给定值value结尾的元素，作用与上一个恰好相反。</p>
-<h5 id="attribute-value-4"><a href="#attribute-value-4" class="headerlink" title="[attribute*=value]"></a>[attribute*=value]</h5><p>从找到的众多元素中筛选出属性attribute包含给定值value的元素，使用效果与上面的大同小异。</p>
+<h5 id="visible"><a href="#visible" class="headerlink" title=":visible"></a>:visible</h5><p>从找到的众多元素中筛选出可见的元素，作用恰好与:hidden 相反。</p>
+<h4 id="属性过滤器"><a href="#属性过滤器" class="headerlink" title="属性过滤器"></a>属性过滤器</h4><p>属性过滤选择器是 jQuery 中非常有用的一种选择器，它可以基于 HTML 元素的属性来筛选特定的元素。另外，除了可以根据不同的属性来筛选元素，还可以根据不同的属性值来筛选元素，具体包含有如下几种规则。</p>
+<h5 id="attribute"><a href="#attribute" class="headerlink" title="[attribute]"></a>[attribute]</h5><p>从找到的众多元素中筛选出包含给定属性的元素，例如，想从找到的众多 div 元素中筛选出包含有 id 属性的元素，就可以使用 $(“div[id]”)。</p>
+<h5 id="attribute-value"><a href="#attribute-value" class="headerlink" title="[attribute=value]"></a>[attribute=value]</h5><p>从找到的众多元素中筛选出属性 attribute 是给定值 value 的元素，例如，想从找到的众多 p 元素中筛选出 name 属性为 news 的元素，就可以使用 $(“p[name=news]”)。</p>
+<h5 id="attribute-value-1"><a href="#attribute-value-1" class="headerlink" title="[attribute!=value]"></a>[attribute!=value]</h5><p>从找到的众多元素中筛选出属性 attribute 不是给定值 value 的元素，作用与上一个恰好相反。</p>
+<h5 id="attribute-value-2"><a href="#attribute-value-2" class="headerlink" title="[attribute^=value]"></a>[attribute^=value]</h5><p>从找到的众多元素中筛选出属性 attribute 是以给定值 value 开头的元素，例如，想从找到的众多 p 元素中筛选出 name 属性以 news 开头的元素，比如&lt;p name=’news1’&gt;&lt;/p&gt;、&lt;p name=’news2’&gt;&lt;/p&gt;等，就可以使用 $(“p[name^=news]”)。</p>
+<h5 id="attribute-value-3"><a href="#attribute-value-3" class="headerlink" title="[attribute$=value]"></a>[attribute$=value]</h5><p>从找到的众多元素中筛选出属性 attribute 是以给定值 value 结尾的元素，作用与上一个恰好相反。</p>
+<h5 id="attribute-value-4"><a href="#attribute-value-4" class="headerlink" title="[attribute*=value]"></a>[attribute*=value]</h5><p>从找到的众多元素中筛选出属性 attribute 包含给定值 value 的元素，使用效果与上面的大同小异。</p>
 <h4 id="子元素过滤选择器"><a href="#子元素过滤选择器" class="headerlink" title="子元素过滤选择器"></a>子元素过滤选择器</h4><p>这个过滤器是根据父元素中的某些过滤规则来选择子元素，例如可以选择父元素的第一个子元素，或者是父元素中特定位置的子元素，具体包含有如下几种规则。</p>
-<h5 id="nth-child-value"><a href="#nth-child-value" class="headerlink" title=":nth-child(value)"></a>:nth-child(value)</h5><p>从当前父元素所包含的众多子元素中筛选出特定位置上的子元素。这个过滤器的用法较为灵活，value的值可以为index，也就是父元素下第index+1个子元素，例如，想筛选出父元素div下第3个p子元素，就可以使用$(“div p:nth-child(3)”)，<span style="color: red; font-weight: bold">注意</span>你不可以使用$(“div:nth-child(3)”)，因为:nth-child()是子元素过滤选择器，这样写的意思是选择第3个div元素，不是选择div元素下的第3个子元素，一定要在需要筛选的子元素上应用:nth-child()，同时你不可以写成$(“div:nth-child(2)”)，因为<span style="color: red; font-weight: bold">:nth-child()是从1开始的</span>；其次，value的值还可以为even或者odd，对应的作用分别是选择索引值为奇数或偶数的子元素，<span style="color: red; font-weight: bold">注意</span>此处与上面基本过滤选择器里面的:odd和:even之间的差别，:odd和:even直接筛选选择器选择到的元素，而此处筛选的是选择器选择到的元素的子元素，两者是不一样的，不要混淆；除此之外，value还可以是表达式，例如:nth-child(3n+1)，其作用就是筛选出父元素下索引值为1、4、7……的子元素，这里的n从0开始自增，如果计算结果小于1则忽略，例如:nth-child(3n-7)，则使计算结果小于1的n（即0、1、2）都会被忽略，之后从n等于3开始，选择索引值为2、5、8……的子元素。</p>
+<h5 id="nth-child-value"><a href="#nth-child-value" class="headerlink" title=":nth-child(value)"></a>:nth-child(value)</h5><p>从当前父元素所包含的众多子元素中筛选出特定位置上的子元素。这个过滤器的用法较为灵活，value 的值可以为 index，也就是父元素下第 index+1 个子元素，例如，想筛选出父元素 div 下第 3 个 p 子元素，就可以使用 $(“div p:nth-child(3)”)，<span style="color: red; font-weight: bold">注意</span>你不可以使用 $(“div:nth-child(3)”)，因为:nth-child() 是子元素过滤选择器，这样写的意思是选择第 3 个 div 元素，不是选择 div 元素下的第 3 个子元素，一定要在需要筛选的子元素上应用:nth-child()，同时你不可以写成 $(“div:nth-child(2)”)，因为<span style="color: red; font-weight: bold">:nth-child() 是从 1 开始的</span>；其次，value 的值还可以为 even 或者 odd，对应的作用分别是选择索引值为奇数或偶数的子元素，<span style="color: red; font-weight: bold">注意</span>此处与上面基本过滤选择器里面的:odd 和:even 之间的差别，:odd 和:even 直接筛选选择器选择到的元素，而此处筛选的是选择器选择到的元素的子元素，两者是不一样的，不要混淆；除此之外，value 还可以是表达式，例如:nth-child(3n+1)，其作用就是筛选出父元素下索引值为 1、4、7……的子元素，这里的 n 从 0 开始自增，如果计算结果小于 1 则忽略，例如:nth-child(3n-7)，则使计算结果小于 1 的 n（即 0、1、2）都会被忽略，之后从 n 等于 3 开始，选择索引值为 2、5、8……的子元素。</p>
 <h5 id="first-child"><a href="#first-child" class="headerlink" title=":first-child"></a>:first-child</h5><p>从当前父元素所包含的众多子元素中筛选出第一个子元素，等同于上面的:nth-child(1)。</p>
-<h5 id="last-child"><a href="#last-child" class="headerlink" title=":last-child"></a>:last-child</h5><p>从当前父元素所包含的众多子元素中筛选出最后一个子元素，与:first-child恰好相反。</p>
+<h5 id="last-child"><a href="#last-child" class="headerlink" title=":last-child"></a>:last-child</h5><p>从当前父元素所包含的众多子元素中筛选出最后一个子元素，与:first-child 恰好相反。</p>
 <h5 id="only-child"><a href="#only-child" class="headerlink" title=":only-child"></a>:only-child</h5><p>如果当前父元素只有一个子元素，那么该子元素会被选中。举个例子<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'1'</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>1<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'2'</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>3<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>如果使用$(‘div &gt;’)，则所有的p元素都会被选中，若使用$(‘div &gt; :only-child’)，则只有id为2的div元素中的p元素被选中。</p>
-<h4 id="表单对象属性过滤器"><a href="#表单对象属性过滤器" class="headerlink" title="表单对象属性过滤器"></a>表单对象属性过滤器</h4><p>这种类型的过滤器可以根据表单中某对象的属性特征来获取表单元素，比如表单元素的enabled、disabled、selected和checked属性，个人感觉比较有用，在表单值获取与验证的时候，使用这种类型的过滤器是相对方便的，具体包含有如下几种规则。</p>
-<h5 id="enabled"><a href="#enabled" class="headerlink" title=":enabled"></a>:enabled</h5><p>从找到的众多表单元素中筛选出所有可用元素，例如，查找所有可用的input元素，就可以使用$(‘input:enabled’)。</p>
-<h5 id="disabled"><a href="#disabled" class="headerlink" title=":disabled"></a>:disabled</h5><p>从找到的众多表单元素中筛选出所有不可用元素，作用与:enabled恰好相反。</p>
-<h5 id="checked"><a href="#checked" class="headerlink" title=":checked"></a>:checked</h5><p>从找到的众多表单元素中筛选出所有被选中的元素，该过滤器只可以应用在复选框、单选按钮等，<span style="color: red; font-weight: bold">注意</span>不包括select中的option。</p>
-<h5 id="selected"><a href="#selected" class="headerlink" title=":selected"></a>:selected</h5><p>这个过滤器只有一个作用，就是筛选出select中被选中的option，作为上面:checked功能的补充。</p>
+<p>如果使用 $(‘div &gt;’)，则所有的 p 元素都会被选中，若使用 $(‘div &gt; :only-child’)，则只有 id 为 2 的 div 元素中的 p 元素被选中。</p>
+<h4 id="表单对象属性过滤器"><a href="#表单对象属性过滤器" class="headerlink" title="表单对象属性过滤器"></a>表单对象属性过滤器</h4><p>这种类型的过滤器可以根据表单中某对象的属性特征来获取表单元素，比如表单元素的 enabled、disabled、selected 和 checked 属性，个人感觉比较有用，在表单值获取与验证的时候，使用这种类型的过滤器是相对方便的，具体包含有如下几种规则。</p>
+<h5 id="enabled"><a href="#enabled" class="headerlink" title=":enabled"></a>:enabled</h5><p>从找到的众多表单元素中筛选出所有可用元素，例如，查找所有可用的 input 元素，就可以使用 $(‘input:enabled’)。</p>
+<h5 id="disabled"><a href="#disabled" class="headerlink" title=":disabled"></a>:disabled</h5><p>从找到的众多表单元素中筛选出所有不可用元素，作用与:enabled 恰好相反。</p>
+<h5 id="checked"><a href="#checked" class="headerlink" title=":checked"></a>:checked</h5><p>从找到的众多表单元素中筛选出所有被选中的元素，该过滤器只可以应用在复选框、单选按钮等，<span style="color: red; font-weight: bold">注意</span>不包括 select 中的 option。</p>
+<h5 id="selected"><a href="#selected" class="headerlink" title=":selected"></a>:selected</h5><p>这个过滤器只有一个作用，就是筛选出 select 中被选中的 option，作为上面:checked 功能的补充。</p>
 <h4 id="表单选择器"><a href="#表单选择器" class="headerlink" title="表单选择器"></a>表单选择器</h4><p>表单选择器提供了灵活的方法来选择表单中的元素，其功能比表单对象属性过滤器更加强大，具体包含有如下几种规则。</p>
-<h5 id="input"><a href="#input" class="headerlink" title=":input"></a>:input</h5><p>选择所有的input、textarea、select和button元素，例如，想选中表单中的以上所有元素，就可以使用$(‘form :input’)。</p>
+<h5 id="input"><a href="#input" class="headerlink" title=":input"></a>:input</h5><p>选择所有的 input、textarea、select 和 button 元素，例如，想选中表单中的以上所有元素，就可以使用 $(‘form :input’)。</p>
 <h5 id="text"><a href="#text" class="headerlink" title=":text"></a>:text</h5><p>选择所有的文本框，例如&lt;input type=’text’&gt;。</p>
 <h5 id="password"><a href="#password" class="headerlink" title=":password"></a>:password</h5><p>选择所有的密码框，例如&lt;input type=’password’&gt;。</p>
 <h5 id="radio"><a href="#radio" class="headerlink" title=":radio"></a>:radio</h5><p>选择所有的单选框，例如&lt;input type=’radio’ name=’性别’&gt;。</p>
@@ -241,7 +241,7 @@ classes that you can use:
 <h5 id="reset"><a href="#reset" class="headerlink" title=":reset"></a>:reset</h5><p>选择所有的重置按钮，例如&lt;input type=’reset’&gt;。</p>
 <h5 id="button"><a href="#button" class="headerlink" title=":button"></a>:button</h5><p>选择所有的按钮，这个就不用说了吧。</p>
 <h5 id="file"><a href="#file" class="headerlink" title=":file"></a>:file</h5><p>选择所有的文件域，这个同样没用过不敢多说话。</p>
-<p>好啦，到现在为止终于把jQuery的所有匹配选择器都介绍完啦，真是够累的，不过这拖得时间也确实够长的了，赶上最近几天实验室没什么事，就赶紧把这件事给了结了，心里也就没什么石头悬着了，总的来说，自己感觉写的还可以，不过其中的问题肯定是在所难免的，希望发现的童鞋跟我说一下，或者在评论里面留言，我看到了以后一定会及时改正的，好啦，就写到这里吧~~~</p>
+<p>好啦，到现在为止终于把 jQuery 的所有匹配选择器都介绍完啦，真是够累的，不过这拖得时间也确实够长的了，赶上最近几天实验室没什么事，就赶紧把这件事给了结了，心里也就没什么石头悬着了，总的来说，自己感觉写的还可以，不过其中的问题肯定是在所难免的，希望发现的童鞋跟我说一下，或者在评论里面留言，我看到了以后一定会及时改正的，好啦，就写到这里吧~~~</p>
 
   </section>
 

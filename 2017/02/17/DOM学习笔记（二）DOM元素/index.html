@@ -7,7 +7,7 @@
     
 
     <title>
-      DOM学习笔记（二）DOM元素 | Kang 
+      DOM 学习笔记（二） DOM 元素 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,16 +16,16 @@
     
     
 
-    <meta name="description" content="DOM元素也是DOM知识中的基础部分，了解DOM元素的特性对以后通过JavaScript控制DOM有很大帮助。">
+    <meta name="description" content="DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以后通过 JavaScript 控制 DOM 有很大帮助。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM学习笔记（二）DOM元素 | Kang">
+<meta property="og:title" content="DOM 学习笔记（二） DOM 元素 | Kang">
 <meta property="og:url" content="http://yoursite.com/2017/02/17/DOM学习笔记（二）DOM元素/index.html">
 <meta property="og:site_name" content="Kang">
-<meta property="og:description" content="DOM元素也是DOM知识中的基础部分，了解DOM元素的特性对以后通过JavaScript控制DOM有很大帮助。">
-<meta property="og:updated_time" content="2017-03-11T03:40:54.558Z">
+<meta property="og:description" content="DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以后通过 JavaScript 控制 DOM 有很大帮助。">
+<meta property="og:updated_time" content="2017-03-26T14:44:04.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DOM学习笔记（二）DOM元素 | Kang">
-<meta name="twitter:description" content="DOM元素也是DOM知识中的基础部分，了解DOM元素的特性对以后通过JavaScript控制DOM有很大帮助。">
+<meta name="twitter:title" content="DOM 学习笔记（二） DOM 元素 | Kang">
+<meta name="twitter:description" content="DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以后通过 JavaScript 控制 DOM 有很大帮助。">
     
     
     
@@ -154,7 +154,7 @@ classes that you can use:
 
   <header class="post-header">
 
-    <h1 class="post-title">DOM学习笔记（二）DOM元素</h1>
+    <h1 class="post-title">DOM 学习笔记（二） DOM 元素</h1>
 
     
 
@@ -185,19 +185,19 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>DOM元素也是DOM知识中的基础部分，了解DOM元素的特性对以后通过JavaScript控制DOM有很大帮助。<a id="more"></a></p>
-<p>首先，这里的DOM元素暂时指代网页中的各个元素标签，例如div、p、span等；其次，这篇文章同样可能很简洁，不会太深入讨论一些知识点，只是把我学习过程中遇到的比较重要的内容记录下来，以备后用。</p>
-<h3 id="块级元素、內联元素和内联块级元素"><a href="#块级元素、內联元素和内联块级元素" class="headerlink" title="块级元素、內联元素和内联块级元素"></a>块级元素、內联元素和内联块级元素</h3><p>DOM元素按照表现形式划分可以分为块级元素、內联元素和内联块级元素，其CSS属性display分别对应为block、inline和inline-block。</p>
-<h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><p>1.从左到右撑满页面，独占一行，触碰到页面边缘时，将会自动换行；<br>2.可以设置width和height属性，但即使是设置了宽度，仍然是独占一行。</p>
+    <p>DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以后通过 JavaScript 控制 DOM 有很大帮助。<a id="more"></a></p>
+<p>首先，这里的 DOM 元素暂时指代网页中的各个元素标签，例如 div、p、span 等；其次，这篇文章同样可能很简洁，不会太深入讨论一些知识点，只是把我学习过程中遇到的比较重要的内容记录下来，以备后用。</p>
+<h3 id="块级元素、內联元素和内联块级元素"><a href="#块级元素、內联元素和内联块级元素" class="headerlink" title="块级元素、內联元素和内联块级元素"></a>块级元素、內联元素和内联块级元素</h3><p>DOM 元素按照表现形式划分可以分为块级元素、內联元素和内联块级元素，其 CSS 属性 display 分别对应为 block、inline 和 inline-block。</p>
+<h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><p>1.从左到右撑满页面，独占一行，触碰到页面边缘时，将会自动换行；<br>2.可以设置 width 和 height 属性，但即使是设置了宽度，仍然是独占一行。</p>
 <p>常见的块级元素有：div、ul、li、p、form、table、h1～h6……</p>
-<h4 id="內联元素"><a href="#內联元素" class="headerlink" title="內联元素"></a>內联元素</h4><p>1.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；<br>2.其宽度随内容的多少而变化；<br>3.不可以设置width和height属性，即使设置也是无效的；<br>4.可以正常设置padding－left、padding－right、margin－left、margin－right；<br>5.不能设置margin－top和margin－bottom，即使设置也是无效的；<br>6.设置padding－top和padding－bottom时，是基于元素内容对齐的，而不是基于边界对齐的，也就是说设置padding－top和padding－bottom时，元素内容位置不变，边框位置发生变化。</p>
+<h4 id="內联元素"><a href="#內联元素" class="headerlink" title="內联元素"></a>內联元素</h4><p>1.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；<br>2.其宽度随内容的多少而变化；<br>3.不可以设置 width 和 height 属性，即使设置也是无效的；<br>4.可以正常设置 padding－left、padding－right、margin－left、margin－right；<br>5.不能设置 margin－top 和 margin－bottom，即使设置也是无效的；<br>6.设置 padding－top 和 padding－bottom 时，是基于元素内容对齐的，而不是基于边界对齐的，也就是说设置 padding－top 和 padding－bottom 时，元素内容位置不变，边框位置发生变化。</p>
 <p>常见的內联元素有：span、a、strong、label、select、textarea……</p>
-<h4 id="内联块级元素"><a href="#内联块级元素" class="headerlink" title="内联块级元素"></a>内联块级元素</h4><p>1.将元素呈递为内联元素，但元素的内容作为块级元素呈递，可以理解为块级元素与內联元素的结合；<br>2.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；<br>3.能够设置width和height属性；<br>4.能够设置padding属性与margin属性。(待验证)</p>
+<h4 id="内联块级元素"><a href="#内联块级元素" class="headerlink" title="内联块级元素"></a>内联块级元素</h4><p>1.将元素呈递为内联元素，但元素的内容作为块级元素呈递，可以理解为块级元素与內联元素的结合；<br>2.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；<br>3.能够设置 width 和 height 属性；<br>4.能够设置 padding 属性与 margin 属性。(待验证)</p>
 <p>常见的內联元素有：input、img。</p>
-<h3 id="常见DOM元素的嵌套规则"><a href="#常见DOM元素的嵌套规则" class="headerlink" title="常见DOM元素的嵌套规则"></a>常见DOM元素的嵌套规则</h3><p>这个知识点应该是最常用的，但也是比较容易出问题的，具体看来常见DOM元素的嵌套规则有如下几项：</p>
+<h3 id="常见-DOM-元素的嵌套规则"><a href="#常见-DOM-元素的嵌套规则" class="headerlink" title="常见 DOM 元素的嵌套规则"></a>常见 DOM 元素的嵌套规则</h3><p>这个知识点应该是最常用的，但也是比较容易出问题的，具体看来常见 DOM 元素的嵌套规则有如下几项：</p>
 <p>1.块级元素可以包含內联元素或其他块级元素，但內联元素却不能包含块级元素，它只能包含其他的內联元素。例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>  正确</div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>       错误</div></pre></td></tr></table></figure></p>
-<p>2.p元素里面不能放块级元素。这里需要注意的是：<span style="color: red; font-weight: bold">p元素是块级元素，但却不满足第一条规则，所以是第一条规则的特例。</span>例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">ol</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ol</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>      错误</div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>             错误</div></pre></td></tr></table></figure></p>
-<p>3.有几个特殊的块级元素只能包含內联元素，不能再包含块级元素，这几个特殊的标签是：<span style="color: red; font-weight: bold">h1、h2、h3、h4、h5、h6、p、dt。</span>这一条规则是对第二条规则的补充，说明不仅仅只有p元素里面不能放块级元素，h1～h6和dt里面也不能放块级元素。<br>4.li元素里面可以放置div元素，实际上li元素里面可以放置大多数块级元素和內联元素，甚至是它的父元素ol元素和ul元素。<br>5.块级元素与块级元素并列，內联元素与內联元素并列。例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  正确</div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  可以渲染，但不提倡</div></pre></td></tr></table></figure></p>
+<p>2.p 元素里面不能放块级元素。这里需要注意的是：<span style="color: red; font-weight: bold">p 元素是块级元素，但却不满足第一条规则，所以是第一条规则的特例。</span>例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">ol</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ol</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>      错误</div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>             错误</div></pre></td></tr></table></figure></p>
+<p>3.有几个特殊的块级元素只能包含內联元素，不能再包含块级元素，这几个特殊的标签是：<span style="color: red; font-weight: bold">h1、h2、h3、h4、h5、h6、p、dt。</span>这一条规则是对第二条规则的补充，说明不仅仅只有 p 元素里面不能放块级元素，h1～h6 和 dt 里面也不能放块级元素。<br>4.li 元素里面可以放置 div 元素，实际上 li 元素里面可以放置大多数块级元素和內联元素，甚至是它的父元素 ol 元素和 ul 元素。<br>5.块级元素与块级元素并列，內联元素与內联元素并列。例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  正确</div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  可以渲染，但不提倡</div></pre></td></tr></table></figure></p>
 
   </section>
 

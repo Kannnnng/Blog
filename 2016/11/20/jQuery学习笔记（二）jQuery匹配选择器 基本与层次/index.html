@@ -7,7 +7,7 @@
     
 
     <title>
-      jQuery学习笔记（二）jQuery匹配选择器 基本与层次 | Kang 
+      jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -18,13 +18,13 @@
 
     <meta name="description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jQuery学习笔记（二）jQuery匹配选择器 基本与层次 | Kang">
+<meta property="og:title" content="jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次 | Kang">
 <meta property="og:url" content="http://yoursite.com/2016/11/20/jQuery学习笔记（二）jQuery匹配选择器 基本与层次/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
-<meta property="og:updated_time" content="2017-03-17T15:30:15.076Z">
+<meta property="og:updated_time" content="2017-03-26T14:44:04.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jQuery学习笔记（二）jQuery匹配选择器 基本与层次 | Kang">
+<meta name="twitter:title" content="jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次 | Kang">
 <meta name="twitter:description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
     
     
@@ -154,7 +154,7 @@ classes that you can use:
 
   <header class="post-header">
 
-    <h1 class="post-title">jQuery学习笔记（二）jQuery匹配选择器 基本与层次</h1>
+    <h1 class="post-title">jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次</h1>
 
     
 
@@ -186,31 +186,31 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p>有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。<a id="more"></a></p>
-<p>今天想写的是关于jQuery的匹配选择器的问题，jQuery的匹配选择器在整个jQuery中应该算是核心内容，熟练地掌握匹配选择器不仅能够快速定位DOM元素，帮助开发者完成正确元素的选择，还能尽量减少错误和代码量，我自己有很深的体会，所以这也促使我努力将jQuery的匹配选择器搞清楚。</p>
-<p>这里不得不提的另外一个知识点就是$()方法，$()方法在匹配选择功能的实现中起到了重要作用，几乎每句代码之前都要加上$(“xxx”)来选择某一个或某一类元素，当然$()并不仅有这一种功能，它还有另外几个功能，$()一共有七种重载，基本上每种重载对应一种使用方法，另外，它的实现方式也是比较复杂的，之前实验室的学姐在分享交流她的求职经验的时候，就说到有一次她被面试官问到$()的实现方式，所以这个知识点应该还是有必要看看的，对于了解jQuery的深层知识有比较大的帮助。关于$()方法的更多讨论，我会写在以后的文章中。下面开始讨论jQuery的几种匹配选择器。</p>
-<h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><p>jQuery的基本选择器与CSS的选择器差不多，它可以有如下四种方式：</p>
-<h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><p>选择id是指定的值的元素，例如$(“#test”)的作用即选择id为test的元素；</p>
-<h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h4><p>选择包含指定的类的元素，例如$(“.test”)的作用即选择包含有test类的所有元素；</p>
-<h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><p>选择指定的标签，例如$(“p”)的作用即选择所有p（段落）元素。</p>
-<p>以上三种选择器可以按照交集与并集的规则组合，从而得到更复杂也更精确的选取结果。例如$(“p .test”)即选择所有包含test类的p元素，这是交集规则；$(“p, .test”)（使用逗号“,”分隔）即选择所有p元素和所有包含test类的元素，这是并集规则。</p>
-<p>理论上说也可以存在$(“#test .test”)这种选择器，其含义即选择所有包含test类且id为test的元素，但是这样做无意义，因为一般来说id被用来唯一标识某一元素，只需要写明其id即可精确匹配到该元素，不需要再加上其他的条件，所以不推荐上面这种写法。</p>
+<p>今天想写的是关于 jQuery 的匹配选择器的问题，jQuery 的匹配选择器在整个 jQuery 中应该算是核心内容，熟练地掌握匹配选择器不仅能够快速定位 DOM 元素，帮助开发者完成正确元素的选择，还能尽量减少错误和代码量，我自己有很深的体会，所以这也促使我努力将 jQuery 的匹配选择器搞清楚。</p>
+<p>这里不得不提的另外一个知识点就是 $() 方法，$() 方法在匹配选择功能的实现中起到了重要作用，几乎每句代码之前都要加上 $(“xxx”) 来选择某一个或某一类元素，当然 $() 并不仅有这一种功能，它还有另外几个功能，$() 一共有七种重载，基本上每种重载对应一种使用方法，另外，它的实现方式也是比较复杂的，之前实验室的学姐在分享交流她的求职经验的时候，就说到有一次她被面试官问到 $() 的实现方式，所以这个知识点应该还是有必要看看的，对于了解 jQuery 的深层知识有比较大的帮助。关于 $() 方法的更多讨论，我会写在以后的文章中。下面开始讨论 jQuery 的几种匹配选择器。</p>
+<h3 id="基本选择器"><a href="#基本选择器" class="headerlink" title="基本选择器"></a>基本选择器</h3><p>jQuery 的基本选择器与 CSS 的选择器差不多，它可以有如下四种方式：</p>
+<h4 id="id-选择器"><a href="#id-选择器" class="headerlink" title="id 选择器"></a>id 选择器</h4><p>选择 id 是指定的值的元素，例如 $(“#test”) 的作用即选择 id 为 test 的元素；</p>
+<h4 id="类选择器"><a href="#类选择器" class="headerlink" title="类选择器"></a>类选择器</h4><p>选择包含指定的类的元素，例如 $(“.test”) 的作用即选择包含有 test 类的所有元素；</p>
+<h4 id="标签选择器"><a href="#标签选择器" class="headerlink" title="标签选择器"></a>标签选择器</h4><p>选择指定的标签，例如 $(“p”) 的作用即选择所有 p（段落）元素。</p>
+<p>以上三种选择器可以按照交集与并集的规则组合，从而得到更复杂也更精确的选取结果。例如 $(“p .test”) 即选择所有包含 test 类的 p 元素，这是交集规则；$(“p, .test”)（使用逗号 , 分隔）即选择所有 p 元素和所有包含 test 类的元素，这是并集规则。</p>
+<p>理论上说也可以存在 $(“#test .test”) 这种选择器，其含义即选择所有包含 test 类且 id 为 test 的元素，但是这样做无意义，因为一般来说 id 被用来唯一标识某一元素，只需要写明其 id 即可精确匹配到该元素，不需要再加上其他的条件，所以不推荐上面这种写法。</p>
 <p>除了以上三种之外，还有一种通配符选择器”*”，它的作用是选择页面中的所有元素，这个我没用到过，所以不好乱说什么，等以后有用得到的地方再来填坑。</p>
-<h3 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h3><p>顾名思义，层次选择器就是按照元素在DOM树(不明白DOM树的童鞋可以联想一下Windows资源管理器左侧的文件夹树，原理上都是一样的，前者每一个元素为一个节点，后者每一个文件夹为一个节点)中的层次来选择元素，主要有以下几种：</p>
-<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>通过空格表示，选择指定父元素的所有后代元素中的指定元素，例如$(“#test p”)的作用即选择id等于test的元素的所有后代元素中的p元素。</p>
-<h4 id="父子选择器"><a href="#父子选择器" class="headerlink" title="父子选择器"></a>父子选择器</h4><p>通过大于号“&gt;”表示，选择指定父元素的所有子元素中的指定元素，例如$(“#test&gt;p”)的作用即选择id等于test的元素的所有<span style="color: red; font-weight: bold">子元素</span>中的p元素，注意这里是<span style="color: red; font-weight: bold">子元素</span>中的p元素，与上面后代选择器的后代元素中的p元素不一样。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>我们使用$(“#test div”)，会选择id等于test的元素的所有后代元素中的div元素，即内容为1、2、3、4、5的div元素被选中；使用$(“#test &gt; div”)，则会选择id等于test的元素的所有子元素中的div元素，即内容为1、3、4的div元素被选中，内容为2、5的div元素因为是孙元素，所以不会被选中。</p>
+<h3 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h3><p>顾名思义，层次选择器就是按照元素在 DOM 树 ( 不明白 DOM 树的童鞋可以联想一下 Windows 资源管理器左侧的文件夹树，原理上都是一样的，前者每一个元素为一个节点，后者每一个文件夹为一个节点 ) 中的层次来选择元素，主要有以下几种：</p>
+<h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>通过空格表示，选择指定父元素的所有后代元素中的指定元素，例如 $(“#test p”) 的作用即选择 id 等于 test 的元素的所有后代元素中的 p 元素。</p>
+<h4 id="父子选择器"><a href="#父子选择器" class="headerlink" title="父子选择器"></a>父子选择器</h4><p>通过大于号 &gt; 表示，选择指定父元素的所有子元素中的指定元素，例如 $(“#test&gt;p”) 的作用即选择 id 等于 test 的元素的所有<span style="color: red; font-weight: bold">子元素</span>中的 p 元素，注意这里是<span style="color: red; font-weight: bold">子元素</span>中的 p 元素，与上面后代选择器的后代元素中的 p 元素不一样。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们使用 $(“#test div”)，会选择 id 等于 test 的元素的所有后代元素中的 div 元素，即内容为 1、2、3、4、5 的 div 元素被选中；使用 $(“#test &gt; div”)，则会选择 id 等于 test 的元素的所有子元素中的 div 元素，即内容为 1、3、4 的 div 元素被选中，内容为 2、5 的 div 元素因为是孙元素，所以不会被选中。</p>
 <hr>
-<p><span style="color: red; font-weight: bold">题外话：</span>p元素不可以嵌套p元素，h元素不可以嵌套h元素，a元素不可以嵌套a元素，span元素可以嵌套span元素，div元素可以嵌套div元素，有点绕……</p>
+<p><span style="color: red; font-weight: bold">题外话：</span>p 元素不可以嵌套 p 元素，h 元素不可以嵌套 h 元素，a 元素不可以嵌套 a 元素，span 元素可以嵌套 span 元素，div 元素可以嵌套 div 元素，有点绕……</p>
 <hr>
-<h4 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h4><p>通过“+”表示，选择与指定元素相邻的下个指定的兄弟元素，例如$(“#test + div”)的作用即选择id等于test的元素的下个兄弟div元素。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>我们使用$(“#test + div”)，会选择内容为2的div元素，但如果是下面这样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>如果我们继续使用$(“#test + div”)，那么就会<span style="color: red; font-weight: bold">什么也选择不到</span>！因为#test元素的下个兄弟元素不是div元素而是p元素，如果不指定兄弟元素是什么元素，也就是$(“#test + “)，那么就可以选择到p元素了。</p>
-<p>其实父子选择器也有这个特性，例如$(“#test &gt; div”)，如上面所说，它会选择id等于test的元素的所有子元素中的div元素，但如果子元素中没有div元素，那么同样也会什么都选择不到。这真是一个蛋疼的设定，就跟静态元素与动态元素事件绑定不同一样……</p>
+<h4 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h4><p>通过 + 表示，选择与指定元素相邻的下个指定的兄弟元素，例如 $(“#test + div”) 的作用即选择 id 等于 test 的元素的下个兄弟 div 元素。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们使用 $(“#test + div”)，会选择内容为 2 的 div 元素，但如果是下面这样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>如果我们继续使用 $(“#test + div”)，那么就会<span style="color: red; font-weight: bold">什么也选择不到</span>！因为#test 元素的下个兄弟元素不是 div 元素而是 p 元素，如果不指定兄弟元素是什么元素，也就是 $(“#test + “)，那么就可以选择到 p 元素了。</p>
+<p>其实父子选择器也有这个特性，例如 $(“#test &gt; div”)，如上面所说，它会选择 id 等于 test 的元素的所有子元素中的 div 元素，但如果子元素中没有 div 元素，那么同样也会什么都选择不到。这真是一个蛋疼的设定，就跟静态元素与动态元素事件绑定不同一样……</p>
 <hr>
-<p><span style="color: red; font-weight: bold">注意：</span>父子选择器与相邻选择器可以连续多次使用，例如使用$(“#test &gt; &gt; div”)，会选择id等于test的元素的所有<span style="color: red; font-weight: bold">孙元素</span>中的div元素，往下以此类推；使用$(“#test + + div”)，会选择id等于test的元素的下下个兄弟div元素。</p>
+<p><span style="color: red; font-weight: bold">注意：</span>父子选择器与相邻选择器可以连续多次使用，例如使用 $(“#test &gt; &gt; div”)，会选择 id 等于 test 的元素的所有<span style="color: red; font-weight: bold">孙元素</span>中的 div 元素，往下以此类推；使用 $(“#test + + div”)，会选择 id 等于 test 的元素的下下个兄弟 div 元素。</p>
 <hr>
-<h4 id="平级选择器"><a href="#平级选择器" class="headerlink" title="平级选择器"></a>平级选择器</h4><p>通过“~”表示，选择指定元素之后的所有兄弟元素（不包括自身），例如$(“#test ~ div”)的作用即选择id等于test的元素之后的所有兄弟div元素。<br>同样地，我们使用$(“#test ~ div”)，如果后面所有的兄弟元素中没有div元素的话，那么同样也会什么都选择不到；使用$(“#test ~ “)，则后面所有的兄弟元素都会被选择到。</p>
-<p>到现在为止已经把基本选择器与层次选择器写完了，今天就暂时先到这，写到现在都快八点了，我晚饭还没吃，刚刚还把保存的一部分草稿弄丢了，伤心ing，随手保存，珍爱生命。</p>
+<h4 id="平级选择器"><a href="#平级选择器" class="headerlink" title="平级选择器"></a>平级选择器</h4><p>通过 ~ 表示，选择指定元素之后的所有兄弟元素（不包括自身），例如 $(“#test ~ div”) 的作用即选择 id 等于 test 的元素之后的所有兄弟 div 元素。<br>同样地，我们使用 $(“#test ~ div”)，如果后面所有的兄弟元素中没有 div 元素的话，那么同样也会什么都选择不到；使用 $(“#test ~ “)，则后面所有的兄弟元素都会被选择到。</p>
+<p>到现在为止已经把基本选择器与层次选择器写完了，今天就暂时先到这，写到现在都快八点了，我晚饭还没吃，刚刚还把保存的一部分草稿弄丢了，伤心 ing，随手保存，珍爱生命。</p>
 
   </section>
 
