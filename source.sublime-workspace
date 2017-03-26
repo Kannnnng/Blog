@@ -528,9 +528,13 @@
 	"command_palette":
 	{
 		"height": 400.0,
-		"last_filter": "Package Control: ",
+		"last_filter": "js",
 		"selected_items":
 		[
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
 			[
 				"Package Control: ",
 				"Package Control: Install Package"
@@ -591,6 +595,13 @@
 	],
 	"file_history":
 	[
+		"/D/Saved Games/PC游戏/求生之路2/rev.ini",
+		"/D/Downloads/曹♂操.ass",
+		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/source.sublime-project",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/D/Downloads/einskang_2017-03-22/export.json",
 		"/D/Documents/工作文件/个人琐事/国家助学金受助学生材料整理/国家助学金受助学生材料整理要求.txt",
 		"/D/Downloads/要求.txt",
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/Gulp学习笔记（一）Gulp的基本使用.md",
@@ -607,13 +618,9 @@
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/正则表达式学习笔记（一）基本用法.md",
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/themes/huno/source/css/uno.css",
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/CSS学习笔记（三）问题集合.md",
-		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
-		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/CSS学习笔记（一）浮动布局.md",
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/public/2017/02/16/CSS学习笔记（一）浮动布局/index.html",
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/DOM学习笔记（二）DOM元素.md",
-		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/source.sublime-project",
 		"/D/Downloads/迅雷下载/NikeのＢ@第一会所@MySistersHotFriend - Bella Rose/SIS001影视联盟.gif",
 		"/D/Documents/电脑文件/G510驱动与软件_Windows10/BaiduPanDwonloadWpf V0.0.10.59/Users/Einskang/Account.json",
 		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/Main.sublime-menu.template",
@@ -715,10 +722,7 @@
 		"/E/BaiduYunDownload/DNF辅助制作教程/辅助教学/VC辅助学习代码/滑稽辅助开源/MFC窗口Demo_滑稽辅助/MFC窗口Demo_滑稽辅助/MyWindow.cpp",
 		"/E/BaiduYunDownload/DNF辅助制作教程/木马加载和微调BUFF源码.txt",
 		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/闲话 1.md",
-		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/闲话第一篇.md",
-		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/JQuery学习笔记（二）JQuery匹配选择器.md",
-		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/JQuery学习笔记（一）.md",
-		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/Java学习笔记之JDK配置.md"
+		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/闲话第一篇.md"
 	],
 	"find":
 	{
@@ -740,6 +744,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"我\\w{0.5}你|你一定\\w{0,6}|你\\w{0,4}来|你\\w{0,4}看|名字|人名|死|我操|快\\w{0,6}",
+			"我\\w{0.5}你|你一定\\w{0,6}|你\\w{0,4}来|你\\w{0,4}看|名字|人名|死|我操|快看\\w{0,6}",
+			"我\\w{0.5}你|你一定会|你\\w{0,4}来|你\\w{0,4}看",
+			"我知道你|你一定会|你\\w{0,4}来|你\\w{0.4}看",
 			"'",
 			"cb",
 			" ",
@@ -863,11 +871,7 @@
 			"0",
 			"default",
 			"FlipPage",
-			"data(\"columnname",
-			"argument.page = PAGENOW;",
-			"argument",
-			"$body",
-			"columnname:"
+			"data(\"columnname"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -968,7 +972,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 280.0,
+	"side_bar_width": 229.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
