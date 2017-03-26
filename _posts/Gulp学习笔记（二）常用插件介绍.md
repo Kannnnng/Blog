@@ -190,8 +190,6 @@ gulp.task('watch', function() {
 ```
 在上面的代码中，我们一开始先定义了一个Gulp任务，规定任何sass文件发生变化，就调用任务内部的处理代码将sass编译成css，然后存放到指定位置，注意到在执行完文件输出命令后，还有一句“livereload()”代码需要执行，这一句代码的功能就是在上面的任务执行完成以后自动刷新浏览器，因此如果你希望某一任务（例如js代码编译）完成以后自动刷新浏览器页面，你就需要在相对应的Gulp任务的后面添加这句代码,最后启动“gulp-livereload”侦听功能即可。
 
-<span style="color: red; font-weight: bold">注意：</span>仅使用“gulp-livereload”插件并不能完全实现自动刷新功能，还需要配合chrome插件[LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)，或者在建立本地服务器时使用“connect-livereload”插件，在本文的后面将会讲到“connect-livereload”插件以及如何在搭建本地服务器中使用它。
-
 除了上面这种使用方式，你还可以通过“livereload.changed(path)”来使用“gulp-livereload”，这种方式比上面的更加简单方便，下面是一个通过“livereload.changed(path)”方法来使用“gulp-livereload”的一个实例。
 ``` JavaScript
 var gulp = require("gulp");
@@ -214,8 +212,10 @@ gulp.task('watch', function() {
 ```
 在上面的代码中，我们一开始同样先定义了一个Gulp任务，规定任何sass文件发生变化，就调用任务内部的处理代码将sass编译成css，然后存放到指定位置，注意到现在我们不在任务的后面通过添加“livereload()”来指定何时应该刷新浏览器页面，而是放在了后面的“watch”任务中，在“watch”任务里面，首先启动“gulp-livereload”，然后使用Gulp自带的”watch“API来监视位于”dist“文件夹下面的任何文件是否发生变化，如果发生变化，则自动调用后面写好了的回调函数，在回调函数里面，发生变化的文件信息以参数”file“的形式传入函数中，之后通过调用”livereload.changed(path)“来完成相应页面的自动刷新，该API需要传入一个发生变化的文件的路径作为参数，其可以通过”file.path“获得。通过以上工作，我们就实现了”dist“文件夹内的任何文件发生变化时，页面都会根据需要自动刷新的功能，省去了在每一个Gulp任务的后面添加“livereload()”来指定何时刷新的工作。
 
+<span style="color: red; font-weight: bold">注意：</span>仅使用“gulp-livereload”插件并不能完全实现自动刷新功能，还需要配合chrome插件[LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)，或者在建立本地服务器时使用“connect-livereload”插件，在本文的后面将会讲到“connect-livereload”插件以及如何在搭建本地服务器中使用它。
+
 ### proxy-middleware
-这是一款在向后端发送请求时设置代理的插件，通俗一点来讲就是更改向后端发送请求的URL，比如你当前页面所属域名为“https:\/\/example.com/endpoint”，那么当你需要向后端发送请求（GET、POST等）时，你请求的URL可能会类似于“https:\/\/example.com/endpoint/getsomething?name=xxx&type=xxx”，这样写不仅麻烦，同时当页面所处域名发生变化时，你就需要改动几乎所有的请求URL，而使用这款插件以后，你就可以在服务器初始化的时候设置当前所处域名，并且之后你的所有请求URL只需要写成“/api/getsomething?name=xxx&type=xxx/”即可。下面是一个“proxy-middleware”插件的使用实例。
+这是一款在向后端发送请求时设置代理的插件，通俗一点来讲就是更改向后端发送请求的URL，比如你当前页面所属域名为“<span>https:</span>//example.com/endpoint”，那么当你需要向后端发送请求（GET、POST等）时，你请求的URL可能会类似于“<span>https:</span>//example.com/endpoint/getsomething?name=xxx&type=xxx”，这样写不仅麻烦，同时当页面所处域名发生变化时，你就需要改动几乎所有的请求URL，而使用这款插件以后，你就可以在服务器初始化的时候设置当前所处域名，并且之后你的所有请求URL只需要写成“/api/getsomething?name=xxx&type=xxx/”即可。下面是一个“proxy-middleware”插件的使用实例。
 ``` JavaScript
 var connect = require('connect');
 var url = require('url');
@@ -228,7 +228,7 @@ app.use('/api', proxy(url.parse('https://example.com/endpoint')));
 //same as example above but also uses a short hand string only parameter 
 app.use('/api-string-only', proxy('https://example.com/endpoint'));
 ```
-在上面的例子中，引入了两个我们尚未介绍的插件，其中“connect”插件在此处用于建立一个本地服务器，“url”插件用于将字符串形式的网址转换为URl对象（包含属性有protocol、slashes、auth、host、port、hostname、hash、search、query、pathname、path、href，具体可以通过console.log命令打印查看），在这里我们可以看到，通过使用“proxy-middleware”，向后端发送的请求URl被自动代理到了设置好的域名上，例如“/api/x/y/z”被代理到了“https:\/\/example.com/endpoint/x/y/z”。下面的写法省去了“url”插件，但最后的效果相同，推荐使用这种简单用法。
+在上面的例子中，引入了两个我们尚未介绍的插件，其中“connect”插件在此处用于建立一个本地服务器，“url”插件用于将字符串形式的网址转换为URl对象（包含属性有protocol、slashes、auth、host、port、hostname、hash、search、query、pathname、path、href，具体可以通过console.log命令打印查看），在这里我们可以看到，通过使用“proxy-middleware”，向后端发送的请求URl被自动代理到了设置好的域名上，例如“/api/x/y/z”被代理到了“<span>https:</span>//example.com/endpoint/x/y/z”。下面的写法省去了“url”插件，但最后的效果相同，推荐使用这种简单用法。
 
 ### opn
 这是一款专门用来打开文件、网址和可执行文件的插件，不仅如此，它还可以指定打开文件以后的操作，指定使用什么浏览器来打开网址，下面是一个“opn”插件的使用实例。
@@ -261,7 +261,7 @@ var app = connect()
 在上面的代码中，引用了我们尚未介绍的一个插件“connect”，这个插件在上面的一个实例中也被用到了，其作用可以简单地理解为建立一个本地服务器，在建立过程中，通过使用“connect”插件的use方法来调用“connect-livereload”插件，这样就可以在不使用chrome扩展的情况下协助“gulp-livereload”插件完成页面的自动刷新功能了。
 
 ### 
-需要注意的是，上面的例子是假定你已经在本地建立好了服务器（例如通过Wamp建立本地服务器），并能够通过浏览器打开“http:\/\/localhost:8000”页面，如果你尚且没有在本地建立好服务器，那下面这个例子或许能够更好地帮助你，它同时完成了建立服务器、设置服务器目录、设置向后端发送请求时的代理以及页面自动刷新等功能。
+需要注意的是，上面的例子是假定你已经在本地建立好了服务器（例如通过Wamp建立本地服务器），并能够通过浏览器打开<span>“http:</span>//localhost:8000”页面，如果你尚且没有在本地建立好服务器，那下面这个例子或许能够更好地帮助你，它同时完成了建立服务器、设置服务器目录、设置向后端发送请求时的代理以及页面自动刷新等功能。
 ``` JavaScript
 var livereload = require("gulp-livereload");  // gulp重载插件
 var url = require("url");  // url插件
