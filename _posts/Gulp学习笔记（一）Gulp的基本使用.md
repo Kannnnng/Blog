@@ -1,5 +1,5 @@
 ---
-title: Gulp学习笔记（一）Gulp的基本使用
+title: Gulp 学习笔记（一） Gulp 的基本使用
 category: 学习笔记
 tag: [Gulp,前端自动化]
 date: 2017-03-11 11:57:00
@@ -7,15 +7,15 @@ date: 2017-03-11 11:57:00
 
 这段时间一直在忙着做项目，等这个周末有时间停下来看看我的博客时发现已经半个月还多没有写东西了，这样下去怎么行，这段时间学到的东西着实不少，所以不能再拖延下去了，一定要抓紧抽时间将这些东西记录下来，以后说不定什么时候就要用到，那个时候看自己写的东西相当于重温，看别人写的东西相当于新学，效果自然不言而喻。<!--more-->
 
-今天要写的是Gulp，一款前端自动化的实现工具。说起前端自动化，就让我想起来大学里面学的其他的计算机语言，例如C、C++、Java、Matlab等，这些语言都有一个集成度很高的IDE工具帮助开发人员，做一些辅助开发的工作，C和C++有Visual Studio这个大家伙，Java有Eclipse，甚至Google刚推出不久的Android Studio，现在学HTML、CSS和JavaScript，就是一个文本编辑器Sublime外加Chrome DeveTool，着实是有点轻装上阵的感觉，但是这种轻装上阵的缺点也是显而易见的，你需要自己手动查错、压缩代码、压缩图片，甚至是刷新浏览器页面，刚开始可能感觉不到什么，时间一长就会察觉出来这种工作的无趣性，能不能让一个助手来帮助开发人员自动查错，规范你的代码，帮助你压缩js代码，压缩图片甚至在你的代码发生改动时自动刷新浏览器页面，正是在这种需求的推动下，前端开发自动化工具蓬勃发展，至今已经相当成熟，以Gulp为例，Gulp的社区每天都有许多工程师在里面活跃，展示自己的成果，帮助他人解决问题，发布各种各样有用的插件来丰富Gulp的生态环境，今天几乎你的所有需求与问题都可以在Gulp的插件库中得到解决，所以学习Gulp的使用是有必要的，今天我们就先来了解一下Gulp的基本使用方法。
+今天要写的是 Gulp ，一款前端自动化的实现工具。说起前端自动化，就让我想起来大学里面学的其他的计算机语言，例如 C、C++、Java、Matlab 等，这些语言都有一个集成度很高的 IDE 工具帮助开发人员，做一些辅助开发的工作，C 和 C++ 有 Visual Studio 这个大家伙，Java 有 Eclipse，甚至 Google 刚推出不久的 Android Studio，现在学 HTML、CSS 和 JavaScript，就是一个文本编辑器 Sublime 外加 Chrome DeveTool，着实是有点轻装上阵的感觉，但是这种轻装上阵的缺点也是显而易见的，你需要自己手动查错、压缩代码、压缩图片，甚至是刷新浏览器页面，刚开始可能感觉不到什么，时间一长就会察觉出来这种工作的无趣性，能不能让一个助手来帮助开发人员自动查错，规范你的代码，帮助你压缩 js 代码，压缩图片甚至在你的代码发生改动时自动刷新浏览器页面，正是在这种需求的推动下，前端开发自动化工具蓬勃发展，至今已经相当成熟，以 Gulp 为例，Gulp 的社区每天都有许多工程师在里面活跃，展示自己的成果，帮助他人解决问题，发布各种各样有用的插件来丰富 Gulp 的生态环境，今天几乎你的所有需求与问题都可以在 Gulp 的插件库中得到解决，所以学习 Gulp 的使用是有必要的，今天我们就先来了解一下 Gulp 的基本使用方法。
 
-[这里是Gulp的中文网站](http://www.gulpjs.com.cn/)，在这里你同样可以学习到Gulp的使用，有能力的话直接到其[英文官网](http://gulpjs.com/)上学习，那就更好啦。
+[这里是 Gulp 的中文网站](http://www.gulpjs.com.cn/)，在这里你同样可以学习到 Gulp 的使用，有能力的话直接到其[英文官网](http://gulpjs.com/)上学习，那就更好啦。
 
-### 安装Nodejs
-Gulp是基于Nodejs工作的，所以在安装Gulp之前需要首先安装Nodejs。以Windows为例，直接到Nodejs的[官方网站](https://nodejs.org/en/)上下载安装包即可，推荐使用稳定版。
+### 安装 Nodejs
+Gulp 是基于 Nodejs 工作的，所以在安装 Gulp 之前需要首先安装 Nodejs。以 Windows 为例，直接到 Nodejs 的[官方网站](https://nodejs.org/en/)上下载安装包即可，推荐使用稳定版。
 
-### 安装Gulp
-1.打开命令行，使用Nodejs自带的管理工具npm全局安装Gulp
+### 安装 Gulp
+1.打开命令行，使用 Nodejs 自带的管理工具 npm 全局安装 Gulp
 ``` bash
 $ npm install --global gulp
 ```
@@ -23,9 +23,9 @@ $ npm install --global gulp
 ``` bash
 $ npm install --save-dev gulp
 ```
-在这里你需要了解开发依赖与生产依赖之间的区别，开发依赖即指在开发过程中需要用到的工具包，生产依赖则是该项目正常工作时需要用到的工具包，因为我们只是在开发过程中才会使用到Gulp，所以将它作为开发依赖而安装，而像是提供md5算法的工具包，因为项目在正常工作中也会使用到，所以将它作为生产依赖而安装。这仅仅是我的理解，有关更多的信息，可以参考[这篇文章](https://github.com/ericdum/mujiang.info/issues/6/)，它里面详细描述了package.json文件中几乎所有字段的意义与作用。
+在这里你需要了解开发依赖与生产依赖之间的区别，开发依赖即指在开发过程中需要用到的工具包，生产依赖则是该项目正常工作时需要用到的工具包，因为我们只是在开发过程中才会使用到 Gulp，所以将它作为开发依赖而安装，而像是提供 md5 算法的工具包，因为项目在正常工作中也会使用到，所以将它作为生产依赖而安装。这仅仅是我的理解，有关更多的信息，可以参考[这篇文章](https://github.com/ericdum/mujiang.info/issues/6/)，它里面详细描述了package.json文件中几乎所有字段的意义与作用。
 
-3.在项目根目录下创建一个名为gulpfile.js的文件
+3.在项目根目录下创建一个名为 gulpfile.js 的文件
 ``` JavaScript
 var gulp = require('gulp');
 
@@ -33,42 +33,42 @@ gulp.task('default', function() {
   // 将你的默认的任务代码放在这
 });
 ```
-4.运行Gulp
+4.运行 Gulp
 ``` bash
 $ gulp
 ```
-仅输入gulp命令，则将会执行被定义为“default”的代码，在这个任务中并没有做任何事。如果你想要单独执行特定的任务，则可以输入“gulp \<task\> \<othertask\>”，例如，同时执行js代码检查与代码压缩，则可以输入
+仅输入 gulp 命令，则将会执行被定义为 default 的代码，在这个任务中并没有做任何事。如果你想要单独执行特定的任务，则可以输入 gulp \<task\> \<othertask\>，例如，同时执行 js 代码检查与代码压缩，则可以输入
 ``` bash
 $ gulp js-hint js-min
 ```
-当然，这里要求任务“js-hint”与“js-min”都在前面已经定义好且代码正确。
+当然，这里要求任务 js-hint 与 js-min 都在前面已经定义好且代码正确。
 
-### Gulp的API
-Gulp自身拥有一些API，可以提供一些很基础又很有帮助的功能，下面我们来了解一下。
+### Gulp 的 API
+Gulp 自身拥有一些 API，可以提供一些很基础又很有帮助的功能，下面我们来了解一下。
 
 #### gulp.src(globs[, options])
-该API用于输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件，它将返回一个Vinyl files的stream，其可以被piped到别的插件中。通俗一点来讲就是该API可以按照一定的规则读取指定的文件或者是文件数组，之后将这些文件转换成一种流的形式传递到其他的插件中，以供其他插件对这种流（也就是读取的文件）进行操作。这是最基础的一个操作，任何与文件有关的任务都要通过该API读取相应文件，之后才能进行下一步的操作。下面给出一个例子
+该 API 用于输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件，它将返回一个 Vinyl files 的 stream，其可以被 piped 到别的插件中。通俗一点来讲就是该 API 可以按照一定的规则读取指定的文件或者是文件数组，之后将这些文件转换成一种流的形式传递到其他的插件中，以供其他插件对这种流（也就是读取的文件）进行操作。这是最基础的一个操作，任何与文件有关的任务都要通过该 API 读取相应文件，之后才能进行下一步的操作。下面给出一个例子
 ``` JavaScript
-gulp.src('client/templates/*.jade')  // 读取该路径下后缀名为jade的所有文件，输出流
+gulp.src('client/templates/*.jade')  // 读取该路径下后缀名为 jade 的所有文件，输出流
   .pipe(jade())  // 插件对输入的流进行操作
   .pipe(minify())  // 插件对输入的流进行操作
   .pipe(gulp.dest('build/minified_templates'));  // 将流转换为文件保存在该路径下
 ```
-参数globs，类型可以为String或Array，其含义是所要读取的glob或者包含globs的数组，这里的glob可以通俗地理解为文件，也就是所要读取的文件或者包含文件的数组，在上面的例子中，globs即为“client/templates/*.jade”，这里面出现了“*.jade”这种表示方式，其实这是一种特别的语法node-glob，它能够更好地表述文件的所处位置与特征等信息，使用这种语法能够大大简化所要读取文件的书写方式。例如，现在要读取位于“src/js”文件夹下面的所有js文件，如果不适用node-glob语法，你可能需要将该文件夹下面的所有js文件的文件名全部写在一个数组里，而如果使用node-glob语法，则直接使用“src/js/*.js”即可。有关于更多的node-glob语法知识，可以参考[这篇文章](http://www.cnblogs.com/liulangmao/p/4552339.html)，它是Github上[node-glob语法](https://github.com/isaacs/node-glob)的翻译，英语好的同学可以直接看原文。
+参数 globs，类型可以为 String 或 Array ，其含义是所要读取的 glob 或者包含 globs 的数组，这里的 glob 可以通俗地理解为文件，也就是所要读取的文件或者包含文件的数组，在上面的例子中，globs 即为 client/templates/*.jade，这里面出现了 *.jade 这种表示方式，其实这是一种特别的语法 node-glob，它能够更好地表述文件的所处位置与特征等信息，使用这种语法能够大大简化所要读取文件的书写方式。例如，现在要读取位于 src/js 文件夹下面的所有 js 文件，如果不适用 node-glob 语法，你可能需要将该文件夹下面的所有 js 文件的文件名全部写在一个数组里，而如果使用 node-glob 语法，则直接使用 src/js/*.js 即可。有关于更多的 node-glob 语法知识，可以参考[这篇文章](http://www.cnblogs.com/liulangmao/p/4552339.html)，它是 Github 上[ node-glob 语法](https://github.com/isaacs/node-glob)的翻译，英语好的同学可以直接看原文。
 
-参数options主要用于传递一些读取文件时的参数设置，除了包含有glob-stream和node-glob支持的参数以外，Gulp还增加了一些额外的参数选项。例如options.read，如果该项被设置为false，那么file.contents会返回空值（null），也就是并不会去读取文件；再如options.base，它将会显式地设置文件的基础目录，这在文件的最后输出时将会有用，想象一下，在“client/js/somedir”目录下有一个“somefile.js”文件，则下面两种不同的写法最后的效果也是不同的
+参数options主要用于传递一些读取文件时的参数设置，除了包含有 glob-stream 和 node-glob 支持的参数以外，Gulp 还增加了一些额外的参数选项。例如 options.read，如果该项被设置为 false ，那么 file.contents会返回空值（null），也就是并不会去读取文件；再如options.base，它将会显式地设置文件的基础目录，这在文件的最后输出时将会有用，想象一下，在 client/js/somedir 目录下有一个 somefile.js 文件，则下面两种不同的写法最后的效果也是不同的
 ``` JavaScript
-gulp.src('client/js/**/*.js') // 匹配'client/js/somedir/somefile.js'并且将'base'默认解析为'client/js/'
+gulp.src('client/js/**/*.js') // 匹配 client/js/somedir/somefile.js 并且将 base默认解析为client/js/
   .pipe(minify())
-  .pipe(gulp.dest('build'));  // 写入 'build/somedir/somefile.js'
+  .pipe(gulp.dest('build'));  // 写入 build/somedir/somefile.js
 
 gulp.src('client/js/**/*.js', { base: 'client' })
   .pipe(minify())
-  .pipe(gulp.dest('build'));  // 写入 'build/js/somedir/somefile.js'
+  .pipe(gulp.dest('build'));  // 写入 build/js/somedir/somefile.js
 ```
 
 #### gulp.dest(path[, options])
-该API用于接收输入的流，并重新转换成文件写到硬盘上，与此同时，它还会将流原封不动地传递（pipe）到下一部分（如果有的话），因此你可以使用它将文件写在不同的文件夹里面，如果指定的文件夹不存在，则它将会自动创建该文件夹。例如
+该 API 用于接收输入的流，并重新转换成文件写到硬盘上，与此同时，它还会将流原封不动地传递（pipe）到下一部分（如果有的话），因此你可以使用它将文件写在不同的文件夹里面，如果指定的文件夹不存在，则它将会自动创建该文件夹。例如
 ``` JavaScript
 gulp.src('./client/templates/*.jade')  // 读取文件
   .pipe(jade())  // 对输入的流进行操作
@@ -76,40 +76,40 @@ gulp.src('./client/templates/*.jade')  // 读取文件
   .pipe(minify())  // 对输入的流进行操作
   .pipe(gulp.dest('./build/minified_templates'));  // 输出到指定文件夹中
 ```
-在上面的例子中，我们可以看到gulp.dest()接收自jade()操作后传递过来的流，之后转换成文件写到指定的文件夹中，然后它又将流原封不动地传递给了下一个操作minify()，最后再次调用gulp.dest()将处理好的流转换成文件写到指定的文件夹中。这里需要注意，文件被写入的路径是以所给的相对路径根据所给的目标目录计算而来。类似的，相对路径也可以根据所给的base选项来计算，具体信息可以参看上面的gulp.src()中对于参数base作用的描述。
+在上面的例子中，我们可以看到 gulp.dest() 接收自 jade() 操作后传递过来的流，之后转换成文件写到指定的文件夹中，然后它又将流原封不动地传递给了下一个操作 minify()，最后再次调用 gulp.dest() 将处理好的流转换成文件写到指定的文件夹中。这里需要注意，文件被写入的路径是以所给的相对路径根据所给的目标目录计算而来。类似的，相对路径也可以根据所给的 base 选项来计算，具体信息可以参看上面的 gulp.src() 中对于参数 base 作用的描述。
 
-参数path代表文件将被写入的路径（输出目录），也可以传入一个函数，在函数中返回相应的路径。
+参数 path 代表文件将被写入的路径（输出目录），也可以传入一个函数，在函数中返回相应的路径。
 
-参数options同样主要用于传递一些写入文件时的参数设置，例如options.mode，其代表八进制权限字符，用以定义所有在输出目录中所创建的目录的权限，默认值为777，即输出目录中所创建的目录的权限是可读可写可运行。
+参数 options 同样主要用于传递一些写入文件时的参数设置，例如 options.mode，其代表八进制权限字符，用以定义所有在输出目录中所创建的目录的权限，默认值为 777，即输出目录中所创建的目录的权限是可读可写可运行。
 
 #### gulp.task(name[, deps], fn)
-该API用于定义一个使用[Orchestrator](https://github.com/robrich/orchestrator)实现的任务（task），这也是最基础的操作，Gulp中的所有执行任务都要通过该API实现，使用方式为
+该 API 用于定义一个使用[ Orchestrator ](https://github.com/robrich/orchestrator)实现的任务（task），这也是最基础的操作，Gulp 中的所有执行任务都要通过该 API 实现，使用方式为
 ``` JavaScript
 gulp.task('somename', function() {
   console.log("Hello World")
 });
 ```
-上面的例子中定义了一个名叫“somename”的任务名，动作就是后面的函数中描述的要做的事，在命令行中打印出“Hello World”。
+上面的例子中定义了一个名叫 somename 的任务名，动作就是后面的函数中描述的要做的事，在命令行中打印出 Hello World。
 
-参数name即为任务的名字，请注意，如果你需要在命令行中运行某些任务，那么就不要在名字中使用空格，这会导致命令行错误解析输入的命令，可以使用连字符“-”代替空格。
+参数 name 即为任务的名字，请注意，如果你需要在命令行中运行某些任务，那么就不要在名字中使用空格，这会导致命令行错误解析输入的命令，可以使用连字符 -代替空格。
 
-参数deps的类型是数组，它表示一个包含任务列表的数组，这些任务会在你当前任务运行之前完成。这里需要确保所依赖的任务列表中的任务都使用了正确的异步执行方式：使用一个callback，或者返回一个promise或stream。
+参数 deps 的类型是数组，它表示一个包含任务列表的数组，这些任务会在你当前任务运行之前完成。这里需要确保所依赖的任务列表中的任务都使用了正确的异步执行方式：使用一个 callback，或者返回一个 promise 或 stream。
 
-参数fn是一个函数，该函数定义任务所要执行的一些操作。通常来说，它会是这种形式：gulp.src().pipe(someplugin()).pipe(gulp.dest())，也就是先读取文件，然后交给插件处理，最后将处理好的流以文件的形式写到文件夹中。如果你希望任务可以异步执行，那么fn就需要做到以下其中一点
+参数 fn 是一个函数，该函数定义任务所要执行的一些操作。通常来说，它会是这种形式：gulp.src().pipe(someplugin()).pipe(gulp.dest())，也就是先读取文件，然后交给插件处理，最后将处理好的流以文件的形式写到文件夹中。如果你希望任务可以异步执行，那么 fn 就需要做到以下其中一点
 
-1.接受一个callback，如
+1.接受一个 callback，如
 ``` JavaScript
 // 在shell中执行一个命令
 var exec = require('child_process').exec;
 gulp.task('jekyll', function(callback) {
   // 编译Jekyll
   exec('jekyll build', function(err) {
-    if (err) return callback(err); // 返回error
-    callback(); // 完成task
+    if (err) return callback(err); // 返回 error
+    callback(); // 完成 task
   });
 });
 ```
-2.返回一个stream，如
+2.返回一个 stream，如
 ``` JavaScript
 gulp.task('somename', function() {
   var stream = gulp.src('client/**/*.js')
@@ -118,7 +118,7 @@ gulp.task('somename', function() {
   return stream;
 });
 ```
-3.返回一个promise
+3.返回一个 promise
 ``` JavaScript
 var Q = require('q');
 gulp.task('somename', function() {
@@ -130,37 +130,37 @@ gulp.task('somename', function() {
   return deferred.promise;
 });
 ```
-需要注意的是，task将以最大的并发数执行，也就是说，gulp会一次性运行所有的task并且不做任何等待。如果你想要创建一个序列化的task队列，并以特定的顺序执行，你需要做两件事：
+需要注意的是，task 将以最大的并发数执行，也就是说，gulp 会一次性运行所有的 task 并且不做任何等待。如果你想要创建一个序列化的 task 队列，并以特定的顺序执行，你需要做两件事：
 
-1.给出一个提示，来告知task什么时候执行完毕；
-2.再给出一个提示，来告知一个task依赖另一个task的完成。
+1.给出一个提示，来告知 task 什么时候执行完毕；
+2.再给出一个提示，来告知一个 task 依赖另一个 task 的完成。
 
-对于这个例子，让我们先假定你有两个task，"one"和"two"，并且你希望它们按照这个顺序执行，那么在"one"中，你需要加入一个提示，来告知什么时候它会完成：可以在完成时候返回一个callback，或者返回一个promise或stream，这样系统会去等待它完成；在"two"中，你需要添加一个提示来告诉系统它需要依赖第一个task完成。因此，这个例子的实际代码将会是这样
+对于这个例子，让我们先假定你有两个 task， one 和 two，并且你希望它们按照这个顺序执行，那么在 one 中，你需要加入一个提示，来告知什么时候它会完成：可以在完成时候返回一个 callback，或者返回一个 promise 或 stream，这样系统会去等待它完成；在 two 中，你需要添加一个提示来告诉系统它需要依赖第一个 task 完成。因此，这个例子的实际代码将会是这样
 ``` JavaScript
 var gulp = require('gulp');
-// 返回一个callback，因此系统可以知道它什么时候完成
+// 返回一个 callback，因此系统可以知道它什么时候完成
 gulp.task('one', function(callback) {
     // 做一些事 -- 异步的或者其他的
-    callback(err); // 如果err不是null或undefined，则会停止执行，且注意，这样代表执行失败了
+    callback(err); // 如果 err 不是 null 或 undefined，则会停止执行，且注意，这样代表执行失败了
 });
-// 定义一个所依赖的task必须在这个task执行之前完成
+// 定义一个所依赖的 task 必须在这个 task 执行之前完成
 gulp.task('two', ['one'], function() {
-    // 'one'完成后
+    // one 完成后
 });
 gulp.task('default', ['one', 'two']);
 ```
-上面的例子中，函数“one”接受一个callback，保证task执行的异步性，在实际使用中我更喜欢在函数的最后返回一个stream，这样做看起来更简单一些。
+上面的例子中，函数 one 接受一个 callback，保证 task 执行的异步性，在实际使用中我更喜欢在函数的最后返回一个 stream，这样做看起来更简单一些。
 
 #### gulp.watch(glob[, opts], tasks) 或 gulp.watch(glob[, opts, cb])
-该API用于监视指定的文件是否发生变化，如果发生变化则执行后面指定的任务，它总会返回一个EventEmitter来发射（emit）change 事件，该API也是很基础的操作，在实际的开发过程中，它可以帮助你正确、及时、高效地完成一些操作，例如对发生变化的js代码进行语法检查，将SCSS及时编译成CSS以供浏览器使用，查看显示效果。
-该API存在两种用法，第一种用法是指定文件发生变动后要执行的任务，例如
+该 API 用于监视指定的文件是否发生变化，如果发生变化则执行后面指定的任务，它总会返回一个 EventEmitter 来发射（emit） change  事件，该 API 也是很基础的操作，在实际的开发过程中，它可以帮助你正确、及时、高效地完成一些操作，例如对发生变化的 js 代码进行语法检查，将 SCSS 及时编译成 CSS 以供浏览器使用，查看显示效果。
+该 API 存在两种用法，第一种用法是指定文件发生变动后要执行的任务，例如
 ``` JavaScript
 gulp.task("watch", function() {
-  // 监视js文件
+  // 监视 js 文件
   gulp.watch("src/js/**/*.js", ["js"]);
 });
 ```
-在上面的例子中，定义了一个名为“watch”的任务，其内部的主要工作就是监视路径为“src/js”以及该路径下的所有子文件夹内的js文件是否发生变化，如果发生变化，则调用后面指定的任务“js”对改动的文件进行一些处理。
+在上面的例子中，定义了一个名为 watch 的任务，其内部的主要工作就是监视路径为 src/js 以及该路径下的所有子文件夹内的 js 文件是否发生变化，如果发生变化，则调用后面指定的任务 js对改动的文件进行一些处理。
 
 第二种用法是指定文件发生变动后要执行的回调函数，例如
 ``` JavaScript
@@ -168,12 +168,12 @@ gulp.watch('src/js/**/*.js', function(event) {
   console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 });
 ```
-在上面的例子中，Gulp监视路径为“src/js”以及该路径下的所有子文件夹内的js文件是否发生变化，如果发生变化，则调用后面指定的回调函数，该回调函数会被传入一个event对象，来描述监视到的变动情况，其中，event.path表示发生了变动的文件的所在路径，event.type表示发生的变动的类型，可以是added、changed或者deleted这三个中的一个，分别表示新增文件、文件内容改变和删除文件。
+在上面的例子中，Gulp 监视路径为 src/js 以及该路径下的所有子文件夹内的 js 文件是否发生变化，如果发生变化，则调用后面指定的回调函数，该回调函数会被传入一个 event 对象，来描述监视到的变动情况，其中，event.path 表示发生了变动的文件的所在路径，event.type 表示发生的变动的类型，可以是 added、changed 或者 deleted 这三个中的一个，分别表示新增文件、文件内容改变和删除文件。
 
-参数glob为一个字符串或者包含多个字符串的字符串数组，用来指定具体监控哪些文件的变动情况，如上面例中的“src/js/**/*.js”，其含义就是监控“src/js”路径下以及该路径下所有的子文件夹里面所有的js文件的变动情况，注意这种表述方式在前面的gulp.src()中已经介绍过，也就是[node-glob语法](https://github.com/isaacs/node-glob)，忘记了的同学就到前面翻看复习一下。
+参数 glob 为一个字符串或者包含多个字符串的字符串数组，用来指定具体监控哪些文件的变动情况，如上面例中的 src/js/**/*.js，其含义就是监控 src/js 路径下以及该路径下所有的子文件夹里面所有的 js 文件的变动情况，注意这种表述方式在前面的 gulp.src() 中已经介绍过，也就是[ node-glob 语法](https://github.com/isaacs/node-glob)，忘记了的同学就到前面翻看复习一下。
 
-参数opts表示一些参数设置，这个我暂时没用到过，等以后了解其作用了再回来把这部分内容补上。
+参数 opts 表示一些参数设置，这个我暂时没用到过，等以后了解其作用了再回来把这部分内容补上。
 
-好了，关于Gulp的基础知识大概就是这么多了，其实这里面的大部分内容都是源自于Gulp中文网，我只是把这些内容再次写一遍，加深自己的印象，同时在一些地方加入自己的理解，Gulp中文网上面的介绍感觉比较精炼，可能将相关内容与解释写得多一点更适合我这样的新手吧。
+好了，关于 Gulp 的基础知识大概就是这么多了，其实这里面的大部分内容都是源自于 Gulp 中文网，我只是把这些内容再次写一遍，加深自己的印象，同时在一些地方加入自己的理解，Gulp 中文网上面的介绍感觉比较精炼，可能将相关内容与解释写得多一点更适合我这样的新手吧。
 
-后面关于Gulp的介绍文章大部分应该是围绕各种实用的插件，Gulp的插件非常多也非常全，用好这些插件能够大大提高开发效率，减少一些不必要的麻烦。等后面有时间和精力了我就开始写。
+后面关于 Gulp 的介绍文章大部分应该是围绕各种实用的插件，Gulp 的插件非常多也非常全，用好这些插件能够大大提高开发效率，减少一些不必要的麻烦。等后面有时间和精力了我就开始写。
