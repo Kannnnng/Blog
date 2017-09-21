@@ -10,7 +10,9 @@ DOM 模型存在的意义是为了方便使用 JavaScript 获取或编辑 html �
 这是一篇很简洁的文章，会将一些比较常用又比较重要的 DOM 知识点记录下来，限于时间与精力，暂时不会写的很详细，等以后有时间再回头补充一下。
 
 ### DOM 节点类型
+
 DOM 节点类型一共有12种，我们可以使用 nodeType 属性来获得一个节点的节点类型。这里只列出常用的六种：
+
 ``` bash
 节点类型      节点名称      数值常量     备注
 
@@ -18,17 +20,24 @@ Element      元素节点        1        通常拥有子节点、属性节点�
 Attr         属性节点        2        附属于元素节点，并不作为单独的节点在文档中出现
 Text         文本节点        3        可以只包含空白和回车，属性的文本内容也属于文本节点
 Comment      注释节点        8        注释文本
-Document     文档节点        9        不是 html 文档中的根元素，根元素是文档节点的字节点
+Document     文档节点        9        不是 html 文档中的根元素，根元素是文档节点的子节点
 DocumentType 文档类型节点    10        <!DOCTYPE html>，一般为 html
 ```
+
 获取方式：
+
 ``` javascript
 var node = document.getElementById("xxx");
 var nodeType = node.nodeType;
+
+/* 文档类型节点 */
+var node = document.doctype.nodeType
 ```
 
 ### DOM 节点名称
+
 不同的 DOM 节点类型对应不同的 DOM 节点名称，我们可以使用 nodeName 属性来获得一个节点的节点名称。
+
 ``` bash
 节点类型      节点名称       备注
 
@@ -38,7 +47,9 @@ Text         #text         所有的文本节点，其节点名称都为 #text�
 Comment      #comment      所有的注释节点，其节点名称都为 #comment。注意获取注释节点时需要先获取包含它的元素节点。节点名称获取方式与文本节点相同
 DocumentType hmtl          文档类型节点的节点名称一般为 html
 ```
+
 获取方式：
+
 ``` javascript
 /* 元素节点 */
 var node = document.getElementById("xxx");
@@ -59,7 +70,9 @@ var nodeName = document.doctype.nodeName;
 ```
 
 ### DOM 节点值
+
 不同的 DOM 节点类型对应不同的 DOM 节点值，我们可以使用 nodeValue 属性来获得一个节点的节点值。
+
 ``` bash
 节点类型      节点值      备注
 
@@ -68,7 +81,9 @@ Attr         属性的值    注意获取属性节点时需要先获取包含它
 Text         文本内容    注意获取文本节点时需要先获取包含它的元素节点
 Comment      注释内容    注意获取文本节点时需要先获取包含它的元素节点。节点值获取方式与文本节点相同
 ```
+
 获取方式：
+
 ``` javascript
 /* 元素节点 */
 var node = document.getElementById("xxx");
