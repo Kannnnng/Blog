@@ -91,14 +91,19 @@ say()
 
 上面代码的执行结果是打印了三个`Jerry man 你好 小老鼠`，所以我们可以看到三者在传递函数的参数这方面的区别是，apply 需要接收一个数组，数组中的元素就是要传递的函数参数，而 call 和 bind 都是将要传递的函数参数直接跟在 this 指向对象的后面。
 
-因此我们可以知道，三者的作用其实是一样的，甚至可以用一种方式来实现另外两种方式，下面给出一种 apply 实现 bind 的写法，这也是前端面试中经常遇到的题目。
+因此我们可以知道，三者的作用其实是一样的，我们甚至可以用一种方式来实现另外两种方式，下面给出一种 apply 实现 bind 的写法，这也是前端面试中经常遇到的题目。
 
 ```JavaScript
 Function.prototype.bind = function () {
+  /* 获取当前函数的 this 指向，也就是其本身 */
   var fn = this
+  /* 将传递进来的参数数组复制一个副本，该副本与原参数数组占用两块不同内存空间，但各元素相同 */
   var args = Array.prototype.slice.apply(arguments)
+  /* 获取参数数组副本中的第一个参数，也就是 this 要指向的对象，同时将副本数组中的该元素删除 */
   var target = args.shift()
+  /* 返回函数 */
   return function () {
+    /* apply 用法，第一个参数是 this 要指向的对象，第二个参数是参数数组 */
     return fn.apply(target, args)
   }
 }
