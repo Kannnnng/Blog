@@ -1,5 +1,5 @@
 ---
-title: DOM 学习笔记（二） DOM 元素
+title: DOM 学习笔记（二）DOM 元素
 category: 学习笔记
 tag: [DOM,前端开发]
 date: 2017-02-17 14:36:00
@@ -10,51 +10,64 @@ DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以
 首先，这里的 DOM 元素暂时指代网页中的各个元素标签，例如 div、p、span 等；其次，这篇文章同样可能很简洁，不会太深入讨论一些知识点，只是把我学习过程中遇到的比较重要的内容记录下来，以备后用。
 
 ### 块级元素、內联元素和内联块级元素
+
 DOM 元素按照表现形式划分可以分为块级元素、內联元素和内联块级元素，其 CSS 属性 display 分别对应为 block、inline 和 inline-block。
 
 #### 块级元素
-1.从左到右撑满页面，独占一行，触碰到页面边缘时，将会自动换行；
-2.可以设置 width 和 height 属性，但即使是设置了宽度，仍然是独占一行。
+
+1.从左到右撑满页面，独占一行；
+2.可以设置 width 和 height 属性，但即使是设置了宽度，仍然是独占一行，剩余部分使用 margin 填充。
 
 常见的块级元素有：div、ul、li、p、form、table、h1～h6……
 
 #### 內联元素
-1.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；
-2.其宽度随内容的多少而变化；
-3.不可以设置 width 和 height 属性，即使设置也是无效的；
-4.可以正常设置 padding－left、padding－right、margin－left、margin－right；
-5.不能设置 margin－top 和 margin－bottom，即使设置也是无效的；
-6.设置 padding－top 和 padding－bottom 时，是基于元素内容对齐的，而不是基于边界对齐的，也就是说设置 padding－top 和 padding－bottom 时，元素内容位置不变，边框位置发生变化。
 
-常见的內联元素有：span、a、strong、label、select、textarea……
+1.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；
+2.其宽度随内容的大小而变化；
+3.不可以设置 width 和 height 属性，即使设置也是无效的；
+4.可以正常设置 padding-left、padding-right、margin-left、margin-right；
+5.不能设置 margin-top 和 margin-bottom，即使设置也是无效的；
+6.设置 padding-top 和 padding-bottom 时，是基于元素内容对齐的，而不是基于边界对齐的，也就是说设置 padding-top 和 padding-bottom 时，元素内容位置不变，边框位置发生变化。
+
+常见的內联元素有：span、a、i、strong、label、select、textarea……
 
 #### 内联块级元素
+
 1.将元素呈递为内联元素，但元素的内容作为块级元素呈递，可以理解为块级元素与內联元素的结合；
 2.能够在同一行内显示，不会产生换行，直到该行填满，才会新换一行；
 3.能够设置 width 和 height 属性；
-4.能够设置 padding 属性与 margin 属性。(待验证)
+4.能够设置 padding 属性与 margin 属性。
 
-常见的內联元素有：input、img。
+常见的内联块级元素有：input、img。
 
 ### 常见 DOM 元素的嵌套规则
+
 这个知识点应该是最常用的，但也是比较容易出问题的，具体看来常见 DOM 元素的嵌套规则有如下几项：
 
 1.块级元素可以包含內联元素或其他块级元素，但內联元素却不能包含块级元素，它只能包含其他的內联元素。例如：
+
 ``` html
 <div><h1></h1><p></p></div>    正确
 <a href="#"><span></span></a>  正确
 <span><div></div></span>       错误
 ```
+
 2.p 元素里面不能放块级元素。这里需要注意的是：<span style="color: red; font-weight: bold">p 元素是块级元素，但却不满足第一条规则，所以是第一条规则的特例。</span>例如：
+
 ``` html
 <p><ol><li></li></ol></p>      错误
 <p><div></div></p>             错误
 ```
+
 3.有几个特殊的块级元素只能包含內联元素，不能再包含块级元素，这几个特殊的标签是：<span style="color: red; font-weight: bold">h1、h2、h3、h4、h5、h6、p、dt。</span>这一条规则是对第二条规则的补充，说明不仅仅只有 p 元素里面不能放块级元素，h1～h6 和 dt 里面也不能放块级元素。
+
 4.li 元素里面可以放置 div 元素，实际上 li 元素里面可以放置大多数块级元素和內联元素，甚至是它的父元素 ol 元素和 ul 元素。
+
 5.块级元素与块级元素并列，內联元素与內联元素并列。例如：
 ``` html
 <div><h2></h2><p></p></div>    正确
 <div><a href="#"></a><span></span></div>  正确
 <div><h2></h2><span></span></div>  可以渲染，但不提倡
 ```
+
+当然现代浏览器的渲染能力是很强大的，及时不遵守上面所写的几条规则，现代浏览器也能够渲染出 DOM 的结构，但是这样的 DOM 结构是不合理的，其中可能会存在一些隐患性问题，例如最常见的元素的显示效果问题，所以实际开发过程中如果可以的话尽量遵循上面所写的规则将会提高 DOM 结构的健壮性。
