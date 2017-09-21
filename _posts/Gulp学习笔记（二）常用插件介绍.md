@@ -13,7 +13,7 @@ date: 2017-03-21 17:09:00
 通过使用 stream-combiner2，你可以将一系列的 stream 合并成一个，这意味着，你只需要在你的代码中一个地方添加监听器监听发生错误或异常的时间就可以了，同时，stream 中发生的任何错误或异常都不会被直接抛出，而是会被监听器捕获，同时整个 Gulp 任务不会因此而中断。
 
 下面是一个 stream-combiner2 插件的使用实例。
-``` JavaScript
+``` javascript
 var combiner = require('stream-combiner2');  // 引入 stream-combiner2 插件
 var uglify = require('gulp-uglify');  // 引入 js 压缩插件
 var gulp = require('gulp');  // 引入 gulp 主模块
@@ -37,7 +37,7 @@ gulp.task('test', function() {
 在了解 gulp-jshint 之前，先需要了解 jshint，jshint 是用来检测 JavaScript 中的语法错误的，它能够帮助你完成 js 代码的错误排查工作，在代码运行之前发现错误，避免不必要的麻烦，gulp-jshint 是使 jshint 能够在 Gulp 中正确运行的帮助插件。明白这种依赖关系以后，我们就知道，要想在 Gulp 中使用 jshint 帮助检查自己的 js 代码正确性，不仅需要安装 jshint，还需要安装 gulp-jshint。
 
 下面是一个 gulp-jshint 插件的使用实例。
-``` JavaScript
+``` javascript
 var combiner = require('stream-combiner2');  // 引入 stream-combiner2 插件
 var jshint = require("gulp-jshint");  // js 检查
 var gulp = require('gulp');  // 引入 gulp 主模块
@@ -63,7 +63,7 @@ gulp.task("jshint", function() {
 这是一款压缩 js 代码的 Gulp 插件，在现在的前端项目中，js 代码量越来越多，js 文件也就越来越大，这样导致客户端在网络环境不太好时加载 js 代码很缓慢，因此压缩 js 代码也就变得很有必要。使用这款插件可以有效地压缩 js 文件大小，例如 jQuery 库，没有压缩时是 290KB，经过压缩以后的文件大小只有 89KB，由此可见压缩比还是非常可观的。
 
 下面是一个 gulp-uglify 插件的使用实例。
-``` JavaScript
+``` javascript
 var combiner = require('stream-combiner2');  // 引入 stream-combiner2 插件
 var uglify = require('gulp-uglify');  // 引入 js 压缩插件
 var gulp = require('gulp');  // 引入 gulp 主模块
@@ -92,7 +92,7 @@ gulp.task('jsmin', function() {
 这是一款提示插件，它的完整功能很多，但我在实际使用中基本上就只使用了它的几个功能，就是在完成某一目标时在控制台上打印出提示信息，同时在屏幕右上角或右下角弹出提示框，提示当前某一目标已经完成。
 
 下面是一个 gulp-notify 插件的简单使用实例。
-``` JavaScript
+``` javascript
 var notify = require("gulp-notify");  // 提示插件
 var gulp = require("gulp");  // 引入 gulp 主模块
 
@@ -105,7 +105,7 @@ gulp.task("html", function() {
 在上面的代码中，html 任务将 src/html 文件夹以及该文件夹下所有的子文件夹内的后缀名为 html 的文件输出到 dist/html 文件夹中，完成后弹出一个提示框，提示 html 文件输出完成，并在控制台上打印出该提示信息。
 
 除此以外，它还可以与 gulp-jshint 插件一起使用，当 gulp-jshint 运行出现错误的时候，它可以更好的显示错误信息。下面是一个两者一起使用的简单实例。
-``` JavaScript
+``` javascript
 var notify = require("gulp-notify");  // 提示插件
 var jshint = require("gulp-jshint");  // js 检查
 var gulp = require("gulp");  // 引入 gulp 主模块
@@ -129,7 +129,7 @@ gulp.task('lint', function() {
 
 ### gulp-rename
 这是一款为文件重命名的插件，它可以完成你对文件重命名的很多需求，例如修改文件名，在原文件名的基础上添加前缀与后缀，修改文件的后缀名（扩展名），甚至为文件设置存储路径等。下面是一个 gulp-rename 插件的使用实例。
-``` JavaScript
+``` javascript
 var combiner = require('stream-combiner2');  // 引入 stream-combiner2 插件
 var uglify = require('gulp-uglify');  // 引入 js 压缩插件
 var rename = require("gulp-rename");  // 重命名
@@ -153,7 +153,7 @@ gulp.task('jsmin', function() {
 在上面的代码中，Gulp 首先读取 js 源文件，之后对 js 代码进行压缩，然后对压缩好的 js 文件修改其文件名，即在文件名后面添加 .min 后缀，最后输出文件。这样，一个名为 index.js 的 js 文件最后输出为名为 index.min.js 的 js 压缩文件。
 
 除此之外，它还有很多选项可供使用，下面这个示例展示了其他选项的作用。
-``` JavaScript
+``` javascript
 var rename = require("gulp-rename");  // 重命名
 var gulp = require('gulp');  // 引入 gulp 主模块
 
@@ -171,7 +171,7 @@ gulp.src("src/text/hello.txt")  // src/text/hello.txt
 
 ### gulp-livereload
 这是一款实现代码修改后浏览器自动刷新功能的插件，可以说这个插件帮助我们节省了前端开发过程中一个很费神的事情，使用这款插件以后我们就可以实现仅在编辑器中保存代码，然后浏览器就会自动刷新的效果了。下面是一个 gulp-livereload 插件的使用实例。
-``` JavaScript
+``` javascript
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var livereload = require("gulp-livereload");
@@ -191,7 +191,7 @@ gulp.task('watch', function() {
 在上面的代码中，我们一开始先定义了一个 Gulp 任务，规定任何 sass 文件发生变化，就调用任务内部的处理代码将 sass 编译成 css，然后存放到指定位置，注意到在执行完文件输出命令后，还有一句 livereload() 代码需要执行，这一句代码的功能就是在上面的任务执行完成以后自动刷新浏览器，因此如果你希望某一任务（例如 js 代码编译）完成以后自动刷新浏览器页面，你就需要在相对应的 Gulp 任务的后面添加这句代码,最后启动 gulp-livereload 侦听功能即可。
 
 除了上面这种使用方式，你还可以通过 livereload.changed(path) 来使用 gulp-livereload，这种方式比上面的更加简单方便，下面是一个通过 livereload.changed(path) 方法来使用 gulp-livereload 的一个实例。
-``` JavaScript
+``` javascript
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var livereload = require("gulp-livereload");
@@ -218,7 +218,7 @@ ___
 
 ### proxy-middleware
 这是一款在向后端发送请求时设置代理的插件，通俗一点来讲就是更改向后端发送请求的 URL，比如你当前页面所属域名为 <span>https:</span>//example.com/endpoint，那么当你需要向后端发送请求（GET、POST 等）时，你请求的 URL 可能会类似于 <span>https:</span>//example.com/endpoint/getsomething?name=xxx&type=xxx，这样写不仅麻烦，同时当页面所处域名发生变化时，你就需要改动几乎所有的请求 URL，而使用这款插件以后，你就可以在服务器初始化的时候设置当前所处域名，并且之后你的所有请求 URL 只需要写成 /api/getsomething?name=xxx&type=xxx/ 即可。下面是一个 proxy-middleware 插件的使用实例。
-``` JavaScript
+``` javascript
 var connect = require('connect');
 var url = require('url');
 var proxy = require('proxy-middleware');
@@ -234,7 +234,7 @@ app.use('/api-string-only', proxy('https://example.com/endpoint'));
 
 ### opn
 这是一款专门用来打开文件、网址和可执行文件的插件，不仅如此，它还可以指定打开文件以后的操作，指定使用什么浏览器来打开网址，下面是一个 opn 插件的使用实例。
-``` JavaScript
+``` javascript
 var opn = require('opn');
  
 // 使用系统默认应用打开文件
@@ -255,7 +255,7 @@ opn('http://www.baidu.com', {app: ['google chrome', '--incognito']});
 
 ### connect-livereload
 这是一款协助 gulp-livereload 插件实现自动刷新页面功能的插件，有了它你就可以不必安装 chrome 插件，当然，如果你的浏览器现在已经安装了 LiveReload 插件，那你就不再需要这款插件，如果没有安装该插件，你可以选择安装，或者使用 connect-livereload，下面是一个 connect-livereload 的简单使用实例。
-``` JavaScript
+``` javascript
 var connect = require("connect");
 var app = connect()
     .use(require("connect-livereload")({ port: 35729 }));
@@ -264,7 +264,7 @@ var app = connect()
 
 ### 
 需要注意的是，上面的例子是假定你已经在本地建立好了服务器（例如通过 Wamp 建立本地服务器），并能够通过浏览器打开<span> http:</span>//localhost:8000 页面，如果你尚且没有在本地建立好服务器，那下面这个例子或许能够更好地帮助你，它同时完成了建立服务器、设置服务器目录、设置向后端发送请求时的代理以及页面自动刷新等功能。
-``` JavaScript
+``` javascript
 var livereload = require("gulp-livereload");  // gulp 重载插件
 var url = require("url");  // url 插件
 var proxy = require("proxy-middleware");  // 代理插件

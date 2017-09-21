@@ -13,7 +13,7 @@ date: 2017-09-20 11:20:59
 
 首先，这三者的作用都是改变函数执行时的 this 指向的（关于 this 指向，这也是一个很重要的问题，以后会做详细讨论）。它们接收的第一个参数都是 this 要指向的对象，在此之后的所有参数都会被直接传递给要调用的函数。举个例子：
 
-``` JavaScript
+``` javascript
 var test = {
   name: 'Tom',
   gender: 'man',
@@ -29,7 +29,7 @@ test.say()
 
 这个时候我们碰到一个问题，我现在已经知道test对象中有say函数，如果我想在另外的对象上调用say函数怎么办呢？很明显解决办法就是显式地改变say函数调用时this的指向，apply、call、bind 都可以胜任这项工作，下面是各自的解决办法：
 
-```JavaScript
+``` javascript
 var test = {
   name: 'Tom',
   gender: 'man',
@@ -54,7 +54,7 @@ say()
 
 除了上面所说的，三者都接收第一个参数作为 this 的指向，三者还可以接收其他参数，这些参数将被直接传递给调用函数作为它们的参数。下面举个例子：
 
-```JavaScript
+``` javascript
 var test = {
   name: 'Tom',
   gender: 'man',
@@ -68,7 +68,7 @@ test.say('你好', '猫咪')
 
 上面代码的执行结果是`Tom man 你好 猫咪`，使用 apply、call、bind 来改变函数的 this 指向的时候，代码形式如下：
 
-```JavaScript
+``` javascript
 var test = {
   name: 'Tom',
   gender: 'man',
@@ -93,7 +93,7 @@ say()
 
 因此我们可以知道，三者的作用其实是一样的，我们甚至可以用一种方式来实现另外两种方式，下面给出一种 apply 实现 bind 的写法，这也是前端面试中经常遇到的题目。
 
-```JavaScript
+``` javascript
 Function.prototype.bind = function () {
   /* 获取当前函数的 this 指向，也就是其本身 */
   var fn = this
