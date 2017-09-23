@@ -20,11 +20,11 @@
 其实在公司这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript 学习笔记（一）问题集合 | Kang">
-<meta property="og:url" content="http://Kannnnng.github.io/Blog/2017/09/20/JavaScript学习笔记（一）问题集合/index.html">
+<meta property="og:url" content="http://Kannnnng.github.io/2017/09/20/JavaScript学习笔记（一）问题集合/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="自从今年三月份末期一直到，大概有半年没有动过博客上面的东西了，一来在公司实习，项目紧，任务重，再加上自己是一个初出茅庐的菜鸟程序员，所以在公司做开发都快忙不过来了，自然也不会有精力和时间更新博客，静下心来学点其他的东西或者巩固一下基础，二来自己也是懒，拖延症晚期患者大概都深有体会，时间总是可以挤出来的，但是就算是好不容易挤出来也都花在了看视频、玩游戏上面了，唉，开局先自我检讨一番……
 其实在公司这">
-<meta property="og:updated_time" content="2017-09-23T09:26:57.500Z">
+<meta property="og:updated_time" content="2017-09-23T09:55:28.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 学习笔记（一）问题集合 | Kang">
 <meta name="twitter:description" content="自从今年三月份末期一直到，大概有半年没有动过博客上面的东西了，一来在公司实习，项目紧，任务重，再加上自己是一个初出茅庐的菜鸟程序员，所以在公司做开发都快忙不过来了，自然也不会有精力和时间更新博客，静下心来学点其他的东西或者巩固一下基础，二来自己也是懒，拖延症晚期患者大概都深有体会，时间总是可以挤出来的，但是就算是好不容易挤出来也都花在了看视频、玩游戏上面了，唉，开局先自我检讨一番……
@@ -34,10 +34,10 @@
     
       <link rel="icon" type="image/x-icon" href="/favicon.png">
     
-    <link rel="stylesheet" href="/Blog/css/uno.css">
-    <link rel="stylesheet" href="/Blog/css/highlight.css">
-    <link rel="stylesheet" href="/Blog/css/archive.css">
-    <link rel="stylesheet" href="/Blog/css/china-social-icon.css">
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
 
 </head>
 <body>
@@ -171,14 +171,14 @@ classes that you can use:
           
             <font class="categories">
             &#8226; 分类:
-            <a class="categories-link" href="/Blog/categories/学习笔记/">学习笔记</a>, <a class="categories-link" href="/Blog/categories/学习笔记/解决办法/">解决办法</a>
+            <a class="categories-link" href="/categories/学习笔记/">学习笔记</a>, <a class="categories-link" href="/categories/学习笔记/解决办法/">解决办法</a>
             </font>
           
 
           
              &#8226; 标签:
             <font class="tags">
-              <a class="tags-link" href="/Blog/tags/JavaScript/">JavaScript</a>, <a class="tags-link" href="/Blog/tags/前端开发/">前端开发</a>, <a class="tags-link" href="/Blog/tags/问题集合/">问题集合</a>
+              <a class="tags-link" href="/tags/JavaScript/">JavaScript</a>, <a class="tags-link" href="/tags/前端开发/">前端开发</a>, <a class="tags-link" href="/tags/问题集合/">问题集合</a>
             </font>
           
 
@@ -194,8 +194,8 @@ classes that you can use:
 <p>其实在公司这段时间，虽然没时间学点自己想学的东西，但是收获是真的不小，毕竟一上来就是接触一个已经上线、用户数量将近四十万人的大项目，从最开始看到整个项目文件多到让我一脸懵逼，到后来逐步逐步看懂整个项目的组织结构，改一改样式这样的小操作，到最近独立完成项目规划中一整个功能模块，可以说一路上都在被项目代码碾压过来碾压过去，痛苦与收获并存，眼泪与汗水同流，好在最后没有放弃一路上挺了过来，现在旧的任务已经基本完成，新的任务还没有分配下来，我就趁着这段时间把自己之前将近半年的开发过程中遇到的关于 JavaScript 方面的问题记录在这篇文章中。这篇文章跟我之前的 CSS 学习笔记（三）问题集合应该是差不多的，不会写的很细，但是基本上会把遇到的所有疑问都在这里记录下来，如果有时间的话，我也会一直更新下去的。<a id="more"></a></p>
 <h3 id="apply、call、bind-之间的联系与区别"><a href="#apply、call、bind-之间的联系与区别" class="headerlink" title="apply、call、bind 之间的联系与区别"></a>apply、call、bind 之间的联系与区别</h3><p>首先，这三者的作用都是改变函数执行时的 this 指向的（关于 this 指向，这也是一个很重要的问题，以后会做详细讨论）。它们接收的第一个参数都是 this 要指向的对象，在此之后的所有参数都会被直接传递给要调用的函数。举个例子：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'Tom'</span>,</div><div class="line">  <span class="attr">gender</span>: <span class="string">'man'</span>,</div><div class="line">  <span class="attr">say</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.gender)</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line">test.say()</div></pre></td></tr></table></figure>
-<p>上面这段代码的运行结果是<code>Tom man</code>，很明显当say函数调用的时候，this指向的就是test这个对象。</p>
-<p>这个时候我们碰到一个问题，我现在已经知道test对象中有say函数，如果我想在另外的对象上调用say函数怎么办呢？很明显解决办法就是显式地改变say函数调用时this的指向，apply、call、bind 都可以胜任这项工作，下面是各自的解决办法：</p>
+<p>上面这段代码的运行结果是<code>Tom man</code>，很明显当 say 函数调用的时候，this 指向的就是 test 这个对象。</p>
+<p>这个时候我们碰到一个问题，我现在已经知道 test 对象中有 say 函数，如果我想在另外的对象上调用 say 函数怎么办呢？很明显解决办法就是显式地改变say函数调用时this的指向，apply、call、bind 都可以胜任这项工作，下面是各自的解决办法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> test = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'Tom'</span>,</div><div class="line">  <span class="attr">gender</span>: <span class="string">'man'</span>,</div><div class="line">  <span class="attr">say</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name, <span class="keyword">this</span>.gender)</div><div class="line">  &#125;,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> other = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'Jerry'</span>,</div><div class="line">  <span class="attr">gender</span>: <span class="string">'man'</span>,</div><div class="line">&#125;</div><div class="line"></div><div class="line">test.say.call(other)</div><div class="line">test.say.apply(other)</div><div class="line"></div><div class="line"><span class="keyword">var</span> say = test.say.bind(other)</div><div class="line">say()</div></pre></td></tr></table></figure>
 <p>上面代码的执行结果是打印了三个<code>Jerry man</code>，其中，apply 和 call 都是直接执行要调用的函数，而 bind 的执行结果是返回了一个经过包装的、this 为指定对象的原函数的副本（不知道具体应该叫什么，不过意思差不多，返回的函数与原函数执行过程相同，仅仅是 this 的只想发生了变化）。</p>
 <p>除了上面所说的，三者都接收第一个参数作为 this 的指向，三者还可以接收其他参数，这些参数将被直接传递给调用函数作为它们的参数。下面举个例子：</p>
@@ -227,9 +227,9 @@ classes that you can use:
     </div>
 
     <!-- js files -->
-    <script src="/Blog/js/jquery.min.js"></script>
-    <script src="/Blog/js/main.js"></script>
-    <script src="/Blog/js/scale.fix.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
     
 
     
@@ -246,7 +246,7 @@ classes that you can use:
 
     
 
-    <script src="/Blog/js/awesome-toc.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
     <script>
         $(document).ready(function(){
             $.awesome_toc({
