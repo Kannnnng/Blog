@@ -108,3 +108,7 @@ Function.prototype.bind = function () {
   }
 }
 ```
+
+### prototype
+
+有关于 prototype 这个知识点，我一直以来都是很困惑的，原因大概有两个，一个是入门级的 JavsScript 书籍基本上不会介绍这个知识点，另一个是实际项目中基本上没有用到过 prototype，所以一直不知道它的具体作用到底是什么。但是，现在用不到不代表以后也用不到，而且理解 prototype 对于理解 JavaScript 面向对象编程的思想比较重要，因此还是有必要弄清楚它的作用。
