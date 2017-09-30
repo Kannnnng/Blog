@@ -251,3 +251,70 @@ ExtendClass.prototype = new BaseClass()
 var instance = new ExtendClass()
 console.log(ExtendClass.prototype === instance.__proto__)  // true
 ```
+
+#### 练习
+
+有了上面的基础知识，我们现在给出几个实例，加深对前面知识的理解。
+
+``` javascript
+function Foo() {}
+var foo = new Foo
+console.log(foo.__proto === Foo.prototype)  // true
+```
+
+这个判断条件应该是比较好理解的，因为前面已经说明了，实例对象的 \_\_proto\_\_ 属性与构造函数的 prototype 属性指向了同一个对象，那就是实例对象的原型对象，因此两者是严格相等的。
+
+``` javascript
+function Foo() {};
+var foo = new Foo;
+console.log(Foo.prototype.constructor === Foo);  // true
+console.log(foo.constructor === Foo);  // true
+console.log(foo.hasOwnProperty('constructor'));  // false
+```
+
+第一个判断，构造函数的 prototype 属性指向了实例对象的原型对象，原型对象有 constructor 属性，其指向了该原型对象的构造函数。在上面例子中，原型对象的构造函数正是 Foo 函数。
+
+第二个判断，乍一看感觉不正确，因为前面说了，是原型对象而非实例对象拥有 constructor 属性，那为什么上面的判断是 true 呢？这是因为继承的原因，就像我们前面所说的 Java 中的例子，子类可以继承父类中的某些属性和方法，在 JavaScript 中，实例对象同样也可以继承原型对象的某些属性和方法。在上面的代码中，实例对象 foo 继承了原型对象的 constructor 属性，而第一个判断已经说明原型对象的 constructor 属性与 Foo 函数是相等的，因此这第二个判断也是正确的。
+
+第三个判断，hasOwnProperty 方法用于辨识某一个属性是否是对象自己的而非继承而来的，如果属性是对象自己本身拥有的，则返回 true，否则返回 false。很明显，在第二个判断中我们已经说明 constructor 属性不是实例对象 foo 自己拥有的，而是继承自其原型对象，其更确切的表达方式应该是`foo.__proto__.constructor`，所以这里的判断值为 false。
+
+``` javascript
+function Foo() {};
+var foo = new Foo;
+console.log(Foo.prototype.__proto__ === Object.prototype);  // true
+```
+
+构造函数 Foo 的 prototype 属性指向原型对象，原型对象的 \_\_proto\_\_ 属性指向原型对象的原型对象，这里我们注意到，我们可以先寻找 原型对象的构造函数，找到原型对象的构造函数以后，则原型对象的构造函数的 prototype 属性就指向原型对象的原型对象（有点绕）。那么原型对象的构造函数是什么呢？我们注意到，原型对象本身还是属于对象，在 JavaScript 中对象都是可以通过`new Object`来初始化的，那么自然其构造函数即为 Object，因此原型对象的原型对象也就是 Object.prototype，所以上面的判断是正确的。
+
+``` javascript
+function Foo() {};
+var foo = new Foo;
+console.log(Foo.prototype.constructor === Foo);  // true
+console.log(Object.prototype.constructor === Object);  // true
+console.log(Foo.prototype.hasOwnProperty('constructor'));  // true
+```
+
+第一个判断，前面已经
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
