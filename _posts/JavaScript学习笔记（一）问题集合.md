@@ -304,7 +304,7 @@ console.log(Foo.prototype.hasOwnProperty('constructor'));  // true
 console.log(Object.prototype.__proto__ === null);  // true
 ```
 
-这个判断可能稍微难以理解一点，首先，`Object.prototype`指向了实例对象的原型对象，那么`Object.prototype.__proto__`则表示以原型对象作为实例对象，该实例对象的原型对象。在上面的判断中，我们了解到在 JavaScript 中所有的对象都可以看做是 Object 构造函数生成的实例对象，那么`Object.prototype`所指向的原型对象也都可以看做是由 Object 构造函数生成的实例对象，这就形成了一种循环式结构，体现到代码上就是`Object.prototype`
+这个判断可能稍微难以理解一点，首先，`Object.prototype`指向了实例对象的原型对象，那么`Object.prototype.__proto__`则表示以原型对象作为实例对象，该实例对象的原型对象，你可以认为。在上面的判断中，我们了解到在 JavaScript 中所有的对象都可以看做是 Object 构造函数生成的实例对象，那么`Object.prototype`所指向的原型对象也都可以看做是由 Object 构造函数生成的实例对象，这就形成了一种循环式结构，体现到代码上就是`Object.prototype`
 
 
 
