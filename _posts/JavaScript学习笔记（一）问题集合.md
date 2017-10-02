@@ -272,7 +272,7 @@ console.log(foo.constructor === Foo);  // true
 console.log(foo.hasOwnProperty('constructor'));  // false
 ```
 
-第一个判断，构造函数的 prototype 属性指向了实例对象的原型对象，原型对象有 constructor 属性，其指向了该原型对象的构造函数。在上面例子中，原型对象的构造函数正是 Foo 函数。
+第一个判断，构造函数的 prototype 属性指向了实例对象的原型对象，原型对象有 constructor 属性，其指向了该原型对象的构造函数。在上面例子中，原型对象的构造函数正是 Foo 函数，也就是说实例对象的原型对象的 constructor 属性指向了构造函数本身。
 
 第二个判断，乍一看感觉不正确，因为前面说了，是原型对象而非实例对象拥有 constructor 属性，那为什么上面的判断是 true 呢？这是因为继承的原因，就像我们前面所说的 Java 中的例子，子类可以继承父类中的某些属性和方法，在 JavaScript 中，实例对象同样也可以继承原型对象的某些属性和方法。在上面的代码中，实例对象 foo 继承了原型对象的 constructor 属性，而第一个判断已经说明原型对象的 constructor 属性与 Foo 函数是相等的，因此这第二个判断也是正确的。
 
@@ -294,9 +294,17 @@ console.log(Object.prototype.constructor === Object);  // true
 console.log(Foo.prototype.hasOwnProperty('constructor'));  // true
 ```
 
-第一个判断，前面已经
+第一个判断，前面已经做了说明，实例对象的原型对象的 constructor 属性指向了构造函数本身，因此是正确的。
 
+第二个判断，根据第一个判断即可得出第二个判断是正确的。另外我们在这里还可以发现，JavaScript 中所有的对象都可以看做是由构造函数 Object 生成的。
 
+第三个判断，构造函数的 prototype 属性指向了原型对象，原型对象是拥有 constructor 属性的，因此这个判断也是正确的。
+
+``` javascript
+console.log(Object.prototype.__proto__ === null);  // true
+```
+
+这个判断可能稍微难以理解一点，首先，`Object.prototype`指向了实例对象的原型对象，那么`Object.prototype.__proto__`则表示以原型对象作为实例对象，该实例对象的原型对象。在上面的判断中，我们了解到在 JavaScript 中所有的对象都可以看做是 Object 构造函数生成的实例对象，那么`Object.prototype`所指向的原型对象也都可以看做是由 Object 构造函数生成的实例对象，这就形成了一种循环式结构，体现到代码上就是`Object.prototype`
 
 
 
