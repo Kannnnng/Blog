@@ -265,11 +265,11 @@ console.log(foo.__proto === Foo.prototype)  // true
 这个判断条件应该是比较好理解的，因为前面已经说明了，实例对象的 \_\_proto\_\_ 属性与构造函数的 prototype 属性指向了同一个对象，那就是实例对象的原型对象，因此两者是严格相等的。
 
 ``` javascript
-function Foo() {};
-var foo = new Foo;
-console.log(Foo.prototype.constructor === Foo);  // true
-console.log(foo.constructor === Foo);  // true
-console.log(foo.hasOwnProperty('constructor'));  // false
+function Foo() {}
+var foo = new Foo
+console.log(Foo.prototype.constructor === Foo)  // true
+console.log(foo.constructor === Foo)  // true
+console.log(foo.hasOwnProperty('constructor'))  // false
 ```
 
 第一个判断，构造函数的 prototype 属性指向了实例对象的原型对象，原型对象有 constructor 属性，其指向了该原型对象的构造函数。在上面例子中，原型对象的构造函数正是 Foo 函数，也就是说实例对象的原型对象的 constructor 属性指向了构造函数本身。
@@ -279,19 +279,19 @@ console.log(foo.hasOwnProperty('constructor'));  // false
 第三个判断，hasOwnProperty 方法用于辨识某一个属性是否是对象自己的而非继承而来的，如果属性是对象自己本身拥有的，则返回 true，否则返回 false。很明显，在第二个判断中我们已经说明 constructor 属性不是实例对象 foo 自己拥有的，而是继承自其原型对象，其更确切的表达方式应该是`foo.__proto__.constructor`，所以这里的判断值为 false。
 
 ``` javascript
-function Foo() {};
-var foo = new Foo;
-console.log(Foo.prototype.__proto__ === Object.prototype);  // true
+function Foo() {}
+var foo = new Foo
+console.log(Foo.prototype.__proto__ === Object.prototype)  // true
 ```
 
 构造函数 Foo 的 prototype 属性指向原型对象，原型对象的 \_\_proto\_\_ 属性指向原型对象的原型对象，这里我们注意到，我们可以先寻找 原型对象的构造函数，找到原型对象的构造函数以后，则原型对象的构造函数的 prototype 属性就指向原型对象的原型对象（有点绕）。那么原型对象的构造函数是什么呢？我们注意到，原型对象本身还是属于对象，在 JavaScript 中对象都是可以通过`new Object`来初始化的，那么自然其构造函数即为 Object，因此原型对象的原型对象也就是 Object.prototype，所以上面的判断是正确的。
 
 ``` javascript
-function Foo() {};
-var foo = new Foo;
-console.log(Foo.prototype.constructor === Foo);  // true
-console.log(Object.prototype.constructor === Object);  // true
-console.log(Foo.prototype.hasOwnProperty('constructor'));  // true
+function Foo() {}
+var foo = new Foo
+console.log(Foo.prototype.constructor === Foo)  // true
+console.log(Object.prototype.constructor === Object)  // true
+console.log(Foo.prototype.hasOwnProperty('constructor'))  // true
 ```
 
 第一个判断，前面已经做了说明，实例对象的原型对象的 constructor 属性指向了构造函数本身，因此是正确的。
@@ -301,19 +301,57 @@ console.log(Foo.prototype.hasOwnProperty('constructor'));  // true
 第三个判断，构造函数的 prototype 属性指向了原型对象，原型对象是拥有 constructor 属性的，因此这个判断也是正确的。
 
 ``` javascript
-console.log(Object.prototype.__proto__ === null);  // true
+console.log(Object.prototype.__proto__ === null)  // true
 ```
 
-这个判断可能稍微难以理解一点，首先，`Object.prototype`指向了实例对象的原型对象，那么`Object.prototype.__proto__`则表示以原型对象作为实例对象，该实例对象的原型对象，你可以认为。在上面的判断中，我们了解到在 JavaScript 中所有的对象都可以看做是 Object 构造函数生成的实例对象，那么`Object.prototype`所指向的原型对象也都可以看做是由 Object 构造函数生成的实例对象，这就形成了一种循环式结构，体现到代码上就是`Object.prototype`
+这个判断可能稍微难以理解一点，首先，`Object.prototype`指向了实例对象的原型对象，那么`Object.prototype.__proto__`则表示以原型对象作为实例对象，该实例对象的原型对象，在上面的判断中，我们了解到在 JavaScript 中所有的对象都可以看做是 Object 构造函数生成的实例对象，自然由 Object 构造函数所生成的实例对象都继承了 Object.prototype 所指向的原型对象，可以认为 Object.prototype 所指向的原型对象已经是 JavaScript 原型链的最顶端，它是固定存在的，而没有继承自其他对象，因此不存在原型对象，它的原型对象就是 null。
 
+``` javascript
+function Foo() {}
+var foo = new Foo
+console.log(Foo.__proto__ === Function.prototype)  // true
+console.log(Object.__proto__ === Function.prototype)  // true
+```
 
+在进行判断之前，需要知道的是在 JavaScript 中函数也是对象，只不过是具有特殊功能的对象而已，任何函数都可以看做是通过构造函数 Function 通过 new 操作来实例化的结果。看到这里，或许对 JavaScript 中一切皆是对象这句话有了更深的认识。
 
+第一个判断出现了 Function 这个构造函数，如果把 Foo 当成实例对象的话，那么其构造函数就是 Function，函数 Foo 是通过构造函数 Function 的 new 操作来实例化的，原型对象就是 Function.prototype，因此该判断是正确的。
 
+>实际上，代码`function Foo() {}`可以看做`var Foo = new Function()`，构造函数 Function 可以接收任意数量（好像最多是 255 个）的参数，除了最后一个外，前面的所有参数都被看做是要传入实例化以后的函数的参数，最后一个参数被看做函数体，且 Function 接收的所有参数都必须是字符串类型。例如，若要实现一个加法函数，通过构造函数 Function 来初始化的代码即为`var Foo = new Function('num1', 'num2', 'return num1 + num2')`。这种定义函数的方式在实际项目中是不被推荐的，因为上述代码在被执行的时候，第一步是要解析传入构造函数中的字符串，第二部才是基础的 JavaScript 代码解析，这样会导致性能下降，我们的主要目的是为了帮助理解在 JavaScript 中函数也是通过构造函数生成的实例对象这个概念。
 
+第二个判断，Object 这个构造函数同样也可以看做是一个实例对象，原型对象就是 Function.prototype，因此该判断也是正确的。
 
+``` javascript
+function Foo() {}
+var foo = new Foo
+console.log(Function.prototype.constructor === Function)  // true
+console.log(Foo.constructor === Function)  // true
+console.log(Foo.hasOwnProperty('constructor'))  // false
+console.log(Object.constructor === Function)  // true
+console.log(Object.hasOwnProperty('constructor'))  // false
+```
 
+第一个判断，前面已经说过，原型对象的 constructor 属性指向了构造函数本身。
 
+第二个判断，实例对象 Foo 不存在 constructor 属性，但可以通过 \_\_proto\_\_ 属性继承原型对象的 constructor 属性，因此上面的代码可以被改写成`Foo.__proto__.constructor === Function`，因此该判断是正确的。
 
+第三个判断，因为实例对象 Foo 的 constructor 属性是通过 \_\_proto\_\_ 属性继承自原型对象的，所以 hasOwnProperty 的判断结果为 false，因此该判断也是正确的。
+
+第四个判断，根据前面所写，构造函数 Object 同样也可以看做是一个实例对象，其构造函数就是 Function。那么该判断的剩余部分与第二个判断相同，实例对象 Object 通过 \_\_proto\_\_ 属性继承其原型对象的 constructor 属性，因为其原型对象是 Function.prototype，所以 Function.prototype.constructor 也就等于构造函数 Function 本身。
+
+第五个判断，同第三个判断相同，在这里不做赘述。
+
+``` javascript
+console.log(Function.__proto__ === Function.prototype)  // true
+console.log(Function.prototype.constructor === Function)  // true
+console.log(Function.prototype === Function.prototype)  // true
+```
+
+第一个判断，看上去比较怪异，因为其隐含的意思就是实例对象和构造函数是相同的，在这里就是实例对象 Function 是通过构造函数 Function 的 new 操作初始化的，为什么会有这种关系呢？前面我们讲到，在 JavaScript 中函数都可以看成是构造函数 Function 的 new 操作初始化的，因为构造函数 Function 本身也是构造函数，因此它可以看成是通过调用其自身的 new 操作来初始化的结果，那么自然生成的实例对象与构造函数就是相同的了。
+
+第二个判断，前面已经说过，原型对象的 constructor 属性指向了构造函数本身。
+
+第三个判断，简单的理解就是两个表达式都相同，那它们自然相等了，复杂一点理解，就是将第一个 Function 看做实例对象，通过 \_\_proto\_\_ 继承其原型对象的 prototype 属性，
 
 
 
