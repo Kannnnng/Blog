@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      JavaScript 学习笔记（四）模式学习 | Kang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Einskang">
+    
+    
+
+    <meta name="description" content="这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习笔记（四）模式学习 | Kang">
+<meta property="og:url" content="http://Kannnnng.github.io/2017/10/07/JavaScript学习笔记（四）模式学习/index.html">
+<meta property="og:site_name" content="Kang">
+<meta property="og:description" content="这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。">
+<meta property="og:updated_time" content="2017-10-08T07:02:47.547Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 学习笔记（四）模式学习 | Kang">
+<meta name="twitter:description" content="这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for Kang"><img src="/images/avatar.jpg" width="80" alt="Kang logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Kang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Einskang的小菜园子
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">JavaScript 学习笔记（四）模式学习</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-10-07" class="post-meta__date date">2017-10-07</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/学习笔记/">学习笔记</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/JavaScript/">JavaScript</a>, <a class="tags-link" href="/tags/前端开发/">前端开发</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。<a id="more"></a></p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>模式是针对普通问题的解决方案，是解决一类特定问题的模板。</p>
+<h3 id="基本技巧"><a href="#基本技巧" class="headerlink" title="基本技巧"></a>基本技巧</h3><h4 id="尽量少用全局变量"><a href="#尽量少用全局变量" class="headerlink" title="尽量少用全局变量"></a>尽量少用全局变量</h4><p>全局变量在整个 JavaScript 应用或者页面中都是可见且可修改的，这边带来一些问题，最常见的便是命名冲突问题，例如当一个应用程序中两个独立的、相互之间没有联系的模块分别定义了同名的全局变量，这个时候便产生了命名冲突问题，这里问题在实际开发过程中是不好排查的，好的解决办法就是尽量少用全局变量。</p>
+<p>鉴于 JavaScript 中的变量可以不经声明便可以赋值，在实际过程中经常会在不知不觉间创建全局变量，例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  result = x + y</div><div class="line">  <span class="keyword">return</span> result</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> sum = add(<span class="number">1</span>, <span class="number">2</span>)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(result)</div></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>3</code>，表面上看变量 result 是在函数内被赋值的，其作用域应该就只是在函数内，但实际情况是在函数外仍然可以获取到。原因是 result 没有经过声明就执行了赋值操作，这样的没有通过 var 关键词声明的变量便是一个隐式的全局变量，尽管它是在函数内部被创建的，因此在函数外仍然可以获取到。</p>
+<h4 id="显式全局变量与隐式全局变量"><a href="#显式全局变量与隐式全局变量" class="headerlink" title="显式全局变量与隐式全局变量"></a>显式全局变量与隐式全局变量</h4><p><strong>使用 var 关键字创建的全局变量可以称之为显式全局变量。</strong></p>
+<p><strong>不使用 var 关键字创建的全局变量可以称之为隐式全局变量。</strong></p>
+<p>这两种全局变量实际上是不一样的，前者不可以通过 delete 关键字删除，而后者可以。通过这个特性，我们就可以知道后者，也就是隐式全局变量实际上并不算是真正意义上的全局变量，它实际上是挂载在 window 对象下的属性，因为只有对象的属性才可以通过 delete 关键字删除。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;&#125;</div><div class="line"></div><div class="line">b = &#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 如果是在 Nodejs 中运行则需要将 window 改为 global */</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a === a)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b)</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b === b)</div></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>undefined false {} true</code>，这便有力地证明了前面所述内容。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>经过我的实践发现，这一条在不同的运行环境下结果是不一样的，在 Nodejs 中的运行结果与上面所说的运行结果相同，在浏览器（Google Chrome 61）中结果显示<code>{} true {} true</code>，很明显在浏览器中不管是通过哪种形式声明的全局变量，它们最后都挂载在了全局对象（浏览器环境是 window）下。另外需要说明的一点是，在 ES6 中通过 let const 关键字声明的全局变量不会挂载在全局对象下。</p>
+<hr>
+<h4 id="获取全局对象"><a href="#获取全局对象" class="headerlink" title="获取全局对象"></a>获取全局对象</h4><p>在浏览器中全局对象叫做 window，不使用 var 关键字声明的隐式全局变量全部作为属性挂载在 window 下面，但是在其他的运行环境中全局对象的名字可能不叫做 window，例如在 Nodejs 中全局对象叫做 global，下面介绍一种获取当前运行环境的全局对象的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> global = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span></div><div class="line">&#125;())</div></pre></td></tr></table></figure>
+<p>上面代码的原理与 this 有关，在 JavaScript 中 this 一直指向调用它的对象，在上面的代码中，由于是一个立即执行函数，所以调用 this 的就是全局对象，自然 this 就指向了全局对象。</p>
+<h4 id="尽量使用-let-const-定义变量"><a href="#尽量使用-let-const-定义变量" class="headerlink" title="尽量使用 let const 定义变量"></a>尽量使用 let const 定义变量</h4><p>在 ES6 之前，我们推荐变量在使用之前都应该通过 var 关键字声明，在 ES6 出现以后，我们有了更加方便安全的变量定义方法，那就是 let 和 const，let 定义的变量存在块作用域，const 定义的变量不可以被更改，其他详细的介绍请翻阅阮一峰老师的《ES6 标准入门》一书。相对于 let，我更推荐使用 const 关键字，其带来的不可变特性可以在很大程度上减少因为变量的不经意改动带来的 BUG。另外在工具 eslint 中也有一条规则，要求开发者尽可能使用 const 关键字定义变量</p>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2016. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | @<a href="https://www.github.com/Kannnnng">Einskang</a></span>
+
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cdp",
+				"cdup\tReact: componentDidUpdate(pp, ps) {…}"
+			],
+			[
+				"cdu",
+				"cdup\tReact: componentDidUpdate(pp, ps) {…}"
+			],
+			[
+				"cdm",
+				"cdm\tReact: componentDidMount() {…}"
+			],
+			[
+				"rcc",
+				"rcc\tReact: class component"
+			],
+			[
+				"nor",
+				"normalize"
+			],
+			[
+				"vp",
+				"vendor.79b4589c53e679d8fa84.pro.dll.js"
+			],
+			[
+				"no",
+				"nowrap"
+			],
+			[
+				"word",
+				"word-break"
+			],
+			[
+				"app",
+				"app.4b44e49c9d82017fddcb.js"
+			],
+			[
+				"r",
+				"routes.js"
+			],
+			[
+				"c",
+				"containers"
+			],
+			[
+				"fle",
+				"flex-end"
+			],
+			[
+				"tr",
+				"transparent"
+			],
+			[
+				"ali",
+				"align-content"
+			],
+			[
+				"spa",
+				"space-between"
+			],
+			[
+				"vner",
+				"vendor.6cd3aff91e5466d1835f.dev.dll.js"
+			],
+			[
+				"ven",
+				"vendor.8f24bb1dd2bad7182aed.pro.dll.js.gz"
+			],
+			[
+				"pro",
+				"process"
+			],
+			[
+				"cl",
+				"clickedGroup"
+			],
+			[
+				"a",
+				"actions.js"
+			],
+			[
+				"ss",
+				"styles"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"vend",
+				"vendors"
+			],
+			[
+				"con",
+				"containers/"
+			],
+			[
+				"Load",
+				"LoadingComponent"
+			],
+			[
+				"p",
+				"plugins"
+			],
+			[
+				"get",
+				"getPath"
+			],
+			[
+				"flex",
+				"flex-start"
+			],
+			[
+				"tra",
+				"transition"
+			],
+			[
+				"lis",
+				"listen"
+			],
+			[
+				"ll",
+				"livereload"
+			],
+			[
+				"li",
+				"livereload"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"rem",
+				"remove"
+			],
+			[
+				"fi",
+				"first"
+			],
+			[
+				"act",
+				"activeTab"
+			],
+			[
+				"has",
+				"hasClass"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"ine",
+				"index2"
+			],
+			[
+				"bs3",
+				"bs3-table\tbs3-table"
+			],
+			[
+				"new",
+				"newTeacherNum"
+			],
+			[
+				"tea",
+				"teacherNum"
+			],
+			[
+				"tab",
+				"table4"
+			],
+			[
+				"remo",
+				"remove"
+			],
+			[
+				"de",
+				"desc"
+			],
+			[
+				"student",
+				"student_class_update"
+			],
+			[
+				"coll",
+				"college_update"
+			],
+			[
+				"stu",
+				"student_number_update"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"tnm",
+				"teacherNum"
+			],
+			[
+				"sch",
+				"schoolNum"
+			],
+			[
+				"bs3pa",
+				"bs3-panel:info\tbs3-panel-info"
+			],
+			[
+				"bs3pan",
+				"bs3-panel:table\tbs3-panel-table"
+			],
+			[
+				"oe",
+				"ordermethod"
+			],
+			[
+				"actv",
+				"activeTab"
+			],
+			[
+				"ord",
+				"ordermethod"
+			],
+			[
+				"nex",
+				"nextTab"
+			],
+			[
+				"active",
+				"activeTab"
+			],
+			[
+				"col",
+				"columnname"
+			],
+			[
+				"sigin",
+				"signstatusinput1"
+			],
+			[
+				"key",
+				"keyCode"
+			],
+			[
+				"sea",
+				"searchButton"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"Pag",
+				"PAGENOW"
+			],
+			[
+				"WriteB",
+				"WriteBytes"
+			],
+			[
+				"guotu",
+				"guotujiance2"
+			],
+			[
+				"shuxing",
+				"shuxingjiance1"
+			],
+			[
+				"Wr",
+				"WriteInt"
+			],
+			[
+				"shangai",
+				"shanghaijiance1"
+			],
+			[
+				"Writ",
+				"WriteBytes"
+			],
+			[
+				"write",
+				"WriteBytes"
+			],
+			[
+				"manjiji",
+				"manjijineng1"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"ar",
+				"argument"
+			],
+			[
+				"ta",
+				"tabIndex"
+			],
+			[
+				"sor",
+				"Sorting"
+			],
+			[
+				"func",
+				"function"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"swi",
+				"switch"
+			],
+			[
+				"search",
+				"searchteacher"
+			],
+			[
+				"Pa",
+				"PAGENOW"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"bs3mo",
+				"bs3-modal\tbs3-modal"
+			],
+			[
+				"but",
+				"bs3-button\tbs3-button"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"phone",
+				"phone_update"
+			],
+			[
+				"dep",
+				"department_update"
+			],
+			[
+				"colle",
+				"college_update"
+			],
+			[
+				"st",
+				"student_id"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"_",
+				"_value"
+			],
+			[
+				"te",
+				"text"
+			],
+			[
+				"chan",
+				"changeStdtInfo"
+			],
+			[
+				"index",
+				"index"
+			],
+			[
+				"bs3iga",
+				"bs3-input-group:addon:text\tbs3-input-group-addon-text"
+			],
+			[
+				"cou",
+				"course_information1"
+			],
+			[
+				"jinenglan",
+				"jinenglengquepianyi1"
+			],
+			[
+				"zhiye",
+				"zhiyejizhi"
+			],
+			[
+				"cour",
+				"course_information1"
+			],
+			[
+				"tc",
+				"tabChange"
+			],
+			[
+				"inde",
+				"index"
+			],
+			[
+				"ind",
+				"index"
+			],
+			[
+				"sign",
+				"sign_information"
+			],
+			[
+				"fn",
+				"function"
+			],
+			[
+				"fo",
+				"folder"
+			],
+			[
+				"btn",
+				"BtnForPageChg"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"pag",
+				"pageNow"
+			],
+			[
+				"pa",
+				"BtnForPage"
+			],
+			[
+				"page",
+				"pageBtnGrp"
+			],
+			[
+				"sec",
+				"selected"
+			],
+			[
+				"inline",
+				"inline-flex"
+			],
+			[
+				"cm",
+				"colNum"
+			],
+			[
+				"co",
+				"colNum"
+			],
+			[
+				"text",
+				"text-center"
+			],
+			[
+				"tb",
+				"tbodyBtn"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"to",
+				"tbody"
+			],
+			[
+				"ch",
+				"checkout"
+			],
+			[
+				"t",
+				"tbody"
+			],
+			[
+				"bs3ta",
+				"bs3-table\tbs3-table"
+			],
+			[
+				"bs3inputtex",
+				"bs3-input-group:text:btn\tbs3-input-group-text-btn"
+			],
+			[
+				"bs3ro",
+				"bs3-row-col\tbs3-row-col"
+			],
+			[
+				"bs3inputtext",
+				"bs3-input-group:text:btn\tbs3-input-group-text-btn"
+			],
+			[
+				"btngrou",
+				"bs3-input-group\tbs3-input-group"
+			],
+			[
+				"zidong",
+				"zidongshiqu"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "pcls",
+		"selected_items":
+		[
+			[
+				"pcls",
+				"Package Control: List Packages"
+			],
+			[
+				"pcip",
+				"Package Control: Install Package"
+			],
+			[
+				"filediff",
+				"FileDiffs: Menu"
+			],
+			[
+				"pcd",
+				"Package Control: Disable Package"
+			],
+			[
+				"pcl",
+				"Package Control: List Packages"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"pli",
+				"Package Control: List Packages"
+			],
+			[
+				"plc",
+				"Package Control: List Packages"
+			],
+			[
+				"markdownpre",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdow",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"ssjb",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"ssc",
+				"Set Syntax: C++"
+			],
+			[
+				"pacinst",
+				"Package Control: Install Package"
+			],
+			[
+				"key",
+				"FindKeyConflicts: (Direct) Conflicts to Quick Panel"
+			],
+			[
+				"find",
+				"FindKeyConflicts: All Key Maps to Quick Panel"
+			],
+			[
+				"ssc+",
+				"Set Syntax: C++"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 609.0
+	},
+	"console":
+	{
+		"height": 174.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source",
+		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts"
+	],
+	"file_history":
+	[
+		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/JavaScript学习笔记（三）Promise.md",
+		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/JavaScript学习笔记（一）问题集合.md",
+		"/C/Users/Einskang/Documents/Project/Kannnnng.github.io/source/_posts/JavaScript学习笔记（二）prototype、constructor和__proto__辨析.md",
+		"/D/Downloads/big_pic.bmp",
+		"/D/Downloads/BaiduYunDownload/爬虫网页.html",
+		"/C/Users/Einskang/Documents/Project/React-demo/package.json",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/AnswerJudge/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/AnswerMultipleChoice/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/AnswerSingleSelection/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/QuestionAnswer/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/StudentInfomation/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/containers/Home/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/npm-debug.log",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/Loading/styles.scss",
+		"/D/Downloads/有关人工智能方向的选题.html",
+		"/D/Documents/Projects/MySoftwareSetting/学习事务/助教事务/有关人工智能方向的选题.md",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/AnswerShortAnswer/styles.scss",
+		"/D/Downloads/BaiduYunDownload/Aero Glass 1.4.6 , 1.5.1 , 1.5.2 , 1.5.3 Cracked Links.txt",
+		"/D/Downloads/schedule.bat",
+		"/C/Program Files/AeroGlass/debug.log",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/DiscusstionHeader/index.js",
+		"/D/Downloads/FileDiffs/file_diffs.py",
+		"/D/Downloads/Diff/Context.sublime-menu",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/DiscusstionHeader/styles.scss",
+		"/D/Downloads/FileDiffs/package.json",
+		"/C/Program Files/Sublime Text 3/Packages/Diff.sublime-package",
+		"/D/Downloads/FileDiffs/README.md",
+		"/D/Downloads/FileDiffs/package-metadata.json",
+		"/D/Downloads/FileDiffs/Context.sublime-menu",
+		"/D/Downloads/Example.sublime-keymap",
+		"/D/Downloads/Tab Context.sublime-menu",
+		"/D/Downloads/Side Bar.sublime-menu",
+		"/D/Downloads/FileDiffs.sublime-settings",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Installed Packages/FileDiffs.sublime-package",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/FileDiffs/FileDiffs.sublime-settings",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/FileDiffs.sublime-settings",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/PostCSSSorting.sublime-settings",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/CSScomb/Default.sublime-keymap",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/CSScomb/CSScomb.sublime-settings",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/CountDown/styles.scss",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/PostCSS Sorting/Default (Windows).sublime-keymap",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/PostCSS Sorting/PostCSSSorting.sublime-settings",
+		"/C/Users/Einskang/Documents/Project/weizhujiao-wechat-frontend/app/components/CountDown/styles.css",
+		"/C/Users/Einskang/Documents/Project/React-demo/webpack.config.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/postcss.config.js",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/CSScomb/README.md",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/BracketHighlighter/CHANGES.md",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/BracketHighlighter/messages.json",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/BracketHighlighter/mkdocs.yml",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/DiscussionBottomToolBar/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/DiscussionBottomToolBar/StudentDiscussionAvatar.js",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/BracketHighlighter/readme.md",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/DiscussionPicModeElement/DiscussionPicPreview.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/StudentManagement/index.js",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/Babel Snippets/react_componentDidMount_(class).sublime-snippet",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/Babel Snippets/react_component_class.sublime-snippet",
+		"/D/Documents/Projects/MySoftwareSetting/README.md",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/User/MarkdownPreview.sublime-settings",
+		"/C/Users/Einskang/AppData/Roaming/Sublime Text 3/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/D/Downloads/BaiduYunDownload/JavaScript.md",
+		"/C/Users/Einskang/Documents/Project/weizhujiao-wechat-frontend/package.json",
+		"/C/Users/Einskang/Documents/Project/Test/Test.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/containers/Example/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/containers/Example/mock.js",
+		"/C/Users/Einskang/Documents/Project/Test/node_modules/.3.2.3@normalizr/dist/src/index.js",
+		"/C/Users/Einskang/Documents/Project/Test/node_modules/.3.2.3@normalizr/package.json",
+		"/C/Users/Einskang/Documents/Project/React-demo/index.html",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/routes.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/webpack.dll.config.js",
+		"/C/Users/Einskang/AppData/Roaming/GHISLER/wincmd.ini",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/Objects_server/Weapons/Handheld/USATP_predator/USATP_Predator.tweak",
+		"/D/Documents/电脑文件/其他软件/Windows10重装系统备份/sublime 3143注册码.txt",
+		"/C/Users/Einskang/Desktop/sublime 3143注册码.txt",
+		"/D/Downloads/硕士研究生选课暂定计划.txt",
+		"/C/Users/Einskang/Documents/Project/React-demo/.eslintrc",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/index.js",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/AI/AIDefault.ai",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/Objects_server/Kits/US/US_AT.con",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/Objects_server/Kits/US/US_Specops.con",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/python/game/gamemodes/gpm_cq.py",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/Objects_server/soldiers/Us/us_light_soldier.tweak",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/Objects_server/soldiers/Us/US_HEAVY_SOLDIER.tweak",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/Objects_server/Weapons/Handheld/USRIF_M4/USRIF_M4.tweak",
+		"/D/Saved Games/PC游戏/战地2/mods/bf2/Objects_server/Weapons/Handheld/chrif_type95/chrif_type95.tweak",
+		"/D/Downloads/【全明星】中国有嘻♂哈2.ass",
+		"/C/Users/Einskang/Desktop/1.今天（2017年9月9日）晚上八点钟在西五楼501开班会，希望方便的同学都去参加一下，相互之间认",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/DiscussionBottomToolBar/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/containers/Home/index.js",
+		"/C/Users/Einskang/Documents/Project/react-hot-loader-master/src/babel/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.3.0.0-beta.7@react-hot-loader/lib/babel/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/.babelrc",
+		"/C/Users/Einskang/Desktop/OH MY GOD! I find the root of this problem!",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/containers/Profile/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/styles.scss",
+		"/C/Users/Einskang/Documents/Project/React-demo/.stylelintrc",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/containers/Game2048/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/styles.af9d148a5f1440a7ff58.css",
+		"/C/Program Files/CONEXANT/Install.txt",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/styles.54d88bc3f2434dbf6daf.css",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/styles.2751db4b9134cb33c51f.css",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/styles.css",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/2.21b6317cc13421aef52a.chunk.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/0.ace138657b2be59ecad6.chunk.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/app.ace138657b2be59ecad6.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.2.7.0@webpack/schemas/webpackOptionsSchema.json",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/vendor.8f24bb1dd2bad7182aed.pro.dll.js.gz",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/Draggable/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.2.7.0@webpack/bin/config-optimist.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/assets/loading.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/0.21b6317cc13421aef52a.chunk.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/build/app.21b6317cc13421aef52a.js",
+		"/D/Documents/工作文件/手机信息/手机文件导出_2016.02.26/QQ_Images/-14144d17c04ca81d.unknown_6033",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/utils/fetch.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.2.7.0@webpack/lib/WebpackOptionsDefaulter.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.2.6.8@debug/src/node.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/containers/Home/mock.js",
+		"/D/Downloads/Mock.js",
+		"/C/Users/Einskang/AppData/Local/Temp/q0cmf5mv.q5l/.gitignore",
+		"/C/Users/Einskang/Documents/Project/React-demo/react-demo.sublime-project",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.15.5.3@react/lib/React.js",
+		"/D/Music/林海&蒋彦 - 琵琶相/Info.txt",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.15.5.3@react/node_modules/fbjs/lib/shallowEqual.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/StudentManagementSidebar/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/components/StudentCardContainer/index.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/app/store.js",
+		"/C/Users/Einskang/Documents/Project/React-demo/node_modules/.5.0.4@react-redux/lib/components/Provider.js"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 105.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"^### ",
+			"### ",
+			"javascript"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 38.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 140.0
+	},
+	"output.find_results":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "Packages/User/JavaScript.sublime-build",
+	"project": "Kannnnng.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"studen",
+				"app\\components\\StudentManagement\\index.js"
+			],
+			[
+				"discuss",
+				"app\\components\\DiscussionPicModeElement\\DiscussionPicPreview.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 125.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

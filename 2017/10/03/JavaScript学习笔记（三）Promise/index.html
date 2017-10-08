@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      JavaScript 学习笔记（三）Promise | Kang 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="Einskang">
+    
+    
+
+    <meta name="description" content="Promise 在 JavaScript 中占有很重要的地位，它在异步编程中作用巨大。在以往的异步编程过程中，回调函数是最为常用的，如果仅仅是简单的回调函数调用，那这种编码方式是可以接受的，但是在实际项目开发过程中，我们经常碰到需要写很多回调函数的情况，我们不得不在回调函数中再次传入回调函数，这样做虽然可以工作，但是代码横向发展而非纵向发展，且回调层级越多，阅读和调试代码越困难。正是在这种情况下，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习笔记（三）Promise | Kang">
+<meta property="og:url" content="http://Kannnnng.github.io/2017/10/03/JavaScript学习笔记（三）Promise/index.html">
+<meta property="og:site_name" content="Kang">
+<meta property="og:description" content="Promise 在 JavaScript 中占有很重要的地位，它在异步编程中作用巨大。在以往的异步编程过程中，回调函数是最为常用的，如果仅仅是简单的回调函数调用，那这种编码方式是可以接受的，但是在实际项目开发过程中，我们经常碰到需要写很多回调函数的情况，我们不得不在回调函数中再次传入回调函数，这样做虽然可以工作，但是代码横向发展而非纵向发展，且回调层级越多，阅读和调试代码越困难。正是在这种情况下，">
+<meta property="og:updated_time" content="2017-10-08T07:02:47.547Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 学习笔记（三）Promise | Kang">
+<meta name="twitter:description" content="Promise 在 JavaScript 中占有很重要的地位，它在异步编程中作用巨大。在以往的异步编程过程中，回调函数是最为常用的，如果仅仅是简单的回调函数调用，那这种编码方式是可以接受的，但是在实际项目开发过程中，我们经常碰到需要写很多回调函数的情况，我们不得不在回调函数中再次传入回调函数，这样做虽然可以工作，但是代码横向发展而非纵向发展，且回调层级越多，阅读和调试代码越困难。正是在这种情况下，">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+        <a href="/" title="link to homepage for Kang"><img src="/images/avatar.jpg" width="80" alt="Kang logo" class="panel-cover__logo logo" /></a>
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">Kang</a></h1>
+        <hr class="panel-cover__divider" />
+
+        
+        <p class="panel-cover__description">
+          Einskang的小菜园子
+        </p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title="" class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="/about" title="" class="">关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title="" class="">归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">JavaScript 学习笔记（三）Promise</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2017-10-03" class="post-meta__date date">2017-10-03</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/学习笔记/">学习笔记</a>
+            </font>
+          
+
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/JavaScript/">JavaScript</a>
+            </font>
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <p>Promise 在 JavaScript 中占有很重要的地位，它在异步编程中作用巨大。在以往的异步编程过程中，回调函数是最为常用的，如果仅仅是简单的回调函数调用，那这种编码方式是可以接受的，但是在实际项目开发过程中，我们经常碰到需要写很多回调函数的情况，我们不得不在回调函数中再次传入回调函数，这样做虽然可以工作，但是代码横向发展而非纵向发展，且回调层级越多，阅读和调试代码越困难。正是在这种情况下，才出现了 Promise 这种异步编程解决方案，当然在最新版本的 ES7 中引入了更加方便的 async/await，但其以 Promise 为基础，因此学习 Promise 成为在新型异步编程中不可或缺的一步。</p>
+<p>当然在这里我不会原原本本地将 Promise 的所有知识全部写下来，而是只记录 Promise 比较常用、重要和不易理解的地方，如果读者还没有 Promise 的任何基础知识，推荐阅读阮一峰老师的著作《ES6 标准入门》，在这本书的第十六章 Promise 对象中详细介绍了 Promise 的知识。<a id="more"></a></p>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><p>一个 Promise 对象执行前处于 Pending 状态，以后只有两种可能的状态，一种是代表执行成功的 Resolved 状态，还有一种是代表执行失败的 Rejected 状态，只有异步执行结果才可以决定一个 Promise 对象执行以后应该处于什么状态。</p>
+<p>一个 Promise 对象执行完成以后，状态值就不再发生任何变化了，在其执行完成以后的任何时间内都可以获取到该状态，这与事件是不同的，如果事件发生时没有被侦听到，那么后面就再也无法侦听到这个事件了（除非事件再次发生）。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'1'</span>)</div><div class="line">    resolve()</div><div class="line">  &#125;, <span class="number">0</span>)</div><div class="line"></div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'2'</span>)</div><div class="line">    reject()</div><div class="line">  &#125;, <span class="number">0</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'3'</span>)</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'4'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>1 2 3</code>。</p>
+<p>分析上面的结果可知，异步操作调用 resolve 函数或 reject 函数以后，再执行 then 函数传入的两个回调函数参数也是异步的，因为如果是同步的，那么执行结果应该是<code>1 3 2</code>；除此之外就是我们上面所说的，一旦 Promise 对象执行完成以后，它的状态是不会再发生变化的，我们可以看到第二个打印后面调用执行 reject 函数以后，并没有再执行第四个打印，原因就是在此之前第一个打印已经调用了 resolve 函数将 Promise 对象的状态转变为 Resolved 状态，其后再调用 reject 函数也不会使 Promise 对象的状态再发生任何变化。。</p>
+<h3 id="执行时机"><a href="#执行时机" class="headerlink" title="执行时机"></a>执行时机</h3><p>一个 Promise 对象被创造（new 操作）以后就会立即执行，至于其什么时候执行完成，则取决于其内部的异步操作何时完成。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="string">'1'</span>)</div><div class="line"></div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'2'</span>)</div><div class="line">&#125;, <span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'3'</span>)</div><div class="line">    resolve()</div><div class="line">  &#125;, <span class="number">0</span>)</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'4'</span>)</div><div class="line"></div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'5'</span>)</div><div class="line">  &#125;, <span class="number">0</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'6'</span>)</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'7'</span>)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'8'</span>)</div></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>1 4 8 2 3 5 6</code>。</p>
+<p>分析上面的结果可知，所有的同步代码是最先执行的，结合我们前面所说的，Promise 对象被创造以后就会立即执行，也就是说其接收的回调函数参数内的代码是同步执行的，因此执行顺序是先执行第一个打印，在执行 Promise 对象内部的第四个打印，最后执行末尾的第八个打印，这样所有的同步代码就全部执行完成了。</p>
+<p>执行完同步代码以后再执行等待队列里面的定时器代码，因为三个定时器的延迟时间都是 0 毫秒，所以它们最后的执行顺序取决于被放入等待队列的顺序，最先放入的最先被执行，最后放入的最后被执行，在这里被放入的顺序实际上就是定时器定义的顺序，因此第二个打印、第三个打印和第五个打印依次被执行。</p>
+<p>现在就只剩下第六个打印了，我们注意到在执行第三个打印的时候，调用并执行了 resolve 函数，它将 Promise 对象的状态由 Pending 状态转为 Resolved 状态，这个时候就会调用 then 函数传入的两个回调函数参数的第一个回调函数参数，又因为这一步操作是异步的，所以它在最后被执行。</p>
+<p>第七个打印没有被执行，因为 Promise 对象内部的异步代码只调用了 resolve 函数而没有调用 reject 函数。</p>
+<h3 id="then-的链式调用"><a href="#then-的链式调用" class="headerlink" title="then 的链式调用"></a>then 的链式调用</h3><p><strong>then 函数返回的还是一个 Promise 对象（不是原来的 Promise 对象）</strong>，而 Promise 对象都是有 then 函数的，其后面还可以调用 then 函数，这样便形成了链式调用。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>)</div><div class="line">  resolve(<span class="number">2</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value)</div><div class="line">  <span class="keyword">return</span> <span class="number">3</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'4'</span>)</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(<span class="number">5</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;  <span class="comment">// 只定义了 resolve 函数而没有定义 reject 函数</span></div><div class="line">  <span class="built_in">console</span>.log(value)</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="number">6</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;  <span class="comment">// 定义了 resolve 函数和 reject 函数</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'resolve: '</span>+ value)</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'reject: '</span> + error)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>上面代码的执行顺序是<code>1 2 3 4 5 reject: 6</code>。这其中 then 函数其实返回了好几种不同的值，但它们最后都被处理成了 Promise 对象。在开始部分，执行<code>resolve(2)</code>，则将 2 作为参数传入了 then 函数的第一个回调函数参数，并最终打印出了 2；然后 then 函数返回了数字 3，它被处理成一个 Promise 对象，并作为参数传递给了下一个 then 函数的第一个回调函数参数，并最终打印出了 3；这个时候我们可以看到打印出 3 以后并没有返回语句，但仍然可以继续调用 then 方法，所以这说明在 then 函数中即使不返回任何值，JavaScript 引擎仍然会生成一个新的 Promise 对象作为缺省返回值返回；后面的两个 then 方法分别显式调用了 Promise.resolve 和 Promise.reject 这两个 API 将传入的参数转换成 Promise 对象（只是状态分别为 Resolved 和 Rejected），并分别传入参数作为各自下一个 then 函数接收的两个回调函数参数的参数（好特么的绕）。</p>
+<h3 id="reject-的调用时机"><a href="#reject-的调用时机" class="headerlink" title="reject 的调用时机"></a>reject 的调用时机</h3><p>then 函数接收的 reject 函数的调用时机，不仅仅是在 Promise 对象中的异步代码显式调用<code>reject()</code>的时候，而且当 Promise 对象中的代码抛出错误的时候也会被执行。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>)</div><div class="line">  reject(<span class="string">'2'</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'1'</span>)</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'2'</span>)</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>1 2 1 2</code>，可见，不仅仅在执行了<code>reject()</code>以后 reject 函数被执行了，而且在 Promise 内部代码抛出错误的时候，reject 函数也被执行了。</p>
+<h3 id="catch-是-then-null-rejection-的别名"><a href="#catch-是-then-null-rejection-的别名" class="headerlink" title="catch 是 then(null, rejection) 的别名"></a>catch 是 then(null, rejection) 的别名</h3><p>这一点是比较容易被忽略的，不过也可能是我自己一个人忽略了……我以前一直以为 catch 方法和 then 方法是两个独立的方法，但实际上 catch 是 then 的子集。例如下面这段代码中，两种写法在处理错误异常的时候作用是相同的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="comment">/* some code */</span></div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">/* some code */</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">/* handle error */</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">  <span class="comment">/* some code */</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="comment">/* handle error */</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+
+  </section>
+
+  <section class="post-comments">
+
+    <!-- 将评论系统（例如Disqus、多说、友言、畅言等）提供的代码片段粘贴在这里 -->
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2016. | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a> | @<a href="https://www.github.com/Kannnnng">Einskang</a></span>
+
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+    
+
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
