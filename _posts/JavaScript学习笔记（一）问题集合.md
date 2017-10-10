@@ -97,7 +97,7 @@ say()
 Function.prototype.bind = function () {
   /* 获取当前函数的 this 指向，也就是其本身 */
   var fn = this
-  /* 将传递进来的参数数组复制一个副本，该副本与原参数数组占用两块不同内存空间，但各元素相同 */
+  /* 将传递进来的类似数组的参数对象转换为真实数组，方便使用数组所带的方法 */
   var args = Array.prototype.slice.apply(arguments)
   /* 获取参数数组副本中的第一个参数，也就是 this 要指向的对象，同时将副本数组中的该元素删除 */
   var target = args.shift()
