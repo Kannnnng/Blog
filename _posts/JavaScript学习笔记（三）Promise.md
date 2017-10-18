@@ -104,7 +104,7 @@ new Promise(function(resolve, reject) {
 })
 ```
 
-上面代码的执行顺序是`1 2 3 4 5 reject: 6`。这其中 then 函数其实返回了好几种不同的值，但它们最后都被处理成了 Promise 对象。在开始部分，执行`resolve(2)`，则将 2 作为参数传入了 then 函数的第一个回调函数参数，并最终打印出了 2；然后 then 函数返回了数字 3，它被处理成一个 Promise 对象，并作为参数传递给了下一个 then 函数的第一个回调函数参数，并最终打印出了 3；这个时候我们可以看到打印出 3 以后并没有返回语句，但仍然可以继续调用 then 方法，所以这说明在 then 函数中即使不返回任何值，JavaScript 引擎仍然会生成一个新的 Promise 对象作为缺省返回值返回；后面的两个 then 方法分别显式调用了 Promise.resolve 和 Promise.reject 这两个 API 将传入的参数转换成 Promise 对象（只是状态分别为 Resolved 和 Rejected），并分别传入参数作为各自下一个 then 函数接收的两个回调函数参数的参数（好特么的绕）。
+上面代码的执行结果是`1 2 3 4 5 reject: 6`。这其中 then 函数其实返回了好几种不同的值，但它们最后都被处理成了 Promise 对象。在开始部分，执行`resolve(2)`，则将 2 作为参数传入了 then 函数的第一个回调函数参数，并最终打印出了 2；然后 then 函数返回了数字 3，它被处理成一个 Promise 对象，并作为参数传递给了下一个 then 函数的第一个回调函数参数，并最终打印出了 3；这个时候我们可以看到打印出 3 以后并没有返回语句，但仍然可以继续调用 then 方法，所以这说明在 then 函数中即使不返回任何值，JavaScript 引擎仍然会生成一个新的 Promise 对象作为缺省返回值返回；后面的两个 then 方法分别显式调用了 Promise.resolve 和 Promise.reject 这两个 API 将传入的参数转换成 Promise 对象（只是状态分别为 Resolved 和 Rejected），并分别传入参数作为各自下一个 then 函数接收的两个回调函数参数的参数（好特么的绕）。
 
 ### reject 的调用时机
 
