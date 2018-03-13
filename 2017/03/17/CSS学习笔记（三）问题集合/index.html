@@ -7,7 +7,7 @@
     
 
     <title>
-      CSS 学习笔记（三）问题集合 | Kang
+      CSS 学习笔记（三）问题集合 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,20 +16,19 @@
     
     
 
-    <meta name="description" content="这篇文章主要记录我在学习 CSS 和实际使用 CSS 中遇到的各种问题和解决办法，大概也是一篇使用技巧集合，另外这篇文章我目测将一直更新下去，直到我不再从事前端开发为止……
-2017年09月20日更新：文字换行，并修改了以前内容中的有问题的地方">
+    <meta name="description" content="这篇文章主要记录我在学习 CSS 和实际使用 CSS 中遇到的各种问题和解决办法，大概也是一篇使用技巧集合，另外这篇文章我目测将一直更新下去，直到我不再从事前端开发为止…… 2017年09月20日更新：文字换行，并修改了以前内容中的有问题的地方">
+<meta name="keywords" content="CSS,前端开发,问题集合">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS 学习笔记（三）问题集合 | Kang">
 <meta property="og:url" content="http://Kannnnng.github.io/2017/03/17/CSS学习笔记（三）问题集合/index.html">
 <meta property="og:site_name" content="Kang">
-<meta property="og:description" content="这篇文章主要记录我在学习 CSS 和实际使用 CSS 中遇到的各种问题和解决办法，大概也是一篇使用技巧集合，另外这篇文章我目测将一直更新下去，直到我不再从事前端开发为止……
-2017年09月20日更新：文字换行，并修改了以前内容中的有问题的地方">
-<meta property="og:updated_time" content="2017-10-08T14:29:01.027Z">
+<meta property="og:description" content="这篇文章主要记录我在学习 CSS 和实际使用 CSS 中遇到的各种问题和解决办法，大概也是一篇使用技巧集合，另外这篇文章我目测将一直更新下去，直到我不再从事前端开发为止…… 2017年09月20日更新：文字换行，并修改了以前内容中的有问题的地方">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-13T11:15:19.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 学习笔记（三）问题集合 | Kang">
-<meta name="twitter:description" content="这篇文章主要记录我在学习 CSS 和实际使用 CSS 中遇到的各种问题和解决办法，大概也是一篇使用技巧集合，另外这篇文章我目测将一直更新下去，直到我不再从事前端开发为止……
-2017年09月20日更新：文字换行，并修改了以前内容中的有问题的地方">
-
+<meta name="twitter:description" content="这篇文章主要记录我在学习 CSS 和实际使用 CSS 中遇到的各种问题和解决办法，大概也是一篇使用技巧集合，另外这篇文章我目测将一直更新下去，直到我不再从事前端开发为止…… 2017年09月20日更新：文字换行，并修改了以前内容中的有问题的地方">
+    
     
     
       <link rel="icon" type="image/x-icon" href="/favicon.png">
@@ -201,13 +200,13 @@ classes that you can use:
 <h3 id="设置-textarea-元素不可拖拽"><a href="#设置-textarea-元素不可拖拽" class="headerlink" title="设置 textarea 元素不可拖拽"></a>设置 textarea 元素不可拖拽</h3><p>很简单，设置元素的 CSS 属性<code>resize: none</code>即可。</p>
 <h3 id="设置背景图片的位置"><a href="#设置背景图片的位置" class="headerlink" title="设置背景图片的位置"></a>设置背景图片的位置</h3><p>很简单，直接设置 CSS 属性<code>background-position</code>即可，其可以设置两个值，第一个是左边距，第二个是上边距。</p>
 <h3 id="设置图片铺满元素，且保持纵横比"><a href="#设置图片铺满元素，且保持纵横比" class="headerlink" title="设置图片铺满元素，且保持纵横比"></a>设置图片铺满元素，且保持纵横比</h3><p>这个要求在显示图片的时候经常会遇到，解决方法是我自己实践出来的，可能不是最好的方法。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">background-size: cover;</div><div class="line">background-position: center;</div><div class="line">background-repeat: no-repeat;</div><div class="line">background-image: url('images/xxx.png');</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background-size</span>: <span class="selector-tag">cover</span>;</span><br><span class="line"><span class="selector-tag">background-position</span>: <span class="selector-tag">center</span>;</span><br><span class="line"><span class="selector-tag">background-repeat</span>: <span class="selector-tag">no-repeat</span>;</span><br><span class="line">background-image: url('images/xxx.png');</span><br></pre></td></tr></table></figure>
 <p>其中，<code>background-size: cover;</code>用于实现将图片铺满整个元素，<code>background-position: center;</code>用于控制图片的中心与元素的中心重合，<code>background-repeat: no-repeat;</code>用于控制图片不重复，其实最重要的是前两个属性，第三个属性可有可无。</p>
 <h3 id="设置鼠标样式"><a href="#设置鼠标样式" class="headerlink" title="设置鼠标样式"></a>设置鼠标样式</h3><p>如果你希望鼠标指向某一个元素的时候，鼠标的样式发生变化，可以通过设置<code>cursor</code>属性来实现，比较常用的值是<code>pointer</code>，此时鼠标的样式为指向超链接时的模样。</p>
 <h3 id="设置文字修饰"><a href="#设置文字修饰" class="headerlink" title="设置文字修饰"></a>设置文字修饰</h3><p>很简单，直接设置 CSS 属性<code>text-decoration</code>即可，比较常用的值是<code>none</code>，此时文字上没有上划线、下划线等文字修饰，比较适合于 a 标签用作按钮时使用。</p>
 <h3 id="文字换行"><a href="#文字换行" class="headerlink" title="文字换行"></a>文字换行</h3><p>关于文字换行，其实主要的还是在处理西文文字的时候需要考虑的时候，一个很长很长的单词因为浏览器默认的不换行的原因，会导致元素内容冲出元素边界，这在很多时候都不是我们想要的；当然，在处理中文的时候，浏览器虽然会自动换行，但有时候我们并不希望出现换行效果，例如在实现元素尾部多余文字自动变为省略号的时候，就要使文字没有换行效果。</p>
 <p>控制文字换行的属性有两个，一个是<code>word-break</code>，还一个是<code>word-wrap</code>。其中，<code>word-break</code>有两个属性值，一个是<code>break-all</code>，它代表浏览器在必要的时候可以在单词内部换行，也就是可以强行把单词截断，后半部分另起一行显示，还有一个属性值是<code>keep-all</code>，它只允许浏览器在碰到空格或半角字符（中文的标点符号一般都是半角的，注意是<strong>一般是</strong>）的时候换行，如果你不想发生任何意外，那就设置<code>word-break: break-all</code>更保险一些。</p>
-<p>至于<code>word-wrap</code>，他有一个属性值（其实有两个，<code>normal</code>是浏览器默认的）<code>break-word</code>，它的作用比<code>word-break</code>属性值<code>keep-all</code>强一些，比<code>break-all</code>弱一些，<code>keep-all</code>强一些是指它不仅会在碰到空格或全角字符的时候会产生换行效果，而且还会在其他一些情况下产生换行效果，例如中英文混排的时候，<code>keep-all</code>就不会产生换行效果，而<code>break-word</code>则会在中英文交界的地方产生换行效果，比<code>break-all</code>弱一些是指它会尽量使英文的换行看起来更加自然一些，而<code>break-all</code>则会很“粗暴”地直接将英文截断，所以在实际使用中使用<code>word-wrap: break-word</code>看起来应该会更好一点。</p>
+<p>至于<code>word-wrap</code>，他有一个属性值（其实有两个，<code>normal</code>是浏览器默认的）<code>break-word</code>，它的作用比<code>word-break</code>属性值<code>keep-all</code>强一些，比<code>break-all</code>弱一些，比<code>keep-all</code>强一些是指它不仅会在碰到空格或全角字符的时候会产生换行效果，而且还会在其他一些情况下产生换行效果，例如中英文混排的时候，<code>keep-all</code>就不会产生换行效果，而<code>break-word</code>则会在中英文交界的地方产生换行效果，比<code>break-all</code>弱一些是指它会尽量使英文的换行看起来更加自然一些，而<code>break-all</code>则会很“粗暴”地直接将英文截断，所以在实际使用中使用<code>word-wrap: break-word</code>看起来应该会更好一点。</p>
 <p>除了上面两种 CSS 属性控制文字在什么情况下产生换行效果，还有一个 CSS 属性对文字换行也具有影响作用，它就是<code>white-space</code>，它原本的设计目的是控制浏览器如何处理文字中的空白，但它的<code>nowrap</code>属性值却可以控制文本不产生换行效果，所以在这里一并将其归入文字换行的范畴。</p>
 <p>属性值<code>normal</code>是浏览器默认的，它的效果是合并空白和换行符为一个空白，在没有其他文字换行属性被设置的情况下按照浏览器默认的方式正常换行。</p>
 <p><code>pre</code>非常适合显示代码类字符，它的效果是保留所有的空白和换行符，因此带有大量缩进和换行的代码类字符在这个属性的控制之下可以很好的（高保真，哈哈）显示在页面上。</p>
@@ -223,16 +222,16 @@ classes that you can use:
 <p>第五位比重所对应的是标签选择器、伪元素选择器（常见的伪元素选择器有<code>:before</code>，<code>:after</code>）例如<code>div</code>、<code>p</code>、<code>:before</code>，一个 CSS 样式是通过这两种选择器中的其中一种应用到 DOM<br>元素中，则其对应的比重为<code>0,0,0,0,1</code>。</p>
 <p>通过通配符<code>*</code>、子选择器、相邻选择器定义的样式，它们没有比重，换种说法就是它们的比重为<code>0,0,0,0,0</code>，但是它们所定义的 CSS 样式仍然要比继承的样式优先级高，通过继承获得的样式优先级在所有的 CSS 选择器中是最低的。</p>
 <p>CSS 选择器比重的计算方法是，如果一个 CSS 样式有多个占位比重相同的 CSS 选择器，则这些 CSS 选择器的比重按位相加以后就是该 CSS 样式最后的比重，例如：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.a</span> <span class="selector-class">.b</span> <span class="selector-class">.c</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span> <span class="selector-class">.b</span> <span class="selector-class">.c</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面这个 CSS 选择器中 CSS 属性<code>text-align: center</code>所对应的比重为<code>0,0,0,3,0</code>。</p>
 <p>再如：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#a</span> <span class="selector-class">.b</span> <span class="selector-tag">p</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#a</span> <span class="selector-class">.b</span> <span class="selector-tag">p</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面这个 CSS 选择器中 CSS 属性<code>text-align: center</code>所对应的比重为<code>0,0,1,3,2</code>。</p>
 <p>CSS 选择器比重的比较方法是从左到右逐级比较，只有前面一级相等才会比较后面的比重，前面一级不等的情况下，比重大的 CSS 样式优先被应用到 DOM 元素上。</p>
 <hr>
 <p><span style="color: red; font-weight: bold">注意：</span>上面的 CSS 选择器比重比较是建立在“距离相等”的情况下进行的，CSS 样式应用遵循就近原则，距离目标元素越近的 CSS 选择器对包含的 CSS 样式优先级越高，只有当众多 CSS 选择器它们距离目标元素的距离相同的时候，才会通过 CSS 选择器的比重比较计算出目标元素最后应用的 CSS 样式。</p>
 <hr>
-<p>关于 CSS 比重的一些练习题目，可以<a href="http://www.w3cplus.com/css/front-end-web-development-quiz.html" target="_blank" rel="external">参考这里</a>。</p>
+<p>关于 CSS 比重的一些练习题目，可以<a href="http://www.w3cplus.com/css/front-end-web-development-quiz.html" target="_blank" rel="noopener">参考这里</a>。</p>
 
   </section>
 
@@ -258,7 +257,7 @@ classes that you can use:
     <script src="/js/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scale.fix.js"></script>
-
+    
 
     
     
