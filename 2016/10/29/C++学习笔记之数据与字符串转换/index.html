@@ -7,7 +7,7 @@
     
 
     <title>
-      C++ 学习笔记之数据与字符串转换 | Kang
+      C++ 学习笔记之数据与字符串转换 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,16 +17,18 @@
     
 
     <meta name="description" content="在 Windows 程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。">
+<meta name="keywords" content="C++,数据类型转换">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ 学习笔记之数据与字符串转换 | Kang">
 <meta property="og:url" content="http://Kannnnng.github.io/2016/10/29/C++学习笔记之数据与字符串转换/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="在 Windows 程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。">
-<meta property="og:updated_time" content="2017-10-08T14:29:01.026Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-11T10:52:18.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ 学习笔记之数据与字符串转换 | Kang">
 <meta name="twitter:description" content="在 Windows 程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。">
-
+    
     
     
       <link rel="icon" type="image/x-icon" href="/favicon.png">
@@ -188,14 +190,14 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <p>在 Windows 程序代码的调试过程中经常遇到想要将某一变量以特定格式转换成字符串，这个问题可以使用下面的函数来解决。<a id="more"></a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">length =  swprintf_s(<span class="keyword">wchar_t</span>* buffer, <span class="keyword">const</span> <span class="keyword">wchar_t</span>* format, [argument,...])</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">length =  swprintf_s(<span class="keyword">wchar_t</span>* buffer, <span class="keyword">const</span> <span class="keyword">wchar_t</span>* format, [argument,...])</span><br></pre></td></tr></table></figure>
 <p>1.length，返回值，代表输出字符串长度；<br>2.buffer，一个宽字符数组指针；<br>3.format， 输出字符串的内容；<br>4.argument， 输出字符串参数，可以有多个。</p>
-<p>下面是一个使用实例。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> y = <span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> z = <span class="number">2</span>;</div><div class="line"><span class="keyword">int</span> length;</div><div class="line"><span class="keyword">wchar_t</span> buffer[<span class="number">1024</span>];</div><div class="line">length = swprintf_s(</div><div class="line">  buffer,</div><div class="line">  <span class="string">L"x = %f\ny = %f\nz = %f\n"</span>,</div><div class="line">  x,</div><div class="line">  y,</div><div class="line">  z);</div></pre></td></tr></table></figure></p>
+<p>下面是一个使用实例。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> y = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> z = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> length;</span><br><span class="line"><span class="keyword">wchar_t</span> buffer[<span class="number">1024</span>];</span><br><span class="line">length = swprintf_s(</span><br><span class="line">  buffer,</span><br><span class="line">  <span class="string">L"x = %f\ny = %f\nz = %f\n"</span>,</span><br><span class="line">  x,</span><br><span class="line">  y,</span><br><span class="line">  z);</span><br></pre></td></tr></table></figure></p>
 <p>与 swprintf_s() 函数有相同作用的还有 sprintf() 函数，微软推荐使用前者，因为其具有线程安全特性。其使用方式与前者仅存在一点差异，前者输入的字符指针是宽字符数组指针，后者需要输入的则是普通的字符数组指针。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">length =  <span class="built_in">sprintf</span>(<span class="keyword">char</span>* buffer, <span class="keyword">const</span> <span class="keyword">char_t</span>* format, [argument,...])</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">length =  <span class="built_in">sprintf</span>(<span class="keyword">char</span>* buffer, <span class="keyword">const</span> <span class="keyword">char_t</span>* format, [argument,...])</span><br></pre></td></tr></table></figure>
 <p>1.length，返回值，代表输出字符串长度；<br>2.buffer，一个字符数组指针；<br>3.format，输出字符串内容；<br>4.argument，输出字符串参数，可以有多个。</p>
 <p>下面是一个使用实例。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> y = <span class="number">1</span>;</div><div class="line"><span class="keyword">int</span> z = <span class="number">2</span>;</div><div class="line"><span class="keyword">int</span> length;</div><div class="line"><span class="keyword">char</span> buffer[<span class="number">1024</span>];</div><div class="line">length = <span class="built_in">sprintf</span>(</div><div class="line">  buffer,</div><div class="line">  <span class="string">"x = %f\ny = %f\nz = %f\n"</span>,</div><div class="line">  x,</div><div class="line">  y,</div><div class="line">  z);</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> y = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> z = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> length;</span><br><span class="line"><span class="keyword">char</span> buffer[<span class="number">1024</span>];</span><br><span class="line">length = <span class="built_in">sprintf</span>(</span><br><span class="line">  buffer,</span><br><span class="line">  <span class="string">"x = %f\ny = %f\nz = %f\n"</span>,</span><br><span class="line">  x,</span><br><span class="line">  y,</span><br><span class="line">  z);</span><br></pre></td></tr></table></figure>
   </section>
 
   <section class="post-comments">
@@ -220,7 +222,7 @@ classes that you can use:
     <script src="/js/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scale.fix.js"></script>
-
+    
 
     
     

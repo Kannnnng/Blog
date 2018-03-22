@@ -7,7 +7,7 @@
     
 
     <title>
-      DOM 学习笔记（二）DOM 元素 | Kang
+      DOM 学习笔记（二）DOM 元素 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,16 +17,18 @@
     
 
     <meta name="description" content="DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以后通过 JavaScript 控制 DOM 有很大帮助。">
+<meta name="keywords" content="前端开发,DOM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DOM 学习笔记（二）DOM 元素 | Kang">
 <meta property="og:url" content="http://Kannnnng.github.io/2017/02/17/DOM学习笔记（二）DOM元素/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以后通过 JavaScript 控制 DOM 有很大帮助。">
-<meta property="og:updated_time" content="2017-10-08T14:29:01.029Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-11T10:52:18.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM 学习笔记（二）DOM 元素 | Kang">
 <meta name="twitter:description" content="DOM 元素也是 DOM 知识中的基础部分，了解 DOM 元素的特性对以后通过 JavaScript 控制 DOM 有很大帮助。">
-
+    
     
     
       <link rel="icon" type="image/x-icon" href="/favicon.png">
@@ -198,12 +200,12 @@ classes that you can use:
 <p>常见的内联块级元素有：input、img。</p>
 <h3 id="常见-DOM-元素的嵌套规则"><a href="#常见-DOM-元素的嵌套规则" class="headerlink" title="常见 DOM 元素的嵌套规则"></a>常见 DOM 元素的嵌套规则</h3><p>这个知识点应该是最常用的，但也是比较容易出问题的，具体看来常见 DOM 元素的嵌套规则有如下几项：</p>
 <p>1.块级元素可以包含內联元素或其他块级元素，但內联元素却不能包含块级元素，它只能包含其他的內联元素。例如：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>  正确</div><div class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>       错误</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span>  正确</span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>       错误</span><br></pre></td></tr></table></figure>
 <p>2.p 元素里面不能放块级元素。这里需要注意的是：<span style="color: red; font-weight: bold">p 元素是块级元素，但却不满足第一条规则，所以是第一条规则的特例。</span>例如：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">ol</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ol</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>      错误</div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>             错误</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">ol</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ol</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>      错误</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span>             错误</span><br></pre></td></tr></table></figure>
 <p>3.有几个特殊的块级元素只能包含內联元素，不能再包含块级元素，这几个特殊的标签是：<span style="color: red; font-weight: bold">h1、h2、h3、h4、h5、h6、p、dt。</span>这一条规则是对第二条规则的补充，说明不仅仅只有 p 元素里面不能放块级元素，h1～h6 和 dt 里面也不能放块级元素。</p>
 <p>4.li 元素里面可以放置 div 元素，实际上 li 元素里面可以放置大多数块级元素和內联元素，甚至是它的父元素 ol 元素和 ul 元素。</p>
-<p>5.块级元素与块级元素并列，內联元素与內联元素并列。例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  正确</div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  可以渲染，但不提倡</div></pre></td></tr></table></figure></p>
+<p>5.块级元素与块级元素并列，內联元素与內联元素并列。例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>    正确</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  正确</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  可以渲染，但不提倡</span><br></pre></td></tr></table></figure></p>
 <p>当然现代浏览器的渲染能力是很强大的，及时不遵守上面所写的几条规则，现代浏览器也能够渲染出 DOM 的结构，但是这样的 DOM 结构是不合理的，其中可能会存在一些隐患性问题，例如最常见的元素的显示效果问题，所以实际开发过程中如果可以的话尽量遵循上面所写的规则将会提高 DOM 结构的健壮性。</p>
 
   </section>
@@ -230,7 +232,7 @@ classes that you can use:
     <script src="/js/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scale.fix.js"></script>
-
+    
 
     
     

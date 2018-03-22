@@ -7,7 +7,7 @@
     
 
     <title>
-      jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次 | Kang
+      jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次 | Kang 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,16 +17,18 @@
     
 
     <meta name="description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
+<meta name="keywords" content="前端开发,jQuery">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次 | Kang">
 <meta property="og:url" content="http://Kannnnng.github.io/2016/11/20/jQuery学习笔记（二）jQuery匹配选择器 基本与层次/index.html">
 <meta property="og:site_name" content="Kang">
 <meta property="og:description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
-<meta property="og:updated_time" content="2017-10-08T14:29:01.036Z">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-11T10:52:18.800Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jQuery 学习笔记（二）jQuery 匹配选择器 基本与层次 | Kang">
 <meta name="twitter:description" content="有段时间没有写点东西了，主要还是自己太懒，有时间也不想做比较“有意义”的事，还是更喜欢玩，嗯……争取慢慢克服这个缺点。">
-
+    
     
     
       <link rel="icon" type="image/x-icon" href="/favicon.png">
@@ -199,13 +201,13 @@ classes that you can use:
 <p>除了以上三种之外，还有一种通配符选择器”*”，它的作用是选择页面中的所有元素，这个我没用到过，所以不好乱说什么，等以后有用得到的地方再来填坑。</p>
 <h3 id="层次选择器"><a href="#层次选择器" class="headerlink" title="层次选择器"></a>层次选择器</h3><p>顾名思义，层次选择器就是按照元素在 DOM 树 ( 不明白 DOM 树的童鞋可以联想一下 Windows 资源管理器左侧的文件夹树，原理上都是一样的，前者每一个元素为一个节点，后者每一个文件夹为一个节点 ) 中的层次来选择元素，主要有以下几种：</p>
 <h4 id="后代选择器"><a href="#后代选择器" class="headerlink" title="后代选择器"></a>后代选择器</h4><p>通过空格表示，选择指定父元素的所有后代元素中的指定元素，例如 $(“#test p”) 的作用即选择 id 等于 test 的元素的所有后代元素中的 p 元素。</p>
-<h4 id="父子选择器"><a href="#父子选择器" class="headerlink" title="父子选择器"></a>父子选择器</h4><p>通过大于号 &gt; 表示，选择指定父元素的所有子元素中的指定元素，例如 $(“#test&gt;p”) 的作用即选择 id 等于 test 的元素的所有<span style="color: red; font-weight: bold">子元素</span>中的 p 元素，注意这里是<span style="color: red; font-weight: bold">子元素</span>中的 p 元素，与上面后代选择器的后代元素中的 p 元素不一样。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="父子选择器"><a href="#父子选择器" class="headerlink" title="父子选择器"></a>父子选择器</h4><p>通过大于号 &gt; 表示，选择指定父元素的所有子元素中的指定元素，例如 $(“#test&gt;p”) 的作用即选择 id 等于 test 的元素的所有<span style="color: red; font-weight: bold">子元素</span>中的 p 元素，注意这里是<span style="color: red; font-weight: bold">子元素</span>中的 p 元素，与上面后代选择器的后代元素中的 p 元素不一样。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>我们使用 $(“#test div”)，会选择 id 等于 test 的元素的所有后代元素中的 div 元素，即内容为 1、2、3、4、5 的 div 元素被选中；使用 $(“#test &gt; div”)，则会选择 id 等于 test 的元素的所有子元素中的 div 元素，即内容为 1、3、4 的 div 元素被选中，内容为 2、5 的 div 元素因为是孙元素，所以不会被选中。</p>
 <hr>
 <p><span style="color: red; font-weight: bold">题外话：</span>p 元素不可以嵌套 p 元素，h 元素不可以嵌套 h 元素，a 元素不可以嵌套 a 元素，span 元素可以嵌套 span 元素，div 元素可以嵌套 div 元素，有点绕……</p>
 <hr>
-<h4 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h4><p>通过 + 表示，选择与指定元素相邻的下个指定的兄弟元素，例如 $(“#test + div”) 的作用即选择 id 等于 test 的元素的下个兄弟 div 元素。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>我们使用 $(“#test + div”)，会选择内容为 2 的 div 元素，但如果是下面这样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="相邻选择器"><a href="#相邻选择器" class="headerlink" title="相邻选择器"></a>相邻选择器</h4><p>通过 + 表示，选择与指定元素相邻的下个指定的兄弟元素，例如 $(“#test + div”) 的作用即选择 id 等于 test 的元素的下个兄弟 div 元素。举个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们使用 $(“#test + div”)，会选择内容为 2 的 div 元素，但如果是下面这样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>2<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>如果我们继续使用 $(“#test + div”)，那么就会<span style="color: red; font-weight: bold">什么也选择不到</span>！因为#test 元素的下个兄弟元素不是 div 元素而是 p 元素，如果不指定兄弟元素是什么元素，也就是 $(“#test + “)，那么就可以选择到 p 元素了。</p>
 <p>其实父子选择器也有这个特性，例如 $(“#test &gt; div”)，如上面所说，它会选择 id 等于 test 的元素的所有子元素中的 div 元素，但如果子元素中没有 div 元素，那么同样也会什么都选择不到。这真是一个蛋疼的设定，就跟静态元素与动态元素事件绑定不同一样……</p>
 <hr>
@@ -238,7 +240,7 @@ classes that you can use:
     <script src="/js/jquery.min.js"></script>
     <script src="/js/main.js"></script>
     <script src="/js/scale.fix.js"></script>
-
+    
 
     
     
