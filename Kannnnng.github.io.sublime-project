@@ -5,8 +5,8 @@
       "file_exclude_patterns":
       [
         ".gitignore",
-        "Kannnnng.sublime-project",
-        "Kannnnng.sublime-workspace",
+        "Kannnnng.github.io.sublime-project",
+        "Kannnnng.github.io.sublime-workspace",
       ],
       "folder_exclude_patterns":
       [
