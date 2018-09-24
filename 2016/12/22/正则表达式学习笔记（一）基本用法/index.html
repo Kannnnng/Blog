@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="正则表达式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
+<meta name="keywords" content="正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式学习笔记（一）基本用法">
+<meta property="og:url" content="https://kannnnng.github.io/2016/12/22/正则表达式学习笔记（一）基本用法/index.html">
+<meta property="og:site_name" content="Einskang 的小菜园子">
+<meta property="og:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-24T08:25:11.292Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式学习笔记（一）基本用法">
+<meta name="twitter:description" content="这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kannnnng.github.io/2016/12/22/正则表达式学习笔记（一）基本用法/"/>
+
+
+
+
+
+  <title>正则表达式学习笔记（一）基本用法 | Einskang 的小菜园子</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Einskang 的小菜园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kannnnng.github.io/2016/12/22/正则表达式学习笔记（一）基本用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Einskang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Einskang 的小菜园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式学习笔记（一）基本用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-22T16:54:30+08:00">
+                2016-12-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇文章主要是我个人学习正则表达式的回顾与总结，另外还会写一点自己使用过程中的小经验与小技巧，作为自己学习正则表达式的学习笔记。<a id="more"></a></p>
+<p>虽然我在实验室的方向是前端开发，在表单验证中使用正则表达式很频繁，但是我接触并喜欢上正则表达式是在大二暑假参加全国电赛的时候，那个时候我们这一队属于测量方向，经常使用 DA 生成特定波形的电信号，在编写 DA 数据查找表的时候，需要选中很多特定格式的数据并对其进行一些操作，如果一个一个地改，工作量虽然不是特别巨大，但也是够烦的，然后去请教学长有没有什么简单快捷的方式，才知道了有正则表达式这么个工具，但是当时自己也不会用，所以就赖着脸皮请学长帮忙演示了一下，看完以后顿时感觉，WTF！还可以这样？这简直太神奇了！于是下定决心一定要学好正则表达式。从那时到现在差不多一年半的时间，感觉自己学的还不是很到家，但是至少一些简单正则表达式的应用已经可以胜任了，现在就在这里总结一下自己的学习成果。</p>
+<p>不同的环境对正则表达式的解释略有不同，我这里主要是应用于 JavaScript 环境，测试一般就直接使用 Sublime Text 的正则条件搜索查看匹配结果与预想的是否相同。另外，我有时也使用可视化工具来帮助理解一些比较繁琐的正则表达式，顺便给大家推荐一个该类应用的网站，可视化效果挺不错的。</p>
+<p><a href="https://jex.im/regulex/" target="_blank" rel="noopener">Regulex: JavaScript Regular Expression Visualizer</a></p>
+<p>下面进入正题。</p>
+<h2 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h2><p>正则表达式中元字符是最常用的，它们在正则表达式中经常被用于匹配各种特殊的字符，或者标识匹配方式，了解并记住它们的作用是很有必要的。</p>
+<h3 id=""><a href="#" class="headerlink" title="\"></a><code>\</code></h3><p>用法很多，罗列如下。</p>
+<p>1.将紧随其后的下一个字符标记为转义字符，例如<code>n</code>匹配普通的字母 n，而<code>\n</code>则匹配一个换行符。</p>
+<p>2.将紧随其后的下一个字符标记为原义字符，也就是将正则表达式规定的元字符转换为普通字符，例如匹配反斜杠字符<code>\</code>，则需要使用<code>\\</code>，匹配<code>*</code>，则需要使用<code>\*</code>，因为<code>\</code>和<code>*</code>都是元字符，在正则表达式中具有特定的含义，所以需要用<code>\</code>将这些转义字符标记为原义字符。</p>
+<p>3.向后引用一个捕获分组（捕获分组的解释在后面，这里可以简单的理解为用括号括起来的子表达式），用法为<code>\num</code>，表示对第 num 个捕获分组向后引用，这个用法较难理解，我们借助几个示例来给大家演示一下。</p>
+<p style="padding-left: 2em">(1).<code>(a)\1</code>，即向后引用正则表达式中的第一个捕获分组，也就是<code>(a)(a)</code>，匹配形如 <strong>aa</strong>bbccdd。<br><br>(2).<code>(a)(b)(c)\2</code>，即向后引用正则表达式中的第二个捕获分组，也就是<code>(a)(b)(c)(b)</code>，匹配形如 abcd<strong>abcb</strong>abcd。<br><br>(3).<code>(1)(\d)\2</code>，即向后引用正则表达式中的第二个捕获分组，也就是<code>(1)(\d)(\d)</code>，但需要注意的是，因为这里是向后<strong>引用</strong>第二个捕获分组，所以只能匹配形如 1232<strong>122</strong>3221<strong>122</strong>3，也就是说后两个数字必须相同，而不是只需要三个数字的组合，因为这里是对捕获分组的<strong>引用</strong>。<br><br>(4).<code>(a)(\w)\2</code>，与上个示例基本相同，只不过变成了匹配字母，这里也需要注意是向后<strong>引用</strong>捕获分组，即要求第二个字母与第三个字母相同，也就是匹配形如 abc<strong>abb</strong>cbba<strong>abb</strong>bc<strong>acc</strong>。</p>
+
+<p>4.将紧随其后的下一个字符标记为八进制转义符，这个用法我基本上没怎么用过，有兴趣的同学可以自行了解一下。</p>
+<h3 id="-1"><a href="#-1" class="headerlink" title="^"></a><code>^</code></h3><p>最常见的用法是匹配字符串的开始位置，例如匹配每一行最开始的字母 a，就可以使用<code>^a</code>；除此之外还有一种用法是反向匹配，也就是排除某些字符串，一般与<code>[]</code>一起使用，例如<code>[^a]</code>的含义就是匹配除了字母 a 之外的所有字符，包括显示字符与非显示字符等。</p>
+<h3 id="-2"><a href="#-2" class="headerlink" title="$"></a><code>$</code></h3><p>匹配字符串的结束位置，例如匹配每一行最后面的字母 a，就可以使用<code>a$</code>，这个用法与<code>^</code>的第一个用法效果恰好相反。</p>
+<h3 id="-3"><a href="#-3" class="headerlink" title="*"></a><code>*</code></h3><p>匹配前面的子表达式零次或多次，例如使用<code>ab*</code>就可以匹配形如 <strong>abb</strong>cc 或 <strong>a</strong>cc，前面匹配了两次，后面匹配了零次。</p>
+<h3 id="-4"><a href="#-4" class="headerlink" title="+"></a><code>+</code></h3><p>匹配前面的子表达式一次或多次，例如使用<code>ab+</code>就可以匹配形如 <strong>abb</strong>cc，但是不能匹配形如 acc，因为要求前面的子表达式至少匹配一次。</p>
+<h3 id="-5"><a href="#-5" class="headerlink" title="?"></a><code>?</code></h3><p>该元字符同样有两种用法，最常用的是匹配前面的子表达式零次或一次，例如使用<code>ab?</code>就可以匹配形如 <strong>ab</strong>bcc 或 <strong>a</strong>cc；除此之外，当该元字符紧跟在任何一个限制符（具体有<code>*</code>、<code>+</code>、<code>?</code>、<code>{n}</code>、<code>{n,}</code>、<code>{n,m}</code>）后面时，则表示当前匹配模式是非贪婪的，它会尽可能少地匹配符合条件的字符串，而默认情况下以上限制符的匹配模式均是贪婪的，它会尽可能多地匹配符合条件的字符串，例如<code>ab+</code>将会匹配形如 <strong>abbbbb</strong>c<strong>abbb</strong>c，而使用<code>ab+?</code>则只会匹配形如 <strong>ab</strong>bbbbc<strong>ab</strong>bbc，也就是说贪婪模式追求匹配字符数量的上限，能够匹配多少就匹配多少，非贪婪模式追求匹配字符数量的下限，匹配的字符数量满足要求的最低值便不再向后匹配。</p>
+<h3 id="n"><a href="#n" class="headerlink" title="{n}"></a><code>{n}</code></h3><p>匹配前面的子表达式确定的 n 次，例如使用<code>ab{2}</code>就可以匹配形如 aaa<strong>abb</strong>bbcccc。</p>
+<h3 id="n-1"><a href="#n-1" class="headerlink" title="{n,}"></a><code>{n,}</code></h3><p>匹配前面的子表达式至少 n 次，例如使用<code>ab{2}</code>就可以匹配形如 aaa<strong>abbbb</strong>cccc，但不能匹配 aaaabcccc，因为这里只能匹配到一次 b。</p>
+<h3 id="n-m"><a href="#n-m" class="headerlink" title="{n,m}"></a><code>{n,m}</code></h3><p>匹配前面的子表达式至少 n 次，至多 m 次，例如使用<code>ab{2,3}</code>就可以匹配形如 aaa<strong>abbb</strong>bcccc，因为至多匹配三次，所以最后的 b 不能被匹配到。需要注意的是，<strong>两个数字与逗号之间没有空格</strong>，大家不要写代码写习惯了，自己加一个空格进去……</p>
+<h3 id="-6"><a href="#-6" class="headerlink" title="."></a><code>.</code></h3><p>匹配除了换行符<code>\n</code>之外的任何单个字符，例如使用<code>.+</code>就可以匹配一整行字符。</p>
+<h3 id="string"><a href="#string" class="headerlink" title="(string)"></a><code>(string)</code></h3><p>匹配 string 并获取该匹配作为一个捕获分组，这里的捕获分组可以供元字符<code>\</code>的向后引用用法使用。</p>
+<h3 id="string-1"><a href="#string-1" class="headerlink" title="(?:string)"></a><code>(?:string)</code></h3><p>匹配 string 但不获取该匹配，也就是说该匹配<strong>不可以</strong>供元字符<code>\</code>的向后引用用法使用。例如<code>ab(c)(d)\1</code>，即向后引用第一个捕获分组，也就是<code>ab(c)(d)(c)</code>，而<code>ab(?:c)(d)\1</code>则为<code>ab(c)(d)(d)</code>，也就是说这里的第一个捕获分组是<code>(d)</code>而不是<code>(c)</code>，因为<code>(?:c)</code>表示不获取该匹配作为捕获分组。</p>
+<h3 id="string-2"><a href="#string-2" class="headerlink" title="(?=string)"></a><code>(?=string)</code></h3><p>正向预查，也就是从匹配 string 的地方开始向前查找匹配字符串，但并不把 string 也添加到匹配到的字符串中，例如使用<code>windows(?=2000|XP)</code>就可以匹配形如 <strong>windows</strong>2000 windows7 windowsNT <strong>windows</strong>XP，注意到 windows 后面的 2000 和 XP 没有被添加进匹配的字符串。</p>
+<h3 id="lt-string"><a href="#lt-string" class="headerlink" title="(?&lt;=string)"></a><code>(?&lt;=string)</code></h3><p>反向预查，也就是从匹配 string 的地方开始向后查找匹配字符串，但同样不把 string 添加到匹配到的字符串中，例如使用<code>(?&lt;=windows)10</code>就可以匹配形如 windows7 linux10 ubuntu10 windows<strong>10</strong>。此用法与上面的正向预查用法一起使用，可以精确定位并选择想要选择的内容，例如使用<code>(?&lt;=string)xxx(?=number)</code>就可以精确地选择出字符串 string 和 number 中间所夹的字符。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>在JavaScript的正则对象中，不支持反向预查功能，比较好的替代方法是在想要匹配的字符串前面该换用 (?:string) 来替代 (?&lt;=string)，最后的效果相同。</p>
+<hr>
+<h3 id="string-3"><a href="#string-3" class="headerlink" title="(?!=string)"></a><code>(?!=string)</code></h3><p>反向预查，也就是从任何不匹配 string 的地方开始向前查找匹配字符串，这个用法我没怎么用过，不敢多说话……</p>
+<h3 id="x-y"><a href="#x-y" class="headerlink" title="x|y"></a><code>x|y</code></h3><p>匹配 x 或者 y，例如使用<code>abc|123</code>就可以匹配形如 <strong>abc</strong>defghi<strong>123</strong>456789。</p>
+<h3 id="xyz"><a href="#xyz" class="headerlink" title="[xyz]"></a><code>[xyz]</code></h3><p>字符集合。匹配该字符集合中的任意一个字符（字母或数字），例如使用<code>[abc]</code>就可以匹配形如 <strong>a</strong>1<strong>b</strong>2<strong>c</strong>3d4e5f6g7。</p>
+<h3 id="xyz-1"><a href="#xyz-1" class="headerlink" title="[^xyz]"></a><code>[^xyz]</code></h3><p>负值字符集合。不匹配该字符集合中的任意一个字符（字母或数字），例如使用<code>[^abc]</code>就可以匹配形如 a<strong>1</strong>b<strong>2</strong>c<strong>3d4e5f6g7</strong>。</p>
+<h3 id="a-z"><a href="#a-z" class="headerlink" title="[a-z]"></a><code>[a-z]</code></h3><p>字符范围。匹配指定范围内的任意一个字符（字母或数字），例如使用<code>[a-d]</code>就可以匹配形如 <strong>abcd</strong>efg。</p>
+<h3 id="a-z-1"><a href="#a-z-1" class="headerlink" title="[^a-z]"></a><code>[^a-z]</code></h3><p>负值字符范围。不匹配指定范围内的任意一个字符（字母或数字），例如使用<code>[^a-d]</code>就可以匹配形如 abcd<strong>efg</strong>。</p>
+<h3 id="b"><a href="#b" class="headerlink" title="\b"></a><code>\b</code></h3><p>匹配一个单词边界，但不将该边界也选择到字符串，也就是说该元字符的作用是标识匹配位置（其实，上面的 (?=string) 和 (?&lt;=string) 的作用也是标识匹配位置）。例如使用<code>\bab|ab\b</code>就可以匹配形如 <strong>ab</strong>ababababab<strong>ab</strong>，可以发现表达式只匹配了字符串两头的 ab，而中间的 ab 则没有被匹配，因为中间的 ab 左右两边都没有单词边界。另外，该元字符也可以匹配数字的边界。</p>
+<h3 id="B"><a href="#B" class="headerlink" title="\B"></a><code>\B</code></h3><p>匹配一个非单词边界，与上面的<code>\b</code>作用恰好相反。</p>
+<h3 id="d"><a href="#d" class="headerlink" title="\d"></a><code>\d</code></h3><p>匹配一个数字字符，等价于<code>[0-9]</code>。</p>
+<h3 id="D"><a href="#D" class="headerlink" title="\D"></a><code>\D</code></h3><p>匹配一个非数字字符，等价于<code>[^0-9]</code>，与上面的<code>\B</code>作用恰好相反。</p>
+<h3 id="f"><a href="#f" class="headerlink" title="\f"></a><code>\f</code></h3><p>匹配一个换页符。这个我基本没用过。</p>
+<h3 id="n-2"><a href="#n-2" class="headerlink" title="\n"></a><code>\n</code></h3><p>匹配一个换行符。</p>
+<h3 id="r"><a href="#r" class="headerlink" title="\r"></a><code>\r</code></h3><p>匹配一个回车符。</p>
+<h3 id="t"><a href="#t" class="headerlink" title="\t"></a><code>\t</code></h3><p>匹配一个制表符。</p>
+<h3 id="v"><a href="#v" class="headerlink" title="\v"></a><code>\v</code></h3><p>匹配一个垂直制表符。</p>
+<h3 id="s"><a href="#s" class="headerlink" title="\s"></a><code>\s</code></h3><p>匹配任何空白字符，等价于<code>[\f\n\r\t\v]</code>。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>严格来说，<code>\s</code>并不完全等价于<code>[\f\n\r\t\v]</code>，因为除此之外还有一些不能显示的字符也相当于空白字符，这些字符可以被<code>\s</code>匹配，但不能被<code>[\f\n\r\t\v]</code>匹配，所以实际使用的时候需要注意这一点。</p>
+<hr>
+<h3 id="S"><a href="#S" class="headerlink" title="\S"></a><code>\S</code></h3><p>匹配任何非空白字符，等价于<code>[^\f\n\r\t\v]</code>，与上面的<code>\s</code>作用恰好相反。</p>
+<h3 id="w"><a href="#w" class="headerlink" title="\w"></a><code>\w</code></h3><p>匹配包括下划线在内的任何单词字符，等价于<code>[A-Za-z0-9_]</code>。</p>
+<h3 id="W"><a href="#W" class="headerlink" title="\W"></a><code>\W</code></h3><p>不匹配包括下划线在内的任何单词字符，等价于<code>[^A-Za-z0-9_]</code>。</p>
+<p>正则表达式中的所有元字符基本上就是这么多了，前面的元字符使用频率很高，后面的相对而言比较低，基本上掌握了元字符的使用方法与技巧，正则表达式就已经掌握了一大半，剩下的就是不断寻找机会慢慢练习了。</p>
+<h3 id="1、-amp-、"><a href="#1、-amp-、" class="headerlink" title="$1、$&amp;、$`"></a><code>$1</code>、<code>$&amp;</code>、<code>$`</code></h3><p>前面我们说过正则表达式在匹配过程中会捕获分组，这些捕获的分组一方面可以通过<code>\num</code>这种用法来继续匹配字符串后面与该捕获分组相同的子字符串，另一方面还可以直接通过<code>$1</code>、<code>$&amp;&amp;</code>、<code>$`</code>这种方式获取到。例如在 JavaScript 中，字符串有 replace 方法，该方法接收的第二个参数，即用于替换的字符串便可以接收通过<code>$1</code>、<code>$&amp;&amp;</code>、<code>$`</code>这种方式获取到的子字符串。这种用法说起来比较抽象，下面我们举个例子来理解这种用法。</p>
+<p>假设我们现在有这样一段字符串 111222333444555，我们想把其中的 333 这个子字符串的两侧各添加一些字符，如 AAA，即最后期望得到的字符串是 111222AAA333AAA444555，则其对应的正则表达式可以写成<code>(333)</code>，相对应的替换字符串为<code>AAA$1AAA</code>，这样会先寻找与正则表达式匹配的子字符串 333，找到以后因为是捕获分组，所以会将 333 存入到<code>$1</code>中，之后进行替换时相对应的替换字符串就变为了 AAA333AAA，所以最后将得到我们期望的字符串。</p>
+<p>由上面的例子我们便可以知道，<code>$1</code>中存入的是第一个捕获分组，那么<code>$2</code>中存入的便是第二个捕获分组，以此类推，在 JavaScript 中最大可以一直到<code>$99</code>，即存储99个捕获分组。</p>
+<p>除此以外，还有三种替换方式可供选择，<code>$&amp;</code>存储的是与正则表达式匹配的字符串；<code>$`</code>存储的是与正则表达式匹配的字符串的左侧文本；<code>$&#39;</code>存储的是与正则表达式匹配的字符串的右侧文本，了解了这些以后，使用正则表达式替换某些特定文本的时候就能够更加游刃有余。</p>
+<p>这里是<a href="http://www.w3school.com.cn/jsref/jsref_replace.asp" target="_blank" rel="noopener">参考网址</a>，这上面说的应该更加清楚一些。</p>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><p>正则表达式是存在优先级的，不同的元字符，其对应的优先级也不同，掌握各个元字符的优先级，可以简化正则表达式，降低出错概率，当然，如果你对优先级不了解，你也可以使用<code>()</code>将正则表达式的每个子表达式包裹起来，这可以达到同样的效果。</p>
+<h3 id="第一优先级-转义符"><a href="#第一优先级-转义符" class="headerlink" title="第一优先级 转义符 \"></a>第一优先级 转义符 <code>\</code></h3><p>转义符<code>\</code>的优先级是最高的，其后面跟随的字符几乎全部会首先被看做是转义字符。</p>
+<h3 id="第二优先级-圆括号与方括号"><a href="#第二优先级-圆括号与方括号" class="headerlink" title="第二优先级 圆括号与方括号"></a>第二优先级 圆括号与方括号</h3><p>具体来说有<code>()</code>，<code>(?:)</code>，<code>(?=)</code>，<code>(?&lt;=)</code>，<code>[]</code>。</p>
+<h3 id="第三优先级-限制符"><a href="#第三优先级-限制符" class="headerlink" title="第三优先级 限制符"></a>第三优先级 限制符</h3><p>具体来说有 <code>*</code>，<code>+</code>，<code>?</code>，<code>{n}</code>，<code>{n,}</code>，<code>{n,m}</code>。</p>
+<h3 id="第四优先级-或运算"><a href="#第四优先级-或运算" class="headerlink" title="第四优先级 或运算"></a>第四优先级 或运算</h3><p><code>|</code>具有最低的优先级，字符优先级都比<code>|</code>高，例如使用<code>ab|cd</code>就可以匹配形如 <strong>ab</strong>da<strong>cd</strong>，如果你的本意是向匹配 abd 或 acd，请按照我上面所说的方法，使用<code>a(b|c)d</code>来改变优先级，或者更简单地使用<code>a[bc]d</code>。</p>
+<h2 id="常用的正则技巧"><a href="#常用的正则技巧" class="headerlink" title="常用的正则技巧"></a>常用的正则技巧</h2><p>下面这些是我在学习工作过程中遇到的一些比较有用的正则技巧，现在在这里记下来，以备后用。</p>
+<h3 id="匹配汉字"><a href="#匹配汉字" class="headerlink" title="匹配汉字"></a>匹配汉字</h3><p>在 JavaScript 的正则对象中，元字符<code>\w</code>仅匹配字母和数字，不匹配中文字符，这里需要使用<code>[\u4e00-\u9fa5]</code>来匹配中文，其原理是在 Unicode 编码表中，汉字的编码是从 4e00 到 9fa5，所以在此范围内的所有编码字符都是中文字符，使用字符集合即可匹配这些中文字符。</p>
+<p>关于正则表达式，就暂时写这么多吧，这种东西最注重实践，用得多了，自然就熟练了，关于技巧嘛，我暂时还没有什么特别的技巧，等以后在实践中遇到了，我会到这里来补充的，就这样吧~</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/正则表达式/" rel="tag"># 正则表达式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/16/Git学习笔记（一）Git的基本用法/" rel="next" title="Git 学习笔记（一） Git 的基本用法">
+                <i class="fa fa-chevron-left"></i> Git 学习笔记（一） Git 的基本用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/16/CSS学习笔记（一）浮动布局/" rel="prev" title="CSS 学习笔记（一）浮动布局">
+                CSS 学习笔记（一）浮动布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Einskang" />
+          <p class="site-author-name" itemprop="name">Einskang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Einskang 的小菜园子，专门用来写博客、记日志、发牢骚的地方</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Kannnnng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3687126532" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Kannnnnnnnnng/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#元字符"><span class="nav-number">1.</span> <span class="nav-text">元字符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.1.</span> <span class="nav-text">\</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-1"><span class="nav-number">1.2.</span> <span class="nav-text">^</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-2"><span class="nav-number">1.3.</span> <span class="nav-text">$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-3"><span class="nav-number">1.4.</span> <span class="nav-text">*</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-4"><span class="nav-number">1.5.</span> <span class="nav-text">+</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-5"><span class="nav-number">1.6.</span> <span class="nav-text">?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n"><span class="nav-number">1.7.</span> <span class="nav-text">{n}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-1"><span class="nav-number">1.8.</span> <span class="nav-text">{n,}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-m"><span class="nav-number">1.9.</span> <span class="nav-text">{n,m}</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#-6"><span class="nav-number">1.10.</span> <span class="nav-text">.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string"><span class="nav-number">1.11.</span> <span class="nav-text">(string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-1"><span class="nav-number">1.12.</span> <span class="nav-text">(?:string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-2"><span class="nav-number">1.13.</span> <span class="nav-text">(?=string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-string"><span class="nav-number">1.14.</span> <span class="nav-text">(?&lt;=string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-3"><span class="nav-number">1.15.</span> <span class="nav-text">(?!=string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x-y"><span class="nav-number">1.16.</span> <span class="nav-text">x|y</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xyz"><span class="nav-number">1.17.</span> <span class="nav-text">[xyz]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xyz-1"><span class="nav-number">1.18.</span> <span class="nav-text">[^xyz]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-z"><span class="nav-number">1.19.</span> <span class="nav-text">[a-z]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a-z-1"><span class="nav-number">1.20.</span> <span class="nav-text">[^a-z]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b"><span class="nav-number">1.21.</span> <span class="nav-text">\b</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B"><span class="nav-number">1.22.</span> <span class="nav-text">\B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d"><span class="nav-number">1.23.</span> <span class="nav-text">\d</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D"><span class="nav-number">1.24.</span> <span class="nav-text">\D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#f"><span class="nav-number">1.25.</span> <span class="nav-text">\f</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-2"><span class="nav-number">1.26.</span> <span class="nav-text">\n</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#r"><span class="nav-number">1.27.</span> <span class="nav-text">\r</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#t"><span class="nav-number">1.28.</span> <span class="nav-text">\t</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v"><span class="nav-number">1.29.</span> <span class="nav-text">\v</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#s"><span class="nav-number">1.30.</span> <span class="nav-text">\s</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#S"><span class="nav-number">1.31.</span> <span class="nav-text">\S</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#w"><span class="nav-number">1.32.</span> <span class="nav-text">\w</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#W"><span class="nav-number">1.33.</span> <span class="nav-text">\W</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、-amp-、"><span class="nav-number">1.34.</span> <span class="nav-text">$1、$&amp;、$`</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先级"><span class="nav-number">2.</span> <span class="nav-text">优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一优先级-转义符"><span class="nav-number">2.1.</span> <span class="nav-text">第一优先级 转义符 \</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二优先级-圆括号与方括号"><span class="nav-number">2.2.</span> <span class="nav-text">第二优先级 圆括号与方括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三优先级-限制符"><span class="nav-number">2.3.</span> <span class="nav-text">第三优先级 限制符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四优先级-或运算"><span class="nav-number">2.4.</span> <span class="nav-text">第四优先级 或运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的正则技巧"><span class="nav-number">3.</span> <span class="nav-text">常用的正则技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配汉字"><span class="nav-number">3.1.</span> <span class="nav-text">匹配汉字</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Einskang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

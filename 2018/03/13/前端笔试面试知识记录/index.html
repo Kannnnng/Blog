@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端开发,问题集合," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="进入研一下半学期要找实习了，我想先在这里将自己能想到的、别人在笔试面试过程中遇到的前端知识点记录一下，做一个总结，方便自己随时复习，也能够加深自己对这部分知识的印象。">
+<meta name="keywords" content="前端开发,问题集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端笔试面试知识记录">
+<meta property="og:url" content="https://kannnnng.github.io/2018/03/13/前端笔试面试知识记录/index.html">
+<meta property="og:site_name" content="Einskang 的小菜园子">
+<meta property="og:description" content="进入研一下半学期要找实习了，我想先在这里将自己能想到的、别人在笔试面试过程中遇到的前端知识点记录一下，做一个总结，方便自己随时复习，也能够加深自己对这部分知识的印象。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-24T08:25:11.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端笔试面试知识记录">
+<meta name="twitter:description" content="进入研一下半学期要找实习了，我想先在这里将自己能想到的、别人在笔试面试过程中遇到的前端知识点记录一下，做一个总结，方便自己随时复习，也能够加深自己对这部分知识的印象。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kannnnng.github.io/2018/03/13/前端笔试面试知识记录/"/>
+
+
+
+
+
+  <title>前端笔试面试知识记录 | Einskang 的小菜园子</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Einskang 的小菜园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kannnnng.github.io/2018/03/13/前端笔试面试知识记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Einskang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Einskang 的小菜园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端笔试面试知识记录</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-13T15:29:56+08:00">
+                2018-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/笔试/" itemprop="url" rel="index">
+                    <span itemprop="name">笔试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/笔试/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>进入研一下半学期要找实习了，我想先在这里将自己能想到的、别人在笔试面试过程中遇到的前端知识点记录一下，做一个总结，方便自己随时复习，也能够加深自己对这部分知识的印象。<a id="more"></a></p>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="创造对象的方式"><a href="#创造对象的方式" class="headerlink" title="创造对象的方式"></a>创造对象的方式</h3><h4 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h4><p>这是最简单的创建对象的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObject</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">  temp.name = name</span><br><span class="line">  temp.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = createObject(<span class="string">'Tom'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h4><p>使用的时候比工厂模式更简单方便一点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'Tom'</span>)</span><br></pre></td></tr></table></figure>
+<p>构造函数这种方式存在一个问题，就是每个实例对象中的方法原本都是相同的逻辑，但是实例的方法互相之间不能复用，从而造成了内容资源的浪费，可以通过下面这段代码查看这个问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">'Tom'</span>)</span><br><span class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person(<span class="string">'John'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person1.sayName === person2.sayName) <span class="comment">/* false */</span></span><br></pre></td></tr></table></figure>
+<h4 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h4><p>为了解决上面存在的问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.name = <span class="string">'Tom'</span></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person()</span><br></pre></td></tr></table></figure>
+<p>这样每个实例的方法互相之间就是共享的，从而避免了内存资源浪费的问题。</p>
+<p>但是这种方法又存在另外的问题，一是不能在调用构造函数生成对象的时候传递参数，另外原型对象中引用类型的变量在每个实例之间也是共享的，一个实例修改了这个引用类型的变量，也会在其他实例中引起变化，因此简单来说就是复用过头了。</p>
+<h4 id="组合使用构造函数与原型模式"><a href="#组合使用构造函数与原型模式" class="headerlink" title="组合使用构造函数与原型模式"></a>组合使用构造函数与原型模式</h4><p>为了解决上面存在的问题，采取的方法是，将需要共享的方法放在原型对象中，不需要共享的属性就在构造函数中初始化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person()</span><br></pre></td></tr></table></figure>
+<p>对于创建对象这个需求，这种方法算是比较好的方法，也是使用最广泛、认同度最高的一种创建自定义对象的方法。</p>
+<h4 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h4><p>对上面组合使用构造函数与原型模式的一种更进一步的方法，能够将属性初始化与原型初始化一起放在构造函数中初始化。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!Person.prototype.sayName) &#123;</span><br><span class="line">    Person.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 其他要放在原型对象中的方法 */</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person()</span><br></pre></td></tr></table></figure>
+<p>这种动态原型模式就将属性初始化和原型初始化放在了一起，实际检测的时候，只需要检测要在原型中添加的众多方法中的一个，如果没有定义，就说明当前是第一次执行构造函数，所以需要将放在原型中的方法都初始化定义一遍，以后再执行构造函数的时候，因为原型中的方法已经初始化定义过一次了，所以不会再次执行初始化代码。</p>
+<h4 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h4><p>应该说这种方法与工厂模式没有实质性的区别，但是所要表达的意思不太相同，寄生构造函数模式更像是一个增强函数，它基于一个已经存在的对象类型，在不对这个已经存在的对象类型做出修改的前提下，对其进行增强，比如添加另外的属性和方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enhanceArray</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> temp = <span class="keyword">new</span> <span class="built_in">Array</span>()</span><br><span class="line">  temp.push.apply(temp, <span class="built_in">arguments</span>)</span><br><span class="line">  temp.toPipedString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.join(<span class="string">'|'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> temp</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> colors = enhanceArray(<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'yellow'</span>)</span><br><span class="line">colors.toPipedString()  <span class="comment">/* red|blue|yellow */</span></span><br></pre></td></tr></table></figure>
+<p>可以看到上面这个寄生构造函数模式是对数组这个原生对象类型进行了增强，在不影响原始的 Array 构造函数的前提下，对其进行了增强，添加了一个方法用于将数组中的每一项以“|”为分隔符组合成一个字符串。如果不使用这种寄生构造函数模式，而是直接在 Array 构造函数的原型对象 prototype 中添加这个方法，那么就会对所有的数组实例产生影响，因为每个数组实例都可以通过原型链访问到这个方法。</p>
+<h4 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h4><p>两个要求，一是对象的方法中不使用 this，二是不使用 new 操作符来调用构造函数。</p>
+<h3 id="JavaScript-实现继承的方式"><a href="#JavaScript-实现继承的方式" class="headerlink" title="JavaScript 实现继承的方式"></a>JavaScript 实现继承的方式</h3><h4 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h4><p>原型链在 JavaScript 中是实现继承的最简单也是最常用的一种方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'Tom'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()</span><br><span class="line">SubType.prototype.constructor = SubType</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType()</span><br></pre></td></tr></table></figure>
+<p>原型链存在两个问题，一个是父类属性中属于引用类型的属性，在所有的子类实例中都是共享的，其中一个子类实例修改了这个引用类型的属性，那么就会在其他所有子类实例中反映出来，二是这种方法在调用子类构造函数生成子类实例时不能向父类的构造函数中传递参数。</p>
+<h4 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h4><p>为了解决上面存在的问题，将父类中的属性在子类实例上全部初始化一遍，并且能够在调用子类构造函数时传递参数给父类。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  SuperType.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType(<span class="string">'Tom'</span>)</span><br></pre></td></tr></table></figure>
+<p>借用构造函数这种方法同样存在一个问题，那就是如果父类中有方法的话，则父类的方法就必须直接写在构造函数中而不能写在构造函数的原型对象中（因为借用构造函数的方式导致父类不在子类的原型链上），那么相当于父类中定义的方法最后在子类实例中也全部都定义了一遍，导致执行相同逻辑的方法不能够得到有效复用，浪费了内存资源。</p>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><p>为了解决上面存在的问题，方法是将父类的属性定义放在构造函数中，父类的方法定义放在父类构造函数的原型对象中，通过借用构造函数方法实现子类对父类属性的继承，通过原型链实现子类对父类方法的继承。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  SuperType.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()</span><br><span class="line">SubType.prototype.constructor = SubType</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType(<span class="string">'Tom'</span>)</span><br></pre></td></tr></table></figure>
+<p>通过组合继承的方法来实现继承是一种比较好的解决办法。</p>
+<h4 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h4><p>在一些情况下，我们可能不需要兴师动众地调用构造函数来实现继承，而是仅仅想让一个对象与另外一个对象保持相似关系，比如在这个对象上拥有的属性，也希望在另外一个对象上访问到并使用，那么就可以使用原型式继承方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  F.prototype = o</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法要求传入一个对象，之后在内部动态生成并返回了一个新对象，而传入的对象在这个新对象的原型链上，因此传入的对象所拥有的属性和方法，也可以被这个新对象通过原型链的方式访问到。</p>
+<h4 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h4><p>这个方法与前面的原型式继承差别不大，它多出来的工作就是将其他一些对新对象的操作都包装起来，例如要在原型式继承方法返回的新对象上再增加一个新的属性和方法，则可以使用这种寄生式继承方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  F.prototype = o</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">original</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> temp = object(original)</span><br><span class="line">  temp.name = <span class="string">'Tom'</span></span><br><span class="line">  temp.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> temp</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = createAnother(<span class="keyword">new</span> <span class="built_in">Object</span>())</span><br></pre></td></tr></table></figure>
+<p>寄生式继承同样存在子类方法不能复用的问题，每一个子类实例的方法互相之间都是不相同的，这浪费了内存资源。</p>
+<p>另外，我们回过头去看组合继承，可以发现其实组合继承也是有问题的，那就是父类构造函数实际上会执行两次，第一次是在将子类的 prototype 指定为父类实例时，第二次是在每个子类实例初始化时，这就导致在父类构造函数中定义的属性会被定义两次，且这两次定义分别定义在了不同的地方，一处是在子类实例 <code>instance</code> 上，还有一处是在 <code>instance.__proto__</code> 上，而且前者一定会覆盖后者，这实在是一种不好的处理方式，而且浪费了内存资源。</p>
+<h4 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h4><p>这个方法可以说是实现继承最好的方法，它能够有效避免寄生式继承所遇到的问题。它的思想是将寄生式继承和组合式继承结合起来，它利用组合式继承来实现对父类属性的继承，利用寄生式继承来实现对父类方法的继承。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">  F.prototype = o</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">original</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> temp = object(original)</span><br><span class="line">  <span class="keyword">return</span> temp</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  SuperType.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SubType.prototype = createAnother(SuperType.prototype)</span><br><span class="line">SubType.prototype.constructor = SubType</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType(<span class="string">'Tom'</span>)</span><br></pre></td></tr></table></figure>
+<p>可以看到与组合式继承所不同的是，父类的构造函数没有执行两次，原本将子类的 prototype 指定为父类实例的代码，改为了只将父类的 prototype 属性进行了一次浅复制，最后生成的实例其原型链大抵如下所示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  name: <span class="string">'Tom'</span>,</span><br><span class="line">  __proto__: &#123;</span><br><span class="line">    <span class="keyword">constructor</span>: SubType,</span><br><span class="line">    sayName: function () &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;,</span><br><span class="line">    __proto__: &#123;</span><br><span class="line">      sayName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>从上面的执行结果可以明显看出，父类的方法得到了很好继承，而子类自己的方法也得到了继承，而且父类与子类的每一个方法都是共用的，从而有效避免了寄生式继承所遇到的问题，父类构造函数也只执行了一次，因此属性只继承了一次，从而有效避免了组合式继承所遇到的问题。目前看来，寄生组合式继承是所有继承方法中应用最广泛、最有效、也最好的一种方法。</p>
+<h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><h4 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h4><p>事件冒泡，即事件开始时，由最具体的元素接收，然后逐级向上传播到较为不具体的节点，这是一种从下往上的事件流，它会在当前节点、当前节点的父节点、当前节点的祖节点依次被触发，一直传播到 document 对象。事件冒泡最开始在 IE 浏览器上被实现。</p>
+<h4 id="事件捕获"><a href="#事件捕获" class="headerlink" title="事件捕获"></a>事件捕获</h4><p>事件捕获的思想是不太具体的节点，应该更早接收到事件，而最具体的节点应该最后接收到事件，事件捕获的用意在于，在事件到达预定目标之前捕获它。</p>
+<h4 id="DOM-事件流"><a href="#DOM-事件流" class="headerlink" title="DOM 事件流"></a>DOM 事件流</h4><p>DOM 二级事件规定的事件流包括三个阶段，它们分别是事件捕获阶段，处于目标阶段和事件冒泡阶段。首先发生的事件捕获，为截获事件提供了机会，然后是实际的目标接收到事件，最后一个阶段是冒泡阶段，可以在这个阶段对事件作出响应。</p>
+<h4 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h4><p>事件处理程序分为 DOM 零级和 DOM 二级，DOM 零级是直接指定事件属性为某一个处理函数，DOM 二级是通过 addEventListener 和 removeEventListener 实现的，它们指定的事件名不要带“on”，它们都接收三个参数，<em>其中最后一个参数是一个布尔值，如果这个布尔值参数为真，则表示在捕获阶段调用事件处理程序，如果为假，则表示在冒泡阶段调用事件处理程序</em>。</p>
+<h4 id="阻止浏览器的默认行为"><a href="#阻止浏览器的默认行为" class="headerlink" title="阻止浏览器的默认行为"></a>阻止浏览器的默认行为</h4><p>在 IE 浏览器中，需要将 event 对象的 returnValue 设置为 false，在其他浏览器中需要调用 preventDefault() 函数。</p>
+<h4 id="阻止事件的进一步冒泡或捕获"><a href="#阻止事件的进一步冒泡或捕获" class="headerlink" title="阻止事件的进一步冒泡或捕获"></a>阻止事件的进一步冒泡或捕获</h4><p>在 IE 浏览器中，需要将 event 对象的 cancelBubble 设置为 true，在其他浏览器中需要调用 stopPropagation() 函数。</p>
+<h3 id="兼容获取发生事件的目标元素"><a href="#兼容获取发生事件的目标元素" class="headerlink" title="兼容获取发生事件的目标元素"></a>兼容获取发生事件的目标元素</h3><p>发生事件的目标元素在事件处理程序的参数 event 中已经指明了，在 IE 浏览器中为 srcElement，在其他浏览器中为 target，因此如果要兼容获取发生事件的目标元素，写法应该是这样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> node = event.target || event.srcElement</span><br></pre></td></tr></table></figure>
+<h3 id="观察者模型"><a href="#观察者模型" class="headerlink" title="观察者模型"></a>观察者模型</h3><p>观察者模型是以事件为基础的，一般来说需要有一个消息发出者，有若干观察者，观察者观察消息发出者发出的事件，消息发出者发出的每一个事件，所有的观察者都会观察到，但并不会全部处理，每一个观察者只会对自己感兴趣的事件作出处理。通过 jQuery 实现的方法如下。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 发布 */</span></span><br><span class="line">jQuery(obj).trigger(<span class="string">'eventName'</span>, argements)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 订阅 */</span></span><br><span class="line">jQuery(obj).on(<span class="string">'eventName'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 取消订阅 */</span></span><br><span class="line">jQuery(obj).off(<span class="string">'eventName'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="React"><a href="#React" class="headerlink" title="React"></a>React</h3><h4 id="React-组件的生命周期"><a href="#React-组件的生命周期" class="headerlink" title="React 组件的生命周期"></a>React 组件的生命周期</h4><p>React 组件有关生命周期的函数分别有 constructor、componentWillMount、render、componentDidMount、componentWillReceiveProps、shouldComponentUpdate、componentWillUpdate、componentDidUpdate、componentWillUnmount，下面分别说明它们的执行时机。</p>
+<h4 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h4><p>constructor 只会在组件生成的时候被执行一次，并且这个函数里面执行的第一句代码一定要是 <code>super(props)</code>，因为所有的组件都继承自 React 的 Component 或者 PureComponent，如果不先执行这句代码，那么子类就没有 this 对象，从而导致新建实例的时候报错。在这个函数里面，还可以执行对组件状态的初始化，绑定组件当中的事件处理程序等。</p>
+<h4 id="componentWillMount"><a href="#componentWillMount" class="headerlink" title="componentWillMount"></a>componentWillMount</h4><p>componentWillMount 同样只会在组件生成的时候被执行一次，可以在这个函数里面向后端发起请求，获取当前页面所需要的数据。</p>
+<h4 id="render"><a href="#render" class="headerlink" title="render"></a>render</h4><p>render 会在组件的整个生命周期中不断被执行，只要组件的数据发生了变化，不管是属性变化，还是自身状态发生变化，最终都会触发 render 函数，重新渲染出页面结构，从而保证数据与页面显示的对应关系。</p>
+<h4 id="componentDidMount"><a href="#componentDidMount" class="headerlink" title="componentDidMount"></a>componentDidMount</h4><p>componentDidMount 会在组件的 render 函数第一次执行完毕以后被触发执行，在组件的整个生命周期过程中，同样只会被执行一次。</p>
+<h4 id="componentWillReceiveProps"><a href="#componentWillReceiveProps" class="headerlink" title="componentWillReceiveProps"></a>componentWillReceiveProps</h4><p>componentWillReceiveProps 会在组件的属性发生变化之后被执行，但我从《深入浅出 React 与 Redux》这本书中了解到，只要当前组件的父组件发生渲染，执行了 render 函数，那么该父组件下的所有子组件和后代组件都会触发 componentWillReceiveProps 函数并执行。</p>
+<h4 id="shouldComponentUpdate"><a href="#shouldComponentUpdate" class="headerlink" title="shouldComponentUpdate"></a>shouldComponentUpdate</h4><p>shouldComponentUpdate 会在组件的属性或自身状态发生变化之后，被触发执行，这个函数的主要作用是用来优化 React 组件的性能，它一共接收两个参数，分别是组件下一次将要被渲染的属性和状态，通过比较下一次将要被渲染的属性和状态与当前的属性和状态，可以在某些不必要的时候，取消组件的重新渲染，该函数默认返回真，如果返回假，则不会执行 render 函数，从而阻止组件的重新渲染。</p>
+<h4 id="componentWillUpdate"><a href="#componentWillUpdate" class="headerlink" title="componentWillUpdate"></a>componentWillUpdate</h4><p>componentWillUpdate 会在组件的属性或自身状态发生变化，且 shouldComponentUpdate 函数返回真的情况下，被触发执行。</p>
+<h4 id="componentDidUpdate"><a href="#componentDidUpdate" class="headerlink" title="componentDidUpdate"></a>componentDidUpdate</h4><p>componentDidUpdate 会在 componentWillUpdate 函数和 render 函数执行完成以后被触发执行。</p>
+<h4 id="componentWillUnmount"><a href="#componentWillUnmount" class="headerlink" title="componentWillUnmount"></a>componentWillUnmount</h4><p>componentWillUnmount 会在组件将要被卸载的时候触发执行，一般在这个函数中主要做一些清除定时器、一些不再使用的变量等工作。</p>
+<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>随着页面数据的增多，单纯地使用 React 自身的状态方法来管理数据是一项很费力的工作，各个组件之间的状态管理会变得越来越难以维护。Redux 的出现就是为了改变这种情况，它将组件的状态统一维护成一个状态树，任何改变状态数据的方法都是通过 Redux 来触发，这样只需要维护这个最顶层的状态树就行了。下面分文件对 Redux 的实现进行讨论。</p>
+<h4 id="createStore-js"><a href="#createStore-js" class="headerlink" title="createStore.js"></a>createStore.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> isPlainObject <span class="keyword">from</span> <span class="string">'lodash/isPlainObject'</span></span><br><span class="line"><span class="keyword">import</span> $$observable <span class="keyword">from</span> <span class="string">'symbol-observable'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Redux 自己创建的 Action，会在每次初始化状态树的时候被触发 */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ActionTypes = &#123;</span><br><span class="line">  INIT: <span class="string">'@@redux/INIT'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">createStore</span>(<span class="params">reducer, preloadedState, enhancer</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 如果第二个参数为方法且第三个参数为空，则将两个参数交换 */</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> preloadedState === <span class="string">'function'</span> &amp;&amp; <span class="keyword">typeof</span> enhancer === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">    enhancer = preloadedState</span><br><span class="line">    preloadedState = <span class="literal">undefined</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* enhancer 和 reducer 必须为 function 类型 */</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> enhancer !== <span class="string">'undefined'</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> enhancer !== <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected the enhancer to be a function.'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 用 enhancer 包装一次 createStore 方法，再调用无 enhancer 的 createStore 方法，这里的代码只会在 enhancer 有效的时候被执行，因此再次调用 createStore 的时候不会再执行这部分代码 */</span></span><br><span class="line">    <span class="keyword">return</span> enhancer(createStore)(reducer, preloadedState)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> reducer !== <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected the reducer to be a function.'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> currentReducer = reducer <span class="comment">//当前的reducer函数</span></span><br><span class="line">  <span class="keyword">let</span> currentState = preloadedState <span class="comment">//当前的state树</span></span><br><span class="line">  <span class="keyword">let</span> currentListeners = []      <span class="comment">//监听函数列表</span></span><br><span class="line">  <span class="keyword">let</span> nextListeners = currentListeners  <span class="comment">//监听列表的一个引用</span></span><br><span class="line">  <span class="keyword">let</span> isDispatching = <span class="literal">false</span>      <span class="comment">//是否正在dispatch</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 如果当前监听列表没有发生变化，则浅拷贝一份当前的监听列表 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">ensureCanMutateNextListeners</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nextListeners === currentListeners) &#123;</span><br><span class="line">      nextListeners = currentListeners.slice()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 下面的函数被 return 出去，函数作为返回值，则形成了闭包，currentState 等状态会被保存 */</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/* 返回当前 state 树 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">getState</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 直接返回当前 Redux 的状态树 */</span></span><br><span class="line">    <span class="keyword">return</span> currentState</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 添加注册一个监听函数，返回一个可以取消此监听的方法 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">subscribe</span>(<span class="params">listener</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 要求传进来的参数是一个函数，这很好理解，因为需要添加的是监听函数 */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> listener !== <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected listener to be a function.'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> isSubscribed = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">    ensureCanMutateNextListeners()</span><br><span class="line">    <span class="comment">/* 将新添加的监听函数添加到 Redux 自己的监听函数列表中 */</span></span><br><span class="line">    nextListeners.push(listener)</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 返回一个针对这个新添加的监听函数的取消监听方法 */</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">unsubscribe</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">/* 确保要被取消的监听函数处于有效监听状态，如果已经失效，则直接返回 */</span></span><br><span class="line">      <span class="keyword">if</span> (!isSubscribed) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* 将监听函数是否有效的标志位置为 false，也就是当前这个监听函数已经被取消过，失效了 */</span></span><br><span class="line">      isSubscribed = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">      ensureCanMutateNextListeners()</span><br><span class="line">      <span class="keyword">const</span> index = nextListeners.indexOf(listener)</span><br><span class="line">      <span class="comment">/* 数组的 splice 方法，第一个参数指从哪个位置开始操作数组，第二个参数表示从指定位置开始一共需要删除多少个数组元素，第三个参数表示需要在空缺位置填补进去的数据 */</span></span><br><span class="line">      nextListeners.splice(index, <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 派发一个 Action 来修改 Redux 中的状态树 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">action</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 要求 action 是一个对象，而且这个对象的原型是 Object.prototype 或者 null，一般来说对象字面量可以满足这个条件，因此 action 对象可以直接通过对象字面量来初始化 */</span></span><br><span class="line">    <span class="keyword">if</span> (!isPlainObject(action)) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(</span><br><span class="line">        <span class="string">'Actions must be plain objects. '</span> +</span><br><span class="line">        <span class="string">'Use custom middleware for async actions.'</span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 要求每一个 action 对象都要有一个 type 属性 */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> action.type === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(</span><br><span class="line">        <span class="string">'Actions may not have an undefined "type" property. '</span> +</span><br><span class="line">        <span class="string">'Have you misspelled a constant?'</span></span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 如果正处于 isDispatching 状态就会报错，这说明不能在同一时间内同时触发两个 action，我个人觉得可能是为了防止出现类似多进程竞争的情况出现，因此规定同一时间内只能有一个 action 对 Redux 的状态树做改动 */</span></span><br><span class="line">    <span class="keyword">if</span> (isDispatching) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Reducers may not dispatch actions.'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">/* 设置状态位 */</span></span><br><span class="line">      isDispatching = <span class="literal">true</span></span><br><span class="line">      <span class="comment">/* 这里就是调用我们 reducer 方法修改状态树的地方，调用的时候为我们的 reducer 传递了两个参数，一个是当前的状态树 currentState，还有一个就是 action 对象，最后返回一个新的 state 作为 currentState */</span></span><br><span class="line">      currentState = currentReducer(currentState, action)</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">      isDispatching = <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 依次执行所有的监听函数，另外还要保证新增的监听函数也要被执行，因此才会有后面的连等操作 */</span></span><br><span class="line">    <span class="keyword">const</span> listeners = currentListeners = nextListeners</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; listeners.length; i++) &#123;</span><br><span class="line">      <span class="keyword">const</span> listener = listeners[i]</span><br><span class="line">      listener()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 最后返回 action 对象，虽然我不太清楚返回这个有什么用 */</span></span><br><span class="line">    <span class="keyword">return</span> action</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 替换当前 reducer */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">replaceReducer</span>(<span class="params">nextReducer</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 确保传递进来的 reducer 是一个函数，因为在上面的 dispatch 函数中可以明显看到 dispatch 一个 action 以后需要调用 reducer 并为其传递两个参数来生成新的状态树 */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> nextReducer !== <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Expected the nextReducer to be a function.'</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    currentReducer = nextReducer</span><br><span class="line">    <span class="comment">/* 每次更换状态树以后，都应该初始化状态树 */</span></span><br><span class="line">    dispatch(&#123; <span class="attr">type</span>: ActionTypes.INIT &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 这个方法用于提供观察者模式，在这里暂时先不做讨论 */</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">observable</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> outerSubscribe = subscribe</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      subscribe(observer) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> observer !== <span class="string">'object'</span>) &#123;</span><br><span class="line">          <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Expected the observer to be an object.'</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">observeState</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">          <span class="comment">//观察者模式的链式结构，传入当前的state</span></span><br><span class="line">          <span class="keyword">if</span> (observer.next) &#123;</span><br><span class="line">            observer.next(getState())</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        observeState()</span><br><span class="line">        <span class="keyword">const</span> unsubscribe = outerSubscribe(observeState)</span><br><span class="line">        <span class="keyword">return</span> &#123; unsubscribe &#125;</span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">      [$$observable]() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 当store被创建的时候，初始化状态树 */</span></span><br><span class="line">  dispatch(&#123; <span class="attr">type</span>: ActionTypes.INIT &#125;)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    dispatch,</span><br><span class="line">    subscribe,</span><br><span class="line">    getState,</span><br><span class="line">    replaceReducer,</span><br><span class="line">    [$$observable]: observable</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过上述代码可以看出，createStore 方法最后通过闭包的形式，返回了几个可以对状态树进行查询修改操作的方法，而且也因为使用了闭包，使得内部的各个变量也被持久化存储了。</p>
+<h4 id="compose-js"><a href="#compose-js" class="headerlink" title="compose.js"></a>compose.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">...funcs</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (funcs.length === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="params">arg</span> =&gt;</span> arg</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (funcs.length === <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> funcs[<span class="number">0</span>]</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> funcs.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (...args) =&gt; a(b(...args)))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码非常简介，首先将传递进来的未知数量的函数参数通过 ES6 的剩余参数语法全部转存到 funcs 这个数组中，然后对传递进来的函数参数进行具体判断，如果没有函数作为参数被传递进来，那么就会返回一个直接将参数作为返回值的函数（类似于什么也不做的空函数），如果有一个函数参数被传递进来，那么就直接返回这个函数，最关键的部分是最后一行代码，也是这个函数的精髓所在，这句代码非常简练，可能不太方便理解，我们将它转换成另外一种表达方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">funcs.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> tempFunc = <span class="function"><span class="keyword">function</span> (<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tempValue1 = b(...args)</span><br><span class="line">    <span class="keyword">var</span> tempValue2 = a(tempValue1)</span><br><span class="line">    <span class="keyword">return</span> tempValue2</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> tempFunc</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这句代码的执行流程大概是这样的，首先，前面已经判断过了没有传入函数参数和只传入了一个函数参数的情况，那么如果前面两种情况都不是，则说明传入的函数参数要两个或两个以上，这里对函数参数数组调用了 reduce 方法，那么第一次执行的时候，先取函数参数数组 funcs 中的前两个函数，分别赋值给 a 和 b，然后返回了一个函数 tempFunc，这个 tempFunc 函数将传入的参数转存到 args 数组中，然后在内部先调用了 b 函数并将参数数组 args 解构后传递给了 b 函数，然后又将 b 函数的返回值 tempValue1 作为 a 函数的参数，执行了 a 函数以后返回了 a 函数执行完成后的返回值 tempValue2，到这里第一次循环就完成了；之后进行第二次循环，第二次循环与第一次循环有些许差别，具体在于 a 参数，这个时候并不是将函数参数数组 funcs 的第三个和第四个函数分别赋值给 a 和 b，而是将上一次返回的 tempFunc 函数赋值给 a，将函数参数数组 funcs 的第三个函数赋值给 b，然后重新返回了一个新的 tempFunc 函数，在这个新的 tempFunc 函数中，仍然是将传入的参数转存到了 args 数组中，然后在内部先调用了 b 函数并将参数数组 args 解构后传递给了 b 函数，然后又将 b 函数的返回值 tempValue1 作为 a 函数（也就是上一次循环返回的 tempFunc 函数）的参数，执行了 a 函数以后返回了 a 函数执行完成后的返回值 tempValue2，这样第二次循环也完成了；后面的循环所执行的动作与前面所说的基本相同，最后的执行结果就是，返回了一个将函数参数数组 funcs 中的所有函数进行链式调用以后的执行结果。下面让我们来看一段代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test1</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test1'</span>, value)</span><br><span class="line">  value.value1 = <span class="string">'test1'</span></span><br><span class="line">  <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test2</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test2'</span>, value)</span><br><span class="line">  value.value2 = <span class="string">'test2'</span></span><br><span class="line">  <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test3</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test3'</span>, value)</span><br><span class="line">  value.value3 = <span class="string">'test3'</span></span><br><span class="line">  <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test4</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test4'</span>, value)</span><br><span class="line">  value.value4 = <span class="string">'test4'</span></span><br><span class="line">  <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test5</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test5'</span>, value)</span><br><span class="line">  value.value5 = <span class="string">'test5'</span></span><br><span class="line">  <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test6</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test6'</span>, value)</span><br><span class="line">  value.value6 = <span class="string">'test6'</span></span><br><span class="line">  <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test7</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'test7'</span>, value)</span><br><span class="line">  value.value7 = <span class="string">'test7'</span></span><br><span class="line">  <span class="keyword">return</span> value</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> funcs = [</span><br><span class="line">  test1,</span><br><span class="line">  test2,</span><br><span class="line">  test3,</span><br><span class="line">  test4,</span><br><span class="line">  test5,</span><br><span class="line">  test6,</span><br><span class="line">  test7,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> resultFunc = funcs.reduce(<span class="function">(<span class="params">a, b</span>) =&gt;</span> (...args) =&gt; a(b(...args)))</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，我们定义了七个函数，它们的共同特点就是，首先打印当前处于哪个函数中，然后对传入的参数做一定的改动，在这里改动就是为参数加上当前函数的名字，最后返回经过改动以后的参数。根据上面的分析，我们可以知道最后的 resultFunc 变量应该是一个将上面七个函数组合后进行链式调用的函数，它的样子应该类似于下面这样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> resultFunc = <span class="function">(<span class="params">...args</span>) =&gt;</span> test1(test2(test3(test4(test5(test6(test7(...args)))))))</span><br></pre></td></tr></table></figure>
+<p>函数参数数组中处于前面的函数应当位于链式调用的外侧，处于后面的函数应当位于链式调用的内侧。</p>
+<p>下面我们调用一下这个函数看看。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> result = resultFunc(&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<p>出现的结果应该是下面这个样子。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'test7'</span> &#123;&#125;</span><br><span class="line"><span class="string">'test6'</span> &#123;<span class="attr">value7</span>: <span class="string">'test7'</span>&#125;</span><br><span class="line"><span class="string">'test5'</span> &#123;<span class="attr">value7</span>: <span class="string">'test7'</span>, <span class="attr">value6</span>: <span class="string">'test6'</span>&#125;</span><br><span class="line"><span class="string">'test4'</span> &#123;<span class="attr">value7</span>: <span class="string">'test7'</span>, <span class="attr">value6</span>: <span class="string">'test6'</span>, <span class="attr">value5</span>: <span class="string">'test5'</span>&#125;</span><br><span class="line"><span class="string">'test3'</span> &#123;<span class="attr">value7</span>: <span class="string">'test7'</span>, <span class="attr">value6</span>: <span class="string">'test6'</span>, <span class="attr">value5</span>: <span class="string">'test5'</span>, <span class="attr">value4</span>: <span class="string">'test4'</span>&#125;</span><br><span class="line"><span class="string">'test2'</span> &#123;<span class="attr">value7</span>: <span class="string">'test7'</span>, <span class="attr">value6</span>: <span class="string">'test6'</span>, <span class="attr">value5</span>: <span class="string">'test5'</span>, <span class="attr">value4</span>: <span class="string">'test4'</span>, <span class="attr">value3</span>: <span class="string">'test3'</span>&#125;</span><br><span class="line"><span class="string">'test1'</span> &#123;<span class="attr">value7</span>: <span class="string">'test7'</span>, <span class="attr">value6</span>: <span class="string">'test6'</span>, <span class="attr">value5</span>: <span class="string">'test5'</span>, <span class="attr">value4</span>: <span class="string">'test4'</span>, <span class="attr">value3</span>: <span class="string">'test3'</span>, <span class="attr">value2</span>: <span class="string">'test2'</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>那么现在你应该猜到了 result 是什么样子了吧？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  value1: <span class="string">'test1'</span>,</span><br><span class="line">  value2: <span class="string">'test2'</span>,</span><br><span class="line">  value3: <span class="string">'test3'</span>,</span><br><span class="line">  value4: <span class="string">'test4'</span>,</span><br><span class="line">  value5: <span class="string">'test5'</span>,</span><br><span class="line">  value6: <span class="string">'test6'</span>,</span><br><span class="line">  value7: <span class="string">'test7'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>考虑到 compose 函数经常与 createStore 连用的用法，可以看出其主要就是对 createStore 方法进行增强，通过传入的处理函数新增一些原生 Redux 没有的功能。</p>
+<h4 id="applyMiddleware-js"><a href="#applyMiddleware-js" class="headerlink" title="applyMiddleware.js"></a>applyMiddleware.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">applyMiddleware</span>(<span class="params">...middlewares</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* return 一个函数，它可以接受 createStore 方法作为参数，给返回的 store 的 dispatch 方法再进行一次包装 */</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">createStore</span>) =&gt;</span> (reducer, preloadedState, enhancer) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> store = createStore(reducer, preloadedState, enhancer)</span><br><span class="line">    <span class="keyword">let</span> dispatch = store.dispatch</span><br><span class="line">    <span class="keyword">let</span> chain = []</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 定义一个对象，在里面暴露两个方法给外部函数 */</span></span><br><span class="line">    <span class="keyword">const</span> middlewareAPI = &#123;</span><br><span class="line">      <span class="comment">/* 获取当前 Redux 的状态树 */</span></span><br><span class="line">      getState: store.getState,</span><br><span class="line">      <span class="comment">/* Redux 的 dispatch 方法 */</span></span><br><span class="line">      dispatch: <span class="function">(<span class="params">action</span>) =&gt;</span> dispatch(action)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 传入 middlewareAPI 参数并执行每一个外部函数，返回结果汇聚成数组 */</span></span><br><span class="line">    chain = middlewares.map(<span class="function"><span class="params">middleware</span> =&gt;</span> middleware(middlewareAPI))</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 这里用到了刚才说到的compose方法，如果你忘了，返回去看一下 */</span></span><br><span class="line">    dispatch = compose(...chain)(store.dispatch)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      ...store,</span><br><span class="line">      dispatch</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由上面的代码可以看出，applyMiddleware 函数接收若干个中间件，并将其转存到参数数组 middlewares 中，然后返回了一个函数，这个函数接收 createStore 方法作为参数，结合其经常与 compose 连用的用法和上面对 compose 函数用法的讨论，可以知道这个返回的函数作用就是对 createStore 方法进行增强，而且其似乎专门针对 Redux 的 dispatch 方法进行增强，而增强的手段就是通过传入的若干个中间件实现的，每一个中间件都接收一个对象作为参数，该对象包含了获取当前 Redux 状态树和 Redux 原生的 dispatch 方法，然后将每一个中间件的执行结果保存在一个数组中，最后将这个数组解构后作为参数传入了 compose 方法中，从这里我们也可以看出每一个中间件执行完成后返回的结果应该也是一个函数，且该函数接收 Redux 原生的 dispatch 方法作为参数，并以此对其进行修改或者说增强，最后替换掉 Redux 原生的 dispatch 方法。</p>
+<p>在这里我们实际查看一个中间件的代码，看看与我们上面的分析是否吻合。这个中间件的名字叫做 redux-thunk，是一个用来实现异步 dispatch 的工具库。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createThunkMiddleware</span>(<span class="params">extraArgument</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">&#123; dispatch, getState &#125;</span>) =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> action === <span class="string">'function'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> action(dispatch, getState, extraArgument);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> next(action);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> thunk = createThunkMiddleware();</span><br><span class="line">thunk.withExtraArgument = createThunkMiddleware;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> thunk;</span><br></pre></td></tr></table></figure>
+<p>代码非常简练，可以看出该工具库最终导出了一个函数，并且给这个函数添加了一个属性（函数本质上也是对象，因此也可以添加属性），这个属性就是上面定义的那个 createThunkMiddleware 函数，因为从默认导出的 thunk 就可以看出，其生成的时候并不带有额外参数，所有需要再将可以接受参数的方法也暴露出来，方便在特殊需求的场景下使用（类似于自定义 thunk）。我们所要观察的重点在于 createThunkMiddleware 函数，不传入任何参数调用它就会返回默认导出的 thunk，这是一个函数，它默认接受一个对象作为参数，且要求这个对象参数要有 dispatch 和 getState 方法，看到这里应该就可以联想到，对应到上面的 applyMiddleware 方法实现中的 middlewareAPI，它执行完成以后仍然返回一个函数，这个函数接受一个函数参数，虽然在这里叫做 next，但是对应到上面的 applyMiddleware 方法就可以很明显的看出，next 就是 store.dispatch，也就是 Redux 的原生的 dispatch 方法，在 createThunkMiddleware 实际应用的时候也是这样，next 接受了一个 action 对象作为参数，这就是标准的 dispatch 方法的使用，这个函数执行完以后，返回值仍然是一个函数，其接受 action 对象作为参数，其实这就是最后包装好以后的 dispatch 方法，我们可以看下里面到底做了些什么，首先对 action 的类型做了判断，查看其是否是一个函数类型，看到这里你可能会觉得很疑惑，之前不是已经规定好了 action 只能是一个必须带有 type 属性且原型要为 Object.prototype 或者 null 的对象吗？为什么这里竟然会判断其是否为一个函数，其实这里就需要知晓我们为什么要使用 redux-thunk 了，在 Redux 中所有的操作都是同步的，这一点可以在上面的 createStore 方法中看到，程序通过 dispatch 触发了一个 action 来修改 Redux 状态树上的数据，整个过程都是同步进行的，而有的时候这会给我们带来困境，最常见的困境就是向后端服务器请求数据时的困境，程序通过 dispatch 触发了一个 action 来向后端服务器请求数据，但是很明显这个过程是异步进行的，不可能说发送请求以后数据马上就收到了，当然也可以将请求改为同步模式，但这样做显然得不偿失，向后端服务器请求数据本来就是一个不可预测的事情，整个数据请求操作能否成功暂且不说，整个请求耗费的时间就不是我们可以控制的，如果用户的网络速度比较慢，那么请求耗费的时间需要十几秒钟甚至几十秒钟，而同步请求就会造成在这段时间中页面卡在请求这里，这种用户体验简直是毁灭性的，因此几乎所有向后端服务器请求数据的操作都是异步的，而 Redux 中所有的操作都是同步的，为了调和这种矛盾，redux-thunk 就想出了一种办法，允许开发人员给 dispatch 传递一个函数类型的 action，然后在上面所说的对 Redux 的原生 dispatch 方法进行改造升级的过程中，对这种特殊的 action 做了拦截，这也就回到了我们最开始有疑问的地方，如果检测到传入的 action 是一个函数，那么就进入特殊的处理模式，也就是调用执行这个函数，并向这个函数中传递三个参数，第一个是 Redux 原生的 dispatch 方法，第二个是 Redux 的获取当前状态树的方法，第三个是一个额外参数，如果使用 redux-thunk 默认导出的 thunk，那么这个参数就是 undefined，这里加上 return 并不是指望要返回什么值，我感觉就是单纯地跳过下面的代码不去执行，如果传入的 action 不是一个函数，那么就执行正常操作，也就是通过 Redux 的原生 dispatch 方法触发一个 action，修改 Redux 的状态树，注意 Redux 的原生 dispatch 方法的返回值，其最后将 action 对象原封不动地返回了回来，因为可能程序中并不只使用了一个中间件，使用了多个中间件的时候，它们都要求将 action 对象作为参数传入，然后依次链式执行，看到这里你可能就会联想到上面介绍的 compose 方法，没错，就是因为它将所有的中间件最后组合成了一个链式调用的函数，而外侧函数都以内侧函数的返回值作为参数，因此需要内侧函数返回它所接收到的参数，而这个参数在这里就是 action 对象。</p>
+<p>另外，我还想问下，redux-logger 这个中间件要求将自己放在所有中间件的最后面，如果放在前面某一个位置的话，有可能会遗漏掉某些 action，这是为什么呢？其实这里的根本原因就是 compose 方法，compose 方法在将函数数组转换为一个链式调用函数的时候，最前面的函数处于最外侧，而最后面的函数处于最内侧，很明显最内侧的函数最先被执行，redux-logger 要求将自己放在最后面就是为了防止类似于 redux-thunk 这种奇葩在 redux-logger 执行之前将 action 拦截，那样就记录不到任何 action 数据了，而将 redux-logger 放在最后面的时候，redux-logger 最先执行，所有的 action 都得先经过它这一关，至于后面的中间件们怎么处理 action，那就不是它所关心的事情了。</p>
+<h4 id="bindActionCreators-js"><a href="#bindActionCreators-js" class="headerlink" title="bindActionCreators.js"></a>bindActionCreators.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> warning <span class="keyword">from</span> <span class="string">'./utils/warning'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindActionCreator</span>(<span class="params">actionCreator, dispatch</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> dispatch(actionCreator(...args))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将 action 与 dispatch 函数绑定，生成直接可以触发 action 的函数，</span></span><br><span class="line"><span class="comment"> * 可以将第一个参数对象中所有的 action 都直接生成可以直接触发 dispatch 的函数</span></span><br><span class="line"><span class="comment"> * 而不需要一个一个的 dispatch，生成后的方法对应原来 action 生成器的函数名</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">bindActionCreators</span>(<span class="params">actionCreators, dispatch</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* actionCreators 要求要么是函数，要么是对象 */</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> actionCreators === <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> bindActionCreator(actionCreators, dispatch)</span><br><span class="line">  &#125;</span><br><span class="line">    </span><br><span class="line">  <span class="comment">/* 如果 actionCreators 不是函数，那么就必须为对象类型 */</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> actionCreators !== <span class="string">'object'</span> || actionCreators === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(</span><br><span class="line">      <span class="string">`bindActionCreators expected an object or a function, instead received <span class="subst">$&#123;actionCreators === <span class="literal">null</span> ? <span class="string">'null'</span> : <span class="keyword">typeof</span> actionCreators&#125;</span>. `</span> +</span><br><span class="line">      <span class="string">`Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?`</span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取对象 actionCreators 的所有属性，也就是所有的需要与 dispatch 绑定的 action */</span></span><br><span class="line">  <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(actionCreators)</span><br><span class="line">  <span class="keyword">const</span> boundActionCreators = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = keys[i]</span><br><span class="line">    <span class="keyword">const</span> actionCreator = actionCreators[key]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 给 actionCreators 的每一个成员都绑定 dispatch 方法生成新的方法， */</span></span><br><span class="line">    <span class="comment">/* 然后注入新的对象中，新方法对应的 key 即为原来在 actionCreators 的名字 */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> actionCreator === <span class="string">'function'</span>) &#123;</span><br><span class="line">      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      warning(<span class="string">`bindActionCreators expected a function actionCreator for key '<span class="subst">$&#123;key&#125;</span>', instead received type '<span class="subst">$&#123;<span class="keyword">typeof</span> actionCreator&#125;</span>'.`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> boundActionCreators</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个文件中的 bindActionCreators 用途很明确，就是为了将 action 与 dispatch 对象绑定，生成可以直接触发 action 的函数。</p>
+<h4 id="combineReducers-js"><a href="#combineReducers-js" class="headerlink" title="combineReducers.js"></a>combineReducers.js</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ActionTypes &#125; <span class="keyword">from</span> <span class="string">'./createStore'</span></span><br><span class="line"><span class="keyword">import</span> isPlainObject <span class="keyword">from</span> <span class="string">'lodash/isPlainObject'</span></span><br><span class="line"><span class="keyword">import</span> warning <span class="keyword">from</span> <span class="string">'./utils/warning'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 根据key和action生成错误信息 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUndefinedStateErrorMessage</span>(<span class="params">key, action</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 一些警告级别的错误 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getUnexpectedStateShapeWarningMessage</span>(<span class="params">inputState, reducers, action, unexpectedKeyCache</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> reducerKeys = <span class="built_in">Object</span>.keys(reducers)</span><br><span class="line">  <span class="keyword">const</span> argumentName = action &amp;&amp; action.type === ActionTypes.INIT ?</span><br><span class="line">    <span class="string">'preloadedState argument passed to createStore'</span> :</span><br><span class="line">    <span class="string">'previous state received by the reducer'</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 判断reducers是否为空数组 */</span></span><br><span class="line">  <span class="comment">/* 判断state是否是对象 */</span></span><br><span class="line">  <span class="comment">/* 给state中存在而reducer中不存在的属性添加缓存标识并警告 */</span></span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 这个方法用于检测用于组合的reducer是否是符合redux规定的reducer */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assertReducerSanity</span>(<span class="params">reducers</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.keys(reducers).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> reducer = reducers[key]</span><br><span class="line">    <span class="comment">/* 调用reducer方法，undefined为第一个参数 */</span></span><br><span class="line">    <span class="comment">/* 使用前面说到过的ActionTypes.INIT和一个随机type生成action作为第二个参数 */</span></span><br><span class="line">    <span class="comment">/* 若返回的初始state为undefined，则这是一个不符合规定的reducer方法，抛出异常 */</span></span><br><span class="line">    <span class="comment">/* ... */</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">combineReducers</span>(<span class="params">reducers</span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* 获取到传入的 reducers 对象中的所有属性名 */</span></span><br><span class="line">  <span class="keyword">const</span> reducerKeys = <span class="built_in">Object</span>.keys(reducers)</span><br><span class="line">  <span class="comment">/* 定义最终合并成的 reducers */</span></span><br><span class="line">  <span class="keyword">const</span> finalReducers = &#123;&#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; reducerKeys.length; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = reducerKeys[i]</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 处于开发状态时，如果传入的 reducer 只定义了属性名而属性值为 undefined，就打印出一个警告 */</span></span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> reducers[key] === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        warning(<span class="string">`No reducer provided for key "<span class="subst">$&#123;key&#125;</span>"`</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* finalReducers是过滤后的reducers，它的每一个属性都是一个function */</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> reducers[key] === <span class="string">'function'</span>) &#123;</span><br><span class="line">      finalReducers[key] = reducers[key]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 获取经过了过滤后的 reducers 的所有属性名 */</span></span><br><span class="line">  <span class="keyword">const</span> finalReducerKeys = <span class="built_in">Object</span>.keys(finalReducers)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> unexpectedKeyCache</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    unexpectedKeyCache = &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> sanityError</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 检测每个reducer是否是符合标准的reducer */</span></span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    assertReducerSanity(finalReducers)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    sanityError = e</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">combination</span>(<span class="params">state = &#123;&#125;, action</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* 如果 reducers 中有不合规定的 reducer 方法，则抛出异常 */</span></span><br><span class="line">    <span class="keyword">if</span> (sanityError) &#123;</span><br><span class="line">      <span class="keyword">throw</span> sanityError</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 如果处于开发环境，做一些警告判断 */</span></span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache)</span><br><span class="line">      <span class="keyword">if</span> (warningMessage) &#123;</span><br><span class="line">        warning(warningMessage)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> hasChanged = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">const</span> nextState = &#123;&#125; <span class="comment">/* 下一个state树 */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 遍历所有reducers，然后将每个reducer返回的state组合起来生成一个大的状态树，所以任何action，redux都会遍历所有的reducer */</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; finalReducerKeys.length; i++) &#123;</span><br><span class="line">      <span class="keyword">const</span> key = finalReducerKeys[i]</span><br><span class="line">      <span class="keyword">const</span> reducer = finalReducers[key]</span><br><span class="line">      <span class="keyword">const</span> previousStateForKey = state[key]</span><br><span class="line">      <span class="keyword">const</span> nextStateForKey = reducer(previousStateForKey, action)</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* 如果此reducer返回的新的state是undefined，抛出异常 */</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> nextStateForKey === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> errorMessage = getUndefinedStateErrorMessage(key, action)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(errorMessage)</span><br><span class="line">      &#125;</span><br><span class="line">      nextState[key] = nextStateForKey</span><br><span class="line">      hasChanged = hasChanged || nextStateForKey !== previousStateForKey</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/* 如果当前action对应的reducer方法执行完后，该处数据没有变化，则返回原来的流程树 */</span></span><br><span class="line">    <span class="keyword">return</span> hasChanged ? nextState : state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Immutable"><a href="#Immutable" class="headerlink" title="Immutable"></a>Immutable</h3><p>在 JavaScript 中数组和对象一般是可变的，因为数组和对象都是引用类型，JavaScript 采用引用类型的策略是有根据的，因为这可以显著节约内存，但是这样做也存在很大的问题，当应用变得大而复杂的时候，这会造成很大的隐患，因为越是灵活的数据越是不好控制，在这些复杂应用中，我们可能会一不小心就修改了某个数据，而其他用到了这个数据的地方也被因此被影响到，而且因为应用的复杂性，我们很难及时精确地找出数据是在何时何地被修改了的。而 Immutable 数据则没有这个问题，每次针对 Immutable 数据进行修改，都会返回一个新的 Immutable 数据，而原来的 Immutable 数据则不会产生任何变化，这一点在 Redux 中得到的很好的应用，Redux 要求 reducer 不能对作为参数传入的 currentState 做出任何改动（因为如果对传入的 currentState 做出了修改的话，就违反了 Redux 关于状态树只能由 dispatch 某个 action 来修改的规定，破坏了单项数据流模式，给数据管理带来不可预测的变化），需要返回一个全新的 state，如果不使用 Immutable 数据，那么就需要对原来的 currentState 做一个深拷贝，然后对这个深拷贝的数据进行修改，并在最后返回，但是深拷贝是一个非常耗费性能的操作，且保存两个完全一模一样的数据也浪费了内存资源，因此这种办法效果是很不好的，而 Immutable 数据则不存在这种问题，Immutable 数据默认对任何修改操作都返回新的 Immutable 数据而不会对原数据遗留影响，而且 Immutable 数据内部对数据的存储也不会完全保存两份一模一样的数据，其使用了一种叫做 <code>Structure Sharing</code> 的方法，会尽量复用内存，没有被引用的 Immutable 数据会被垃圾回收机制回收。</p>
+<p>这里是一个 Immutable 数据发生修改后，数据在内存中的变动情况。<a href="http://img.alicdn.com/tps/i2/TB1zzi_KXXXXXctXFXXbrb8OVXX-613-575.gif" target="_blank" rel="noopener">点击这里查看示意图</a></p>
+<p>除此之外，在 React 应用中，有一个提升组件性能的大杀器：shouldComponentUpdate，该函数默认接收两个参数，分别是下一次要渲染的组件属性和状态，如果返回的结果是 true，则会触发组件渲染功能，执行 render 函数，如果返回的结果是 false，则不会执行后面的任何操作，从而避免重复无用的渲染，提升组件性能，如果使用原生的 JavaScript 数组和对象，就会面临引用不同，但值相同的问题，也就是下面这种情况。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(&#123;&#125; === &#123;&#125;) <span class="comment">/* false */</span></span><br></pre></td></tr></table></figure>
+<p>因为引用类型通过 === 操作符进行比较的时候，比较的实际上是内存地址，但是很明显，每个新生成的对象，它们的内存地址都是不相同的，我们如果想避免出现这种情况，就需要去深入比较两个引用类型的每一个值，并且在再次碰到引用类型的值时，还需要进一步递归进去比较，这实际上就是所说的“深比较”，这是一个深度遍历比较过程，比较耗费性能，而如果使用 Immutable 数据类型的话，Immutable 提供了一个 is 方法，它比较的是两个对象的 hashCode，只要两个 Immutable 对象的 hashCode 相等，那么它们的值就是一样的，这样的算法避免了深度遍历比较过程，性能非常好。</p>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p>2018年03月22日面试今日头条的时候，面试官提了一个问题，如何实现 Promise 的静态方法 all，当时问的时候感觉是一脸懵逼的，现在又想了一下，觉得这个问题并不是特别难，甚至可以说是很简单，可能当时也是太紧张，忘记这种解法了……</p>
+<p>基本的原理就是，给传入的 Promise 数组中的每一个 Promise 对象都设置一个 then 方法，在这个 then 方法中判断当前已经处于完成状态的 Promise 对象的个数与总个数是否相等，如果不相等，那么说明还存在没有完成的 Promise 对象，如果相等，那么说明所有的 Promise 对象都已经完成了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promiseAll = <span class="function">(<span class="params">promiseArray</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> length = promiseArray.length</span><br><span class="line">    <span class="keyword">const</span> result = []</span><br><span class="line">    <span class="keyword">let</span> counter = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">      <span class="built_in">Promise</span>.resolve(promiseArray[i]).then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">        counter++</span><br><span class="line">        result.push(value)</span><br><span class="line">        <span class="keyword">if</span> (counter === length) &#123;</span><br><span class="line">          res(result)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, (error) =&gt; &#123;</span><br><span class="line">        rej(error)</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>CSS3 中规定了元素的盒模型，首先盒模型的组成有内容、内边距、边框和外边距，低版本的 IE 浏览器在计算元素的尺寸的时候，将元素的内容、内边距和边框全部计算在内，而符合标准的浏览器在计算元素的尺寸的时候，只将元素的内容计算在内。</p>
+<p>CSS3 新增了一个 CSS 属性，叫做 box-sizing，其取值可以为 border-box 和 content-box，分别对应低版本的 IE 浏览器和符合标准的浏览器的盒模型。</p>
+<h3 id="盒模型中的层叠关系"><a href="#盒模型中的层叠关系" class="headerlink" title="盒模型中的层叠关系"></a>盒模型中的层叠关系</h3><p>在元素盒模型的层叠关系中，元素的外边距 margin 是处于最底层的，其次是背景颜色 background-color，再次是背景图片 background-image 处于中间层，然后是边框 border，然后是内边距 padding，最后是 content 在最上面，这样元素的盒模型中的所有对象就形成了一个包裹层叠关系。<a href="https://images0.cnblogs.com/blog/270324/201402/191935386296017.jpg" target="_blank" rel="noopener">点击这里查看示意图</a></p>
+<h3 id="左右布局：左边定宽，右边自适应"><a href="#左右布局：左边定宽，右边自适应" class="headerlink" title="左右布局：左边定宽，右边自适应"></a>左右布局：左边定宽，右边自适应</h3><p>实现这种布局的方法很多，看看最多能够列出来哪些方法。</p>
+<p>1.flex 布局，左边设置固定宽度，并将 flex 属性设置为 none，右边块级元素设置宽度为 auto，并将 flex 属性设置为 auto。</p>
+<p>2.浮动布局，左边设置固定宽度，并设置左浮动，右边块级元素设置宽度为 auto，并设置左外边距 margin-left 为左边元素宽度再加上两者之间的间隙。</p>
+<p>3.绝对定位布局，方法与浮动布局差不多，左边设置固定宽度，定位方式为绝对定位，top 属性和 left 属性都设置固定值，右边块级元素与浮动布局的设置相同。</p>
+<p>4.浮动加负边距，左边设置固定宽度，并设置左浮动，另外还需要将右外边距 margin-right 设置为 -100%，右边块级元素设置宽度为 auto，并设置左外边距 margin-left 为左边元素宽度再加上两者之间的间隙。这种方法与第 2 种方法基本相同，但是这种方法在右边左浮动的时候也能够生效。</p>
+<h3 id="BFC-与-IFC"><a href="#BFC-与-IFC" class="headerlink" title="BFC 与 IFC"></a>BFC 与 IFC</h3><p>在普通流中的盒子会参与一种格式上下文，这个盒子可能是块级元素，也可能是行级元素，但不可能同时是块级元素和行级元素，块级元素参与块级格式上下文 BFC，行级元素参与行级格式上下文 IFC。</p>
+<p>对于 BFC，其内部元素与外部元素不会产生相互影响，它的创建规则如下所示，只需要满足下面所列出的其中一条规则即可。</p>
+<p>1.float 值不为 none，即设置了元素的浮动属性。</p>
+<p>2.overflow 值不为 visible，例如将元素的 overflow 属性设置为 hidden 或者 auto。</p>
+<p>3.position 值不为 static 或者 relative，例如将元素的 position 属性设置为 absolute 或者 fixed。</p>
+<p>4.display 值为 table-cell、table-caption、inline-block、flex 或者 inline-flex。</p>
+<p>BFC 布局规则：</p>
+<p>1.内部的块级元素会在垂直方向上，一个接一个地放置，注意是垂直方向。</p>
+<p>2.属于同一个 BFC 的两个相邻的块级元素会发生垂直方向上的 margin 合并，不属于同一个 BFC 的两个相邻的块级元素不会发生垂直方向上的 margin 合并，这个是比较重要的。以前一直以为块级元素一旦相邻则在垂直方向上就会发生 margin 合并，其实这种情况只出现在发生 margin 合并的两个块级元素属于同一个 BFC 时的情况。</p>
+<blockquote>
+<p>关于垂直方向上的外边距合并现象，我还想继续深入探讨一下。对于垂直方向上的相邻的兄弟元素，两者之间的外边距会取两者之间的较大值；对于父子元素，如果父元素的外边距与子元素的外边距之间没有任何间隔而直接相邻，也就是父元素没有垂直方向上的 border、padding，那么父元素的外边距与子元素的外边距也会发生合并，取两者之间的较大值；对于空的块级元素，如果它没有内容的同时也没有垂直方向上的 border、padding，导致其上外边距与下外边距没有任何间隔而直接相邻，那么它的上下外边距也会发生合并，取两者之间的较大值，这类似于自身塌陷。</p>
+</blockquote>
+<p>3.计算 BFC 元素的高度时，其内部的浮动元素也参与计算。</p>
+<p>4.BFC 区域不会与设置了浮动属性的盒子在显示上发生重叠。</p>
+<p>对于 IFC，其内部的盒子被水平放置，一个接着一个放，这些盒子之间的水平方向上的 margin、border 和 padding 都是有效的，另外这些盒子可能以不同的方式在垂直方向上对齐，例如以它们的顶部或者底部对齐，再或者以它们里面的文本的基线对齐。</p>
+<p>关于这部分内容的其他知识有点繁琐，以后再说，先贴一个<a href="https://segmentfault.com/a/1190000009308818" target="_blank" rel="noopener">网址</a></p>
+<h3 id="CSS-选择器的优先级"><a href="#CSS-选择器的优先级" class="headerlink" title="CSS 选择器的优先级"></a>CSS 选择器的优先级</h3><p>1.优先级最高的是带有 !important 的 CSS 属性。</p>
+<p>2.其次是在 HTML 标签内部直接通过 style 属性指定的 CSS 属性。</p>
+<p>3.再次是在当前 HTML 文档通过直接 style 标签直接嵌入的 CSS 属性。</p>
+<p>4.最后是通过 link 标签引入的外部 CSS 样式文件。</p>
+<p>另外在 CSS 样式文件中，每个选择的权重也是不一样的。</p>
+<p>1.ID 选择器的权重相对来说是最高的。</p>
+<p>2.然后是一个 CSS 选择器中出现的类、伪类和属性选择器的数量，它们的优先级相同。</p>
+<p>3.最后是类型选择器（也就是标签选择器）和伪元素选择器的数量，它们的优先级也是相同的。</p>
+<p>在实际计算时，可以通过上面的方法来比较两个选择了同一个（类）元素的选择器的优先级，从 ID 选择器的数量开始比较，如果数量相同则再比较下一优先级的选择器的数量，一直比到最后，如果一直到最后两个选择器的优先级都是相同的话，那么后面的选择器优先级默认比前面的选择器优先级要高。</p>
+<h3 id="CSS-伪类与伪元素"><a href="#CSS-伪类与伪元素" class="headerlink" title="CSS 伪类与伪元素"></a>CSS 伪类与伪元素</h3><p>到目前为止我所接触到的伪类要多于伪元素，接触到的伪元素有 ::before、::after 这两个，而剩下的其他的基本上都是伪类，例如 :first-child、:last-child、:nth-child()、:visited 这些。</p>
+<p><em>另外需要注意的是，伪类只需要一个冒号，而伪元素需要两个冒号。</em></p>
+<h3 id="水平居中和垂直居中"><a href="#水平居中和垂直居中" class="headerlink" title="水平居中和垂直居中"></a>水平居中和垂直居中</h3><p>对于行级元素，设置其父元素的 CSS 属性 text-align 为 center 即可获得水平居中的效果。</p>
+<p>对于块级元素，如果该元素的宽度是固定的，那么有以下方法。</p>
+<p>1.设置该块级元素的左右外边距为 auto。</p>
+<p>2.设置该块级元素为绝对定位，设置其 top 与 left 属性为 calc(50% - 宽度或高度的一半)。</p>
+<p>3.设置该块级元素为绝对定位，设置其 top 与 left 属性为 50%，设置其 margin-top 和 margin-left 为负的宽度和高度值得一半。</p>
+<p>4.设置该块级元素为绝对定位，设置其 top 与 left 属性为 50%，设置其 transform 属性为 translate(-50%, -50%)，这个 CSS3 属性主要用户元素的 2D 变换，使用 translate 是平移变换。</p>
+<p>5.设置该元素的父元素的 display 属性为 flex，然后再分别设置其父元素的 justify-content 属性为 center，表示水平居中，设置 align-items 属性为 center，表示垂直居中。</p>
+<p>如果该块级元素的宽度不是固定的，那一般就是尽量撑满其所在的父元素，这个时候水平居中很自然就实现了，垂直居中的话，只要套用上面所写的使元素产生垂直居中效果的 CSS 属性即可。</p>
+<p>需要注意的是，给绝对定位元素设置 top、bottom、left、right 属性都为 0 并不能使元素产生水平居中或者垂直居中的效果。</p>
+<h3 id="flex-布局"><a href="#flex-布局" class="headerlink" title="flex 布局"></a>flex 布局</h3><p>需要将元素的 display 属性设置为 flex 或者 inline-flex。相关主要的 CSS 属性如下所示。</p>
+<p>flex-direction，用于设置主轴的方向，默认是 row，也就是横向排列，可以改成 column，表示纵向排列，另外还有 row-reverse 和 column-reverse 可选，表示相对于原来方向的反方向。</p>
+<p>flex-wrap，用于设置主轴方向上排不下以后，其他的子元素如何换行，默认是不换行，可以设置为 wrap，表示第一行在上方（这个上方是相对于主轴来说的），还可以设置为 wrap-reverse，表示第一行在下方（同样是相对于主轴来说的）。</p>
+<p>justify-content，用于设置子元素在主轴方向上的对齐方式，可选值为 flex-start、flex-end、center、space-between、space-around，分别表示开始位置、结束位置、中间位置、保持子元素之间的间距相等、保持子元素之间和子元素与父元素边界之间的间距相等，<em>注意设置为最后一个值时，子元素之间的间距应该等于子元素与父元素边界之间的间距的两倍</em>。</p>
+<p>align-items，用于设置子元素在交叉轴方向上的对齐方式，可选值为 flex-start、flex-end、center、baseline、stretch，分别表示开始位置、结束位置、中间位置、基线对齐、撑满交叉轴方向上的父元素内容。</p>
+<p>align-content，用于设置定义了多根轴线时交叉轴方向上的对齐方式，如果只有一根轴线，则该属性不起作用。</p>
+<p>flex，用于设置子元素的弹性属性，它实际上是 flex-grow、flex-shrink 和 flex-basis 的缩写，默认值是 0 1 auto，代表的意思是，如果存在剩余空间也不放大，如果剩余空间不足则按照比例缩小，基准尺寸是 auto，即项目本来的大小。除了上面的默认值之外，还有两个快捷值，一个是 auto，表示 1 1 auto，与默认值的区别是，如果存在剩余空间就会放大，另一个是 none，表示 0 0 auto，与默认值的区别是，如果剩余空间不足也不会缩小。</p>
+<p>align-self，相当于 align-items 的单元素版本，可以只针对设置了该属性的子元素生效，而其他子元素仍然以父元素设置的 align-items 属性为准。</p>
+<h3 id="CSS-多列等高"><a href="#CSS-多列等高" class="headerlink" title="CSS 多列等高"></a>CSS 多列等高</h3><p>一般是通过设置父元素为 overflow 为 hidden，然后设置子元素 padding-bottom 为 9999px 和 margin-bottom 为 -9999px 实现。</p>
+<p>首先把列的 padding-bottom 设为一个足够大的值，再把列的 margin-bottom 设一个与前面的 padding-bottom 的正值相抵消的负值，父容器设置超出隐藏，这样子父容器的高度就还是它里面的列没有设定 padding-bottom 时的高度，当它里面的任一列高度增加了，则父容器的高度被撑到它里面最高那列的高度，其他比这列矮的列则会用它们的 padding-bottom 来补偿这部分高度差。因为背景是可以用在 padding 占用的空间里的，而且边框也是跟随 padding 变化的，所以就成功的完成了一个障眼法。</p>
+<p>这里的重点是不能给父元素设置一个具体的高度值，而是需要根据内容的变化来撑起父元素的高度。</p>
+<h3 id="1px-像素问题"><a href="#1px-像素问题" class="headerlink" title="1px 像素问题"></a>1px 像素问题</h3><p>JavaScript 通过 window.devicePixelRatio 获取，CSS 通过媒体查询 @media only screen and (-webkit-min-device-pixel-ratio: 2) 的方式获取，一般设备上这个值等于 1，表示一个 CSS 像素需要用 1 个物理像素来显示，而如果这个值等于 2，则表示一个 CSS 像素需要用到 4 个物理像素来显示，因此在一些 devicePixelRatio 值为 2 的手机上设置 1px 看起来并不止 1px。</p>
+<h3 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h3><p>1.将父元素变为 BFC，方法见上面 BFC 元素的触发条件。</p>
+<p>2.通过设置父元素的 ::after 伪元素的 clear 属性为 both 来清除浮动，注意除了加上 clear 属性外还需要再加上 display: block 和 content: ‘’。</p>
+<p>3.在父元素的最后面添加一个设置了 clear 属性为 both 的空块级元素。</p>
+<h3 id="CSS-预处理器与后处理器"><a href="#CSS-预处理器与后处理器" class="headerlink" title="CSS 预处理器与后处理器"></a>CSS 预处理器与后处理器</h3><p>这一类工具的功能有语法检查、补全前缀、打包压缩、自动优雅降级等。SASS、SCSS、LESS 是目前最主流的 CSS 预处理器，它们具有层级、变量、循环、函数等功能，具有方便的 UI 组件模块化开发能力。</p>
+<p>Postcss 是目前主流的后处理器，在完成的 CSS 样式表中规范处理 CSS，最常做的是加前缀兼容不同的浏览器，同时也可以压缩 CSS 代码。</p>
+<h3 id="CSS-选择器的解析方式"><a href="#CSS-选择器的解析方式" class="headerlink" title="CSS 选择器的解析方式"></a>CSS 选择器的解析方式</h3><p>样式从关键选择器（{}前最近的选择器）开始匹配，从右向左移动查找选择器的祖先元素，直到和规则匹配或者不匹配，所以需要注意的就是，浏览器匹配选择器时是从右向左匹配。一个优化 CSS 选择器的方法就是使用特异性最高的选择器作为关键选择器，例如 ID 选择器，这样就可以在第一次查找过程中就过滤掉绝大部分无关的元素，避免系统浪费时间查找。</p>
+<h3 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h3><p>设计中采用 CSS 媒体查询技术、采用流体布局（设置尺寸时采用百分比的形式）。</p>
+<h3 id="line-height"><a href="#line-height" class="headerlink" title="line-height"></a>line-height</h3><p>表示行高或者行间距，可取值分别为 inherit、normal、length（固定的大小）、百分比（基于当前字体尺寸的百分比行间距）、number（数字与当前字体尺寸的乘积）。</p>
+<h3 id="通过-viewport-控制页面布局"><a href="#通过-viewport-控制页面布局" class="headerlink" title="通过 viewport 控制页面布局"></a>通过 viewport 控制页面布局</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个 meta 元素便用来控制页面布局，它后面的属性的含义分别如下。</p>
+<p>width=device-width，表示页面的默认大小与显示屏幕的大小相同。</p>
+<p>initial-scale=1.0，表示初始缩放比例是 1，也就是没有缩放效果。</p>
+<p>minimum-scale=1.0，表示最小缩放比例是 1，也就是最小只能缩小到 1。</p>
+<p>maximum-scale=1.0，表示最大缩放比例是 1，也就是最大只能放大到 1。</p>
+<p>user-scalable=no，表示不允许用户缩放页面，其实前面的最小最大缩放比例都是 1 就已经限定了用户不能对页面进行缩放查看。</p>
+<h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p>cookie 遵循严格的同源限制策略，所谓同源限制策略，就是指协议、域名和端口完全相等，只有同源的页面才可以互相之间访问设置的 cookie。</p>
+<p>获取 cookie 的方法是 document.cookie，设置某一个 cookie 的方法是 <code>document.cookie = &#39;name=value;expires=Mon, 22-Jan-07 07:10:24 GMT;domain=.wrox.com&#39;。</code></p>
+<p><em>注意 cookie 中的值都是经过 URL 编码的，所以获取时需要使用 decodeURLComponent() 来解码，设置时需要使用 encodeURLComponent() 来编码。</em></p>
+<h3 id="文字换行"><a href="#文字换行" class="headerlink" title="文字换行"></a>文字换行</h3><p>有关文字换行的 CSS 属性共有三个，分别是 word-break、word-wrap 和 while-space。关于这三个属性的详细介绍，参见《CSS 学习笔记（三）问题集合》中的文字换行部分。、</p>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><h3 id="HTTP-常见状态码"><a href="#HTTP-常见状态码" class="headerlink" title="HTTP 常见状态码"></a>HTTP 常见状态码</h3><h4 id="1XX"><a href="#1XX" class="headerlink" title="1XX"></a>1XX</h4><p>此类状态码表示服务器返回了一个临时响应，需要请求者继续执行相关操作。</p>
+<p>100，继续执行，表示请求者应当继续发出请求，服务器已经收到了请求的第一部分，正在等待其余部分。</p>
+<p>101，切换协议，表示请求者要求服务器切换协议，服务器已经确认该请求并准备切换协议。</p>
+<h4 id="2XX"><a href="#2XX" class="headerlink" title="2XX"></a>2XX</h4><p>此类状态码表示服务器成功处理了请求者的请求。</p>
+<p>200，成功，表示服务器成功处理了请求，一般用于 GET 或 PUT 请求，这是最常见也是最希望看到的状态码。</p>
+<p>201，已经创建，表示服务器成功处理了请求并且服务器成功创建了新的资源。</p>
+<p>202，已经接受，表示服务器已经接受了请求，但尚未处理。</p>
+<p>204，没有内容，表示服务器成功处理了请求，但是没有返回任何内容。</p>
+<h4 id="3XX"><a href="#3XX" class="headerlink" title="3XX"></a>3XX</h4><p>表示要完成请求的话，需要进一步操作，通常这些代码用来重定向。</p>
+<p>300，多种选择，表示服务器可以提供操作列表供请求者选择。</p>
+<p>301，永久移动，表示请求的网页已经永久地移动到了新位置，服务器返回带有这个状态码的请求后，会自动将请求转移到新位置，请求者以后发送相同请求的时候最好使用新位置。</p>
+<p>302，临时移动，表示服务器只是当前这段时间从不同位置的网页响应了请求，但是请求者以后发送相同请求的时候仍然需要使用原来的位置。</p>
+<p>304，尚未修改，表示请求者自从上一次向服务器请求了网页以后，网页一直没有修改，请求者可以使用缓存的网页文件，服务器返回带有这个状态码的请求时，不会返回网页的实际内容。</p>
+<blockquote>
+<p>浏览器在请求一个文件的时候，发现本地存在一个该文件的缓存，并且这个缓存文件有一个最后修改时间，那么浏览器在再次发送请求的时候，就会把这个最后修改时间放在请求头部一并送到服务器，服务器只需要判断这个时间和当前请求的文件的修改时间就可以确定返回 304 还是 200，也就是说在浏览器上一次请求该文件以后，如果该文件在服务器上被修改了，那么就返回 200 并将新的文件也一并返回，如果该文件在服务器上没有改动，那么就返回 304，之后浏览器就直接使用本地缓存的文件。</p>
+</blockquote>
+<p>305，使用代理，表示请求者只能使用代理访问请求的网页，请求者应该使用代理。</p>
+<p>307，临时重定向，表示服务器只是当前这段时间从不同位置的网页响应了请求，但是请求者以后发送相同请求的时候仍然需要使用原来的位置。</p>
+<h4 id="4XX"><a href="#4XX" class="headerlink" title="4XX"></a>4XX</h4><p>以 4 开头的状态码表示请求者发出的请求出现了错误，妨碍了服务器的正常处理。</p>
+<p>400，错误请求，表示服务器不理解请求的语法，出现这种错误大部分是因为请求附带的参数与服务器规定的不一致造成的。</p>
+<p>401，尚未授权，表示服务器需要验证请求者的身份，对于需要登录的网页，如果尚未登录就向服务器发送请求，就可能出现这个错误。</p>
+<p>403，禁止请求，表示服务器拒绝了请求者的请求。</p>
+<p>404，没有找到，表示服务器找不到请求的网页。</p>
+<p>405，方法禁用，表示服务器禁止请求中指定的方法。</p>
+<p>408，请求超时，表示服务器等待请求时时间过长，超过了预定的时间限制。</p>
+<p>409，发生冲突，表示服务器在完成请求时发生了冲突。</p>
+<p>410，已经删除，表示请求的资源已经被永久删除。</p>
+<p>413，实体过大，表示服务器无法处理这个请求，因为请求实体太大，超出了服务器的处理能力。</p>
+<p>414，网址过长，表示请求的 URl 过长，超出了服务器的接受范围，一般在将 POST 请求转换为 GET 请求的时候容易出现此类错误。</p>
+<h4 id="5XX"><a href="#5XX" class="headerlink" title="5XX"></a>5XX</h4><p>以 5 开头的代码表示服务器在处理请求的时候发生了内部错误，这些错误可能是服务器本身的错误，但也不能排除请求不合规范的问题。</p>
+<p>500，内部错误，表示服务器在处理请求的时候内部发生了错误，无法完成请求。</p>
+<p>501，尚未实施，表示服务器不具备完成请求的功能，一般在服务器收到无法识别的请求方法时可能会返回此代码。</p>
+<p>502，错误网关，表示服务器作为网关或者代理，从上游服务器收到了无效响应。</p>
+<p>503，服务禁用，表示服务器目前无法使用，可能是由于服务器目前处于超载状态，或者停机维护中，通常这只是暂时状态。</p>
+<p>504，网关超时，表示服务器作为网关或者代理，从上游服务器收取请求的时间过长，超过了预定的时间限制。</p>
+<p>505，HTTP 版本不受支持，表示服务器不支持请求中所用到的 HTTP 协议版本。</p>
+<h3 id="HTTP-头部信息"><a href="#HTTP-头部信息" class="headerlink" title="HTTP 头部信息"></a>HTTP 头部信息</h3><h4 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h4><p>这个 HTTP 请求头属性用于定义网络文件的类型和网页的编码方式，决定文件接收方（一般是浏览器）将以什么形式、什么编码读取这个文件，通俗来讲就是说明 HTTP 响应内容的类型。</p>
+<p>比较常见的取值有 <code>application/x-www-form-urlencoded</code>，表示响应内容被编码为键值对，有点类似于 GET 请求中附带的参数，也就是这样 <code>key1=value1&amp;key2=value2</code>。</p>
+<p>还有 <code>application/json</code>，服务器直接返回 JSON 字符串，然后浏览器就会自动解析，方便开发人员获取数据。</p>
+<p>还有就是静态资源文件对应的 Content-Type 类型，例如 JavaScript 文件对应 <code>application/javascript</code>，CSS 文件对应 <code>text/css</code>，图片文件对应 <code>image/xxx</code>，例如 PNG 图片对应 <code>image/png</code>，JPEG 图片对应 <code>image/jpeg</code>。</p>
+<p>当上传文件时，Content-Type 类型一般是 <code>multipart/form-data</code>，当然除此以外上传图片也要使用 FormData 将图片文件通过 <code>multipart/form-data</code> 类型的 HTTP 请求发送到后端服务器。</p>
+<h3 id="WEB-安全"><a href="#WEB-安全" class="headerlink" title="WEB 安全"></a>WEB 安全</h3><h4 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h4><p>CSRF，跨站请求伪造，现在有这样一种场景，用户打开浏览器，访问正常网站，之后输入用户名和密码请求登陆该网站，通过该网站的服务器验证后，会将认证标志以 cookie 的方式设置在用户的浏览器，之后用户在该网站的其他任何请求都会附带上 cookie 信息，而服务器也会因为核对 cookie 信息正确而正常响应用户的请求，这时，在用户尚未退出该正常网站的情况下，又在同一个浏览器中打开了一个恶意网站，该网站返回了一些恶意代码，代码执行后请求访问之前用户访问过的正常网站，这个时候浏览器就会自动将正常网站的 cookie 带上后向服务器发送请求，那么就完成了一次跨站伪造请求攻击。</p>
+<p>对于防范这种攻击的方法，首先可以通过 HTTP 请求的头部字段 Referrer，该头部字段表示的是当前这个请求是从哪个页面发送的，如果发现请求的 Referrer 不是指向了自己的网站，那么很可能就是一次伪造攻击。</p>
+<p>另外，还可以在 HTTP 请求中手动添加 token，这个 token 的生成方式可以是跟服务器约定好的，之后每次发送请求的时候都将这个 token 手动写入到 HTTP 请求头部中，服务器收到请求以后就从 HTTP 请求的头部取得该 token 并验证，正常的请求就会验证通过，而伪造请求因为并不会在 HTTP 请求头部信息中加入正确的 token 而被识别出来，最后拒绝此次请求。</p>
+<h4 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h4><p>XSS，跨站脚本攻击，它的本质就是让恶意代码在用户本地的浏览器中运行，之后达到一定的目的，可能是窃取用户的 cookie，也可能是窃取用户的一些未公开的重要资料。</p>
+<p>防范这种攻击的方法，中心思想就是不要信任用户的任何输入信息，对用户的输入进行过滤，过滤掉大部分的 HTML 字符，或者限制用户不能输入一些特殊字符，这在表单验证的情况下经常会用到。</p>
+<p>对于一些支持图片外链的网站，要防止攻击者在图片外链中嵌入攻击代码，需要对用户输入的图片外链进行安全监测，或者不允许用户使用图片外链，只允许用户本地上传图片。</p>
+<p>另外，要防止网站引用不安全来源的文件，网站请求的文件能够存放到自己的服务器上时尽量存放到自己的服务器上，不方便存放到自己的服务器上时，应当确保 CDN 提供商的安全可靠性。</p>
+<h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><p>浏览器存在同源限制策略，当页面请求的服务器与当前页面不</p>
+<h2 id="手写代码"><a href="#手写代码" class="headerlink" title="手写代码"></a>手写代码</h2><p>手写代码在面试和笔试的时候是经常遇到的，下面是几个比较常见的手写代码题目。</p>
+<h3 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h3><p>使用原生的 XHR 完成 AJAX 请求。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHTTPRequest()</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 接收三个参数，分别是请求的方法（GET、POST、PUT、DELETE 等）、请求的 URL 和请求是否异步发送 */</span></span><br><span class="line">xhr.open(<span class="string">'get'</span>, <span class="string">'www.baidu/com'</span>, <span class="literal">true</span>)</span><br><span class="line"></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.status &gt;= <span class="number">200</span> &amp;&amp; xhr.status &lt; <span class="number">300</span> || xhr.status === <span class="number">304</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(xhr.response)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(xhr.status)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* data 表示请求主体发送的数据，如果不需要发送数据，则必须传入 null */</span></span><br><span class="line">xhr.send(data)</span><br></pre></td></tr></table></figure>
+<h3 id="Promise-实现图片加载"><a href="#Promise-实现图片加载" class="headerlink" title="Promise 实现图片加载"></a>Promise 实现图片加载</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImage</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> image = <span class="keyword">new</span> Image()</span><br><span class="line">    image.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      res(image)</span><br><span class="line">    &#125;</span><br><span class="line">    image.onerror = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      rej(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Could not load Image'</span>))</span><br><span class="line">    &#125;</span><br><span class="line">    image.src = url</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Curry"><a href="#Curry" class="headerlink" title="Curry"></a>Curry</h3><p>要求实现一个 currying 函数，调用方法为 currying(function() {}, 10)(5, 15, 25)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> currying = <span class="function">(<span class="params">...args1</span>) =&gt;</span> (...args2) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> args1[<span class="number">0</span>].apply(<span class="literal">null</span>, args1.slice(<span class="number">1</span>).concat(args2))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="bind-函数"><a href="#bind-函数" class="headerlink" title="bind 函数"></a>bind 函数</h3><p>要求手动实现一个 bind 函数。</p>
+<p>其实这道题与前面的 curry 实现有相似的地方，都用到了 curry 方法，返回一个绑定了执行上下文的新函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bind = <span class="function">(<span class="params">fn, context</span>) =&gt;</span> (...args) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> fn.apply(context, args)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="实现一个-debounce-和-throttle-函数"><a href="#实现一个-debounce-和-throttle-函数" class="headerlink" title="实现一个 debounce 和 throttle 函数"></a>实现一个 debounce 和 throttle 函数</h3><p>首先需要了解 debounce 函数和 throttle 函数的作用，前者用于防抖动，意思是当一个事件发生后，如果在指定的一段时间内没有再次发生，则执行为这个事件指定的事件处理程序，如果在指定的这段时间内该事件再次发生，则顺延，直到两次事件发生间隔大于指定的时间段，才会触发指定的事件处理程序；后者用于节流，意思是当一个事件发生后，指定一段有效时间，在这段有效时间内即使该事件再次发生，也只会在这段时间结束以后触发一次指定的事件处理程序。需要注意的是，这两个函数执行指定的事件处理程序时，事件处理程序函数接收到的参数是最后一次事件发生时传递给 debounce 函数和 throttle 函数的参数值。</p>
+<p>下面实现一个简单的 debounce 函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> debounce = <span class="function">(<span class="params">func, wait</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">window</span>.clearTimeout(timer)</span><br><span class="line">    timer = <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      func(...args)</span><br><span class="line">      <span class="built_in">window</span>.clearTimeout(timer)</span><br><span class="line">      timer = <span class="literal">null</span></span><br><span class="line">    &#125;, wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下面实现一个简单的 throttle 函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> throttle = <span class="function">(<span class="params">func, wait</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> tempArgs = []</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">    tempArgs = args</span><br><span class="line">    <span class="keyword">if</span> (!timer) &#123;</span><br><span class="line">      timer = <span class="built_in">window</span>.setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        func(...tempArgs)</span><br><span class="line">        <span class="built_in">window</span>.clearTimeout(timer)</span><br><span class="line">        timer = <span class="literal">null</span></span><br><span class="line">        tempArgs = []</span><br><span class="line">      &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><h3 id="排序方法"><a href="#排序方法" class="headerlink" title="排序方法"></a>排序方法</h3><p>排序方法有很多，下面列举一下常见的排序方法及其 JavaScript 实现。</p>
+<p>稳定排序算法。</p>
+<p>1.冒泡排序，时间复杂度为 O(n*n)。</p>
+<p>2.插入排序，时间复杂度为 O(n*n)。</p>
+<p>3.归并排序，时间复杂度为 O(n*logn)。</p>
+<p>不稳定排序算法。</p>
+<p>1.选择排序，时间复杂度为 O(n*n)。</p>
+<p>2.希尔排序，时间复杂度为 O(n*logn)。</p>
+<p>3.快速排序，时间复杂度为 O(n*logn)。</p>
+<p>4.堆排序。</p>
+<p>关于一个排序算法是否稳定，其判断依据是，当原序列中存在 a 和 b 两个相等的值时，如果经过算法排序后 a 与 b 的前后顺序保持不变，则说明该排序算法是一个稳定的排序算法，反之，如果 a 和 b 的位置可能发生变化，则说明该排序算法不是一个稳定的排序算法。</p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序的过程还是比较清晰的，每一次循环都会把循环过的数字当中的最大值找出来排到最后，有点类似于一个大水泡从水中冒出来，所以被称为冒泡排序。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">4</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 将数组按照从小到大的方式进行排序 */</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; arr.length - i - <span class="number">1</span>; j++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">      <span class="keyword">const</span> temp = arr[j]</span><br><span class="line">      arr[j] = arr[j + <span class="number">1</span>]</span><br><span class="line">      arr[j + <span class="number">1</span>] = temp</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">4</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">  <span class="keyword">const</span> current = arr[i]</span><br><span class="line">  <span class="keyword">let</span> pre = i - <span class="number">1</span></span><br><span class="line">  <span class="comment">/* 大于号是从小到大排序，小于号是从大到小排序 */</span></span><br><span class="line">  <span class="keyword">while</span> (pre &gt;= <span class="number">0</span> &amp;&amp; arr[pre] &gt; current) &#123;</span><br><span class="line">    arr[pre + <span class="number">1</span>] = arr[pre]</span><br><span class="line">    pre--</span><br><span class="line">  &#125;</span><br><span class="line">  arr[pre + <span class="number">1</span>] = current</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>目前的这个归并排序的实现是有问题的。先暂时不管这个。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mergeSort = <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> middle = <span class="built_in">Math</span>.ceil(arr.length / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> left = arr.slice(<span class="number">0</span>, middle)</span><br><span class="line">  <span class="keyword">const</span> right = arr.slice(middle)</span><br><span class="line">  <span class="keyword">const</span> final = []</span><br><span class="line">  <span class="keyword">while</span> (left.length &amp;&amp; right.length) &#123;</span><br><span class="line">    final.push(left[<span class="number">0</span>] &lt; right[<span class="number">0</span>] ? left.shift() : right.shift())</span><br><span class="line">  &#125;</span><br><span class="line">  final.push(left.length &amp;&amp; left[<span class="number">0</span>] || right.length &amp;&amp; right[<span class="number">0</span>])</span><br><span class="line">  <span class="keyword">return</span> final</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">4</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> minIndex = i</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; arr.length; j++) &#123;</span><br><span class="line">    <span class="comment">/* 大于号是从小到大排序，小于号是从大到小排序 */</span></span><br><span class="line">    <span class="keyword">if</span> (arr[minIndex] &gt; arr[j]) &#123;</span><br><span class="line">      minIndex = j</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* 排除掉没有调换位置必要的情况 */</span></span><br><span class="line">  <span class="keyword">if</span> (i !== minIndex) &#123;</span><br><span class="line">    <span class="keyword">let</span> temp = arr[i]</span><br><span class="line">    arr[i] = arr[minIndex]</span><br><span class="line">    arr[minIndex] = temp</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>选择排序是一种不稳定的排序算法，例如给定一个数组 [5, 5, 3] ，在进行第一遍遍历的时候，寻找到整个数组中最后一项 3 是整个数组中的最小值，所以会导致第一项 5 与最后一项 3 的位置发生调换，之后后面两项都是 5，而相等的两项是不会发生调换的，因此最后的结果就是第一项的 5 与第三项的 3 发生了位置上的互换，因此选择排序算法是不稳定的。</p>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序是一种效率很高的排序方式，它基本的原理是这样的，首先从需要排序的数组中随便选取一个数字作为基准，设置一个头指针和尾指针，然后头指针和尾指针分别从数组的两端向中间步进，当头指针指向的数字比基准大且尾指针指向的数字比基准小时，那么就将这两个数字调换位置，然后头指针和尾指针继续向中间步进，直到两者重合为止，然后将基准放到重合的地方，这样就可以保证在重合地方的左侧的所有数字都比基准要小，而右侧的所有数字都比基准要大，这样第一次快速排序就完成了，之后以基准的位置为分割，两侧的数组继续上面的操作，直到最后将每一个小单元中的数字都排序好了为止，这样整个数组的排序就完成了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">4</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> swap = <span class="function">(<span class="params">arr, args1, args2</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (args1 !== args2) &#123;</span><br><span class="line">    <span class="keyword">const</span> temp = arr[args1]</span><br><span class="line">    arr[args1] = arr[args2]</span><br><span class="line">    arr[args2] = temp</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> quickSort = <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params">arr, left, right</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (left &gt;= right) &#123;</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> pivot = arr[left]</span><br><span class="line">  <span class="keyword">let</span> head = left</span><br><span class="line">  <span class="keyword">let</span> foot = right</span><br><span class="line">  <span class="keyword">while</span> (head &lt; foot) &#123;</span><br><span class="line">    <span class="keyword">while</span> (head &lt; foot &amp;&amp; arr[foot] &gt;= pivot) &#123;</span><br><span class="line">      foot--</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (head &lt; foot &amp;&amp; arr[head] &lt;= pivot) &#123;</span><br><span class="line">      head++</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (head &lt; foot) &#123;</span><br><span class="line">      swap(arr, head, foot)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  arr[left] = arr[head]</span><br><span class="line">  arr[head] = pivot</span><br><span class="line"></span><br><span class="line">  F(arr, left, head - <span class="number">1</span>)</span><br><span class="line">  F(arr, head + <span class="number">1</span>, right)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">quickSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端开发/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/问题集合/" rel="tag"># 问题集合</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/07/JavaScript学习笔记（四）模式学习/" rel="next" title="JavaScript 学习笔记（四）模式学习">
+                <i class="fa fa-chevron-left"></i> JavaScript 学习笔记（四）模式学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/19/CSS学习笔记（二）居中显示/" rel="prev" title="CSS 学习笔记（二）居中显示">
+                CSS 学习笔记（二）居中显示 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Einskang" />
+          <p class="site-author-name" itemprop="name">Einskang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Einskang 的小菜园子，专门用来写博客、记日志、发牢骚的地方</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Kannnnng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3687126532" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Kannnnnnnnnng/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">1.</span> <span class="nav-text">JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创造对象的方式"><span class="nav-number">1.1.</span> <span class="nav-text">创造对象的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#工厂模式"><span class="nav-number">1.1.1.</span> <span class="nav-text">工厂模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造函数"><span class="nav-number">1.1.2.</span> <span class="nav-text">构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型模式"><span class="nav-number">1.1.3.</span> <span class="nav-text">原型模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合使用构造函数与原型模式"><span class="nav-number">1.1.4.</span> <span class="nav-text">组合使用构造函数与原型模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态原型模式"><span class="nav-number">1.1.5.</span> <span class="nav-text">动态原型模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#寄生构造函数模式"><span class="nav-number">1.1.6.</span> <span class="nav-text">寄生构造函数模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#稳妥构造函数模式"><span class="nav-number">1.1.7.</span> <span class="nav-text">稳妥构造函数模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-实现继承的方式"><span class="nav-number">1.2.</span> <span class="nav-text">JavaScript 实现继承的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链"><span class="nav-number">1.2.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借用构造函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">借用构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合继承"><span class="nav-number">1.2.3.</span> <span class="nav-text">组合继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型式继承"><span class="nav-number">1.2.4.</span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#寄生式继承"><span class="nav-number">1.2.5.</span> <span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#寄生组合式继承"><span class="nav-number">1.2.6.</span> <span class="nav-text">寄生组合式继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">1.3.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#事件冒泡"><span class="nav-number">1.3.1.</span> <span class="nav-text">事件冒泡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件捕获"><span class="nav-number">1.3.2.</span> <span class="nav-text">事件捕获</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DOM-事件流"><span class="nav-number">1.3.3.</span> <span class="nav-text">DOM 事件流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#事件处理程序"><span class="nav-number">1.3.4.</span> <span class="nav-text">事件处理程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止浏览器的默认行为"><span class="nav-number">1.3.5.</span> <span class="nav-text">阻止浏览器的默认行为</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阻止事件的进一步冒泡或捕获"><span class="nav-number">1.3.6.</span> <span class="nav-text">阻止事件的进一步冒泡或捕获</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容获取发生事件的目标元素"><span class="nav-number">1.4.</span> <span class="nav-text">兼容获取发生事件的目标元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#观察者模型"><span class="nav-number">1.5.</span> <span class="nav-text">观察者模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React"><span class="nav-number">1.6.</span> <span class="nav-text">React</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#React-组件的生命周期"><span class="nav-number">1.6.1.</span> <span class="nav-text">React 组件的生命周期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constructor-NaN"><span class="nav-number">1.6.2.</span> <span class="nav-text">constructor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#componentWillMount"><span class="nav-number">1.6.3.</span> <span class="nav-text">componentWillMount</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#render"><span class="nav-number">1.6.4.</span> <span class="nav-text">render</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#componentDidMount"><span class="nav-number">1.6.5.</span> <span class="nav-text">componentDidMount</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#componentWillReceiveProps"><span class="nav-number">1.6.6.</span> <span class="nav-text">componentWillReceiveProps</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#shouldComponentUpdate"><span class="nav-number">1.6.7.</span> <span class="nav-text">shouldComponentUpdate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#componentWillUpdate"><span class="nav-number">1.6.8.</span> <span class="nav-text">componentWillUpdate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#componentDidUpdate"><span class="nav-number">1.6.9.</span> <span class="nav-text">componentDidUpdate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#componentWillUnmount"><span class="nav-number">1.6.10.</span> <span class="nav-text">componentWillUnmount</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redux"><span class="nav-number">1.7.</span> <span class="nav-text">Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#createStore-js"><span class="nav-number">1.7.1.</span> <span class="nav-text">createStore.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#compose-js"><span class="nav-number">1.7.2.</span> <span class="nav-text">compose.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#applyMiddleware-js"><span class="nav-number">1.7.3.</span> <span class="nav-text">applyMiddleware.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bindActionCreators-js"><span class="nav-number">1.7.4.</span> <span class="nav-text">bindActionCreators.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#combineReducers-js"><span class="nav-number">1.7.5.</span> <span class="nav-text">combineReducers.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Immutable"><span class="nav-number">1.8.</span> <span class="nav-text">Immutable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise"><span class="nav-number">1.9.</span> <span class="nav-text">Promise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型"><span class="nav-number">2.1.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型中的层叠关系"><span class="nav-number">2.2.</span> <span class="nav-text">盒模型中的层叠关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左右布局：左边定宽，右边自适应"><span class="nav-number">2.3.</span> <span class="nav-text">左右布局：左边定宽，右边自适应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BFC-与-IFC"><span class="nav-number">2.4.</span> <span class="nav-text">BFC 与 IFC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-选择器的优先级"><span class="nav-number">2.5.</span> <span class="nav-text">CSS 选择器的优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-伪类与伪元素"><span class="nav-number">2.6.</span> <span class="nav-text">CSS 伪类与伪元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#水平居中和垂直居中"><span class="nav-number">2.7.</span> <span class="nav-text">水平居中和垂直居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-布局"><span class="nav-number">2.8.</span> <span class="nav-text">flex 布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-多列等高"><span class="nav-number">2.9.</span> <span class="nav-text">CSS 多列等高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1px-像素问题"><span class="nav-number">2.10.</span> <span class="nav-text">1px 像素问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除浮动"><span class="nav-number">2.11.</span> <span class="nav-text">清除浮动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-预处理器与后处理器"><span class="nav-number">2.12.</span> <span class="nav-text">CSS 预处理器与后处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS-选择器的解析方式"><span class="nav-number">2.13.</span> <span class="nav-text">CSS 选择器的解析方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应式布局"><span class="nav-number">2.14.</span> <span class="nav-text">响应式布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#line-height"><span class="nav-number">2.15.</span> <span class="nav-text">line-height</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-viewport-控制页面布局"><span class="nav-number">2.16.</span> <span class="nav-text">通过 viewport 控制页面布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">2.17.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文字换行"><span class="nav-number">2.18.</span> <span class="nav-text">文字换行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-number">3.</span> <span class="nav-text">HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-常见状态码"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP 常见状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1XX"><span class="nav-number">3.1.1.</span> <span class="nav-text">1XX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2XX"><span class="nav-number">3.1.2.</span> <span class="nav-text">2XX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3XX"><span class="nav-number">3.1.3.</span> <span class="nav-text">3XX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4XX"><span class="nav-number">3.1.4.</span> <span class="nav-text">4XX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5XX"><span class="nav-number">3.1.5.</span> <span class="nav-text">5XX</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-头部信息"><span class="nav-number">3.2.</span> <span class="nav-text">HTTP 头部信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Content-Type"><span class="nav-number">3.2.1.</span> <span class="nav-text">Content-Type</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WEB-安全"><span class="nav-number">3.3.</span> <span class="nav-text">WEB 安全</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CSRF"><span class="nav-number">3.3.1.</span> <span class="nav-text">CSRF</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS"><span class="nav-number">3.3.2.</span> <span class="nav-text">XSS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域问题"><span class="nav-number">3.4.</span> <span class="nav-text">跨域问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手写代码"><span class="nav-number">4.</span> <span class="nav-text">手写代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AJAX"><span class="nav-number">4.1.</span> <span class="nav-text">AJAX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Promise-实现图片加载"><span class="nav-number">4.2.</span> <span class="nav-text">Promise 实现图片加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Curry"><span class="nav-number">4.3.</span> <span class="nav-text">Curry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind-函数"><span class="nav-number">4.4.</span> <span class="nav-text">bind 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现一个-debounce-和-throttle-函数"><span class="nav-number">4.5.</span> <span class="nav-text">实现一个 debounce 和 throttle 函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法"><span class="nav-number">5.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#排序方法"><span class="nav-number">5.1.</span> <span class="nav-text">排序方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">5.2.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">5.3.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">5.4.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">5.5.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">5.6.</span> <span class="nav-text">快速排序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Einskang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

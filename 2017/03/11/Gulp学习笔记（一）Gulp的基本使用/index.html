@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Gulp,前端自动化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这段时间一直在忙着做项目，等这个周末有时间停下来看看我的博客时发现已经半个月还多没有写东西了，这样下去怎么行，这段时间学到的东西着实不少，所以不能再拖延下去了，一定要抓紧抽时间将这些东西记录下来，以后说不定什么时候就要用到，那个时候看自己写的东西相当于重温，看别人写的东西相当于新学，效果自然不言而喻。">
+<meta name="keywords" content="Gulp,前端自动化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp 学习笔记（一） Gulp 的基本使用">
+<meta property="og:url" content="https://kannnnng.github.io/2017/03/11/Gulp学习笔记（一）Gulp的基本使用/index.html">
+<meta property="og:site_name" content="Einskang 的小菜园子">
+<meta property="og:description" content="这段时间一直在忙着做项目，等这个周末有时间停下来看看我的博客时发现已经半个月还多没有写东西了，这样下去怎么行，这段时间学到的东西着实不少，所以不能再拖延下去了，一定要抓紧抽时间将这些东西记录下来，以后说不定什么时候就要用到，那个时候看自己写的东西相当于重温，看别人写的东西相当于新学，效果自然不言而喻。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-24T08:25:11.272Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp 学习笔记（一） Gulp 的基本使用">
+<meta name="twitter:description" content="这段时间一直在忙着做项目，等这个周末有时间停下来看看我的博客时发现已经半个月还多没有写东西了，这样下去怎么行，这段时间学到的东西着实不少，所以不能再拖延下去了，一定要抓紧抽时间将这些东西记录下来，以后说不定什么时候就要用到，那个时候看自己写的东西相当于重温，看别人写的东西相当于新学，效果自然不言而喻。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kannnnng.github.io/2017/03/11/Gulp学习笔记（一）Gulp的基本使用/"/>
+
+
+
+
+
+  <title>Gulp 学习笔记（一） Gulp 的基本使用 | Einskang 的小菜园子</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Einskang 的小菜园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kannnnng.github.io/2017/03/11/Gulp学习笔记（一）Gulp的基本使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Einskang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Einskang 的小菜园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gulp 学习笔记（一） Gulp 的基本使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-11T11:57:00+08:00">
+                2017-03-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这段时间一直在忙着做项目，等这个周末有时间停下来看看我的博客时发现已经半个月还多没有写东西了，这样下去怎么行，这段时间学到的东西着实不少，所以不能再拖延下去了，一定要抓紧抽时间将这些东西记录下来，以后说不定什么时候就要用到，那个时候看自己写的东西相当于重温，看别人写的东西相当于新学，效果自然不言而喻。<a id="more"></a></p>
+<p>今天要写的是 Gulp ，一款前端自动化的实现工具。说起前端自动化，就让我想起来大学里面学的其他的计算机语言，例如 C、C++、Java、Matlab 等，这些语言都有一个集成度很高的 IDE 工具帮助开发人员，做一些辅助开发的工作，C 和 C++ 有 Visual Studio 这个大家伙，Java 有 Eclipse，甚至 Google 刚推出不久的 Android Studio，现在学 HTML、CSS 和 JavaScript，就是一个文本编辑器 Sublime 外加 Chrome DeveTool，着实是有点轻装上阵的感觉，但是这种轻装上阵的缺点也是显而易见的，你需要自己手动查错、压缩代码、压缩图片，甚至是刷新浏览器页面，刚开始可能感觉不到什么，时间一长就会察觉出来这种工作的无趣性，能不能让一个助手来帮助开发人员自动查错，规范你的代码，帮助你压缩 js 代码，压缩图片甚至在你的代码发生改动时自动刷新浏览器页面，正是在这种需求的推动下，前端开发自动化工具蓬勃发展，至今已经相当成熟，以 Gulp 为例，Gulp 的社区每天都有许多工程师在里面活跃，展示自己的成果，帮助他人解决问题，发布各种各样有用的插件来丰富 Gulp 的生态环境，今天几乎你的所有需求与问题都可以在 Gulp 的插件库中得到解决，所以学习 Gulp 的使用是有必要的，今天我们就先来了解一下 Gulp 的基本使用方法。</p>
+<p><a href="http://www.gulpjs.com.cn/" target="_blank" rel="noopener">这里是 Gulp 的中文网站</a>，在这里你同样可以学习到 Gulp 的使用，有能力的话直接到其<a href="http://gulpjs.com/" target="_blank" rel="noopener">英文官网</a>上学习，那就更好啦。</p>
+<h3 id="安装-Nodejs"><a href="#安装-Nodejs" class="headerlink" title="安装 Nodejs"></a>安装 Nodejs</h3><p>Gulp 是基于 Nodejs 工作的，所以在安装 Gulp 之前需要首先安装 Nodejs。以 Windows 为例，直接到 Nodejs 的<a href="https://nodejs.org/en/" target="_blank" rel="noopener">官方网站</a>上下载安装包即可，推荐使用稳定版。</p>
+<h3 id="安装-Gulp"><a href="#安装-Gulp" class="headerlink" title="安装 Gulp"></a>安装 Gulp</h3><p>1.打开命令行，使用 Nodejs 自带的管理工具 npm 全局安装 Gulp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --global gulp</span><br></pre></td></tr></table></figure></p>
+<p>2.作为项目的开发依赖（devDependencies）安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save-dev gulp</span><br></pre></td></tr></table></figure></p>
+<p>在这里你需要了解开发依赖与生产依赖之间的区别，开发依赖即指在开发过程中需要用到的工具包，生产依赖则是该项目正常工作时需要用到的工具包，因为我们只是在开发过程中才会使用到 Gulp，所以将它作为开发依赖而安装，而像是提供 md5 算法的工具包，因为项目在正常工作中也会使用到，所以将它作为生产依赖而安装。这仅仅是我的理解，有关更多的信息，可以参考<a href="https://github.com/ericdum/mujiang.info/issues/6/" target="_blank" rel="noopener">这篇文章</a>，它里面详细描述了package.json文件中几乎所有字段的意义与作用。</p>
+<p>3.在项目根目录下创建一个名为 gulpfile.js 的文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 将你的默认的任务代码放在这</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>4.运行 Gulp<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp</span><br></pre></td></tr></table></figure></p>
+<p>仅输入 gulp 命令，则将会执行被定义为 default 的代码，在这个任务中并没有做任何事。如果你想要单独执行特定的任务，则可以输入 gulp \&lt;task> \&lt;othertask>，例如，同时执行 js 代码检查与代码压缩，则可以输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gulp js-hint js-min</span><br></pre></td></tr></table></figure></p>
+<p>当然，这里要求任务 js-hint 与 js-min 都在前面已经定义好且代码正确。</p>
+<h3 id="Gulp-的-API"><a href="#Gulp-的-API" class="headerlink" title="Gulp 的 API"></a>Gulp 的 API</h3><p>Gulp 自身拥有一些 API，可以提供一些很基础又很有帮助的功能，下面我们来了解一下。</p>
+<h4 id="gulp-src-globs-options"><a href="#gulp-src-globs-options" class="headerlink" title="gulp.src(globs[, options])"></a>gulp.src(globs[, options])</h4><p>该 API 用于输出（Emits）符合所提供的匹配模式（glob）或者匹配模式的数组（array of globs）的文件，它将返回一个 Vinyl files 的 stream，其可以被 piped 到别的插件中。通俗一点来讲就是该 API 可以按照一定的规则读取指定的文件或者是文件数组，之后将这些文件转换成一种流的形式传递到其他的插件中，以供其他插件对这种流（也就是读取的文件）进行操作。这是最基础的一个操作，任何与文件有关的任务都要通过该 API 读取相应文件，之后才能进行下一步的操作。下面给出一个例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.src(<span class="string">'client/templates/*.jade'</span>)  <span class="comment">// 读取该路径下后缀名为 jade 的所有文件，输出流</span></span><br><span class="line">  .pipe(jade())  <span class="comment">// 插件对输入的流进行操作</span></span><br><span class="line">  .pipe(minify())  <span class="comment">// 插件对输入的流进行操作</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'build/minified_templates'</span>));  <span class="comment">// 将流转换为文件保存在该路径下</span></span><br></pre></td></tr></table></figure></p>
+<p>参数 globs，类型可以为 String 或 Array ，其含义是所要读取的 glob 或者包含 globs 的数组，这里的 glob 可以通俗地理解为文件，也就是所要读取的文件或者包含文件的数组，在上面的例子中，globs 即为 client/templates/<em>.jade，这里面出现了 </em>.jade 这种表示方式，其实这是一种特别的语法 node-glob，它能够更好地表述文件的所处位置与特征等信息，使用这种语法能够大大简化所要读取文件的书写方式。例如，现在要读取位于 src/js 文件夹下面的所有 js 文件，如果不适用 node-glob 语法，你可能需要将该文件夹下面的所有 js 文件的文件名全部写在一个数组里，而如果使用 node-glob 语法，则直接使用 src/js/*.js 即可。有关于更多的 node-glob 语法知识，可以参考<a href="http://www.cnblogs.com/liulangmao/p/4552339.html" target="_blank" rel="noopener">这篇文章</a>，它是 Github 上<a href="https://github.com/isaacs/node-glob" target="_blank" rel="noopener"> node-glob 语法</a>的翻译，英语好的同学可以直接看原文。</p>
+<p>参数options主要用于传递一些读取文件时的参数设置，除了包含有 glob-stream 和 node-glob 支持的参数以外，Gulp 还增加了一些额外的参数选项。例如 options.read，如果该项被设置为 false ，那么 file.contents会返回空值（null），也就是并不会去读取文件；再如options.base，它将会显式地设置文件的基础目录，这在文件的最后输出时将会有用，想象一下，在 client/js/somedir 目录下有一个 somefile.js 文件，则下面两种不同的写法最后的效果也是不同的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gulp.src(<span class="string">'client/js/**/*.js'</span>) <span class="comment">// 匹配 client/js/somedir/somefile.js 并且将 base默认解析为client/js/</span></span><br><span class="line">  .pipe(minify())</span><br><span class="line">  .pipe(gulp.dest(<span class="string">'build'</span>));  <span class="comment">// 写入 build/somedir/somefile.js</span></span><br><span class="line"></span><br><span class="line">gulp.src(<span class="string">'client/js/**/*.js'</span>, &#123; <span class="attr">base</span>: <span class="string">'client'</span> &#125;)</span><br><span class="line">  .pipe(minify())</span><br><span class="line">  .pipe(gulp.dest(<span class="string">'build'</span>));  <span class="comment">// 写入 build/js/somedir/somefile.js</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="gulp-dest-path-options"><a href="#gulp-dest-path-options" class="headerlink" title="gulp.dest(path[, options])"></a>gulp.dest(path[, options])</h4><p>该 API 用于接收输入的流，并重新转换成文件写到硬盘上，与此同时，它还会将流原封不动地传递（pipe）到下一部分（如果有的话），因此你可以使用它将文件写在不同的文件夹里面，如果指定的文件夹不存在，则它将会自动创建该文件夹。例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gulp.src(<span class="string">'./client/templates/*.jade'</span>)  <span class="comment">// 读取文件</span></span><br><span class="line">  .pipe(jade())  <span class="comment">// 对输入的流进行操作</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./build/templates'</span>))  <span class="comment">// 输出到指定文件夹中</span></span><br><span class="line">  .pipe(minify())  <span class="comment">// 对输入的流进行操作</span></span><br><span class="line">  .pipe(gulp.dest(<span class="string">'./build/minified_templates'</span>));  <span class="comment">// 输出到指定文件夹中</span></span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，我们可以看到 gulp.dest() 接收自 jade() 操作后传递过来的流，之后转换成文件写到指定的文件夹中，然后它又将流原封不动地传递给了下一个操作 minify()，最后再次调用 gulp.dest() 将处理好的流转换成文件写到指定的文件夹中。这里需要注意，文件被写入的路径是以所给的相对路径根据所给的目标目录计算而来。类似的，相对路径也可以根据所给的 base 选项来计算，具体信息可以参看上面的 gulp.src() 中对于参数 base 作用的描述。</p>
+<p>参数 path 代表文件将被写入的路径（输出目录），也可以传入一个函数，在函数中返回相应的路径。</p>
+<p>参数 options 同样主要用于传递一些写入文件时的参数设置，例如 options.mode，其代表八进制权限字符，用以定义所有在输出目录中所创建的目录的权限，默认值为 777，即输出目录中所创建的目录的权限是可读可写可运行。</p>
+<h4 id="gulp-task-name-deps-fn"><a href="#gulp-task-name-deps-fn" class="headerlink" title="gulp.task(name[, deps], fn)"></a>gulp.task(name[, deps], fn)</h4><p>该 API 用于定义一个使用<a href="https://github.com/robrich/orchestrator" target="_blank" rel="noopener"> Orchestrator </a>实现的任务（task），这也是最基础的操作，Gulp 中的所有执行任务都要通过该 API 实现，使用方式为<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'somename'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Hello World"</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>上面的例子中定义了一个名叫 somename 的任务名，动作就是后面的函数中描述的要做的事，在命令行中打印出 Hello World。</p>
+<p>参数 name 即为任务的名字，请注意，如果你需要在命令行中运行某些任务，那么就不要在名字中使用空格，这会导致命令行错误解析输入的命令，可以使用连字符 -代替空格。</p>
+<p>参数 deps 的类型是数组，它表示一个包含任务列表的数组，这些任务会在你当前任务运行之前完成。这里需要确保所依赖的任务列表中的任务都使用了正确的异步执行方式：使用一个 callback，或者返回一个 promise 或 stream。</p>
+<p>参数 fn 是一个函数，该函数定义任务所要执行的一些操作。通常来说，它会是这种形式：gulp.src().pipe(someplugin()).pipe(gulp.dest())，也就是先读取文件，然后交给插件处理，最后将处理好的流以文件的形式写到文件夹中。如果你希望任务可以异步执行，那么 fn 就需要做到以下其中一点</p>
+<p>1.接受一个 callback，如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在shell中执行一个命令</span></span><br><span class="line"><span class="keyword">var</span> exec = <span class="built_in">require</span>(<span class="string">'child_process'</span>).exec;</span><br><span class="line">gulp.task(<span class="string">'jekyll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 编译Jekyll</span></span><br><span class="line">  exec(<span class="string">'jekyll build'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) <span class="keyword">return</span> callback(err); <span class="comment">// 返回 error</span></span><br><span class="line">    callback(); <span class="comment">// 完成 task</span></span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>2.返回一个 stream，如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'somename'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> stream = gulp.src(<span class="string">'client/**/*.js'</span>)</span><br><span class="line">    .pipe(minify())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'build'</span>));</span><br><span class="line">  <span class="keyword">return</span> stream;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>3.返回一个 promise<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Q = <span class="built_in">require</span>(<span class="string">'q'</span>);</span><br><span class="line">gulp.task(<span class="string">'somename'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> deferred = Q.defer();</span><br><span class="line">  <span class="comment">// 执行异步的操作</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    deferred.resolve();</span><br><span class="line">  &#125;, <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> deferred.promise;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>需要注意的是，task 将以最大的并发数执行，也就是说，gulp 会一次性运行所有的 task 并且不做任何等待。如果你想要创建一个序列化的 task 队列，并以特定的顺序执行，你需要做两件事：</p>
+<p>1.给出一个提示，来告知 task 什么时候执行完毕；<br>2.再给出一个提示，来告知一个 task 依赖另一个 task 的完成。</p>
+<p>对于这个例子，让我们先假定你有两个 task， one 和 two，并且你希望它们按照这个顺序执行，那么在 one 中，你需要加入一个提示，来告知什么时候它会完成：可以在完成时候返回一个 callback，或者返回一个 promise 或 stream，这样系统会去等待它完成；在 two 中，你需要添加一个提示来告诉系统它需要依赖第一个 task 完成。因此，这个例子的实际代码将会是这样<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="comment">// 返回一个 callback，因此系统可以知道它什么时候完成</span></span><br><span class="line">gulp.task(<span class="string">'one'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 做一些事 -- 异步的或者其他的</span></span><br><span class="line">    callback(err); <span class="comment">// 如果 err 不是 null 或 undefined，则会停止执行，且注意，这样代表执行失败了</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 定义一个所依赖的 task 必须在这个 task 执行之前完成</span></span><br><span class="line">gulp.task(<span class="string">'two'</span>, [<span class="string">'one'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// one 完成后</span></span><br><span class="line">&#125;);</span><br><span class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'one'</span>, <span class="string">'two'</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>上面的例子中，函数 one 接受一个 callback，保证 task 执行的异步性，在实际使用中我更喜欢在函数的最后返回一个 stream，这样做看起来更简单一些。</p>
+<h4 id="gulp-watch-glob-opts-tasks-或-gulp-watch-glob-opts-cb"><a href="#gulp-watch-glob-opts-tasks-或-gulp-watch-glob-opts-cb" class="headerlink" title="gulp.watch(glob[, opts], tasks) 或 gulp.watch(glob[, opts, cb])"></a>gulp.watch(glob[, opts], tasks) 或 gulp.watch(glob[, opts, cb])</h4><p>该 API 用于监视指定的文件是否发生变化，如果发生变化则执行后面指定的任务，它总会返回一个 EventEmitter 来发射（emit） change  事件，该 API 也是很基础的操作，在实际的开发过程中，它可以帮助你正确、及时、高效地完成一些操作，例如对发生变化的 js 代码进行语法检查，将 SCSS 及时编译成 CSS 以供浏览器使用，查看显示效果。<br>该 API 存在两种用法，第一种用法是指定文件发生变动后要执行的任务，例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"watch"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 监视 js 文件</span></span><br><span class="line">  gulp.watch(<span class="string">"src/js/**/*.js"</span>, [<span class="string">"js"</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，定义了一个名为 watch 的任务，其内部的主要工作就是监视路径为 src/js 以及该路径下的所有子文件夹内的 js 文件是否发生变化，如果发生变化，则调用后面指定的任务 js对改动的文件进行一些处理。</p>
+<p>第二种用法是指定文件发生变动后要执行的回调函数，例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.watch(<span class="string">'src/js/**/*.js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'File '</span> + event.path + <span class="string">' was '</span> + event.type + <span class="string">', running tasks...'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，Gulp 监视路径为 src/js 以及该路径下的所有子文件夹内的 js 文件是否发生变化，如果发生变化，则调用后面指定的回调函数，该回调函数会被传入一个 event 对象，来描述监视到的变动情况，其中，event.path 表示发生了变动的文件的所在路径，event.type 表示发生的变动的类型，可以是 added、changed 或者 deleted 这三个中的一个，分别表示新增文件、文件内容改变和删除文件。</p>
+<p>参数 glob 为一个字符串或者包含多个字符串的字符串数组，用来指定具体监控哪些文件的变动情况，如上面例中的 src/js/*<em>/</em>.js，其含义就是监控 src/js 路径下以及该路径下所有的子文件夹里面所有的 js 文件的变动情况，注意这种表述方式在前面的 gulp.src() 中已经介绍过，也就是<a href="https://github.com/isaacs/node-glob" target="_blank" rel="noopener"> node-glob 语法</a>，忘记了的同学就到前面翻看复习一下。</p>
+<p>参数 opts 表示一些参数设置，这个我暂时没用到过，等以后了解其作用了再回来把这部分内容补上。</p>
+<p>好了，关于 Gulp 的基础知识大概就是这么多了，其实这里面的大部分内容都是源自于 Gulp 中文网，我只是把这些内容再次写一遍，加深自己的印象，同时在一些地方加入自己的理解，Gulp 中文网上面的介绍感觉比较精炼，可能将相关内容与解释写得多一点更适合我这样的新手吧。</p>
+<p>后面关于 Gulp 的介绍文章大部分应该是围绕各种实用的插件，Gulp 的插件非常多也非常全，用好这些插件能够大大提高开发效率，减少一些不必要的麻烦。等后面有时间和精力了我就开始写。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gulp/" rel="tag"># Gulp</a>
+          
+            <a href="/tags/前端自动化/" rel="tag"># 前端自动化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/17/DOM学习笔记（二）DOM元素/" rel="next" title="DOM 学习笔记（二）DOM 元素">
+                <i class="fa fa-chevron-left"></i> DOM 学习笔记（二）DOM 元素
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/17/CSS学习笔记（三）问题集合/" rel="prev" title="CSS 学习笔记（三）问题集合">
+                CSS 学习笔记（三）问题集合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Einskang" />
+          <p class="site-author-name" itemprop="name">Einskang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Einskang 的小菜园子，专门用来写博客、记日志、发牢骚的地方</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Kannnnng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3687126532" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Kannnnnnnnnng/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Nodejs"><span class="nav-number">1.</span> <span class="nav-text">安装 Nodejs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-Gulp"><span class="nav-number">2.</span> <span class="nav-text">安装 Gulp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gulp-的-API"><span class="nav-number">3.</span> <span class="nav-text">Gulp 的 API</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#gulp-src-globs-options"><span class="nav-number">3.1.</span> <span class="nav-text">gulp.src(globs[, options])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gulp-dest-path-options"><span class="nav-number">3.2.</span> <span class="nav-text">gulp.dest(path[, options])</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gulp-task-name-deps-fn"><span class="nav-number">3.3.</span> <span class="nav-text">gulp.task(name[, deps], fn)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gulp-watch-glob-opts-tasks-或-gulp-watch-glob-opts-cb"><span class="nav-number">3.4.</span> <span class="nav-text">gulp.watch(glob[, opts], tasks) 或 gulp.watch(glob[, opts, cb])</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Einskang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

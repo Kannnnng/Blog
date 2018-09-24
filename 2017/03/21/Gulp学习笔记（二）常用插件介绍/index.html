@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Gulp,前端自动化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="在上一篇关于 Gulp 的学习笔记中，我已经把 Gulp 的基本使用方法与常用的 API 写的差不多了，在这一篇文章中，我将主要把自己在学习工作中经常用到的很有协助的插件介绍一下，Gulp 的插件系统为 Gulp 扩展了丰富的功能，这使得围绕与 Gulp 的整个生态系统变的非常强大，适当地使用 Gulp 的插件将会有效提升开发效率与体验。">
+<meta name="keywords" content="Gulp,前端自动化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gulp 学习笔记（二）常用插件介绍">
+<meta property="og:url" content="https://kannnnng.github.io/2017/03/21/Gulp学习笔记（二）常用插件介绍/index.html">
+<meta property="og:site_name" content="Einskang 的小菜园子">
+<meta property="og:description" content="在上一篇关于 Gulp 的学习笔记中，我已经把 Gulp 的基本使用方法与常用的 API 写的差不多了，在这一篇文章中，我将主要把自己在学习工作中经常用到的很有协助的插件介绍一下，Gulp 的插件系统为 Gulp 扩展了丰富的功能，这使得围绕与 Gulp 的整个生态系统变的非常强大，适当地使用 Gulp 的插件将会有效提升开发效率与体验。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-24T08:25:11.274Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gulp 学习笔记（二）常用插件介绍">
+<meta name="twitter:description" content="在上一篇关于 Gulp 的学习笔记中，我已经把 Gulp 的基本使用方法与常用的 API 写的差不多了，在这一篇文章中，我将主要把自己在学习工作中经常用到的很有协助的插件介绍一下，Gulp 的插件系统为 Gulp 扩展了丰富的功能，这使得围绕与 Gulp 的整个生态系统变的非常强大，适当地使用 Gulp 的插件将会有效提升开发效率与体验。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kannnnng.github.io/2017/03/21/Gulp学习笔记（二）常用插件介绍/"/>
+
+
+
+
+
+  <title>Gulp 学习笔记（二）常用插件介绍 | Einskang 的小菜园子</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Einskang 的小菜园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kannnnng.github.io/2017/03/21/Gulp学习笔记（二）常用插件介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Einskang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Einskang 的小菜园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gulp 学习笔记（二）常用插件介绍</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T17:09:00+08:00">
+                2017-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在上一篇关于 Gulp 的学习笔记中，我已经把 Gulp 的基本使用方法与常用的 API 写的差不多了，在这一篇文章中，我将主要把自己在学习工作中经常用到的很有协助的插件介绍一下，Gulp 的插件系统为 Gulp 扩展了丰富的功能，这使得围绕与 Gulp 的整个生态系统变的非常强大，适当地使用 Gulp 的插件将会有效提升开发效率与体验。<a id="more"></a></p>
+<h3 id="stream-combiner2"><a href="#stream-combiner2" class="headerlink" title="stream-combiner2"></a>stream-combiner2</h3><p>使用 Gulp 的过程中，我觉得比较头疼的一件事，就是运行一个 Gulp 的任务时，如果这中间产生了任何错误或异常，那么这个错误或异常将会被 Gulp 直接抛出而不做处理，这时整个 Gulp 任务的运行也就被中断了，然后就需要自己排除完错误代码以后重新启动 Gulp 任务，这样做其实是比较令人烦恼的。那有没有一个插件，可以在 Gulp 任务运行中出现错误时，不是直接抛出，而是做出提示，同时整个 Gulp 任务不会因为错误或异常而被中断？很幸运有这样的插件，这就是 stream-combiner2。</p>
+<p>通过使用 stream-combiner2，你可以将一系列的 stream 合并成一个，这意味着，你只需要在你的代码中一个地方添加监听器监听发生错误或异常的时间就可以了，同时，stream 中发生的任何错误或异常都不会被直接抛出，而是会被监听器捕获，同时整个 Gulp 任务不会因此而中断。</p>
+<p>下面是一个 stream-combiner2 插件的使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> combiner = <span class="built_in">require</span>(<span class="string">'stream-combiner2'</span>);  <span class="comment">// 引入 stream-combiner2 插件</span></span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);  <span class="comment">// 引入 js 压缩插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> combined = combiner.obj([</span><br><span class="line">    gulp.src(<span class="string">'src/js/**/*.js'</span>),  <span class="comment">// 读取 js 源文件</span></span><br><span class="line">    uglify(),  <span class="comment">// 对 js 代码进行压缩</span></span><br><span class="line">    gulp.dest(<span class="string">'dist/js'</span>)  <span class="comment">// 输出压缩以后的 js 文件</span></span><br><span class="line">  ]);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 任何在上面的 stream 中发生的错误，都不会被抛出，</span></span><br><span class="line">  <span class="comment">// 而是会被监听器捕获</span></span><br><span class="line">  combined.on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> combined;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h3 id="gulp-jshint"><a href="#gulp-jshint" class="headerlink" title="gulp-jshint"></a>gulp-jshint</h3><p>在了解 gulp-jshint 之前，先需要了解 jshint，jshint 是用来检测 JavaScript 中的语法错误的，它能够帮助你完成 js 代码的错误排查工作，在代码运行之前发现错误，避免不必要的麻烦，gulp-jshint 是使 jshint 能够在 Gulp 中正确运行的帮助插件。明白这种依赖关系以后，我们就知道，要想在 Gulp 中使用 jshint 帮助检查自己的 js 代码正确性，不仅需要安装 jshint，还需要安装 gulp-jshint。</p>
+<p>下面是一个 gulp-jshint 插件的使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> combiner = <span class="built_in">require</span>(<span class="string">'stream-combiner2'</span>);  <span class="comment">// 引入 stream-combiner2 插件</span></span><br><span class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">"gulp-jshint"</span>);  <span class="comment">// js 检查</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"jshint"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> combined = combiner.obj([</span><br><span class="line">    gulp.src(<span class="string">"src/js/**/*.js"</span>),</span><br><span class="line">    jshint(),</span><br><span class="line">    jshint.reporter(<span class="string">"default"</span>),</span><br><span class="line">    gulp.dest(<span class="string">"dist/js"</span>)</span><br><span class="line">  ]);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 任何在上面的 stream 中发生的错误，都不会抛出，</span></span><br><span class="line">  <span class="comment">// 而是会被监听器捕获</span></span><br><span class="line">  combined.on(<span class="string">"error"</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> combined;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，gulp-jshint 与 stream-combiner2 结合使用，完成对 js 代码的错误检查工作。注意到此时 js 代码的检查规则是 jshint 默认的检查规则，除此之外你还可以在项目的根目录下新建一个 .jshintrc 文件，在里面使用 json 语法编写自己定制的 js 语法检查规则，关于规则定制的详细解释，可以参考<a href="https://my.oschina.net/wjj328938669/blog/637433?p=1" target="_blank" rel="noopener">这篇博文</a>。</p>
+<h3 id="gulp-uglify"><a href="#gulp-uglify" class="headerlink" title="gulp-uglify"></a>gulp-uglify</h3><p>这是一款压缩 js 代码的 Gulp 插件，在现在的前端项目中，js 代码量越来越多，js 文件也就越来越大，这样导致客户端在网络环境不太好时加载 js 代码很缓慢，因此压缩 js 代码也就变得很有必要。使用这款插件可以有效地压缩 js 文件大小，例如 jQuery 库，没有压缩时是 290KB，经过压缩以后的文件大小只有 89KB，由此可见压缩比还是非常可观的。</p>
+<p>下面是一个 gulp-uglify 插件的使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> combiner = <span class="built_in">require</span>(<span class="string">'stream-combiner2'</span>);  <span class="comment">// 引入 stream-combiner2 插件</span></span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);  <span class="comment">// 引入 js 压缩插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'jsmin'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> combined = combiner.obj([</span><br><span class="line">    gulp.src(<span class="string">'src/js/**/*.js'</span>),  <span class="comment">// 读取 js 源文件</span></span><br><span class="line">    uglify(&#123;</span><br><span class="line">      mangle: <span class="literal">true</span>,  <span class="comment">// 类型：Boolean 默认：true 是否修改变量名</span></span><br><span class="line">      compress: <span class="literal">true</span>,  <span class="comment">// 类型：Boolean 默认：true 是否完全压缩</span></span><br><span class="line">      preserveComments: <span class="string">'all'</span>  <span class="comment">// 保留所有注释</span></span><br><span class="line">    &#125;),  <span class="comment">// 对 js 代码进行压缩</span></span><br><span class="line">    gulp.dest(<span class="string">'dist/js'</span>)  <span class="comment">// 输出压缩以后的 js 文件</span></span><br><span class="line">  ]);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 任何在上面的 stream 中发生的错误，都不会被抛出，</span></span><br><span class="line">  <span class="comment">// 而是会被监听器捕获</span></span><br><span class="line">  combined.on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> combined;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，gulp-uglify 与 stream-combiner2 结合使用，完成了对 js 代码的压缩工作。注意到在执行 js 代码压缩的时候，我们向插件中传入了几个参数，这几个参数的含义在上面都给出了解释，例如选项 mangle，其类型为布尔型，含义为是否修改变量名，即把你自己为方便记忆与辨认而设置的名字很长的变量名转换成单字母之类的变量，以此减少代码量，其默认值为 true，其实在日常的使用中我们可以忽略这些选项，因为 gulp-uglify 已经为我们选择了最好的设置，我们直接使用即可。当然，如果你还想了解可以设置的其他选项，你可以参考<a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="noopener">这篇博文</a>。</p>
+<h3 id="gulp-notify"><a href="#gulp-notify" class="headerlink" title="gulp-notify"></a>gulp-notify</h3><p>这是一款提示插件，它的完整功能很多，但我在实际使用中基本上就只使用了它的几个功能，就是在完成某一目标时在控制台上打印出提示信息，同时在屏幕右上角或右下角弹出提示框，提示当前某一目标已经完成。</p>
+<p>下面是一个 gulp-notify 插件的简单使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> notify = <span class="built_in">require</span>(<span class="string">"gulp-notify"</span>);  <span class="comment">// 提示插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"html"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> gulp.src(<span class="string">"src/html/**/*.html"</span>)</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"dist/html"</span>))</span><br><span class="line">    .pipe(notify(<span class="string">"html 文件输出完成"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，html 任务将 src/html 文件夹以及该文件夹下所有的子文件夹内的后缀名为 html 的文件输出到 dist/html 文件夹中，完成后弹出一个提示框，提示 html 文件输出完成，并在控制台上打印出该提示信息。</p>
+<p>除此以外，它还可以与 gulp-jshint 插件一起使用，当 gulp-jshint 运行出现错误的时候，它可以更好的显示错误信息。下面是一个两者一起使用的简单实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> notify = <span class="built_in">require</span>(<span class="string">"gulp-notify"</span>);  <span class="comment">// 提示插件</span></span><br><span class="line"><span class="keyword">var</span> jshint = <span class="built_in">require</span>(<span class="string">"gulp-jshint"</span>);  <span class="comment">// js 检查</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'lint'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src(<span class="string">'src/js/**/*.js'</span>)</span><br><span class="line">    .pipe(jshint())</span><br><span class="line">    .pipe(notify(<span class="function"><span class="keyword">function</span> (<span class="params">file</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (!file.jshint.success) &#123;</span><br><span class="line">        <span class="keyword">var</span> errors = file.jshint.results.map(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">          <span class="keyword">if</span> (data.error) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"("</span> + data.error.line + <span class="string">':'</span> + data.error.character + <span class="string">') '</span> + data.error.reason;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;).join(<span class="string">"\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> file.relative + <span class="string">" ("</span> + file.jshint.results.length + <span class="string">" errors)\n"</span> + errors;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，gulp-notify 作为 gulp-jshint 的检查结果报告器，在 gulp-jshint 对 js 代码检查过程中如果出现错误，则进入 gulp-notify 插件接收函数里面的 if 语句中，在这个函数里面，你可以拿到所有 js 代码检查错误信息，然后你就可以自定义如何显示这些信息，最后将得到的显示结果通过 gulp-notify 显示出来。</p>
+<h3 id="gulp-rename"><a href="#gulp-rename" class="headerlink" title="gulp-rename"></a>gulp-rename</h3><p>这是一款为文件重命名的插件，它可以完成你对文件重命名的很多需求，例如修改文件名，在原文件名的基础上添加前缀与后缀，修改文件的后缀名（扩展名），甚至为文件设置存储路径等。下面是一个 gulp-rename 插件的使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> combiner = <span class="built_in">require</span>(<span class="string">'stream-combiner2'</span>);  <span class="comment">// 引入 stream-combiner2 插件</span></span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);  <span class="comment">// 引入 js 压缩插件</span></span><br><span class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);  <span class="comment">// 重命名</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'jsmin'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> combined = combiner.obj([</span><br><span class="line">    gulp.src(<span class="string">'src/js/**/*.js'</span>),  <span class="comment">// 读取 js 源文件</span></span><br><span class="line">    uglify(),  <span class="comment">// 对 js 代码进行压缩</span></span><br><span class="line">    rename(&#123;<span class="attr">suffix</span>: <span class="string">".min"</span>&#125;),  <span class="comment">// 将文件的</span></span><br><span class="line">    gulp.dest(<span class="string">'dist/js'</span>)  <span class="comment">// 输出压缩以后的 js 文件</span></span><br><span class="line">  ]);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 任何在上面的 stream 中发生的错误，都不会被抛出，</span></span><br><span class="line">  <span class="comment">// 而是会被监听器捕获</span></span><br><span class="line">  combined.on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> combined;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，Gulp 首先读取 js 源文件，之后对 js 代码进行压缩，然后对压缩好的 js 文件修改其文件名，即在文件名后面添加 .min 后缀，最后输出文件。这样，一个名为 index.js 的 js 文件最后输出为名为 index.min.js 的 js 压缩文件。</p>
+<p>除此之外，它还有很多选项可供使用，下面这个示例展示了其他选项的作用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rename = <span class="built_in">require</span>(<span class="string">"gulp-rename"</span>);  <span class="comment">// 重命名</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.src(<span class="string">"src/text/hello.txt"</span>)  <span class="comment">// src/text/hello.txt</span></span><br><span class="line">  .pipe(rename(&#123;</span><br><span class="line">    dirname: <span class="string">"main/markdown"</span>,</span><br><span class="line">    basename: <span class="string">"aloha"</span>,</span><br><span class="line">    prefix: <span class="string">"bonjour-"</span>,</span><br><span class="line">    suffix: <span class="string">"-hola"</span>,</span><br><span class="line">    extname: <span class="string">".md"</span></span><br><span class="line">  &#125;))</span><br><span class="line">  .pipe(gulp.dest(<span class="string">"dist"</span>));  <span class="comment">// dist/main/markdown/bonjour-aloha-hola.md</span></span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，比较全面的展示了 gulp-rename 其他选项的作用，其中，dirname 用于设置文件存储路径，basename 用于设置文件的基础名，prefix 为文件名添加前缀，suffix 为文件名添加后缀，extname 用于设置文件的扩展名。</p>
+<h3 id="gulp-livereload"><a href="#gulp-livereload" class="headerlink" title="gulp-livereload"></a>gulp-livereload</h3><p>这是一款实现代码修改后浏览器自动刷新功能的插件，可以说这个插件帮助我们节省了前端开发过程中一个很费神的事情，使用这款插件以后我们就可以实现仅在编辑器中保存代码，然后浏览器就会自动刷新的效果了。下面是一个 gulp-livereload 插件的使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">"gulp-sass"</span>);</span><br><span class="line"><span class="keyword">var</span> livereload = <span class="built_in">require</span>(<span class="string">"gulp-livereload"</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"sass"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src(<span class="string">"src/sass/**/*.sass"</span>)</span><br><span class="line">    .pipe(sass().on(<span class="string">'error'</span>, sass.logError))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"dist/css"</span>))</span><br><span class="line">    .pipe(livereload());</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  livereload.listen();</span><br><span class="line">  gulp.watch(<span class="string">"src/sass/**/*.sass"</span>, [<span class="string">'sass'</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，我们一开始先定义了一个 Gulp 任务，规定任何 sass 文件发生变化，就调用任务内部的处理代码将 sass 编译成 css，然后存放到指定位置，注意到在执行完文件输出命令后，还有一句 livereload() 代码需要执行，这一句代码的功能就是在上面的任务执行完成以后自动刷新浏览器，因此如果你希望某一任务（例如 js 代码编译）完成以后自动刷新浏览器页面，你就需要在相对应的 Gulp 任务的后面添加这句代码,最后启动 gulp-livereload 侦听功能即可。</p>
+<p>除了上面这种使用方式，你还可以通过 livereload.changed(path) 来使用 gulp-livereload，这种方式比上面的更加简单方便，下面是一个通过 livereload.changed(path) 方法来使用 gulp-livereload 的一个实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="keyword">var</span> sass = <span class="built_in">require</span>(<span class="string">"gulp-sass"</span>);</span><br><span class="line"><span class="keyword">var</span> livereload = <span class="built_in">require</span>(<span class="string">"gulp-livereload"</span>);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"sass"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.src(<span class="string">"src/sass/**/*.sass"</span>)</span><br><span class="line">    .pipe(sass().on(<span class="string">'error'</span>, sass.logError))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"dist/css"</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp.watch(<span class="string">"src/sass/**/*.sass"</span>, [<span class="string">'sass'</span>]);</span><br><span class="line">  livereload(&#123; <span class="attr">start</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">  gulp.watch(<span class="string">"dist/**"</span>).on(<span class="string">"change"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">file</span>) </span>&#123;  <span class="comment">// 监视文件夹 dist 内的所有文件，如果发生变动，则执行后面的回调函数，并将变动的文件信息作为参数传入函数中</span></span><br><span class="line">    livereload.changed(file.path);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，我们一开始同样先定义了一个 Gulp 任务，规定任何 sass 文件发生变化，就调用任务内部的处理代码将 sass 编译成 css，然后存放到指定位置，注意到现在我们不在任务的后面通过添加 livereload() 来指定何时应该刷新浏览器页面，而是放在了后面的 watch 任务中，在 watch 任务里面，首先启动 gulp-livereload ，然后使用 Gulp 自带的 watch API 来监视位于 dist 文件夹下面的任何文件是否发生变化，如果发生变化，则自动调用后面写好了的回调函数，在回调函数里面，发生变化的文件信息以参数 file 的形式传入函数中，之后通过调用 livereload.changed(path) 来完成相应页面的自动刷新，该 API 需要传入一个发生变化的文件的路径作为参数，其可以通过 file.path 获得。通过以上工作，我们就实现了 dist 文件夹内的任何文件发生变化时，页面都会根据需要自动刷新的功能，省去了在每一个 Gulp 任务的后面添加 livereload() 来指定何时刷新的工作。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>仅使用 gulp-livereload 插件并不能完全实现自动刷新功能，还需要配合 chrome 插件<a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei" target="_blank" rel="noopener">LiveReload</a>，或者在建立本地服务器时使用 connect-livereload 插件，在本文的后面将会讲到 connect-livereload 插件以及如何在搭建本地服务器中使用它。</p>
+<hr>
+<h3 id="proxy-middleware"><a href="#proxy-middleware" class="headerlink" title="proxy-middleware"></a>proxy-middleware</h3><p>这是一款在向后端发送请求时设置代理的插件，通俗一点来讲就是更改向后端发送请求的 URL，比如你当前页面所属域名为 <span>https:</span>//example.com/endpoint，那么当你需要向后端发送请求（GET、POST 等）时，你请求的 URL 可能会类似于 <span>https:</span>//example.com/endpoint/getsomething?name=xxx&amp;type=xxx，这样写不仅麻烦，同时当页面所处域名发生变化时，你就需要改动几乎所有的请求 URL，而使用这款插件以后，你就可以在服务器初始化的时候设置当前所处域名，并且之后你的所有请求 URL 只需要写成 /api/getsomething?name=xxx&amp;type=xxx/ 即可。下面是一个 proxy-middleware 插件的使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connect = <span class="built_in">require</span>(<span class="string">'connect'</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</span><br><span class="line"><span class="keyword">var</span> proxy = <span class="built_in">require</span>(<span class="string">'proxy-middleware'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> app = connect();</span><br><span class="line"><span class="comment">// 请求 /api/x/y/z 被代理到 https://example.com/endpoint/x/y/z </span></span><br><span class="line">app.use(<span class="string">'/api'</span>, proxy(url.parse(<span class="string">'https://example.com/endpoint'</span>)));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与上面的代码作用相同，但省去了 url 插件，看起来更简单一些</span></span><br><span class="line">app.use(<span class="string">'/api-string-only'</span>, proxy(<span class="string">'https://example.com/endpoint'</span>));</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，引入了两个我们尚未介绍的插件，其中 connect 插件在此处用于建立一个本地服务器，url 插件用于将字符串形式的网址转换为 URl 对象（包含属性有 protocol、slashes、auth、host、port、hostname、hash、search、query、pathname、path、href，具体可以通过 console.log 命令打印查看），在这里我们可以看到，通过使用 proxy-middleware，向后端发送的请求 URl 被自动代理到了设置好的域名上，例如 /api/x/y/z 被代理到了 <span>https:</span>//example.com/endpoint/x/y/z。下面的写法省去了 url 插件，但最后的效果相同，推荐使用这种简单用法。</p>
+<h3 id="opn"><a href="#opn" class="headerlink" title="opn"></a>opn</h3><p>这是一款专门用来打开文件、网址和可执行文件的插件，不仅如此，它还可以指定打开文件以后的操作，指定使用什么浏览器来打开网址，下面是一个 opn 插件的使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> opn = <span class="built_in">require</span>(<span class="string">'opn'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 使用系统默认应用打开文件</span></span><br><span class="line">opn(<span class="string">'unicorn.png'</span>).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 这里可以做一些事情</span></span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 使用系统默认浏览器打开网址</span></span><br><span class="line">opn(<span class="string">'http://www.baidu.com'</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 使用指定的浏览器打开网址</span></span><br><span class="line">opn(<span class="string">'http://www.baidu.com'</span>, &#123;<span class="attr">app</span>: <span class="string">'firefox'</span>&#125;);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 使用指定的浏览器并向浏览器传递一些参数打开网址</span></span><br><span class="line">opn(<span class="string">'http://www.baidu.com'</span>, &#123;<span class="attr">app</span>: [<span class="string">'google chrome'</span>, <span class="string">'--incognito'</span>]&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，第一段代码使用 opn 通过系统默认应用打开了一个名叫 unicorn.png 的图片，之后没有进行任何操作；第二段代码使用系统默认的浏览器打开百度首页；第三段代码使用火狐浏览器打开百度首页，第四段代码使用谷歌浏览器在隐身模式下打开了百度首页。在实际工程里面我一般用它在本地服务器搭建好以后通过默认浏览器打开起始网页，然后开始开发工作……</p>
+<h3 id="connect-livereload"><a href="#connect-livereload" class="headerlink" title="connect-livereload"></a>connect-livereload</h3><p>这是一款协助 gulp-livereload 插件实现自动刷新页面功能的插件，有了它你就可以不必安装 chrome 插件，当然，如果你的浏览器现在已经安装了 LiveReload 插件，那你就不再需要这款插件，如果没有安装该插件，你可以选择安装，或者使用 connect-livereload，下面是一个 connect-livereload 的简单使用实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> connect = <span class="built_in">require</span>(<span class="string">"connect"</span>);</span><br><span class="line"><span class="keyword">var</span> app = connect()</span><br><span class="line">    .use(<span class="built_in">require</span>(<span class="string">"connect-livereload"</span>)(&#123; <span class="attr">port</span>: <span class="number">35729</span> &#125;));</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，引用了我们尚未介绍的一个插件 connect，这个插件在上面的一个实例中也被用到了，其作用可以简单地理解为建立一个本地服务器，在建立过程中，通过使用 connect 插件的 use 方法来调用 connect-livereload  插件，这样就可以在不使用 chrome 扩展的情况下协助  gulp-livereload  插件完成页面的自动刷新功能了。</p>
+<p>###<br>需要注意的是，上面的例子是假定你已经在本地建立好了服务器（例如通过 Wamp 建立本地服务器），并能够通过浏览器打开<span> http:</span>//localhost:8000 页面，如果你尚且没有在本地建立好服务器，那下面这个例子或许能够更好地帮助你，它同时完成了建立服务器、设置服务器目录、设置向后端发送请求时的代理以及页面自动刷新等功能。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> livereload = <span class="built_in">require</span>(<span class="string">"gulp-livereload"</span>);  <span class="comment">// gulp 重载插件</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);  <span class="comment">// url 插件</span></span><br><span class="line"><span class="keyword">var</span> proxy = <span class="built_in">require</span>(<span class="string">"proxy-middleware"</span>);  <span class="comment">// 代理插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);  <span class="comment">// 引入 gulp 主模块</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"connect"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> connect = <span class="built_in">require</span>(<span class="string">"connect"</span>);  <span class="comment">// 引入 connect 插件</span></span><br><span class="line">  <span class="keyword">var</span> app = connect()</span><br><span class="line">      .use(<span class="built_in">require</span>(<span class="string">"connect-livereload"</span>)(&#123; <span class="attr">port</span>: <span class="number">35729</span> &#125;))  <span class="comment">// 引入 connect-livereload 插件</span></span><br><span class="line">      .use(<span class="built_in">require</span>(<span class="string">"serve-static"</span>)(<span class="string">"dist"</span>))  <span class="comment">// 引入 serve-static 插件，并将 dist 文件夹作为根目录</span></span><br><span class="line">      .use(<span class="string">"/api"</span>, proxy(url.parse(<span class="string">"http://localhost:4000"</span>)));  <span class="comment">// 设置向后端发送请求的代理</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"http"</span>).createServer(app)  <span class="comment">// 引入 http 插件</span></span><br><span class="line">    .listen(<span class="number">9000</span>)</span><br><span class="line">    .on(<span class="string">"listening"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"Started connect web server on http://localhost:9000"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"serve"</span>, [<span class="string">"connect"</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">require</span>(<span class="string">"opn"</span>)(<span class="string">"http://localhost:9000/"</span>);  <span class="comment">// 引入 opn 插件，使用系统默认浏览器打开网址 http://localhost:9000</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">"watch"</span>, [<span class="string">"serve"</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  livereload(&#123; <span class="attr">start</span>: <span class="literal">true</span> &#125;);  <span class="comment">// 启动 livereload ，开始工作</span></span><br><span class="line">  gulp.watch([<span class="string">"dist/**"</span>]).on(<span class="string">"change"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">file</span>) </span>&#123;  <span class="comment">// 监视文件夹 dist 内的所有文件，如果发生变动，则执行后面的回调函数，并将变动的文件信息作为参数传入函数中</span></span><br><span class="line">    livereload.changed(file.path);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>在上面的代码中，我们前前后后引入了 gulp、gulp-livereload、url、proxy-middleware、connect、connect-livereload、serve-static、proxy-middleware、http、opn 等 10 个插件，共同完成这个任务，每个插件的作用如下</p>
+<p>＋ gulp<br>＋ gulp-livereload<br>＋ url<br>＋ proxy-middleware<br>＋ connect<br>＋ connect-livereload<br>＋ serve-static<br>＋ proxy-middleware<br>＋ http<br>＋ opn</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Gulp/" rel="tag"># Gulp</a>
+          
+            <a href="/tags/前端自动化/" rel="tag"># 前端自动化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/17/CSS学习笔记（三）问题集合/" rel="next" title="CSS 学习笔记（三）问题集合">
+                <i class="fa fa-chevron-left"></i> CSS 学习笔记（三）问题集合
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/20/JavaScript学习笔记（一）问题集合/" rel="prev" title="JavaScript 学习笔记（一）问题集合">
+                JavaScript 学习笔记（一）问题集合 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Einskang" />
+          <p class="site-author-name" itemprop="name">Einskang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Einskang 的小菜园子，专门用来写博客、记日志、发牢骚的地方</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Kannnnng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3687126532" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Kannnnnnnnnng/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#stream-combiner2"><span class="nav-number">1.</span> <span class="nav-text">stream-combiner2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-jshint"><span class="nav-number">2.</span> <span class="nav-text">gulp-jshint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-uglify"><span class="nav-number">3.</span> <span class="nav-text">gulp-uglify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-notify"><span class="nav-number">4.</span> <span class="nav-text">gulp-notify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-rename"><span class="nav-number">5.</span> <span class="nav-text">gulp-rename</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-livereload"><span class="nav-number">6.</span> <span class="nav-text">gulp-livereload</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#proxy-middleware"><span class="nav-number">7.</span> <span class="nav-text">proxy-middleware</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#opn"><span class="nav-number">8.</span> <span class="nav-text">opn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#connect-livereload"><span class="nav-number">9.</span> <span class="nav-text">connect-livereload</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Einskang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

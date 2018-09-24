@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前端开发,JavaScript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。">
+<meta name="keywords" content="前端开发,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 学习笔记（四）模式学习">
+<meta property="og:url" content="https://kannnnng.github.io/2017/10/07/JavaScript学习笔记（四）模式学习/index.html">
+<meta property="og:site_name" content="Einskang 的小菜园子">
+<meta property="og:description" content="这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-24T08:25:11.280Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 学习笔记（四）模式学习">
+<meta name="twitter:description" content="这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kannnnng.github.io/2017/10/07/JavaScript学习笔记（四）模式学习/"/>
+
+
+
+
+
+  <title>JavaScript 学习笔记（四）模式学习 | Einskang 的小菜园子</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Einskang 的小菜园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kannnnng.github.io/2017/10/07/JavaScript学习笔记（四）模式学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Einskang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Einskang 的小菜园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript 学习笔记（四）模式学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-07T20:30:45+08:00">
+                2017-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这篇博客的学习来源是《JavaScript 模式》这本书。我在看这本书的过程中学习到了很多很有用的技巧，在这里记录下来以备以后查阅。另外，如果读者对 JavaScript 已经有一定的了解和应用经验，推荐看一下这本书，或许你也能够从这本书中学习到一些很有用的知识和技巧。<a id="more"></a></p>
+<h3 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h3><p>模式是针对普通问题的解决方案，是解决一类特定问题的模板。</p>
+<h3 id="基本技巧"><a href="#基本技巧" class="headerlink" title="基本技巧"></a>基本技巧</h3><h4 id="尽量少用全局变量"><a href="#尽量少用全局变量" class="headerlink" title="尽量少用全局变量"></a>尽量少用全局变量</h4><p>全局变量在整个 JavaScript 应用或者页面中都是可见且可修改的，这边带来一些问题，最常见的便是命名冲突问题，例如当一个应用程序中两个独立的、相互之间没有联系的模块分别定义了同名的全局变量，这个时候便产生了命名冲突问题，这里问题在实际开发过程中是不好排查的，好的解决办法就是尽量少用全局变量。</p>
+<p>鉴于 JavaScript 中的变量可以不经声明便可以赋值，在实际过程中经常会在不知不觉间创建全局变量，例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  result = x + y</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result)</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>3</code>，表面上看变量 result 是在函数内被赋值的，其作用域应该就只是在函数内，但实际情况是在函数外仍然可以获取到。原因是 result 没有经过声明就执行了赋值操作，这样的没有通过 var 关键词声明的变量便是一个隐式的全局变量，尽管它是在函数内部被创建的，因此在函数外仍然可以获取到。</p>
+<h4 id="显式全局变量与隐式全局变量"><a href="#显式全局变量与隐式全局变量" class="headerlink" title="显式全局变量与隐式全局变量"></a>显式全局变量与隐式全局变量</h4><p><strong>使用 var 关键字创建的全局变量可以称之为显式全局变量。</strong></p>
+<p><strong>不使用 var 关键字创建的全局变量可以称之为隐式全局变量。</strong></p>
+<p>这两种全局变量实际上是不一样的，前者不可以通过 delete 关键字删除，而后者可以。通过这个特性，我们就可以知道后者，也就是隐式全局变量实际上并不算是真正意义上的全局变量，它实际上是挂载在 window 对象下的属性，因为只有对象的属性才可以通过 delete 关键字删除。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;</span><br><span class="line"></span><br><span class="line">b = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 如果是在 Nodejs 中运行则需要将 window 改为 global */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a === a)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b === b)</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>undefined false {} true</code>，这便有力地证明了前面所述内容。</p>
+<hr>
+<p><span style="color: red; font-weight: bold">注意：</span>经过我的实践发现，这一条在不同的运行环境下结果是不一样的，在 Nodejs 中的运行结果与上面所说的运行结果相同，在浏览器（Google Chrome 61）中结果显示<code>{} true {} true</code>，很明显在浏览器中不管是通过哪种形式声明的全局变量，它们最后都挂载在了全局对象（浏览器环境是 window）下。另外需要说明的一点是，在 ES6 中通过 let const 关键字声明的全局变量不会挂载在全局对象下。</p>
+<hr>
+<h4 id="获取全局对象"><a href="#获取全局对象" class="headerlink" title="获取全局对象"></a>获取全局对象</h4><p>在浏览器中全局对象叫做 window，不使用 var 关键字声明的隐式全局变量全部作为属性挂载在 window 下面，但是在其他的运行环境中全局对象的名字可能不叫做 window，例如在 Nodejs 中全局对象叫做 global，下面介绍一种获取当前运行环境的全局对象的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> global = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;())</span><br></pre></td></tr></table></figure>
+<p>上面代码的原理与 this 有关，在 JavaScript 中 this 一直指向调用它的对象，在上面的代码中，由于是一个立即执行函数，所以调用 this 的就是全局对象，自然 this 就指向了全局对象。</p>
+<h4 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h4><p>JavaScript 允许在函数的任意地方声明多个变量，无论在哪里，效果都等同于在函数的顶部声明，这就是所谓的变量提升。当先使用变量再在函数后面声明变量的时候可能会导致逻辑错误。对 JavaScript 而言，只要变量是在同一个作用域内，就视为已经声明，哪怕是变量在被声明之前使用也不会报错，而是其值为 undefined。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="string">'123'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(test)</span><br><span class="line">  <span class="keyword">var</span> test = <span class="string">'456'</span></span><br><span class="line">  <span class="built_in">console</span>.log(test)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>undefined 456</code>，有同学预想的执行结果可能是<code>123 456</code>。这里第一个打印语句输出 undefined 的原因就是在 foo 函数体中已经有了关于变量的声明，虽然被写在打印语句的后面，但因为存在变量提升的缘故，导致其声明被提前到函数的最开始部分，而赋值则位于打印语句之后，因此第一个打印语句打印的是没有经过赋值的局部变量 test 而非全局变量 test，第二个打印打印的是经过了赋值的局部变量 test 而非全局变量 test。实际上上面的代码与下面的代码是等效的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="string">'123'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> test</span><br><span class="line">  <span class="built_in">console</span>.log(test)</span><br><span class="line">  test = <span class="string">'456'</span></span><br><span class="line">  <span class="built_in">console</span>.log(test)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>正是为了避免出现上面代码中这种较为隐晦的错误，我们推荐在编写代码时将需要用到的所有变量全部在程序开始部分声明，另外这种做法也方便以后查找程序需要用到的所有变量。</p>
+<h4 id="尽量使用-let-const-声明变量"><a href="#尽量使用-let-const-声明变量" class="headerlink" title="尽量使用 let const 声明变量"></a>尽量使用 let const 声明变量</h4><p>在 ES6 之前，我们推荐（或许应该强制要求）变量在使用之前都应该通过 var 关键字声明，在 ES6 出现以后，我们有了更加方便安全的变量声明方法，那就是 let 和 const，let 声明的变量存在块作用域，const 声明的变量不可以被更改，其他详细的介绍请翻阅阮一峰老师的《ES6 标准入门》一书。相对于 let，我更推荐使用 const 关键字，其带来的不可变特性可以在很大程度上减少因为变量的不经意改动而带来的 BUG；使用 let 和 const 关键字声明变量的另一个好处是，这两者声明的变量不存在变量提升，也就是说不可以在变量声明之前使用该变量，这其实是在强调前面所说的<strong>尽量在函数开始时声明变量</strong>这一条规则。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="string">'123'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(test)</span><br><span class="line">  <span class="keyword">const</span> test = <span class="string">'456'</span></span><br><span class="line">  <span class="built_in">console</span>.log(test)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>运行上面的代码会报错，错误出现在第一个打印语句，原因是<code>ReferenceError: test is not defined</code>。这就是因为通过 const 声明的变量不会自动提升到函数的最开始部分，因此打印一个没有声明的变量是非法的。看到这里或许有同学会问，既然不存在变量提升，那第一个打印语句中的变量 test 应该就是全局变量 test 而不是没有定义。这样的疑问是正常的，原因是通过 let 和 const 声明的变量虽然不会有变量提升，但仍然会绑定作用域，上面的代码中存在全局变量 test，但是在 foo 函数的作用域中又声明了一个局部变量 test，这就导致后者而非前者绑定在这个作用域。这个特性在 ES6 中被称为“暂时性死区”，关于这一特性的更多知识，请翻阅阮一峰老师的《ES6 标准入门》一书。</p>
+<h4 id="函数的提升"><a href="#函数的提升" class="headerlink" title="函数的提升"></a>函数的提升</h4><p>我们已经讨论了关于变量提升的问题，其实在 JavaScript 中函数也存在提升现象，与变量不同的是，函数提升不仅把函数的声明提升到顶部，而且也将函数的定义提升到了顶部，例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo1)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span> foo2)</span><br><span class="line"></span><br><span class="line">  foo1()</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">foo1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> foo2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">4</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">test()</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>function undefined 3</code>，首先 foo1 是函数这是没有问题的，但是其执行以后却打印出了 3 而不是 1，这是因为在函数 test 中另外定义了一个局部作用域的函数 foo1，虽然其定义的位置处于打印操作和执行操作的后面，但是因为存在函数的声明与定义提升，导致该局部作用域的函数 foo1 被提升到了函数 test 的最前面，而 foo2 为 undefined 的原因是变量提升只提升声明而不提升定义，因此在执行打印操作的时候，变量 foo2 只是经过了声明但值为 undefined。</p>
+<h4 id="循环时暂存总长度"><a href="#循环时暂存总长度" class="headerlink" title="循环时暂存总长度"></a>循环时暂存总长度</h4><p>使用 for 循环是暂存总长度是很有帮助的，作用相当于数据缓存机制。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> length = myArray.length</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (; i &lt; length; i++) &#123;</span><br><span class="line">  <span class="comment">/* do something */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码与将 i 与 length 的声明与赋值操作写到 for 循环后面的小括号中，效果是一样的，因为通过 var 声明的变量不存在块作用域，因此即使将变量放在 for 循环后面的小括号中声明，浏览器执行代码的时候仍然是会先通过变量提升的方式转变成上面这种形式，然后再执行代码。需要注意的是，通过 let 和 const 声明的变量因为存在块作用域，所以声明与赋值语句是否放在 for 循环后面的小括号中，效果是不一样的。</p>
+<h4 id="推荐逐步递减至-0-的循环方式"><a href="#推荐逐步递减至-0-的循环方式" class="headerlink" title="推荐逐步递减至 0 的循环方式"></a>推荐逐步递减至 0 的循环方式</h4><p>在 JavaScript 中同 0 比较比同其他数值比较速度更快一些，配合 while 语句可以写成下面这种很简单的循环形式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = myArray.length</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (i--) &#123;</span><br><span class="line">  <span class="comment">/* do something */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="自增自减运算符与-if、for、while-语句共用时需要注意的问题"><a href="#自增自减运算符与-if、for、while-语句共用时需要注意的问题" class="headerlink" title="自增自减运算符与 if、for、while 语句共用时需要注意的问题"></a>自增自减运算符与 if、for、while 语句共用时需要注意的问题</h4><p>我们知道自增和自减运算符放在变量前和放在变量后，效果是不同的，放在变量前表示先执行自增或自减操作然后再执行其他操作，放在变量后则与之相反。例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i</span><br><span class="line"></span><br><span class="line">i = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(i--)</span><br><span class="line"></span><br><span class="line">i = <span class="number">10</span></span><br><span class="line"><span class="built_in">console</span>.log(--i)</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>10 9</code>，原因是执行第一个打印操作时自减运算符放在变量的后面，表示先执行打印操作，在执行自减操作，因此结果是 10，第二个与之相反，因此结果是 9。这是很简单的用法，我想强调的是与 for、while 这种语句联合起来使用的时候，可能就不是很好分析了，例如下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (; i &gt; <span class="number">0</span>; i--) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>5 4 3 2 1</code>，先执行打印语句，再执行自减操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (; i &gt; <span class="number">0</span>; --i) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果同样是<code>5 4 3 2 1</code>，可能有部分同学的预想结果是<code>4 3 2 1</code>，思路是先执行自减操作，再执行打印操作，其实这样理解是有问题的，主要是没有弄清楚 for 循环后面的小括号中最后一个语句的执行时机，按照 for 循环的定义，这条语句实际上是在 for 循环内的语句已经执行了一遍以后再执行的，因此上面的写法等价于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (; i &gt; <span class="number">0</span>;) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">  --i</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就很明显了，无论最后的语句自减运算符在前还是在后，都要先执行一遍 for 循环内的语句，因此在这里，自增或自减运算符无论是在前还是在后，最后的执行效果是相同的。</p>
+<p>与 for 循环比较类似的就是 while 循环，请看下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (i--) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>4 3 2 1 0</code>，可能有部分同学的预想结果是<code>5 4 3 2 1</code>，思路是先执行打印操作，再执行自减操作，这样理解也是有问题的，主要是没有弄清楚 while 循环后面的小括号中语句的执行时机，按照 while 语句的定义，这条语句的执行时机实际上是在 while 循环内的语句之前，因此上面的写法等价于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!i--) &#123;</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就很明显了，在执行最后的打印操作之前，先执行了自增或自减操作，因此第一个输出的值是经过了自减操作的变量 i 的值，也就是 4，最后一个值在打印之前先做判断，因为自减运算符在后面，执行判断操作的时候变量 i 的值还是 1，所以没有跳出循环，执行完判断操作以后变量 i 自减，最后打印出 i 的值，也就是 0。上面是自增或自减运算符放在变量后面的情况，如果放在前面呢？请看下面这段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (--i) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面代码的执行结果是<code>4 3 2 1</code>，它与下面的写法是等价的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span> (!--i) &#123;</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后一个值是 1 不是 0 的原因就在于，当 i 等于 1 时，因为自减运算符在前面，执行判断操作的时候变量 i 先执行了自减操作，变为 0，这时再执行判断操作，就跳出循环了，因此变量为 0 时没有被打印出来。</p>
+<p><strong>正是因为自增自减运算符与 if、for、while 等语句共同使用的时候有很多需要注意的地方，稍有疏忽就可能导致程序出现错误，所以部分编码规范不推荐使用自增自减运算符。但如果你觉得自己对这些需要注意的地方都了解了，那大可不必拘泥于这些条条框框，我们从上面的示例也可以看到，使用自增自减运算符可以在一定程度上简化代码。</strong></p>
+<h4 id="避免使用隐式类型转换"><a href="#避免使用隐式类型转换" class="headerlink" title="避免使用隐式类型转换"></a>避免使用隐式类型转换</h4><p>JavaScript 程序中有很多地方都有隐式转换存在，例如比较语句<code>==</code>，<code>false == 0; &#39;&#39; == 0</code>这类比较判断都会返回 true，这其实是存在风险的，因为隐式类型转换的规则很复杂，要确保代码运行正确就要了解众多隐式类型转换规则，而这件事我感觉是件出力不讨好的事情，所以推荐在程序的任何地方都使用严格相等 === 或严格不等 !==。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端开发/" rel="tag"># 前端开发</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/03/JavaScript学习笔记（三）Promise/" rel="next" title="JavaScript 学习笔记（三）Promise">
+                <i class="fa fa-chevron-left"></i> JavaScript 学习笔记（三）Promise
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/13/前端笔试面试知识记录/" rel="prev" title="前端笔试面试知识记录">
+                前端笔试面试知识记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Einskang" />
+          <p class="site-author-name" itemprop="name">Einskang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Einskang 的小菜园子，专门用来写博客、记日志、发牢骚的地方</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Kannnnng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3687126532" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Kannnnnnnnnng/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式"><span class="nav-number">1.</span> <span class="nav-text">模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本技巧"><span class="nav-number">2.</span> <span class="nav-text">基本技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#尽量少用全局变量"><span class="nav-number">2.1.</span> <span class="nav-text">尽量少用全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显式全局变量与隐式全局变量"><span class="nav-number">2.2.</span> <span class="nav-text">显式全局变量与隐式全局变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取全局对象"><span class="nav-number">2.3.</span> <span class="nav-text">获取全局对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变量提升"><span class="nav-number">2.4.</span> <span class="nav-text">变量提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尽量使用-let-const-声明变量"><span class="nav-number">2.5.</span> <span class="nav-text">尽量使用 let const 声明变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的提升"><span class="nav-number">2.6.</span> <span class="nav-text">函数的提升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环时暂存总长度"><span class="nav-number">2.7.</span> <span class="nav-text">循环时暂存总长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐逐步递减至-0-的循环方式"><span class="nav-number">2.8.</span> <span class="nav-text">推荐逐步递减至 0 的循环方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自增自减运算符与-if、for、while-语句共用时需要注意的问题"><span class="nav-number">2.9.</span> <span class="nav-text">自增自减运算符与 if、for、while 语句共用时需要注意的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#避免使用隐式类型转换"><span class="nav-number">2.10.</span> <span class="nav-text">避免使用隐式类型转换</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Einskang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

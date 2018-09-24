@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Git," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过 GitHub，但那个时候对于 Git 真是一点不了解，一直到现在，对 Git 的了解也只是在一个很浅的层面，所以这篇文章的题目是 Git 的基本用法，除了介绍一些基本操作，例如将项目文件纳入到 Git 的版本控制，使用过程中的一些小细节等，还会写一些我这么多天来使用 Git 遇到的一些基本问题，作为学习笔记记录">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 学习笔记（一） Git 的基本用法">
+<meta property="og:url" content="https://kannnnng.github.io/2016/12/16/Git学习笔记（一）Git的基本用法/index.html">
+<meta property="og:site_name" content="Einskang 的小菜园子">
+<meta property="og:description" content="作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过 GitHub，但那个时候对于 Git 真是一点不了解，一直到现在，对 Git 的了解也只是在一个很浅的层面，所以这篇文章的题目是 Git 的基本用法，除了介绍一些基本操作，例如将项目文件纳入到 Git 的版本控制，使用过程中的一些小细节等，还会写一些我这么多天来使用 Git 遇到的一些基本问题，作为学习笔记记录">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-24T08:25:11.271Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 学习笔记（一） Git 的基本用法">
+<meta name="twitter:description" content="作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过 GitHub，但那个时候对于 Git 真是一点不了解，一直到现在，对 Git 的了解也只是在一个很浅的层面，所以这篇文章的题目是 Git 的基本用法，除了介绍一些基本操作，例如将项目文件纳入到 Git 的版本控制，使用过程中的一些小细节等，还会写一些我这么多天来使用 Git 遇到的一些基本问题，作为学习笔记记录">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://kannnnng.github.io/2016/12/16/Git学习笔记（一）Git的基本用法/"/>
+
+
+
+
+
+  <title>Git 学习笔记（一） Git 的基本用法 | Einskang 的小菜园子</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Einskang 的小菜园子</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://kannnnng.github.io/2016/12/16/Git学习笔记（一）Git的基本用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Einskang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Einskang 的小菜园子">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Git 学习笔记（一） Git 的基本用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-16T21:17:30+08:00">
+                2016-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作为一名渣渣，在进入实验室接触到前端开发之前，我虽然在浏览网页或者查阅资料的时候看到过 GitHub，但那个时候对于 Git 真是一点不了解，一直到现在，对 Git 的了解也只是在一个很浅的层面，所以这篇文章的题目是 Git 的基本用法，除了介绍一些基本操作，例如将项目文件纳入到 Git 的版本控制，使用过程中的一些小细节等，还会写一些我这么多天来使用 Git 遇到的一些基本问题，作为学习笔记记录下来。<a id="more"></a></p>
+<p>先说一下，由于我一直是在 Windows 环境下工作，所以这篇文章讲述的都是在 Windows 下 Git 的基本操作，其他平台下的操作可能与之类似但不完全相同。</p>
+<hr>
+<p>对于不喜欢使用命令行的同学，我在这里推荐一款图形化 Git 管理软件 Tower ，这款软件原本在 Mac 下非常受欢迎，我本人也一直在使用。在今年7月份时，Tower 公司在其官网中宣布，Mac 平台的 Git 客户端 Tower 即将登陆 Windows 平台，就在上个月该公司终于面向 Windows 平台发布了 Tower，大家可以到其<a href="https://www.git-tower.com/windows/" target="_blank" rel="noopener">官方网站</a>上下载该软件，唯一有点令人沮丧的是该软件是一款收费软件，价格还不低，人民币将近六百元，我等无产阶级望之兴叹，不得不做些另辟蹊径之事了……当然，除了 Tower，另一款图形化 Git 管理软件 sourceTree 也是够用的，虽然比之 Tower 可能略逊一点，但该软件是一款免费软件，任何人都可以使用，想体验一下图形化的 Git 管理的同学可以试用一下。</p>
+<hr>
+<h3 id="Git-的账户配置"><a href="#Git-的账户配置" class="headerlink" title="Git 的账户配置"></a>Git 的账户配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"Kannnnng"</span></span><br><span class="line">$ git config --global user.email <span class="string">"575664647@qq.com"</span></span><br></pre></td></tr></table></figure>
+<p>以上两句代码是全局设置名字与邮箱，这些信息将作为提交时的签名，方便别人知道是谁做出的提交。注意，配置过程中用到了 --global 参数，这是 Git 的全局配置参数，会影响到你在本地建立的所有项目。<br>如果在某个项目中你想设置与全局不一样的设置，你可以在该项目中使用不带有 --global 参数的 git config 命令。</p>
+<h3 id="Git-的仓库建立"><a href="#Git-的仓库建立" class="headerlink" title="Git 的仓库建立"></a>Git 的仓库建立</h3><p>Git 仓库有两种方法建立，一种是对已有的 Git 仓库克隆，从而在本地获取该仓库的副本；二是本地新建一个仓库，从而把未纳入版本控制的文件纳入到版本控制。</p>
+<h4 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h4><p>获得一个仓库的拷贝副本，可以通过多种协议获取，如 ssh://、http(s)://，使用 http(s):// 时命令为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/Kannnnng/Kannnnng.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>如果你在 GitHub 上已经登陆，并且在此之前你已经为自己的账户配置过了 git ssh key（没有配置过的同学请看<a href="http://blog.csdn.net/hustpzb/article/details/8230454/" target="_blank" rel="noopener">这里</a>），那么就可以使用更为有效和迅速的 ssh://协议，命令为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:Kannnnng/Kannnnng.github.io.git</span><br></pre></td></tr></table></figure></p>
+<h4 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h4><p>如果你有一个文件夹 Test，现在你想把这个文件夹下的文件纳入到 Git 的版本控制之中，那么你可以在这个文件夹下面初始化一个仓库，命令为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure></p>
+<p>如果这时你的文件夹下面新出现了一个名为 .git 的隐藏文件夹，那么说明你的仓库就已经初始化完成了。但是此时仓库仅仅存在于你本地目录下，在远程是没有一个仓库与之对应的，所以你需要自己动手，建立远程仓库并将其与你本地仓库建立连接（同步）。这个过程一般分为以下几步：<br>1.登陆你的 GitHub，新建一个名字与本地仓库名字相同的远程仓库；<br>2.如果你已经为自己的账户配置过了 git ssh key，那么你需要在仓库的 Setting 里面找到标签页 Deploy keys，之后在其中添加你的公钥，同时勾选页面最下面的那个选项（是否接收推送）并保存，如果没有配置过 git ssh key 则跳过此步骤；<br>3.在本地仓库目录下运行 git remote add [name] [url]，其中，name 是远程版本库名称，默认为 origin（详细信息点击<a href="https://www.zhihu.com/question/27712995/answer/39946123" target="_blank" rel="noopener">这里</a>），url 则是你在 GitHub 上刚刚新建的仓库的 url，直接复制过来即可。完整命令如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:Kannnnng/Test.git</span><br></pre></td></tr></table></figure></p>
+<h3 id="Git-的其他命令"><a href="#Git-的其他命令" class="headerlink" title="Git 的其他命令"></a>Git 的其他命令</h3><p>首先你应该了解使用 Git 工作的步骤，一般来说常用的就三个命令：git status（查看文件改动状态）、git add（将文件添加到索引中）、git commit（提交当前索引中的文件并添加说明），这里探讨一点细节。</p>
+<h4 id="git-status-命令显示的文件的三种状态"><a href="#git-status-命令显示的文件的三种状态" class="headerlink" title="git status 命令显示的文件的三种状态"></a>git status 命令显示的文件的三种状态</h4><p>使用 git status 命令以后，Git 会列出当前项目中文件的三种状态。<br>1.Changes to be committed，是指下列文件已经被更改过。同时已经通过 git add 命令添加到了索引中，下一步就是使用 git commit 命令来提交更改。<br>2.Changes not staged for commit，是指下列文件已经被更改过，但还没有通过 git add 命令添加到索引中。<br>3.Untracked files，是指下列文件都是一些新文件，之前没有被 Git 追踪，现在需要通过 git add 命令添加到索引中。</p>
+<p>通过以上三种状态，我们就可以方便地区分哪些文件需要提交，哪些文件是还没有被添加到索引，哪些文件是新文件，需要添加到索引以便纳入到版本控制之中。</p>
+<h4 id="git-add-的其他用法"><a href="#git-add-的其他用法" class="headerlink" title="git add 的其他用法"></a>git add 的其他用法</h4><p>git add 最常用的就是后面跟 .，表示将所有改动过的或新建的文件添加到索引，不过，通过帮助信息可以得知，git add 还有一些在特殊情况下很有用的命令形式。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git add .                           <span class="comment">#将所有改动过的或新建的文件添加到索引</span></span><br><span class="line">$ git add xxx1.js xxx2.js xxx3.js     <span class="comment">#将特定的文件添加到索引</span></span><br><span class="line">$ git add -f xxx4.js                  <span class="comment">#将通过 .gitignore 忽略的文件添加到索引</span></span><br><span class="line">$ git add -u                          <span class="comment">#将除新建文件以外的其他改动过的文件添加到索引</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="git-reset-的详细讨论"><a href="#git-reset-的详细讨论" class="headerlink" title="git reset 的详细讨论"></a>git reset 的详细讨论</h4><p>有时你改动了本地工作区一些代码，之后因为某些原因需要将改动撤销，使工作区恢复到未改动之前的样子，这时可以使用 git reset 命令完成。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard</span><br></pre></td></tr></table></figure></p>
+<p>其实，git reset 命令不仅仅只有这一个功能，通过 git reset -h，可以看到完整命令是<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset [--mixed | --soft | --hard | --merge | --keep] [-q] [&lt;commit&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>注意到该命令存在五种不同的模式，最常用的是 --mixed 与 --hard，其中 --mixed 更是 git reset 的默认模式，两者都会把当前索引区重置，也就是说，通过 git add 命令将改动文件添加到索引区的操作可以使用 git reset --mixed 或 git reset --hard 来撤销，两者的不同在于对工作区的操作，--mixed 模式不会重置工作区，也就是说工作区的代码还是改动过的代码，而--hard 模式则会将工作区一并重置，改动过的代码将恢复到未改动之前，所以使用--hard 模式一定注意。<br>除了以上两种比较常用的模式之外，--soft 模式也是比较有用的，它对本地仓库的改动相较于前两种模式来说更小，它不会更改索引区与工作区任何内容，而是仅仅将 HEAD （指向当前分支的最后一次提交记录）指向你所指定的提交记录，同时在指定提交记录之后的所有改动过的文件都会处于等待提交状态，也就是上文所说的 Changes to be committed，所以--soft 模式一般用于更改提交记录（至少我是这么做的）。<br>--merge 模式与 --keep 模式没用过，对它们的用法也不太了解，如果你想了解更多，可以查看<a href="http://blog.csdn.net/hudashi/article/details/7664464" target="_blank" rel="noopener">这篇博文</a>。<br>最后要说的是，所有模式均可以在最后指定某一历史提交记录，这样你就可以控制本地代码具体回退到哪个历史版本，用法示例如下，最后的参数即你想回退到的版本的 SHA1 值。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset 模式 0f14df……092904</span><br></pre></td></tr></table></figure></p>
+<h4 id="git-log-查看提交日志"><a href="#git-log-查看提交日志" class="headerlink" title="git log 查看提交日志"></a>git log 查看提交日志</h4><p>使用 git log 命令可以让你很好地掌握项目代码的提交记录，对项目进度有一个清晰地了解。一般地，查看代码提交日志可以分为查看本地的日志与远端仓库的提交日志。查看本地项目代码提交日志比较简单，直接使用 git log 命令即可。查看远端仓库的提交日志与此稍有不同，你需要先将远端的最新代码 fetch 一份到本地，之后才能使用 git log 命令查看远端的提交日志，也就是下面这样<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch</span><br><span class="line">$ git <span class="built_in">log</span> origin/branch</span><br></pre></td></tr></table></figure></p>
+<p>这里我们用到了 git fetch 命令，这个命令所做的工作是将远端仓库的最新代码复制一份到本地，但你不用担心复制下来的代码会把你工作区的代码覆盖掉，实际上使用 git fetch 命令取回的代码不会放在工作区，它对工作区代码没有任何影响，它的作用之一就是方便你随时查看别人提交上去的代码与提交日志；你还可以用取回的远端仓库最新代码与你本地代码做比较，查看两者之间的异同；除此之外，你可以通过 git merge 命令将取回的远端仓库最新代码与你本地工作区的代码合并，从而更新你工作区的代码，不过，你有没有觉得这条命令的作用与 git pull 命令的作用相同，实际上，git pull = git fetch + git merge。<br>通过 git log 命令的帮助信息，我们可以了解到这条命令有很多附加的参数，能够更好地显示项目的日志信息，我最常用的是下面这个，意思是只输出当前项目最新的 number 条日志记录，例如取 number 等于3，则只会显示最新的3条日志记录，这样方便查看项目代码的最新提交记录，减少输出一些我们不关心的更早信息。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> -n number</span><br></pre></td></tr></table></figure></p>
+<p>另外，--graph 也是一个比较有意思的参数，它指示 Git 以一种图形化的方式显示项目代码更新记录，让你看的时候更加清晰明了，不过我到现在为止一直都是一个人做项目，基本上没有同其他人一起协同提交代码，而且项目的规模都比较小，分支很少，所以看提交日志的时候基本没有压力，也就没怎么用过这个参数，对此有兴趣的同学可以去多多尝试一下。</p>
+<h4 id="git-diff-比较代码差异"><a href="#git-diff-比较代码差异" class="headerlink" title="git diff 比较代码差异"></a>git diff 比较代码差异</h4><p>Git 一个很重要的功能就是方便开发者了解代码的具体变动情况，明白前一次提交与后一次提交之间的差异部分在哪里，git diff 命令能够很好地胜任这个任务，使用 git diff 命令可以查看当前项目相对于最近一次提交的更改情况，例如你之前提交过一次本地代码，一段时间以后你对本地代码有了多处修改，这时你想看看现在的代码与之前的代码之间的具体差别，就可以使用下面的命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure></p>
+<p>这是最简形式，默认比较本地工作区代码与最近一次提交代码之间的差别，它会将两个代码版本之间的差别全部显示出来，如果没有完全显示，你可以按下回车键或 DOWN 方向键，显示出下面未显示的部分。<br>当然，该命令仍然有比较多的可附加参数，具体同学们可以自行学习，在这里我只写几个我经常用到的。<br>首先是比较本地工作区代码与远端仓库代码之前的具体差异，因为我有时仅凭借日志文件并不能完全记起我对代码到底做出了哪些具体的修改，所以我更喜欢结合 git log 与 git diff 命令一起查看项目代码的更新，即查看远端代码提交日志的同时，附带着查看一下远端代码与我本地工作区代码之间的差别。查看远端代码与本地代码差异的命令如下，其中前面的 branch 代表本地工作区分支，后面的 branch 代表远端分支，origin 为远端仓库名称。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch</span><br><span class="line">$ git diff branch origin/branch</span><br></pre></td></tr></table></figure></p>
+<p>这里同样用到了 git fetch 命令，原因很简单，既然要比较本地代码与远端代码之间的差异，那肯定要先将远端代码复制到本地，然后才能够与本地代码比较。<br>令人扫兴的是，如果你对本地项目代码做出了大量修改，那么上面的命令就会将所有的差异全部打印出来，若你只关心某一个或哪些文件发生了更改，那么想要在 Git 打印出来的所有差异中找到你想要的就会大费周章，幸好 git diff 命令有一个可选参数 --stat，可以控制 git diff 命令仅仅显示是哪些文件内的代码存在差异，而不是一股脑儿将所有文件的差异都打印出来，如此你就可以快速了解你现在的项目与远程仓库内的项目之间有哪些文件发生了变化，产生了差异，然后你再通过 git diff 命令对你感兴趣的特定文件做差异比较，从而提高工作效率。具体代码如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git fetch</span><br><span class="line">$ git diff branch origin/branch --<span class="built_in">stat</span></span><br></pre></td></tr></table></figure></p>
+<p>执行以上命令以后，Git 会打印出一个文件列表，列出哪些文件之间存在差异，之后你可以通过下面的命令来具体查看某一文件，下面的命令作用是查看本地工作区的 xxx.html 文件与远端仓库内的 xxx.html 文件之前存在哪些具体差异。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff branch origin/branch \-\- xxx.html</span><br></pre></td></tr></table></figure></p>
+<p>git diff 命令甚至还可以比较两次历史版本之间的差异，只需要在命令的最后添加两次历史版本的 SHA1 值作为参数就可以了。例如<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff c211d1……49e973fc 0c1580……b702a31b</span><br></pre></td></tr></table></figure></p>
+<p>不过这是本地历史版本比较，想要比较远程仓库历史版本，应该也是需要使用 git fetch 命令，不过我没有使用过，所以就不乱说话了。</p>
+<p>还有一些命令形式不太常规，在这里就不列出了，有兴趣的同学可以自己去了解。</p>
+<h3 id="Git-的常见问题"><a href="#Git-的常见问题" class="headerlink" title="Git 的常见问题"></a>Git 的常见问题</h3><p>在我使用 Git 的过程中遇到过很多很多的问题，这些问题或大或小，有些解决起来比较麻烦，有些只要知道了一些小技巧解决起来易如反掌，下面我就把我自己所遇到过的同时自己还有印象（比较折磨人的问题一般都令人印象深刻）的问题写在下面，在作为自己的 Git 笔记的同时，也希望能够帮助到更多的同学。</p>
+<h4 id="版本不同情况下强制推送"><a href="#版本不同情况下强制推送" class="headerlink" title="版本不同情况下强制推送"></a>版本不同情况下强制推送</h4><p>Git 要求你在推送代码之前本地版本与远程版本相同，这样做很容易理解，因为如果修改本地代码之前没有从远程更新最新版本的代码，那本地版本肯定会缺少一些最新的修改，直接推送的话会把最新的修改覆盖掉，但如果有些时候我们确实想要（不顾一切地）用本地代码完全替代远程代码，这个时候我们可以使用以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -f</span><br></pre></td></tr></table></figure></p>
+<p>不过还是需要提醒一下，这个命令很蛋疼，一旦将本地代码强制推送到远程仓库，则没有同步的修改代码就很不好找回来了，所以除非你非常确定现在的操作是正确的，否则不要轻易使用这条命令。</p>
+<h4 id="当前修改尚未推送但需获取最新代码"><a href="#当前修改尚未推送但需获取最新代码" class="headerlink" title="当前修改尚未推送但需获取最新代码"></a>当前修改尚未推送但需获取最新代码</h4><p>Git 要求你在获取代码（git pull）之前对本地工作区的修改需要全部提交，这样做是保证本地修改的代码不被远程代码覆盖，但有时你可能不想现在就提交修改（例如某个功能你只完成了一半），那么你可以先将修改的代码存入 Git 栈中，这样本地工作区与未修改之前的便相同，之后获取远程最新代码，最后再将修改的代码从 Git 栈读取出来，完成以上操作执行以下命令即可。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash                           <span class="comment">#将修改过的代码保存到 Git 栈中，使本地代码与未修改之前的代码相同</span></span><br><span class="line">$ git pull                            <span class="comment">#获取远端仓库的最新代码</span></span><br><span class="line">$ git stash pop                       <span class="comment">#从 Git 栈中读取最近一次保存的代码，恢复到工作区中</span></span><br></pre></td></tr></table></figure></p>
+<p>除此之外你可能还希望知道下列命令，它们在操作 Git 栈方面有很大帮助。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git stash pop stash@&#123;[number]&#125;      <span class="comment">#从 Git 栈中读取指定的代码，恢复到工作区中，number 可以通过 git stash list 查看</span></span><br><span class="line">$ git stash list                      <span class="comment">#显示 Git 栈内的所有备份，可以利用该命令确定从哪个地方开始恢复</span></span><br><span class="line">$ git clear                           <span class="comment">#清空 Git 栈</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/20/jQuery学习笔记（四）jQuery匹配选择器 过滤与表单/" rel="next" title="jQuery 学习笔记（四）jQuery 匹配选择器 过滤与表单">
+                <i class="fa fa-chevron-left"></i> jQuery 学习笔记（四）jQuery 匹配选择器 过滤与表单
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/22/正则表达式学习笔记（一）基本用法/" rel="prev" title="正则表达式学习笔记（一）基本用法">
+                正则表达式学习笔记（一）基本用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Einskang" />
+          <p class="site-author-name" itemprop="name">Einskang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Einskang 的小菜园子，专门用来写博客、记日志、发牢骚的地方</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Kannnnng" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/u/3687126532" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      Weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/Kannnnnnnnnng/activities" target="_blank" title="ZhiHu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      ZhiHu
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-的账户配置"><span class="nav-number">1.</span> <span class="nav-text">Git 的账户配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-的仓库建立"><span class="nav-number">2.</span> <span class="nav-text">Git 的仓库建立</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#克隆仓库"><span class="nav-number">2.1.</span> <span class="nav-text">克隆仓库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化仓库"><span class="nav-number">2.2.</span> <span class="nav-text">初始化仓库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-的其他命令"><span class="nav-number">3.</span> <span class="nav-text">Git 的其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git-status-命令显示的文件的三种状态"><span class="nav-number">3.1.</span> <span class="nav-text">git status 命令显示的文件的三种状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-add-的其他用法"><span class="nav-number">3.2.</span> <span class="nav-text">git add 的其他用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-reset-的详细讨论"><span class="nav-number">3.3.</span> <span class="nav-text">git reset 的详细讨论</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-log-查看提交日志"><span class="nav-number">3.4.</span> <span class="nav-text">git log 查看提交日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#git-diff-比较代码差异"><span class="nav-number">3.5.</span> <span class="nav-text">git diff 比较代码差异</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-的常见问题"><span class="nav-number">4.</span> <span class="nav-text">Git 的常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#版本不同情况下强制推送"><span class="nav-number">4.1.</span> <span class="nav-text">版本不同情况下强制推送</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当前修改尚未推送但需获取最新代码"><span class="nav-number">4.2.</span> <span class="nav-text">当前修改尚未推送但需获取最新代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Einskang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
